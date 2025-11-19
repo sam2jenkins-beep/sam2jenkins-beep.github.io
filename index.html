@@ -5,153 +5,145 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Survivor Quebec Preparation Guide</title>
 <!-- Load Tailwind CSS - FIXED LINK -->
-<script src="https://www.google.com/url?sa=E&source=gmail&q=https://cdn.tailwindcss.com"></script>
+<script src="https://www.google.com/search?q=https://cdn.tailwindcss.com"></script>
 <!-- Use Inter font family (Tailwind default) -->
 <style>
 /* -------------------------------------- /
-/ --- GLOBAL & MINIMALIST BASE STYLES -- /
+/ --- L'ÉTUDE INSPIRED AESTHETIC --- /
 / -------------------------------------- /
-body {
-font-family: 'Inter', sans-serif;
-background-color: #fce3a7; / Sandy Background /
-color: #2c2c2c; / Dark text */
-transition: background-color 0.3s ease;
-min-height: 100vh;
-position: relative;
-overflow-x: hidden;
+:root {
+--color-black: #111111;
+--color-white: #f5f5f5;
+--color-neutral: #d9d9d9; / Soft Muted Accent /
+--color-accent: #b45309; / Deep Wood/Amber for strong interaction */
 }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-white);
+        color: var(--color-black);
+        transition: background-color 0.3s ease;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        /* Applying tight spacing globally, adjusted by padding/margin per section */
+        line-height: 1.4;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3 {
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        line-height: 1.1;
+        margin-bottom: 0.5em; /* Tight heading space */
+    }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+    .text-body { line-height: 1.6; }
+    
+    /* LAYOUT & COMPOSITION */
+    .content-block {
+        padding: 2rem 1.5rem;
+        border: 1px solid var(--color-neutral);
+        transition: border-color 0.3s;
+    }
 
     /* Specific dark mode for the 'Outwit' module */
     .dark-mode-module {
-        background-color: #1c1c1c !important;
+        background-color: var(--color-black) !important;
     }
-    /* Style for the main content area in dark mode */
     .dark-mode-module #content-area {
-        background-color: #2c2c2c;
-        color: #f0f0f0;
+        background-color: var(--color-black);
+        color: var(--color-white);
         border-color: #4a4a4a;
     }
-    /* Style for headers in dark mode */
-    .dark-mode-module h1, .dark-mode-module h2 {
-        color: #f7f3e8;
+    .dark-mode-module h1, .dark-mode-module h2, .dark-mode-module h3 {
+        color: var(--color-white);
     }
-    /* Standard Buttons */
+
+    /* Standard Buttons - Minimalist Look */
     .primary-btn {
-        background-color: #b45309;
-        color: white;
+        background-color: var(--color-black);
+        color: var(--color-white);
         padding: 0.75rem 1.5rem;
-        border-radius: 0.5rem;
-        font-weight: 600;
-        transition: background-color 0.2s;
+        border-radius: 0; /* Brutalist sharp corners */
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        border: 1px solid var(--color-black);
+        transition: all 0.2s;
     }
     .primary-btn:hover {
-        background-color: #92400e;
+        background-color: var(--color-accent);
+        color: var(--color-white);
+        border-color: var(--color-accent);
     }
+    .primary-btn:disabled {
+        background-color: var(--color-neutral);
+        color: var(--color-black);
+        border-color: var(--color-neutral);
+    }
+
     /* Navigation Links */
     .nav-link.active {
         font-weight: 700;
-        color: #b45309;
-        border-bottom: 2px solid #b45309;
+        color: var(--color-accent);
+        border-bottom: 2px solid var(--color-accent);
     }
 
     /* -------------------------------------- */
-    /* --- HOME PAGE (SURVIVOR INTRO) CSS --- */
+    /* --- HOME PAGE (L'ETUDE INSPIRED) CSS --- */
     /* -------------------------------------- */
 
-    /* 1. Carved Title Effect */
-    .carved-title {
+    /* Title Effect - Strong, High Contrast */
+    .intro-title {
+        font-size: clamp(3rem, 10vw, 8rem);
         font-weight: 900;
-        text-shadow: 
-            3px 3px 0 #8b4513, /* Dark Wood Base */
-            6px 6px 0 #5c300f, /* Deeper Engraving */
-            9px 9px 0 #3c2009, /* Deepest Shadow */
-            12px 12px 10px rgba(0, 0, 0, 0.5); /* Cast Shadow */
-        color: #e0ac69; /* Light Wood Grain Color */
-    }
-
-    /* 2. Carved Button Look */
-    .carved-btn {
-        background-color: #a0522d; /* Sienna/Wood Color */
-        color: #f7f3e8; /* Parchment Text */
-        border: 4px solid #6c3f25; /* Darker Wood Border */
-        font-weight: 700;
-        text-shadow: 2px 2px 0 #6c3f25; /* Engraved Text */
-        box-shadow: 
-            0 6px 0 #6c3f25, /* Bottom Bevel */
-            0 8px 15px rgba(0, 0, 0, 0.4); /* Lifted Shadow */
-        transition: all 0.2s ease-in-out;
-    }
-
-    /* 3. Button Hover Effects */
-    .carved-btn:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 
-            0 10px 0 #6c3f25, 
-            0 15px 25px rgba(255, 165, 0, 0.5); /* Orange/Torch Glow */
-    }
-
-    /* 4. Ambient Torch Flicker Keyframes */
-    @keyframes torch-flicker {
-        0%, 100% { box-shadow: 0 0 10px #ff9900, 0 0 15px #ff6600, 0 0 20px rgba(255, 102, 0, 0.7); opacity: 0.8; }
-        50% { box-shadow: 0 0 8px #ff9900, 0 0 12px #ff6600, 0 0 18px rgba(255, 102, 0, 0.9); opacity: 1; }
-    }
-
-    /* 5. Ambient Shadow Sway Keyframes */
-    @keyframes shadow-sway {
-        0% { transform: rotate(0.5deg) translate(2px, 2px); }
-        50% { transform: rotate(-0.5deg) translate(-2px, -2px); }
-        100% { transform: rotate(0.5deg) translate(2px, 2px); }
-    }
-
-    /* Torch Glow Overlay (placed in corners for index page only) */
-    #torch-glow-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .torch-flicker {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        opacity: 0.8;
-        filter: blur(25px);
-        animation: torch-flicker 2s infinite alternate;
-    }
-
-    .torch-flicker.top-left {
-        top: 10%;
-        left: 5%;
-        background: radial-gradient(circle, #ffd700 0%, transparent 70%);
-    }
-
-    .torch-flicker.bottom-right {
-        bottom: 10%;
-        right: 5%;
-        background: radial-gradient(circle, #ff6600 0%, transparent 70%);
-        animation-delay: 0.5s;
+        letter-spacing: -0.05em;
+        line-height: 0.85; /* Extremely tight line height */
+        color: var(--color-black);
+        text-shadow: 4px 4px 0 var(--color-neutral); /* Soft, intentional shadow */
+        transition: all 0.3s ease;
     }
     
-    /* Palm Shadow Overlay (simplified for minimalism) */
-    #palm-shadow-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        opacity: 0.1;
-        z-index: 0;
-        background: 
-            radial-gradient(circle at 10% 10%, rgba(0,0,0,0.5) 1%, transparent 30%),
-            radial-gradient(circle at 90% 90%, rgba(0,0,0,0.5) 1%, transparent 30%);
-        background-size: 50% 50%;
-        animation: shadow-sway 10s infinite alternate ease-in-out;
+    /* Thematic Button Look (Modular Blocks) */
+    .thematic-block {
+        background-color: var(--color-white);
+        color: var(--color-black);
+        border: 2px solid var(--color-black);
+        padding: 1.5rem;
+        box-shadow: 5px 5px 0px var(--color-neutral); /* Bevel/Lift effect */
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth interaction */
+        border-radius: 0; /* Brutalist sharp edges */
+    }
+
+    /* Button Hover Effects - Subtle Lift and Color Change */
+    .thematic-block:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0px var(--color-accent); /* Accent shadow lift */
+        border-color: var(--color-accent);
+        color: var(--color-accent);
+    }
+
+    /* Intentional Asymmetry on Index Page */
+    .asymmetric-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (min-width: 768px) {
+        .asymmetric-grid {
+            /* Create a 2/4/3 column look for visual tension */
+            grid-template-columns: 2fr 4fr 3fr; 
+        }
+    }
+
+    /* No ambient animations for L'Etude theme, relying on typography and blocks */
+    #palm-shadow-overlay, #torch-glow-overlay { display: none !important; }
+
+    /* Content Area Adjustments for Brutalist Blocks */
+    .content-area-main {
+        background-color: var(--color-white);
+        border: 1px solid var(--color-black);
+        box-shadow: 10px 10px 0 var(--color-neutral);
+        border-radius: 0;
     }
 </style>
 
@@ -159,57 +151,49 @@ overflow-x: hidden;
 </head>
 <body class="min-h-screen">
 
-<!-- Ambient Overlays (Torch and Shadow) -->
-<!-- These are only visible/active on the index page via JS check -->
-<div id="palm-shadow-overlay" class="hidden"></div>
-<div id="torch-glow-overlay" class="hidden">
-    <div class="torch-flicker top-left"></div>
-    <div class="torch-flicker bottom-right"></div>
-</div>
+\<\!-- Ambient Overlays Removed for Brutalist Theme --\>
 
-
-<!-- Header / Navigation Bar -->
-<header class="bg-amber-900 shadow-xl sticky top-0 z-20">
+\<\!-- Header / Navigation Bar --\>
+<header class="bg-black shadow-xl sticky top-0 z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
-            <!-- Logo/Title -->
+            \<\!-- Logo/Title --\>
             <div class="flex-shrink-0">
-                <a href="#index" class="text-xl font-extrabold tracking-wide text-white rounded-md p-2 hover:bg-amber-700 transition">
-                    SURVIVOR QC GUIDE
+                <a href="#index" class="text-xl font-extrabold tracking-wide text-white rounded-md p-2 hover:bg-neutral transition">
+                    SURVIVOR STUDY
                 </a>
             </div>
             
-            <!-- Desktop Navigation -->
+            \<\!-- Desktop Navigation --\>
             <nav class="hidden md:flex md:space-x-8" id="desktop-nav">
-                <!-- Links populated by JS -->
+                \<\!-- Links populated by JS --\>
             </nav>
 
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 text-white hover:bg-amber-700 rounded-md">
+            \<\!-- Mobile Menu Button --\>
+            <button id="mobile-menu-button" class="md:hidden p-2 text-white hover:bg-gray-700 rounded-md">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
     </div>
-    <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-amber-800 absolute w-full shadow-lg z-30">
+    \<\!-- Mobile Menu (Hidden by default) --\>
+    <div id="mobile-menu" class="hidden md:hidden bg-black absolute w-full shadow-lg z-30">
         <nav class="pt-2 pb-3 space-y-1 sm:px-3" id="mobile-nav-links">
-            <!-- Links populated by JS -->
+            \<\!-- Links populated by JS --\>
         </nav>
     </div>
 </header>
 
-<!-- Main Content Area -->
-<!-- The padding and background are slightly adjusted on the index page via JS for full theme immersion -->
+\<\!-- Main Content Area --\>
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-    <div id="content-area" class="bg-stone-50 p-6 sm:p-10 lg:p-12 shadow-lg rounded-xl border border-stone-200 min-h-[70vh]">
-        <!-- Content is injected here by JavaScript -->
+    <div id="content-area" class="content-area-main bg-white p-6 sm:p-10 lg:p-12 shadow-lg rounded-xl border border-stone-200 min-h-[70vh]">
+        \<\!-- Content is injected here by JavaScript --\>
     </div>
 </main>
 
-<!-- Footer for Navigation Controls -->
-<footer class="bg-stone-100 border-t border-stone-200 mt-10 relative z-10">
+\<\!-- Footer for Navigation Controls --\>
+<footer class="bg-white border-t border-black mt-10 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <button id="prev-btn" class="primary-btn flex items-center space-x-2 disabled:opacity-50" disabled>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
@@ -249,31 +233,41 @@ overflow-x: hidden;
     ];
 
     const PAGES_CONTENT = {
-        // --- INDEX (Home Page - Launchpad / Survivor Intro) ---
+        // --- INDEX (Home Page - Launchpad / Brutalist Intro) ---
         'index': `
-            <div class="text-center py-20 min-h-[60vh] flex flex-col justify-center items-center">
-                <h1 class="carved-title text-7xl sm:text-8xl md:text-9xl mb-16 tracking-tight font-extrabold select-none">
-                    SURVIVOR
+            <div class="min-h-[60vh] flex flex-col items-start relative pb-20">
+                <h1 class="intro-title select-none mt-10 md:mt-20 self-start text-left">
+                    <span class="block">SURVIVOR</span>
+                    <span class="block ml-0 md:ml-12 lg:ml-24">OPERATIONAL</span>
+                    <span class="block ml-0 md:ml-24 lg:ml-48">STUDY</span>
                 </h1>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+                
+                <p class="text-lg text-body max-w-sm mt-8 mb-20 text-gray-700 ml-0 md:ml-24">
+                    The ultimate guide to mastering the social, physical, and psychological elements of the game. Begin your analysis.
+                </p>
+
+                <div class="asymmetric-grid grid grid-cols-1 gap-4 w-full max-w-5xl self-start">
                     <!-- Outwit Button -->
-                    <a href="#page1-1" class="carved-btn flex flex-col items-center p-6 sm:p-8 rounded-xl min-h-[150px] justify-center text-center text-3xl sm:text-4xl">
-                        MODULE I: OUTWIT
+                    <a href="#page1-1" class="thematic-block flex flex-col items-start justify-center text-left text-2xl font-black">
+                        <span class="text-sm font-normal uppercase tracking-widest text-gray-500 mb-1">Module I</span>
+                        OUTWIT
+                        <span class="text-xs font-normal mt-2 text-gray-700">Strategic Blueprint & Social Assassination</span>
                     </a>
 
                     <!-- Outplay Button -->
-                    <a href="#phase2-intro" class="carved-btn flex flex-col items-center p-6 sm:p-8 rounded-xl min-h-[150px] justify-center text-center text-3xl sm:text-4xl">
-                        MODULE II: OUTPLAY
+                    <a href="#phase2-intro" class="thematic-block flex flex-col items-start justify-center text-left text-2xl font-black">
+                        <span class="text-sm font-normal uppercase tracking-widest text-gray-500 mb-1">Module II</span>
+                        OUTPLAY
+                        <span class="text-xs font-normal mt-2 text-gray-700">Challenge Proficiency & Technical Mastery</span>
                     </a>
 
                     <!-- Outlast Button -->
-                    <a href="#phase3-intro" class="carved-btn flex flex-col items-center p-6 sm:p-8 rounded-xl min-h-[150px] justify-center text-center text-3xl sm:text-4xl">
-                        MODULE III: OUTLAST
+                    <a href="#phase3-intro" class="thematic-block flex flex-col items-start justify-center text-left text-2xl font-black">
+                        <span class="text-sm font-normal uppercase tracking-widest text-gray-500 mb-1">Module III</span>
+                        OUTLAST
+                        <span class="text-xs font-normal mt-2 text-gray-700">Longevity & Psychological Hardening</span>
                     </a>
                 </div>
-                <p class="text-lg text-gray-700 mt-16 max-w-3xl">
-                    The ultimate guide to mastering the social, physical, and psychological elements of the game.
-                </p>
             </div>
         `,
         // --- MODULE 1: OUTWIT (Dark Mode Aesthetic) ---
@@ -281,28 +275,28 @@ overflow-x: hidden;
         // 1.1 Rapport Weapon
         'page1-1': `
             <h1 class="text-4xl font-extrabold mb-6">THE RAPPORT WEAPON: FORGE BONDS, FIND POWER</h1>
-            <p class="text-lg text-gray-400 mb-8 border-b border-gray-600 pb-4">The foundation of winning isn't finding an Idol; it's finding an alliance that trusts you more than they trust themselves. This trust is built on authentic, personal connection. Mastery of this skill is how winners like Kim Spradlin and Parvati Shallow controlled entire seasons.</p>
+            <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">The foundation of winning isn't finding an Idol; it's finding an alliance that trusts you more than they trust themselves. This trust is built on authentic, personal connection. Mastery of this skill is how winners like Kim Spradlin and Parvati Shallow controlled entire seasons.</p>
 
             <!-- Two-Column Section -->
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.1.1. The One-on-One Domination: The Kim & Parvati Playbook</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-gray-300">
-                <div>
+            <div class="grid md:grid-cols-3 gap-8 text-gray-300">
+                <div class="md:col-span-2">
                     <h3 class="font-bold text-amber-600 mb-2">STRATEGY: Micro-Focus</h3>
-                    <p>Stop thinking about the Final Six. Start thinking about the six individual relationships you need to win. Domination starts by making everyone feel like they have a unique, personal bond with you, not just a transactional alliance.</p>
+                    <p class="text-body">Stop thinking about the Final Six. Start thinking about the six individual relationships you need to win. Domination starts by making everyone feel like they have a unique, personal bond with you, not just a transactional alliance.</p>
                 </div>
-                <div class="tactical-box text-sm">
+                <div class="content-block tactical-box text-sm">
                     <h3 class="font-bold text-amber-600 mb-2">CASE STUDY: Personalized Control</h3>
-                    <p>Review how Kim Spradlin and Parvati Shallow mastered the art of relating to every individual player, which gave them seamless, easy control of the game without ever appearing overtly dominant.</p>
+                    <p class="text-body">Review how Kim Spradlin and Parvati Shallow mastered the art of relating to every individual player, which gave them seamless, easy control of the game without ever appearing overtly dominant.</p>
                 </div>
             </div>
 
             <hr class="my-8 border-gray-700">
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.1.2. Silent Signals: Mastering the Language of Trust</h2>
-            <div class="tactical-box text-gray-300">
+            <div class="content-block tactical-box text-gray-300">
                 <h3 class="font-extrabold text-3xl text-red-500 mb-4">TACTICAL CUES: Non-Verbal Compliance</h3>
-                <p class="mb-4">Your body speaks louder than your lies. Research proves that up to 93% of communication is non-verbal. Use these cues to broadcast safety and loyalty:</p>
-                <ul class="list-disc list-inside space-y-2 ml-4">
+                <p class="mb-4 text-body">Your body speaks louder than your lies. Research proves that up to 93% of communication is non-verbal. Use these cues to broadcast safety and loyalty:</p>
+                <ul class="list-disc list-inside space-y-2 ml-4 text-body">
                     <li><strong>Open Posture:</strong> Always keep your arms uncrossed to avoid erecting physical or mental barriers.</li>
                     <li><strong>Level the Field:</strong> Avoid sitting or standing higher than your ally; maintaining the same physical level eliminates indicators of dominance.</li>
                     <li><strong>Constant Validation:</strong> Use frequent, subtle nodding and genuine smiles to signal active listening. People remember how you made them feel, not what you said.</li>
@@ -311,17 +305,17 @@ overflow-x: hidden;
 
             <h2 class="text-2xl font-semibold text-amber-500 mt-8 mb-4">1.1.3. The Tactical Tear: Using Honesty to Harvest Information</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-300">
-                <div class="flow-step bg-red-800/30 text-white border-red-500">
+                <div class="content-block flow-step bg-red-800/30 text-white border-red-500">
                     <p class="font-bold text-lg mb-1">STEP 1: Share a Struggle</p>
-                    <p class="text-sm">Share a genuine, minor vulnerability about your life or background (never your strategic intent).</p>
+                    <p class="text-sm text-body">Share a genuine, minor vulnerability about your life or background (never your strategic intent).</p>
                 </div>
-                <div class="flow-step bg-red-800/30 text-white border-red-500">
+                <div class="content-block flow-step bg-red-800/30 text-white border-red-500">
                     <p class="font-bold text-lg mb-1">STEP 2: Build Safety</p>
-                    <p class="text-sm">This mutual vulnerability creates a powerful, non-game bond, making allies feel safe and seen.</p>
+                    <p class="text-sm text-body">This mutual vulnerability creates a powerful, non-game bond, making allies feel safe and seen.</p>
                 </div>
-                <div class="flow-step bg-red-800/30 text-white border-red-500">
+                <div class="content-block flow-step bg-red-800/30 text-white border-red-500">
                     <p class="font-bold text-lg mb-1">STEP 3: Harvest Data</p>
-                    <p class="text-sm">The ally reciprocates by sharing their strategic fears and alliances, giving you crucial intelligence.</p>
+                    <p class="text-sm text-body">The ally reciprocates by sharing their strategic fears and alliances, giving you crucial intelligence.</p>
                 </div>
             </div>
         `,
@@ -329,20 +323,20 @@ overflow-x: hidden;
         // 1.2 The Numbers Game
         'page1-2': `
             <h1 class="text-4xl font-extrabold mb-6">VFB: THE NUMBERS GAME: THE 80% RULE FOR STRATEGIC SUCCESS</h1>
-            <p class="text-lg text-gray-400 mb-8 border-b border-gray-600 pb-4">Forget the highlight reel. The single most important statistical factor for a winner is Votes For Boot (VFB): how often you voted correctly. This is empirical proof of your influence and inclusion.</p>
+            <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">Forget the highlight reel. The single most important statistical factor for a winner is Votes For Boot (VFB): how often you voted correctly. This is empirical proof of your influence and inclusion.</p>
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.2.1. The 80% Rule: Why Voting Correctly is the Only Stat That Matters</h2>
-            <div class="flex justify-center my-8">
-                <div class="w-full max-w-md p-8 text-center border-4 border-amber-500 rounded-full bg-red-900/50 shadow-2xl">
+            <div class="content-block flex justify-center my-8">
+                <div class="w-full max-w-md p-8 text-center border-4 border-amber-500 bg-red-900/50 shadow-2xl">
                     <p class="text-6xl font-extrabold text-amber-300">80% +</p>
                     <p class="text-xl text-gray-200 mt-2">VFB HIT RATE TARGET</p>
-                    <p class="text-sm text-gray-400 mt-4">If you consistently fail to vote with the majority, you are cluelessly outside the majority and will be eliminated. VFB proves you were in the know—the surest sign of a healthy social game.</p>
+                    <p class="text-sm text-gray-400 mt-4 text-body">If you consistently fail to vote with the majority, you are cluelessly outside the majority and will be eliminated. VFB proves you were in the know—the surest sign of a healthy social game.</p>
                 </div>
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-500 mt-8 mb-4">1.2.2. Follower or Kingpin? Earning Your V-Rating</h2>
-            <div class="overflow-x-auto text-gray-300">
-                <table class="min-w-full divide-y divide-gray-700 rounded-lg overflow-hidden">
+            <div class="overflow-x-auto text-gray-300 content-block">
+                <table class="min-w-full divide-y divide-gray-700 overflow-hidden">
                     <thead class="bg-amber-900">
                         <tr>
                             <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-amber-200">Archetype</th>
@@ -353,12 +347,12 @@ overflow-x: hidden;
                     <tbody class="divide-y divide-gray-700 bg-gray-800">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap font-bold text-amber-500">The Kingpin</td>
-                            <td class="px-6 py-4">Sets the target, manages votes, and dictates the outcome (the Kim Spradlin model). High ownership of the narrative.</td>
+                            <td class="px-6 py-4 text-body">Sets the target, manages votes, and dictates the outcome (the Kim Spradlin model). High ownership of the narrative.</td>
                             <td class="px-6 py-4 text-green-400">Low Risk - High Claim</td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap font-bold text-gray-400">The Follower</td>
-                            <td class="px-6 py-4">Achieves high VFB by simply being told who to vote for and agreeing. No ownership or agency.</td>
+                            <td class="px-6 py-4 text-body">Achieves high VFB by simply being told who to vote for and agreeing. No ownership or agency.</td>
                             <td class="px-6 py-4 text-red-400">High Risk - No Claim</td>
                         </tr>
                     </tbody>
@@ -366,41 +360,41 @@ overflow-x: hidden;
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-500 mt-8 mb-4">1.2.3. The Ghost Strategy: Be in the Know, Not on the Screen</h2>
-            <div class="tactical-box text-gray-300">
+            <div class="content-block tactical-box text-gray-300">
                 <h3 class="font-extrabold text-xl text-amber-600 mb-2">OPERATIONAL DIRECTIVE: Strategic Invisibility</h3>
-                <p>During the chaotic pre-merge, your goal is strategic invisibility. Your VFB must be high, proving you have influence, but your name should not be constantly whispered as the primary mastermind. You must be retained as a necessary asset whose vote is reliable, not as the strategic leader who needs to be clipped.</p>
+                <p class="text-body">During the chaotic pre-merge, your goal is strategic invisibility. Your VFB must be high, proving you have influence, but your name should not be constantly whispered as the primary mastermind. You must be retained as a necessary asset whose vote is reliable, not as the strategic leader who needs to be clipped.</p>
             </div>
         `,
 
         // 1.3 Advantage Warfare
         'page1-3': `
             <h1 class="text-4xl font-extrabold mb-6">ADVANTAGE WARFARE: HOW TO HUNT, FLUSH, AND DEFEND</h1>
-            <p class="text-lg text-gray-400 mb-8 border-b border-gray-600 pb-4">Idols, Nullifiers, and Twists are the game's new currency. Mastery means treating every vote like a high-stakes auction where you anticipate every counter-bid.</p>
+            <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">Idols, Nullifiers, and Twists are the game's new currency. Mastery means treating every vote like a high-stakes auction where you anticipate every counter-bid.</p>
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.3.1. The Original Power Move: The Safe Vote Execution</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-gray-300">
-                <div class="flow-step bg-gray-700/50 text-white border-gray-500">
+                <div class="content-block flow-step bg-gray-700/50 text-white border-gray-500">
                     <p class="font-bold text-lg mb-1">STEP 1: Vote Split</p>
-                    <p class="text-sm">Majority splits votes (e.g., Target A and Target B).</p>
+                    <p class="text-sm text-body">Majority splits votes (e.g., Target A and Target B).</p>
                 </div>
-                <div class="flow-step bg-gray-700/50 text-white border-gray-500">
+                <div class="content-block flow-step bg-gray-700/50 text-white border-gray-500">
                     <p class="font-bold text-lg mb-1">STEP 2: Idol Play</p>
-                    <p class="text-sm">Target A plays their Idol. All votes on A are negated.</p>
+                    <p class="text-sm text-body">Target A plays their Idol. All votes on A are negated.</p>
                 </div>
-                <div class="flow-step bg-gray-700/50 text-white border-gray-500">
+                <div class="content-block flow-step bg-gray-700/50 text-white border-gray-500">
                     <p class="font-bold text-lg mb-1">STEP 3: Revote Union</p>
-                    <p class="text-sm">On the revote, the majority unites on Target B (who did not receive votes originally).</p>
+                    <p class="text-sm text-body">On the revote, the majority unites on Target B (who did not receive votes originally).</p>
                 </div>
-                <div class="flow-step bg-gray-700/50 text-white border-gray-500">
+                <div class="content-block flow-step bg-gray-700/50 text-white border-gray-500">
                     <p class="font-bold text-lg mb-1">RESULT: Idol Burned</p>
-                    <p class="text-sm">Idol is burned, and a member of the opposition is eliminated successfully.</p>
+                    <p class="text-sm text-body">Idol is burned, and a member of the opposition is eliminated successfully.</p>
                 </div>
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-500 mt-8 mb-4">1.3.2. The Double-Cross: Manipulating a Player into Burning Their Idol</h2>
-            <div class="tactical-box text-gray-300">
+            <div class="content-block tactical-box text-gray-300">
                 <h3 class="font-extrabold text-xl text-red-500 mb-2">MANIPULATOR'S CHECKLIST: Idol Flush Protocol</h3>
-                <ol class="list-decimal list-inside space-y-2 ml-4">
+                <ol class="list-decimal list-inside space-y-2 ml-4 text-body">
                     <li><strong>Select Target:</strong> Choose a non-threat with a rumored Idol.</li>
                     <li><strong>False Safety:</strong> Convince them they are the imminent target, but make them feel "as safe as possible" to ensure they play the Idol unnecessarily.</li>
                     <li><strong>Execute:</strong> Vote out the true target (who has the Idol). Successfully flushing an idol is an instant FTC Resume Item.</li>
@@ -408,55 +402,55 @@ overflow-x: hidden;
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-500 mt-8 mb-4">1.3.4. Surgical Strike: The Multi-Target Blindside</h2>
-            <div class="tactical-box text-gray-300">
+            <div class="content-block tactical-box text-gray-300">
                 <h3 class="font-extrabold text-xl text-amber-600 mb-2">CASE STUDY: Rob Mariano's Matt Blindside (Redemption Island)</h3>
-                <p>The best strategic moves solve multiple problems. Rob's move didn't just eliminate a personal threat; it also flushed a rumored Idol, cut a relationship, and solidified his alliance's absolute numerical control. Every blindside must achieve at least three strategic objectives.</p>
+                <p class="text-body">The best strategic moves solve multiple problems. Rob's move didn't just eliminate a personal threat; it also flushed a rumored Idol, cut a relationship, and solidified his alliance's absolute numerical control. Every blindside must achieve at least three strategic objectives.</p>
             </div>
         `,
 
         // 1.4 Chaos Theory
         'page1-4': `
             <h1 class="text-4xl font-extrabold mb-6">CHAOS THEORY: SURVIVING THE QUÉBEC QUAKE</h1>
-            <p class="text-lg text-gray-400 mb-8 border-b border-gray-600 pb-4">The Survivor Québec production model is designed for structural instability. Your alliances are temporary; your adaptability must be permanent. Rigid loyalty is a high-risk liability.</p>
+            <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">The Survivor Québec production model is designed for structural instability. Your alliances are temporary; your adaptability must be permanent. Rigid loyalty is a high-risk liability.</p>
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.4.1. Twist Inventory: What Survivor Québec Will Throw at You</h2>
-            <div class="tactical-box text-gray-300">
+            <div class="content-block tactical-box text-gray-300">
                 <h3 class="font-extrabold text-xl text-red-500 mb-2">DISRUPTIVE MECHANICS</h3>
-                <p class="mb-2">Prepare for game mechanics engineered to shatter long-term planning:</p>
-                <ul class="list-disc list-inside space-y-1 ml-4">
+                <p class="mb-2 text-body">Prepare for game mechanics engineered to shatter long-term planning:</p>
+                <ul class="list-disc list-inside space-y-1 ml-4 text-body">
                     <li>Tribe Vote Steals</li>
                     <li>Forced Duos (picking rocks before challenges)</li>
                     <li>Non-Elimination Rounds followed by immediate vote-outs.</li>
                 </ul>
-                <p class="text-sm mt-3 italic text-gray-400">This high velocity of chaos demands that you constantly be ready to shift strategy.</p>
+                <p class="text-sm mt-3 italic text-gray-400 text-body">This high velocity of chaos demands that you constantly be ready to shift strategy.</p>
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-500 mt-8 mb-4">1.4.2. Rent-a-Vote: Prioritizing Self-Interest over Loyalty</h2>
-            <div class="tactical-box text-gray-300">
+            <div class="content-block tactical-box text-gray-300">
                 <h3 class="font-extrabold text-xl text-amber-600 mb-2">STRATEGIC PRINCIPLE: The Utility Ally</h3>
-                <p>When the game is unstable, the only constant is self-preservation. Be a <strong>Rent-a-Vote</strong> ally: prioritize immediate utility and self-preservation. Be ready to break alliances the moment they pass their strategic expiration date to ensure your survival.</p>
+                <p class="text-body">When the game is unstable, the only constant is self-preservation. Be a <strong>Rent-a-Vote</strong> ally: prioritize immediate utility and self-preservation. Be ready to break alliances the moment they pass their strategic expiration date to ensure your survival.</p>
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-500 mt-8 mb-4">1.4.3. The Queen's Rule: "Anyone, As Long As It Ain't Me"</h2>
-            <div class="tactical-box text-gray-300">
+            <div class="content-block tactical-box text-gray-300">
                 <h3 class="font-extrabold text-xl text-red-500 mb-2">FEATURED QUOTE (Sandra Diaz-Twine)</h3>
-                <p class="text-lg italic mb-3">"Anyone, as long as it ain't me."</p>
-                <p class="text-sm">Internalize the two-time winner's ethos. This provides the necessary defensive ruthlessness. It legitimizes aligning with the opposition if it guarantees your safety and ensures you are never the person who becomes expendable.</p>
+                <p class="text-lg italic mb-3 text-body">"Anyone, as long as it ain't me."</p>
+                <p class="text-sm text-body">Internalize the two-time winner's ethos. This provides the necessary defensive ruthlessness. It legitimizes aligning with the opposition if it guarantees your safety and ensures you are never the person who becomes expendable.</p>
             </div>
         `,
 
         // --- MODULE 2: OUTPLAY (Light Mode Aesthetic - Intro) ---
         'phase2-intro': `
             <h1 class="text-5xl font-extrabold text-amber-700 mb-6 border-b-4 border-amber-500 pb-2">MODULE II: OUTPLAY INTRODUCTION</h1>
-            <p class="text-xl text-gray-700 mb-6">The challenges are not just for immunity; they are social currency. This module ensures you have the physical, cognitive, and technical skills to always be perceived as an indispensable asset.</p>
+            <p class="text-xl text-gray-700 mb-6 text-body">The challenges are not just for immunity; they are social currency. This module ensures you have the physical, cognitive, and technical skills to always be perceived as an indispensable asset.</p>
             <div class="grid md:grid-cols-2 gap-6 mt-6">
                 <div>
                     <h2 class="text-2xl font-semibold text-amber-800 mb-3">Pillar Goal: Reliable Utility</h2>
-                    <p class="text-gray-700">You must be capable in all three challenge categories (Endurance, Puzzles, Technical) to prevent your allies from viewing you as a liability in the post-merge phase. Your reliability keeps your name off the voting block.</p>
+                    <p class="text-gray-700 text-body">You must be capable in all three challenge categories (Endurance, Puzzles, Technical) to prevent your allies from viewing you as a liability in the post-merge phase. Your reliability keeps your name off the voting block.</p>
                 </div>
-                <div class="p-4 bg-yellow-100 rounded-lg border border-yellow-300">
+                <div class="content-block p-4 bg-white border border-neutral">
                     <h3 class="font-bold text-amber-800 mb-1">QC FOCUS NOTE</h3>
-                    <p class="text-sm text-gray-800">Survivor Québec often features long, grueling endurance challenges reflective of the tough Canadian climate. Focus training on static holds, grip strength, and core stability.</p>
+                    <p class="text-sm text-gray-800 text-body">Survivor Québec often features long, grueling endurance challenges reflective of the tough Canadian climate. Focus training on static holds, grip strength, and core stability.</p>
                 </div>
             </div>
         `,
@@ -464,25 +458,25 @@ overflow-x: hidden;
         // 2.1 Endurance & Grip
         'page2-1': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">2.1. OUTPLAY: ENDURANCE & GRIP</h1>
-            <p class="text-lg text-gray-700 mb-8 border-b border-stone-300 pb-4">Most immunity challenges boil down to one thing: delaying the inevitable muscle failure. Mastery of grip and static endurance is non-negotiable.</p>
+            <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Most immunity challenges boil down to one thing: delaying the inevitable muscle failure. Mastery of grip and static endurance is non-negotiable.</p>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="md:col-span-2">
                     <h2 class="text-2xl font-semibold text-amber-800 mb-3">Static Hold Training Protocol</h2>
-                    <p class="mb-4 text-gray-700">Simulate the most common physical challenges using minimal equipment:</p>
-                    <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700">
+                    <p class="mb-4 text-gray-700 text-body">Simulate the most common physical challenges using minimal equipment:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700 text-body">
                         <li><strong>Wall Sit:</strong> Hold for 10 minutes (simulates pole sitting).</li>
                         <li><strong>Plank:</strong> Hold for 5 minutes (simulates balancing challenges).</li>
                         <li><strong>Grip Hang:</strong> Hang from a pull-up bar for maximum time (critical for hanging challenges).</li>
                     </ul>
 
                     <h2 class="text-2xl font-semibold text-amber-800 mt-6 mb-3">Grip Strengthening Exercises</h2>
-                    <p class="text-gray-700">Use a "Farmer's Carry" protocol: Hold the heaviest weight you can manage in each hand and walk for the longest possible distance. Do this fasted to simulate low-energy challenge conditions.</p>
+                    <p class="text-gray-700 text-body">Use a "Farmer's Carry" protocol: Hold the heaviest weight you can manage in each hand and walk for the longest possible distance. Do this fasted to simulate low-energy challenge conditions.</p>
                 </div>
 
-                <div class="tactical-box bg-yellow-50 text-gray-800 border-yellow-300">
+                <div class="content-block tactical-box bg-white border border-neutral text-gray-800">
                     <h3 class="font-bold text-amber-800 mb-2">EXPERT TIP: Pain Redefinition</h3>
-                    <p class="text-sm">In endurance challenges, pain is not an injury; it is a signal. Practice mindfulness techniques to separate the signal from the decision. Your body quits long before your muscles fail.</p>
+                    <p class="text-sm text-body">In endurance challenges, pain is not an injury; it is a signal. Practice mindfulness techniques to separate the signal from the decision. Your body quits long before your muscles fail.</p>
                 </div>
             </div>
         `,
@@ -490,26 +484,26 @@ overflow-x: hidden;
         // 2.2 Puzzle Mastery
         'page2-2': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">2.2. OUTPLAY: PUZZLE MASTERY</h1>
-            <p class="text-lg text-gray-700 mb-8 border-b border-stone-300 pb-4">The end of almost every critical challenge is a puzzle. Your competence here is often what prevents a challenge beast from controlling the game.</p>
+            <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">The end of almost every critical challenge is a puzzle. Your competence here is often what prevents a challenge beast from controlling the game.</p>
 
             <h2 class="text-2xl font-semibold text-amber-800 mb-3">The Universal Puzzle Protocol</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="flow-step bg-green-50 text-gray-800 border-green-500">
+                <div class="content-block flow-step bg-white border border-neutral text-gray-800">
                     <p class="font-bold text-lg mb-1">Step 1: The Pause</p>
-                    <p class="text-sm">Never immediately touch the pieces. Stop, breathe, and look at the completed puzzle image (or lack thereof) for 15 seconds. Visualize the final state.</p>
+                    <p class="text-sm text-body">Never immediately touch the pieces. Stop, breathe, and look at the completed puzzle image (or lack thereof) for 15 seconds. Visualize the final state.</p>
                 </div>
-                <div class="flow-step bg-green-50 text-gray-800 border-green-500">
+                <div class="content-block flow-step bg-white border border-neutral text-gray-800">
                     <p class="font-bold text-lg mb-1">Step 2: The Edges</p>
-                    <p class="text-sm">Focus only on boundary pieces (straight edges, flat bottoms). Build the frame first to contain the interior complexity. This is non-negotiable.</p>
+                    <p class="text-sm text-body">Focus only on boundary pieces (straight edges, flat bottoms). Build the frame first to contain the interior complexity. This is non-negotiable.</p>
                 </div>
-                <div class="flow-step bg-green-50 text-gray-800 border-green-500">
+                <div class="content-block flow-step bg-white border border-neutral text-gray-800">
                     <p class="font-bold text-lg mb-1">Step 3: Color/Pattern</p>
-                    <p class="text-sm">Group the interior pieces by color or repeating pattern, then connect the clusters to the frame.</p>
+                    <p class="text-sm text-body">Group the interior pieces by color or repeating pattern, then connect the clusters to the frame.</p>
                 </div>
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-800 mt-8 mb-3">Common Survivor Puzzle Types</h2>
-            <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700">
+            <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700 text-body">
                 <li><strong>Slider Puzzles:</strong> Requires foresight and planning 3-4 moves ahead. Practice standard 8-piece sliders.</li>
                 <li><strong>Word/Number Codes:</strong> Focus on patterns (A=1, B=2, etc.). Always assume simplicity before complexity.</li>
                 <li><strong>Rebus Puzzles:</strong> Pictorial representations of words. Requires lateral thinking.</li>
@@ -519,12 +513,12 @@ overflow-x: hidden;
         // 2.3 Camp Essentials
         'page2-3': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">2.3. OUTPLAY: CAMP ESSENTIALS</h1>
-            <p class="text-lg text-gray-700 mb-8 border-b border-stone-300 pb-4">Fire and shelter are the baseline of survival. The person who provides these is instantly deemed essential and trustworthy.</p>
+            <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Fire and shelter are the baseline of survival. The person who provides these is instantly deemed essential and trustworthy.</p>
 
             <h2 class="text-2xl font-semibold text-amber-800 mb-3">Fire Mastery: The Bow Drill & Ferro Rod</h2>
 
             <!-- Responsive Video Embed for Fire Starting -->
-            <div class="relative pt-[56.25%] mb-8 rounded-lg overflow-hidden shadow-lg">
+            <div class="relative pt-[56.25%] mb-8 border border-neutral overflow-hidden">
                 <iframe 
                     class="absolute top-0 left-0 w-full h-full" 
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
@@ -534,18 +528,18 @@ overflow-x: hidden;
                     title="Essential Fire Starting Techniques (Placeholder Video)">
                 </iframe>
             </div>
-            <p class="text-sm italic text-gray-600 mb-8">Video Placeholder: Replace the YouTube embed URL with a genuine, quick tutorial on bow-drill or ferro-rod techniques. Use the full embed link, not the share link.</p>
+            <p class="text-sm italic text-gray-600 mb-8 text-body">Video Placeholder: Replace the YouTube embed URL with a genuine, quick tutorial on bow-drill or ferro-rod techniques. Use the full embed link, not the share link.</p>
 
 
             <h2 class="text-2xl font-semibold text-amber-800 mb-3">Shelter Architecture: Weatherproofing</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-700">
                 <div>
                     <h3 class="font-bold text-amber-800 mb-2">The A-Frame Advantage</h3>
-                    <p>The A-Frame is the most efficient structure for shedding rain and cold. Focus on finding a dry, slightly elevated location. You need a wind-break, not just a roof.</p>
+                    <p class="text-body">The A-Frame is the most efficient structure for shedding rain and cold. Focus on finding a dry, slightly elevated location. You need a wind-break, not just a roof.</p>
                 </div>
-                <div class="tactical-box bg-gray-100 border-gray-300">
+                <div class="content-block tactical-box bg-white border border-neutral">
                     <h3 class="font-bold text-amber-800 mb-2">TECHNICAL CHECKLIST</h3>
-                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm text-body">
                         <li><strong>Bedding:</strong> 8-10 inches of dry leaves/pine needles for insulation.</li>
                         <li><strong>Drainage:</strong> Dig a shallow trench around the shelter perimeter.</li>
                         <li><strong>Roof:</strong> Use shingle method (overlapping leaves/bark) to direct water away.</li>
@@ -557,15 +551,15 @@ overflow-x: hidden;
         // --- MODULE 3: OUTLAST (Light Mode Aesthetic - Intro) ---
         'phase3-intro': `
             <h1 class="text-5xl font-extrabold text-amber-700 mb-6 border-b-4 border-amber-500 pb-2">MODULE III: OUTLAST INTRODUCTION</h1>
-            <p class="text-xl text-gray-700 mb-6">The longest game of Survivor is the one you play against your own body and mind. This module focuses on the psychological and physical endurance required to stay motivated through 40+ days of deprivation.</p>
+            <p class="text-xl text-gray-700 mb-6 text-body">The longest game of Survivor is the one you play against your own body and mind. This module focuses on the psychological and physical endurance required to stay motivated through 40+ days of deprivation.</p>
             <div class="grid md:grid-cols-2 gap-6 mt-6">
                 <div>
                     <h2 class="text-2xl font-semibold text-amber-800 mb-3">Pillar Goal: Cognitive Resilience</h2>
-                    <p class="text-gray-700">You must normalize suffering. The inability to manage hunger, lack of sleep, and chronic discomfort causes players to make impulsive strategic errors. Mastery means operating at a high level while severely impaired.</p>
+                    <p class="text-gray-700 text-body">You must normalize suffering. The inability to manage hunger, lack of sleep, and chronic discomfort causes players to make impulsive strategic errors. Mastery means operating at a high level while severely impaired.</p>
                 </div>
-                <div class="p-4 bg-yellow-100 rounded-lg border border-yellow-300">
+                <div class="content-block p-4 bg-white border border-neutral">
                     <h3 class="font-bold text-amber-800 mb-1">QC FOCUS NOTE</h3>
-                    <p class="text-sm text-gray-800">The climate in Quebec can be drastically cold, especially at night or during rain events. The priority shifts from 'finding food' to 'conserving heat' and 'preventing hypothermia.'</p>
+                    <p class="text-sm text-gray-800 text-body">The climate in Quebec can be drastically cold, especially at night or during rain events. The priority shifts from 'finding food' to 'conserving heat' and 'preventing hypothermia.'</p>
                 </div>
             </div>
         `,
@@ -573,22 +567,22 @@ overflow-x: hidden;
         // 3.1 Starvation Mindset
         'page3-1': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">3.1. OUTLAST: THE STARVATION MINDSET</h1>
-            <p class="text-lg text-gray-700 mb-8 border-b border-stone-300 pb-4">Your body will panic. Your mind must not. Winning the food war means controlling your energy expenditure and emotional response to chronic hunger.</p>
+            <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Your body will panic. Your mind must not. Winning the food war means controlling your energy expenditure and emotional response to chronic hunger.</p>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="md:col-span-2">
                     <h2 class="text-2xl font-semibold text-amber-800 mb-3">Energy Conservation Protocol</h2>
-                    <p class="mb-4 text-gray-700">Treat every calorie like gold. Any activity not directly related to survival or alliance maintenance is banned.</p>
-                    <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700">
+                    <p class="mb-4 text-gray-700 text-body">Treat every calorie like gold. Any activity not directly related to survival or alliance maintenance is banned.</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700 text-body">
                         <li><strong>The Freeze:</strong> When not required, lay still. Minimize movement to lower your basal metabolic rate (BMR).</li>
                         <li><strong>The Hunt Tax:</strong> Assess the caloric cost of hunting/foraging against the potential caloric gain. The net gain must be > 300 calories to justify the effort.</li>
                         <li><strong>Mental Suppression:</strong> Do not discuss food, dreams about food, or recipes. This heightens group misery and depletes mental energy.</li>
                     </ul>
                 </div>
 
-                <div class="tactical-box bg-yellow-50 text-gray-800 border-yellow-300">
+                <div class="content-block tactical-box bg-white border border-neutral text-gray-800">
                     <h3 class="font-bold text-amber-800 mb-2">EXPERT TIP: The Psychological Fast</h3>
-                    <p class="text-sm">Practice short (24-48 hour) intermittent fasts before the game. This trains your body and mind to accept the state of hunger without panic, preserving mental clarity for strategic work.</p>
+                    <p class="text-sm text-body">Practice short (24-48 hour) intermittent fasts before the game. This trains your body and mind to accept the state of hunger without panic, preserving mental clarity for strategic work.</p>
                 </div>
             </div>
         `,
@@ -596,17 +590,17 @@ overflow-x: hidden;
         // 3.2 Psychological Hardening
         'page3-2': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">3.2. OUTLAST: PSYCHOLOGICAL HARDENING</h1>
-            <p class="text-lg text-gray-700 mb-8 border-b border-stone-300 pb-4">The social stress, isolation, and pain create a fragile mental state. A hardened player maintains composure when allies break.</p>
+            <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">The social stress, isolation, and pain create a fragile mental state. A hardened player maintains composure when allies break.</p>
 
             <h2 class="text-2xl font-semibold text-amber-800 mb-3">Pain Tolerance & Emotional Control</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-700">
                 <div>
                     <h3 class="font-bold text-amber-800 mb-2">The 5-Minute Rule</h3>
-                    <p>Allow yourself 5 minutes per day to complain, feel depressed, or vent frustration. After 5 minutes, the timer is off. Immediately transition to a productive activity (e.g., strengthening rapport with one person, searching for fire materials).</p>
+                    <p class="text-body">Allow yourself 5 minutes per day to complain, feel depressed, or vent frustration. After 5 minutes, the timer is off. Immediately transition to a productive activity (e.g., strengthening rapport with one person, searching for fire materials).</p>
                 </div>
-                <div class="tactical-box bg-gray-100 border-gray-300">
+                <div class="content-block tactical-box bg-white border border-neutral">
                     <h3 class="font-bold text-amber-800 mb-2">COGNITIVE TOOLKIT</h3>
-                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm text-body">
                         <li><strong>Mantra:</strong> Develop a simple phrase to repeat during intense moments ("Just one more day").</li>
                         <li><strong>Reframing:</strong> View lack of sleep or hunger as a strategic advantage: "This suffering proves I want it more than they do."</li>
                         <li><strong>Sensory Focus:</strong> Focus on a simple, physical sensation (e.g., the feel of the sand, the smell of the fire) to ground yourself during high-stress Tribal Councils.</li>
@@ -615,27 +609,27 @@ overflow-x: hidden;
             </div>
 
             <h2 class="text-2xl font-semibold text-amber-800 mt-8 mb-3">Managing Loneliness and Paranoia</h2>
-            <p class="text-gray-700">Isolation breeds paranoia, which is often mistaken for strategic insight. You are not the only one feeling alone. Actively seek out connection, even with those you plan to vote out, to keep your perception of the game accurate.</p>
+            <p class="text-gray-700 text-body">Isolation breeds paranoia, which is often mistaken for strategic insight. You are not the only one feeling alone. Actively seek out connection, even with those you plan to vote out, to keep your perception of the game accurate.</p>
         `,
 
         // 3.3 Camp Health & Injury Prevention
         'page3-3': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">3.3. OUTLAST: CAMP HEALTH & INJURY PREVENTION</h1>
-            <p class="text-lg text-gray-700 mb-8 border-b border-stone-300 pb-4">Simple injuries (cuts, blisters) become mission-critical liabilities in the wilderness. Maintain impeccable hygiene to prevent medevac.</p>
+            <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Simple injuries (cuts, blisters) become mission-critical liabilities in the wilderness. Maintain impeccable hygiene to prevent medevac.</p>
 
             <h2 class="text-2xl font-semibold text-amber-800 mb-3">Infection Control Protocols</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-700">
                 <div>
                     <h3 class="font-bold text-amber-800 mb-2">Wound Management Checklist</h3>
-                    <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700">
+                    <ul class="list-disc list-inside space-y-2 ml-4 text-gray-700 text-body">
                         <li><strong>Clean Immediately:</strong> Use boiled water (cooled) to clean all cuts and scrapes, no matter how small.</li>
                         <li><strong>Dry and Air Out:</strong> Keep feet and hands dry at all times, especially in the cold. Cold, wet skin breaks down rapidly.</li>
                         <li><strong>Inspect Daily:</strong> Conduct a full-body inspection every evening for ticks, splinters, and minor infections.</li>
                     </ul>
                 </div>
-                <div class="tactical-box bg-yellow-50 text-gray-800 border-yellow-300">
+                <div class="content-block tactical-box bg-white border border-neutral">
                     <h3 class="font-bold text-amber-800 mb-2">HYPOTHERMIA IS THE ENEMY</h3>
-                    <p class="text-sm">In a cold environment, never get wet and never lose your insulation (clothing/bedding). If you are shivering, you are already losing the game. Seek immediate shelter and fire, regardless of social dynamics.</p>
+                    <p class="text-sm text-body">In a cold environment, never get wet and never lose your insulation (clothing/bedding). If you are shivering, you are already losing the game. Seek immediate shelter and fire, regardless of social dynamics.</p>
                 </div>
             </div>
         `,
@@ -643,13 +637,13 @@ overflow-x: hidden;
         // --- FINAL AUDIT ---
         'final-audit': `
             <h1 class="text-5xl font-extrabold text-red-700 mb-6 border-b-4 border-red-500 pb-2">4. FINAL AUDIT & RESUME BUILDER</h1>
-            <p class="text-xl text-gray-700 mb-8">This phase reviews all three pillars to construct your Final Tribal Council (FTC) resume. You must be able to articulate your game in terms of Outwit, Outplay, and Outlast.</p>
+            <p class="text-xl text-gray-700 mb-8 text-body">This phase reviews all three pillars to construct your Final Tribal Council (FTC) resume. You must be able to articulate your game in terms of Outwit, Outplay, and Outlast.</p>
 
             <div class="space-y-10">
                 <!-- Outwit Audit -->
-                <div class="border-4 border-amber-500 p-6 rounded-xl bg-amber-50">
+                <div class="content-block border-4 border-amber-500 p-6 bg-white">
                     <h2 class="text-3xl font-bold text-amber-800 mb-4">OUTWIT: STRATEGIC CLAIMS</h2>
-                    <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700">
+                    <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700 text-body">
                         <li><strong>VFB Success:</strong> What was your Votes For Boot percentage? How many times did you vote correctly? (Goal: >80%)</li>
                         <li><strong>Idol Flush:</strong> Name the most important Idol or Advantage you successfully flushed or neutralized.</li>
                         <li><strong>The Move:</strong> What was the *single* most impactful blindside you executed?</li>
@@ -657,9 +651,9 @@ overflow-x: hidden;
                 </div>
 
                 <!-- Outplay Audit -->
-                <div class="border-4 border-green-500 p-6 rounded-xl bg-green-50">
+                <div class="content-block border-4 border-green-500 p-6 bg-white">
                     <h2 class="text-3xl font-bold text-green-800 mb-4">OUTPLAY: COMPETITIVE CLAIMS</h2>
-                    <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700">
+                    <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700 text-body">
                         <li><strong>Immunity Wins:</strong> How many individual Immunity Challenges did you win?</li>
                         <li><strong>Camp Utility:</strong> Name a non-challenge moment (fire, shelter, fishing) where you saved the tribe from failure or misery.</li>
                         <li><strong>Puzzle Proficiency:</strong> Cite a challenge where your puzzle skills directly secured the victory or prevented a loss.</li>
@@ -667,9 +661,9 @@ overflow-x: hidden;
                 </div>
 
                 <!-- Outlast Audit -->
-                <div class="border-4 border-blue-500 p-6 rounded-xl bg-blue-50">
+                <div class="content-block border-4 border-blue-500 p-6 bg-white">
                     <h2 class="text-3xl font-bold text-blue-800 mb-4">OUTLAST: SURVIVAL CLAIMS</h2>
-                    <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700">
+                    <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700 text-body">
                         <li><strong>Physical Grit:</strong> Describe the worst moment of cold/hunger/pain and how you kept going while others quit.</li>
                         <li><strong>Social Control:</strong> How did you maintain your composure and relationships when you were at your most desperate?</li>
                         <li><strong>Personal Growth:</strong> What did you overcome internally to make it to Day 42?</li>
@@ -688,9 +682,11 @@ overflow-x: hidden;
     const mobileNav = document.getElementById('mobile-nav-links');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const palmShadowOverlay = document.getElementById('palm-shadow-overlay');
-    const torchGlowOverlay = document.getElementById('torch-glow-overlay');
     const mainElement = document.querySelector('main');
+    
+    // Ambient Overlays were removed for this aesthetic, but keeping the references safe
+    const palmShadowOverlay = document.getElementById('palm-shadow-overlay'); 
+    const torchGlowOverlay = document.getElementById('torch-glow-overlay');
 
     // Toggle mobile menu visibility
     mobileMenuButton.addEventListener('click', () => {
@@ -712,22 +708,16 @@ overflow-x: hidden;
             document.body.classList.remove('dark-mode-module');
         }
 
-        // 2. Index Page Theme (Sand and Overlays)
+        // 2. Index Page Theme (Removing content box styling for raw look)
         if (isIndexPage) {
-            // Ensure main content area is transparent to show body background
-            contentArea.classList.remove('bg-stone-50', 'p-6', 'sm:p-10', 'lg:p-12', 'shadow-lg', 'rounded-xl', 'border', 'border-stone-200');
-            
-            // Show ambient overlays
-            palmShadowOverlay.classList.remove('hidden');
-            torchGlowOverlay.classList.remove('hidden');
+            // Remove standard block styling for the 'broken grid' home page look
+            contentArea.classList.remove('content-area-main', 'p-6', 'sm:p-10', 'lg:p-12', 'shadow-lg', 'border', 'border-stone-200');
+            contentArea.classList.add('bg-white'); // Ensure background is pure white
             
         } else {
-            // Re-apply standard content area styling for reading modules
-            contentArea.classList.add('bg-stone-50', 'p-6', 'sm:p-10', 'lg:p-12', 'shadow-lg', 'rounded-xl', 'border', 'border-stone-200');
-
-            // Hide ambient overlays
-            palmShadowOverlay.classList.add('hidden');
-            torchGlowOverlay.classList.add('hidden');
+            // Re-apply standard content area styling for reading modules (modular block look)
+            contentArea.classList.add('content-area-main', 'p-6', 'sm:p-10', 'lg:p-12', 'shadow-lg', 'border', 'border-stone-200');
+            contentArea.classList.remove('bg-white');
         }
         
         // Close mobile menu on page load
@@ -794,23 +784,26 @@ overflow-x: hidden;
         const navHtml = PAGES.map(page => {
             if (page.id === 'index') return ''; // Skip index page in main nav bar
 
+            // Adjust color based on global theme
+            const linkColor = document.body.classList.contains('dark-mode-module') ? 'text-white hover:text-neutral' : 'text-white hover:text-neutral';
+
             const isActive = page.id === currentPageId;
             const linkClass = isActive
                 ? 'nav-link active text-amber-500 font-semibold'
-                : 'nav-link text-white hover:text-amber-300 transition';
+                : `nav-link ${linkColor} transition`;
 
-            return `<a href="#${page.id}" class="${linkClass} px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap">${page.title}</a>`;
+            return `<a href="#${page.id}" class="${linkClass} px-3 py-2 text-sm font-medium whitespace-nowrap">${page.title}</a>`;
         }).join('');
 
         // Desktop Nav
         desktopNav.innerHTML = navHtml;
 
-        // Mobile Nav (using slightly larger font)
+        // Mobile Nav
         mobileNav.innerHTML = PAGES.map(page => {
             const isActive = page.id === currentPageId;
             const linkClass = isActive
                 ? 'nav-link active text-amber-500 font-bold'
-                : 'nav-link text-white hover:bg-amber-700 block px-3 py-2 rounded-md';
+                : 'nav-link text-white hover:bg-neutral/20 block px-3 py-2';
 
             return `<a href="#${page.id}" class="${linkClass} text-base" onclick="document.getElementById('mobile-menu').classList.add('hidden')">${page.title}</a>`;
         }).join('');
