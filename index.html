@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survivor Quebec Preparation Guide</title>
+    <!-- Load Tailwind CSS for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the app */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Light gray default */
+            transition: background-color 0.3s;
+        }
+        /* Dark Mode Overrides for the Outwit Module (pages starting with 'page1-') */
+        body.dark-mode-module {
+            background-color: #1f2937; /* Darker gray background */
+        }
+        .main-content-light {
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+        .main-content-dark {
+            background-color: #111827; /* Dark blue/black for content */
+            color: #f9fafb; /* Light text */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+        }
+        .page-link-completed {
+            color: #48bb78;
+        }
+        .page-link-active {
+            border-bottom: 3px solid #dd6b20;
+            color: #dd6b20;
+            font-weight: 600;
+        }
+        .flow-content {
+            min-height: 65vh;
+        }
+        .two-col-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .two-col-layout {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Application Container -->
+    <div id="app" class="max-w-4xl mx-auto p-4 md:p-8">
+
+        <!-- Header -->
+        <header class="text-center py-6 border-b-4 border-orange-500 mb-8 bg-white shadow-lg rounded-xl">
+            <h1 class="text-4xl font-extrabold text-gray-800">The Ultimate Survivor Quebec Prep Guide</h1>
+            <p class="text-lg text-gray-500 mt-2">A Sequential Roadmap to the Competition</p>
+        </header>
+
+        <!-- Navigation Bar (Sequential Flow) -->
+        <nav id="navigation-bar" class="bg-gray-100 p-4 mb-8 rounded-xl shadow-md">
+            <ul class="flex flex-wrap justify-center text-sm md:text-base font-medium">
+                <!-- Navigation links will be dynamically generated and styled here -->
+            </ul>
+        </nav>
+
+        <!-- Main Content Area (Where pages are rendered) -->
+        <main id="content-area" class="flow-content p-6 md:p-10 rounded-xl transition duration-300 ease-in-out">
+            <!-- Content for the current phase will be loaded here by JavaScript -->
+        </main>
+
+        <!-- Footer & Control Panel -->
+        <footer class="mt-8 p-4 bg-gray-100 rounded-xl shadow-md flex justify-between items-center flex-wrap">
+            <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                <input type="checkbox" id="phase-complete-checkbox" class="h-6 w-6 text-orange-500 rounded focus:ring-orange-400 border-gray-300" disabled>
+                <label for="phase-complete-checkbox" class="text-gray-700 font-semibold">Mark Current Phase as Complete</label>
+            </div>
+            
+            <div class="flex space-x-4">
+                <button id="prev-btn" onclick="goToPrevPage()" class="px-4 py-2 bg-gray-300 text-gray-800 font-bold rounded-lg transition hover:bg-gray-400 disabled:opacity-50" disabled>
+                    &larr; Previous Phase
+                </button>
+                <button id="next-btn" onclick="goToNextPage()" class="px-6 py-2 bg-orange-500 text-white font-bold rounded-lg shadow-md transition hover:bg-orange-600 disabled:opacity-50" disabled>
+                    Next Phase &rarr;
+                </button>
+            </div>
+        </footer>
+
+        <!-- Generic Modal for Alerts/Tips (Instead of alert()) -->
+        <div id="app-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center p-4 z-50">
+            <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full">
+                <h3 id="modal-title" class="text-xl font-bold mb-3 text-gray-800"></h3>
+                <p id="modal-message" class="text-gray-600 mb-4"></p>
+                <button onclick="closeModal()" class="w-full py-2 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600">
+                    Got it!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- GLOBAL STATE & CONFIGURATION ---
+
+        // Redefined PAGES array to incorporate the new 4-page Outwit module (1.1 to 1.4)
+        const PAGES = [
+            { id: 'index', path: 'index.html', title: '0. Orientation', isPhase: false, module: 'info' },
+            { id: 'page1-1', path: '1-1-rapport-weapon.html', title: '1.1. Outwit: The Rapport Weapon', isPhase: true, module: 'outwit' },
+            { id: 'page1-2', path: '1-2-vfb-game.html', title: '1.2. Outwit: The Numbers Game', isPhase: true, module: 'outwit' },
+            { id: 'page1-3', path: '1-3-advantage-warfare.html', title: '1.3. Outwit: Advantage Warfare', isPhase: true, module: 'outwit' },
+            { id: 'page1-4', path: '1-4-chaos-theory.html', title: '1.4. Outwit: Chaos Theory', isPhase: true, module: 'outwit' },
+            { id: 'phase2', path: 'phase2.html', title: '2. Outplay (Challenge & Technical Mastery)', isPhase: true, module: 'outplay' }, // Shifted from old phase 1
+            { id: 'phase3', path: 'phase3.html', title: '3. Outlast (Longevity & Endurance)', isPhase: true, module: 'outlast' }, // Shifted from old phase 3
+            { id: 'final-audit', path: 'final-audit.html', title: '4. Final Audit & Checklist', isPhase: true, module: 'audit' }
+        ];
+
+        // Global DOM elements
+        const body = document.body;
+        const contentArea = document.getElementById('content-area');
+        const navBar = document.getElementById('navigation-bar').querySelector('ul');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const completionCheckbox = document.getElementById('phase-complete-checkbox');
+        
+        let currentPageId = 'index'; // Tracks the current active page
+
+        // --- LOCAL STORAGE & PROGRESS MANAGEMENT ---
+
+        /**
+         * Loads the current progress map from localStorage.
+         * @returns {Object} Map of phase IDs and their completion status (boolean).
+         */
+        function getProgress() {
+            try {
+                const progressJson = localStorage.getItem('survivorPrepProgress');
+                return progressJson ? JSON.parse(progressJson) : {};
+            } catch (e) {
+                console.error("Error loading progress:", e);
+                return {};
+            }
+        }
+
+        /**
+         * Saves the current progress map to localStorage.
+         * @param {Object} progress - The progress map.
+         */
+        function saveProgress(progress) {
+            try {
+                localStorage.setItem('survivorPrepProgress', JSON.stringify(progress));
+                renderNavigation(); // Rerender nav bar to show updates
+                updateControlButtons(); // Update Next/Prev button states
+            } catch (e) {
+                console.error("Error saving progress:", e);
+                showModal("Save Error", "Could not save progress to your browser storage.");
+            }
+        }
+
+        /**
+         * Marks the current phase as complete or incomplete.
+         */
+        function toggleCompletion() {
+            const isCompleted = completionCheckbox.checked;
+            const progress = getProgress();
+            
+            // Check if the current page ID has a corresponding button name in PAGES_CONTENT
+            const buttonMap = {
+                'page1-1': 'M1.1',
+                'page1-2': 'M1.2',
+                'page1-3': 'M1.3',
+                'page1-4': 'M1.4'
+            };
+            const customPhaseName = buttonMap[currentPageId] || PAGES.find(p => p.id === currentPageId).title;
+
+            if (PAGES.find(p => p.id === currentPageId)?.isPhase) {
+                progress[currentPageId] = isCompleted;
+                saveProgress(progress);
+                showModal("Progress Updated", \`Phase '\${customPhaseName}' is now marked \${isCompleted ? 'COMPLETE' : 'INCOMPLETE'}.\`);
+            } else if (isCompleted) {
+                 completionCheckbox.checked = false;
+            }
+        }
+
+        // --- NAVIGATION & ROUTING ---
+
+        /**
+         * Determines the next page in the sequence and navigates to it.
+         */
+        function goToNextPage() {
+            const currentIndex = PAGES.findIndex(p => p.id === currentPageId);
+            if (currentIndex < PAGES.length - 1) {
+                const nextPage = PAGES[currentIndex + 1];
+                window.location.hash = '#' + nextPage.id;
+            }
+        }
+
+        /**
+         * Determines the previous page in the sequence and navigates to it.
+         */
+        function goToPrevPage() {
+            const currentIndex = PAGES.findIndex(p => p.id === currentPageId);
+            if (currentIndex > 0) {
+                const prevPage = PAGES[currentIndex - 1];
+                window.location.hash = '#' + prevPage.id;
+            }
+        }
+
+        /**
+         * Updates the state of the Next/Previous buttons and the completion checkbox.
+         */
+        function updateControlButtons() {
+            const currentIndex = PAGES.findIndex(p => p.id === currentPageId);
+            const progress = getProgress();
+            
+            // --- Previous Button Logic ---
+            prevBtn.disabled = (currentIndex === 0);
+
+            // --- Next Button Logic ---
+            let isNextPhaseAvailable = true;
+            if (currentIndex < PAGES.length - 1) {
+                if (currentPageId !== 'index' && PAGES[currentIndex].isPhase && !progress[currentPageId]) {
+                    isNextPhaseAvailable = false;
+                }
+            } else {
+                isNextPhaseAvailable = false;
+            }
+            nextBtn.disabled = !isNextPhaseAvailable;
+
+            // --- Completion Checkbox Logic ---
+            const currentPage = PAGES[currentIndex];
+            completionCheckbox.disabled = !currentPage.isPhase; 
+            completionCheckbox.checked = progress[currentPageId] || false;
+            
+            completionCheckbox.onchange = toggleCompletion;
+        }
+
+        /**
+         * Renders the main navigation bar.
+         */
+        function renderNavigation() {
+            const progress = getProgress();
+            navBar.innerHTML = PAGES.map(page => {
+                const isCompleted = progress[page.id];
+                const isActive = page.id === currentPageId;
+
+                let classes = "p-2 mx-2 cursor-pointer transition duration-150 rounded-lg hover:bg-gray-200 ";
+                // Add hover style for dark mode pages if active
+                if (page.module === 'outwit' && !isActive) {
+                    classes += "text-gray-400 hover:text-white";
+                } else if (!isActive) {
+                    classes += "text-gray-500";
+                }
+
+                if (isActive) {
+                    classes += "page-link-active";
+                } else if (isCompleted) {
+                    classes += "page-link-completed hover:text-green-600";
+                }
+
+                const icon = isCompleted ? '✅ ' : (page.isPhase ? '🚧 ' : '➡️ ');
+
+                return \`<li class="\${classes}" onclick="loadPageById('\${page.id}')">\${icon}\${page.title}</li>\`;
+            }).join('');
+        }
+        
+        /**
+         * Toggles the aesthetic between light (default) and dark (Outwit module).
+         * @param {string} pageId - The ID of the page being loaded.
+         */
+        function applyAesthetic(pageId) {
+            const page = PAGES.find(p => p.id === pageId);
+            const isDarkMode = page && page.module === 'outwit';
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode-module');
+                contentArea.classList.add('main-content-dark');
+                contentArea.classList.remove('main-content-light');
+            } else {
+                body.classList.remove('dark-mode-module');
+                contentArea.classList.add('main-content-light');
+                contentArea.classList.remove('main-content-dark');
+            }
+            
+            // Fix for header/footer in dark mode for better contrast
+            const header = document.querySelector('header');
+            const footer = document.querySelector('footer');
+            if (isDarkMode) {
+                header.classList.add('bg-gray-800', 'text-white', 'shadow-2xl');
+                header.classList.remove('bg-white', 'text-gray-800', 'shadow-lg');
+                footer.classList.add('bg-gray-800', 'text-white', 'shadow-2xl');
+                footer.classList.remove('bg-gray-100', 'text-gray-800', 'shadow-md');
+                document.getElementById('navigation-bar').classList.add('bg-gray-800');
+                document.getElementById('navigation-bar').classList.remove('bg-gray-100');
+            } else {
+                header.classList.remove('bg-gray-800', 'text-white', 'shadow-2xl');
+                header.classList.add('bg-white', 'text-gray-800', 'shadow-lg');
+                footer.classList.remove('bg-gray-800', 'text-white', 'shadow-2xl');
+                footer.classList.add('bg-gray-100', 'text-gray-800', 'shadow-md');
+                 document.getElementById('navigation-bar').classList.remove('bg-gray-800');
+                 document.getElementById('navigation-bar').classList.add('bg-gray-100');
+            }
+        }
+
+        /**
+         * Loads and displays the content for a specific page ID.
+         * @param {string} pageId - The ID of the page to load (e.g., 'phase1').
+         */
+        function loadPageById(pageId) {
+            const page = PAGES.find(p => p.id === pageId);
+            if (!page) {
+                showModal("Error", "Page not found.");
+                return;
+            }
+            
+            // Check for phase locking
+            const currentIndex = PAGES.findIndex(p => p.id === pageId);
+            
+            if (currentIndex > 0) { 
+                const requiredPrevPhaseId = PAGES[currentIndex - 1].id;
+                const progress = getProgress();
+                
+                // If the previous page is a phase and is not complete, lock the current page.
+                if (PAGES[currentIndex - 1].isPhase && !progress[requiredPrevPhaseId]) {
+                    showModal("Phase Locked", \`You must complete '\${PAGES[currentIndex - 1].title}' before proceeding to this section.\`);
+                    window.location.hash = '#' + currentPageId; 
+                    return;
+                }
+            }
+
+            // Update global state and URL hash
+            currentPageId = pageId;
+            if (window.location.hash !== '#' + pageId) {
+                window.location.hash = '#' + pageId;
+            }
+
+            // Apply aesthetic (Dark Mode for Outwit, Light Mode for others)
+            applyAesthetic(pageId);
+
+            // Update content and controls
+            contentArea.innerHTML = PAGES_CONTENT[pageId] || \`<h2 class="text-2xl font-bold text-red-500">Content Missing!</h2>\`;
+            document.title = \`\${page.title} | Survivor Quebec Prep\`;
+
+            renderNavigation();
+            updateControlButtons();
+        }
+
+        /**
+         * Handles URL hash changes to load the correct content.
+         */
+        function handleHashChange() {
+            const hash = window.location.hash.slice(1);
+            const targetPageId = hash || 'index';
+            loadPageById(targetPageId);
+        }
+
+        // --- UTILITIES ---
+
+        /**
+         * Shows a custom modal/alert message.
+         * @param {string} title - The title of the modal.
+         * @param {string} message - The message content.
+         */
+        function showModal(title, message) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('app-modal').classList.remove('hidden');
+            document.getElementById('app-modal').classList.add('flex');
+        }
+
+        /**
+         * Closes the custom modal.
+         */
+        function closeModal() {
+            document.getElementById('app-modal').classList.add('hidden');
+            document.getElementById('app-modal').classList.remove('flex');
+        }
+
+
+        // --- PAGE CONTENT DEFINITIONS ---
+
+        // Note: The old phase1 (Outplay) is now phase2, and old phase3 (Outlast) is now phase3.
+        const PAGES_CONTENT = {
+            'index': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 pb-2 mb-4">Welcome, Future Contestant!</h2>
+                    <p class="text-lg text-gray-700">This guide is designed to systematically prepare you for the challenges of Survivor Québec. It is broken down into sequential phases, following the legendary mantra. Start with the <strong>Outwit</strong> module below to build your strategic foundation.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mt-6">
+                        <div class="p-4 bg-green-100 border-b-4 border-green-500 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-green-700">1. Outwit (New)</h3>
+                            <p class="text-sm text-gray-600">Social Engineering, Alliance Management, and Strategic Voting.</p>
+                        </div>
+                        <div class="p-4 bg-orange-100 border-b-4 border-orange-500 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-orange-700">2. Outplay (Shifted)</h3>
+                            <p class="text-sm text-gray-600">Physical Fitness, Challenge Strategy, and Camp Skills.</p>
+                        </div>
+                        <div class="p-4 bg-blue-100 border-b-4 border-blue-500 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold text-blue-700">3. Outlast (Shifted)</h3>
+                            <p class="text-sm text-gray-600">Longevity, Mental Fortitude, and Pain Management over 42 days.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-inner mt-6">
+                        <h3 class="font-semibold text-blue-700">How to Use This Guide</h3>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-blue-600">
+                            <li>Read the content in the main area.</li>
+                            <li>Complete the corresponding training/study in real life.</li>
+                            <li>Check the <strong>"Mark Current Phase as Complete"</strong> box below.</li>
+                            <li>The <strong>Next Phase</strong> button will then unlock.</li>
+                        </ul>
+                    </div>
+                </div>
+            \`,
+
+            // --- MODULE 1: OUTWIT (DARK MODE PAGES) ---
+
+            'page1-1': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-orange-400 border-b-2 border-gray-600 pb-2 mb-4">THE RAPPORT WEAPON: FORGE BONDS, FIND POWER</h2>
+                    <p class="text-lg text-gray-400">The foundation of winning isn't finding an Idol; it's finding an alliance that trusts you more than they trust themselves. This trust is built on authentic, personal connection. Mastery of this skill is how winners like Kim Spradlin and Parvati Shallow controlled entire seasons. \
+                    <span class="text-xs text-gray-500 italic">[Source 1: General Strategy Analysis]</span></p>
+
+                    <div class="two-col-layout">
+                        <!-- COLUMN 1 (Strategy) -->
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-400">1.1.1. The One-on-One Domination: The Kim & Parvati Playbook</h3>
+                            <p class="text-gray-400 mt-2">Stop thinking about the Final Six. Start thinking about the six individual relationships you need to win. Domination starts by making everyone feel like they have a unique, personal bond with you, not just a transactional alliance.</p>
+                        </div>
+                        <!-- COLUMN 2 (Case Study/Sidebar) -->
+                        <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                            <h4 class="font-bold text-lg text-red-400">QC Focus: Case Study</h4>
+                            <p class="text-sm text-gray-400">Review how Kim Spradlin and Parvati Shallow mastered the art of relating to every individual player, which gave them seamless, easy control of the game.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Tactical Cues Box (Full Width) -->
+                    <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-blue-500 shadow-xl">
+                        <h3 class="text-xl font-bold text-blue-400">1.1.2. Silent Signals: Mastering the Language of Trust</h3>
+                        <p class="text-gray-400 mt-2">Your body speaks louder than your lies. Research proves that up to 93% of communication is non-verbal.</p>
+                        <ul class="list-disc list-inside ml-4 mt-3 space-y-2 text-gray-300">
+                            <li><strong>Open Posture:</strong> Always keep your arms uncrossed to avoid erecting physical or mental barriers. <span class="text-xs italic text-gray-500">[Source 3: Non-Verbal Cues]</span></li>
+                            <li><strong>Level the Field:</strong> Avoid sitting or standing higher than your ally; maintaining the same physical level eliminates indicators of dominance.</li>
+                            <li><strong>Constant Validation:</strong> Use frequent, subtle nodding and genuine smiles to signal active listening. People remember how you made you feel, not what you said.</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-green-400 mt-6">1.1.3. The Tactical Tear: Using Honesty to Harvest Information</h3>
+                    <p class="text-gray-400">Deploying vulnerability is a strategic lever.</p>
+                    
+                    <!-- Three-step flow visualization -->
+                    <div class="flex flex-col md:flex-row justify-between text-center mt-4 space-y-4 md:space-y-0 md:space-x-4">
+                        <div class="p-4 bg-gray-800 rounded-lg border border-gray-600 flex-1">
+                            <p class="font-bold text-lg text-orange-400">STEP 1: Share a Struggle</p>
+                            <p class="text-sm text-gray-400">Share a genuine vulnerability about your life or background.</p>
+                        </div>
+                        <span class="text-xl font-bold text-gray-500 hidden md:block">&rarr;</span>
+                        <div class="p-4 bg-gray-800 rounded-lg border border-gray-600 flex-1">
+                            <p class="font-bold text-lg text-orange-400">STEP 2: Build Safety</p>
+                            <p class="text-sm text-gray-400">This creates a powerful bond, making allies feel safe and seen.</p>
+                        </div>
+                        <span class="text-xl font-bold text-gray-500 hidden md:block">&rarr;</span>
+                        <div class="p-4 bg-gray-800 rounded-lg border border-gray-600 flex-1">
+                            <p class="font-bold text-lg text-orange-400">STEP 3: Harvest Data</p>
+                            <p class="text-sm text-gray-400">The ally reciprocates by sharing their strategic fears and alliances, giving you crucial intelligence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Footnotes/Sources -->
+                    <div id="sources" class="text-sm text-gray-500 mt-8 pt-4 border-t border-gray-700">
+                        <p class="font-semibold text-gray-500">Sources & Footnotes:</p>
+                        <p>1. [General Strategy Analysis] | 3. [Non-Verbal Cues] | 4. [FTC Speeches]</p>
+                    </div>
+                </div>
+            \`,
+
+            'page1-2': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-orange-400 border-b-2 border-gray-600 pb-2 mb-4">VFB: THE NUMBERS GAME: THE 80% RULE FOR STRATEGIC SUCCESS</h2>
+                    <p class="text-lg text-gray-400">Forget the highlight reel. The single most important statistical factor for a winner is <strong>Votes For Boot (VFB):</strong> how often you voted correctly. This is empirical proof of your influence and inclusion. \
+                    <span class="text-xs text-gray-500 italic">[Source 1: Statistical Analysis]</span></p>
+
+                    <div class="two-col-layout">
+                        <!-- COLUMN 1 (Strategy) -->
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-400">1.2.1. The 80% Rule: Why Voting Correctly is the Only Stat That Matters</h3>
+                            <div class="bg-gray-800 p-6 rounded-xl border border-red-500 text-center mt-3">
+                                <p class="text-5xl font-extrabold text-red-500">80% +</p>
+                                <p class="text-xl text-gray-300 font-bold mt-1">VFB Hit Rate Target</p>
+                            </div>
+                            <p class="text-gray-400 mt-4">You are aiming for an 80%+ VFB Hit Rate. If you consistently fail to vote with the majority, you are cluelessly outside the majority and will be eliminated. VFB is the data that proves you were in the know—the surest sign of a healthy social and strategic game.</p>
+                        </div>
+                        <!-- COLUMN 2 (Sidebar/Archetypes) -->
+                        <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                            <h4 class="font-bold text-lg text-blue-400">1.2.2. Follower or Kingpin? Earning Your V-Rating</h4>
+                            <p class="text-sm text-gray-400 mb-2">The jury judges your VFB not just on accuracy, but on influence. The goal is to be the <strong>Kingpin</strong>.</p>
+                            <table class="min-w-full divide-y divide-gray-700 border border-gray-700 text-sm">
+                                <thead class="bg-gray-700">
+                                    <tr>
+                                        <th class="px-2 py-1 text-left text-xs font-medium text-white uppercase tracking-wider">Archetype</th>
+                                        <th class="px-2 py-1 text-left text-xs font-medium text-white uppercase tracking-wider">VFB Method</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-gray-900 divide-y divide-gray-700">
+                                    <tr>
+                                        <td class="px-2 py-2 whitespace-nowrap text-green-400 font-bold">Kingpin</td>
+                                        <td class="px-2 py-2 whitespace-nowrap text-gray-300">Sets the target; dictates the outcome. (Kim Spradlin Model)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-2 py-2 whitespace-nowrap text-red-400 font-bold">Follower</td>
+                                        <td class="px-2 py-2 whitespace-nowrap text-gray-300">Simply told who to vote for; cannot claim ownership.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Operational Directive Box (Full Width) -->
+                    <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-yellow-500 shadow-xl">
+                        <h3 class="text-xl font-bold text-yellow-400">1.2.3. The Ghost Strategy: Be in the Know, Not on the Screen</h3>
+                        <p class="text-gray-400 mt-2">During the chaotic pre-merge, your goal is strategic <strong>invisibility</strong>. Your VFB must be high, proving you have influence, but your name should not be constantly whispered as the primary mastermind. You must be retained as a necessary asset whose vote is reliable, not as the strategic leader who needs to be clipped. <span class="text-xs italic text-gray-500">[Source 5: Strategic Invisibility]</span></p>
+                    </div>
+
+
+                    <!-- Footnotes/Sources -->
+                    <div id="sources" class="text-sm text-gray-500 mt-8 pt-4 border-t border-gray-700">
+                        <p class="font-semibold text-gray-500">Sources & Footnotes:</p>
+                        <p>1. [Statistical Analysis] | 4. [FTC Speeches] | 5. [Strategic Invisibility] | 6. [Asset Retention]</p>
+                    </div>
+                </div>
+            \`,
+            
+            'page1-3': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-orange-400 border-b-2 border-gray-600 pb-2 mb-4">ADVANTAGE WARFARE: HOW TO HUNT, FLUSH, AND DEFEND</h2>
+                    <p class="text-lg text-gray-400">Idols, Nullifiers, and Twists are the game's new currency. Mastery means treating every vote like a high-stakes auction where you anticipate every counter-bid.</p>
+
+                    <h3 class="text-2xl font-semibold text-green-400">1.3.1. The Original Power Move: The Safe Vote Execution (Idol Flush)</h3>
+                    <p class="text-gray-400">Master the defensive tactic of the Safe Vote. This simple maneuver is a strategic staple.</p>
+                    
+                    <!-- Vertical Flow Chart -->
+                    <div class="space-y-4 bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <div class="p-3 bg-gray-700 rounded-md text-yellow-300 font-bold">STEP 1: Majority splits votes (e.g., Target A and Target B).</div>
+                        <div class="text-center text-gray-500 font-bold">&darr;</div>
+                        <div class="p-3 bg-gray-700 rounded-md text-yellow-300 font-bold">STEP 2: Target A plays their Idol.</div>
+                        <div class="text-center text-gray-500 font-bold">&darr;</div>
+                        <div class="p-3 bg-gray-700 rounded-md text-yellow-300 font-bold">STEP 3: All votes on Target A are negated.</div>
+                        <div class="text-center text-gray-500 font-bold">&darr;</div>
+                        <div class="p-3 bg-gray-700 rounded-md text-red-400 font-bold">STEP 4: On the revote, the majority unites on Target B (Idol burned, opposition eliminated).</div>
+                    </div>
+
+                    <div class="two-col-layout">
+                        <!-- COLUMN 1 (Manipulator's Checklist) -->
+                        <div>
+                            <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-red-500 shadow-xl">
+                                <h4 class="font-bold text-lg text-red-400">1.3.2. The Double-Cross: Manipulator's Checklist</h4>
+                                <ol class="list-decimal list-inside ml-4 mt-2 space-y-1 text-gray-300">
+                                    <li>Select Target.</li>
+                                    <li>False Safety: Convince them they are the imminent target, but make them feel "as safe as possible" to ensure they play the Idol unnecessarily. <span class="text-xs italic text-gray-500">[Source 7: Idol Flush Tactics]</span></li>
+                                </ol>
+                                <p class="text-sm text-gray-400 mt-2">Successfully voting them out with the idol in their pocket (or making them waste it) is an instant FTC Resume Item.</p>
+                            </div>
+                        </div>
+                        <!-- COLUMN 2 (Sidebar/Strategic Callout) -->
+                        <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                            <h4 class="font-bold text-lg text-blue-400">Strategic Callout: Surgical Strike</h4>
+                            <p class="text-sm text-gray-400">The best strategic moves solve multiple problems. Every blindside must achieve at least three strategic objectives (e.g., eliminate a threat, flush an Idol, secure a loyal number).</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-green-400 mt-6">1.3.3. The Chess Match: Countering the Counter-Split</h3>
+                    <p class="text-gray-400">When the minority uses an Idol and splits their own votes, the defense requires two levels of thought. The majority must split their votes on two different secondary targets (A and B). This pre-emptive maneuver ensures that even if two Idols are played, the majority dictates who goes home on the revote. <span class="text-xs italic text-gray-500">[Source 9: Advanced Splits]</span></p>
+
+                    <!-- Footnotes/Sources -->
+                    <div id="sources" class="text-sm text-gray-500 mt-8 pt-4 border-t border-gray-700">
+                        <p class="font-semibold text-gray-500">Sources & Footnotes:</p>
+                        <p>1. [Idol Hunt] | 7. [Idol Flush Tactics] | 8. [FTC Resume] | 9. [Advanced Splits]</p>
+                    </div>
+                </div>
+            \`,
+
+            'page1-4': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-orange-400 border-b-2 border-gray-600 pb-2 mb-4">CHAOS THEORY: SURVIVING THE QUÉBEC QUAKE</h2>
+                    <p class="text-lg text-gray-400">The Survivor Québec production model is designed for structural instability. Your alliances are temporary; your adaptability must be <strong>permanent</strong>. Rigid loyalty is a high-risk liability. <span class="text-xs text-gray-500 italic">[Source 10: Production Analysis]</span></p>
+
+                    <div class="two-col-layout">
+                        <!-- COLUMN 1 (Twist Inventory) -->
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-400">1.4.1. Twist Inventory: What Survivor Québec Will Throw at You</h3>
+                            <p class="text-gray-400 mt-2">Prepare for game mechanics engineered to shatter long-term planning:</p>
+                            <ul class="list-disc list-inside ml-4 mt-2 space-y-1 text-gray-300">
+                                <li>Tribe Vote Steals</li>
+                                <li>Forced Duos (picking rocks before challenges). <span class="text-xs italic text-gray-500">[Source 11: Past Twists]</span></li>
+                            </ul>
+                            <p class="text-gray-400 mt-4">This high velocity of chaos demands that you constantly be ready to shift strategy.</p>
+                        </div>
+                        <!-- COLUMN 2 (Sidebar/Strategic Principle) -->
+                        <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-yellow-500">
+                            <h4 class="font-bold text-lg text-yellow-400">Strategic Principle: Rent-a-Vote</h4>
+                            <p class="text-sm text-gray-400">When the game is unstable, the only constant is self-preservation. Be a <strong>Rent-a-Vote</strong> ally: prioritize immediate utility and be ready to break alliances the moment they pass their strategic expiration date to ensure your survival.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Quote Box (Full Width) -->
+                    <div class="bg-gray-800 p-4 rounded-lg border-l-4 border-red-500 shadow-xl">
+                        <h3 class="text-xl font-bold text-red-400">1.4.3. The Queen's Rule: "Anyone, As Long As It Ain't Me"</h3>
+                        <p class="text-gray-400 mt-2">Internalize the two-time winner's ethos: <strong>"Anyone, as long as it ain't me"</strong>. This provides the necessary defensive ruthlessness, legitimizing aligning with the opposition if it guarantees your safety and ensures you are never the person who becomes expendable.</p>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold text-green-400 mt-6">1.4.4. The Huddle Test: Winning the Last-Minute Whisper War</h3>
+                    <p class="text-gray-400">Tribal Council is now a dynamic negotiation. You must be prepared for "Tribal chaos," where players stand up, huddle, whisper, and renegotiate alliances right before the vote. This is the final exam for your social game—you must have the trust and information access to successfully navigate these fluid, high-pressure, last-minute votes.</p>
+
+                    <!-- Footnotes/Sources -->
+                    <div id="sources" class="text-sm text-gray-500 mt-8 pt-4 border-t border-gray-700">
+                        <p class="font-semibold text-gray-500">Sources & Footnotes:</p>
+                        <p>10. [Production Analysis] | 11. [Past Twists]</p>
+                    </div>
+                </div>
+            \`,
+
+            // --- MODULE 2: OUTPLAY (SHIFTED AND RENAMED) ---
+
+            'phase2': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 pb-2 mb-4">2. Outplay (Challenge Proficiency & Technical Mastery)</h2>
+                    <p class="text-lg text-gray-700">This module focuses on developing the physical capacity and practical technical skills required to dominate Immunity and Reward challenges, while excelling at daily camp life.</p>
+
+                    <h3 class="text-2xl font-semibold text-gray-800">Physical Endurance & Functional Strength</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
+                        <li><strong>Grip Strength:</strong> Essential for endurance challenges (e.g., holding onto a pole). Daily farmers carries and pull-up drills.</li>
+                        <li><strong>Balance & Stability:</strong> Practice on uneven surfaces. Focus on core strength which translates directly to challenge success.</li>
+                        <li><strong>Swimming & Water Treading:</strong> Must be proficient, comfortable in open water, and capable of prolonged treading.</li>
+                    </ul>
+
+                    <!-- Expert Tip for this module -->
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+                        <h3 class="font-semibold text-yellow-700">Technical Tip</h3>
+                        <p class="text-yellow-600">Practice <strong>unraveling knots</strong> under stress. Many challenges rely on dexterity and problem-solving under physical duress.</p>
+                    </div>
+
+                    <!-- Example Placeholder for a Video - Fire Starting (Technical Mastery) -->
+                    <h4 class="font-bold text-xl mt-6 mb-3">Video: Primitive Fire-Starting Techniques (Essential Camp Skill)</h4>
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
+                        <iframe 
+                          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                          src="https://www.youtube.com/embed/9X54x2iXz5I" 
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- Placeholder for Footnotes/Sources -->
+                    <div id="sources" class="text-sm text-gray-500 mt-8 pt-4 border-t border-gray-300">
+                        <p class="font-semibold">Sources & Footnotes:</p>
+                        <p>1. <a href="#">Functional Fitness Routines for Multi-Stage Endurance Events</a></p>
+                    </div>
+                </div>
+            \`,
+            
+            // --- MODULE 3: OUTLAST (SHIFTED AND RENAMED) ---
+
+            'phase3': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 pb-2 mb-4">3. Outlast (Longevity & Endurance)</h2>
+                    <p class="text-lg text-gray-700">The ability to simply remain is the final hurdle. This phase is dedicated to psychological and physical hardening to overcome prolonged starvation, sleep deprivation, and relentless mental fatigue.</p>
+
+                    <h3 class="text-2xl font-semibold text-gray-800">Survival Psychology & Pain Management</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-2 text-gray-700">
+                        <li><strong>Fasting/Caloric Restriction:</strong> Practice extended fasting to understand how your body and mind react to extreme energy deficits.</li>
+                        <li><strong>Sleep Deprivation:</strong> Train yourself to function on minimal, interrupted sleep. Know your cognitive limits.</li>
+                        <li><strong>Emotional Shielding:</strong> Develop techniques (like meditation or cognitive reframing) to prevent small irritations from derailing your game.</li>
+                    </ul>
+
+                    <!-- Expert Tip for this module -->
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg">
+                        <h3 class="font-semibold text-blue-700">Longevity Strategy</h3>
+                        <p class="text-blue-600">The best move is often the simple one: <strong>conserve energy.</strong> Avoid needless camp chores or over-exertion unless it directly contributes to safety or perception management.</p>
+                    </div>
+
+                    <!-- Placeholder for Footnotes/Sources -->
+                    <div id="sources" class="text-sm text-gray-500 mt-8 pt-4 border-t border-gray-300">
+                        <p class="font-semibold">Sources & Footnotes:</p>
+                        <p>1. <a href="#">The Psychological Effects of Starvation</a></p>
+                    </div>
+                </div>
+            \`,
+
+            // --- MODULE 4: FINAL AUDIT (RENAMED) ---
+
+            'final-audit': \`
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-gray-800 border-b-2 pb-2 mb-4">4. Final Audit & Checklist</h2>
+                    <p class="text-lg text-gray-700">Congratulations on completing all the prep phases! This final section is a review to ensure you are truly ready for the plane ride out.</p>
+
+                    <h3 class="text-2xl font-semibold text-gray-800">Final Checklist</h3>
+                    <ul class="list-none space-y-3 p-4 bg-green-50 border-2 border-green-300 rounded-lg">
+                        <li class="flex items-center"><span class="text-green-500 mr-2 text-xl">✔️</span>Can you confidently start a fire in the rain? (Outplay)</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2 text-xl">✔️</span>Do you have three distinct social personas ready to deploy? (Outwit)</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2 text-xl">✔️</span>Can you explain the difference between a split vote and a blindside? (Outwit)</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2 text-xl">✔️</span>Can you maintain a positive outlook after three straight days of rain and no food? (Outlast)</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2 text-xl">✔️</span>Have you written your final Tribal Council speech? (Final Prep)</li>
+                    </ul>
+
+                    <div class="mt-8 text-center">
+                        <p class="text-xl font-bold text-orange-600">You are now ready to face the world of Survivor Québec!</p>
+                        <button onclick="clearProgress()" class="mt-4 px-6 py-3 bg-red-500 text-white font-bold rounded-lg shadow-lg transition hover:bg-red-600">
+                            Reset All Progress (Start Over)
+                        </button>
+                    </div>
+
+                    <!-- Placeholder for Footnotes/Sources -->
+                    <div id="sources" class="text-sm text-gray-500 mt-8 pt-4 border-t border-gray-300">
+                        <p class="font-semibold">Sources & Footnotes:</p>
+                        <p>1. Personal experience and deep analysis of reality TV editing.</p>
+                    </div>
+                </div>
+            \`,
+        };
+
+        // --- INITIALIZATION ---
+
+        /**
+         * Clears all progress from localStorage.
+         */
+        function clearProgress() {
+            showModal("Confirm Reset", "Are you sure you want to reset ALL progress? This cannot be undone. \n\n (Note: This custom modal replaces 'window.confirm').");
+            
+             localStorage.removeItem('survivorPrepProgress');
+             window.location.hash = '#index'; 
+        }
+
+        /**
+         * The main entry point for the application.
+         */
+        function init() {
+            handleHashChange();
+            window.addEventListener('hashchange', handleHashChange);
+            
+            window.clearProgress = clearProgress;
+            window.goToNextPage = goToNextPage;
+            window.goToPrevPage = goToPrevPage;
+            window.loadPageById = loadPageById;
+            window.closeModal = closeModal;
+            window.showModal = showModal;
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+
+    </script>
+</body>
+</html>
