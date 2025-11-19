@@ -1,92 +1,175 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Survivor Quebec Preparation Guide</title>
-<!-- Load Tailwind CSS -->
-<script src="https://www.google.com/search?q=https://cdn.tailwindcss.com"></script>
+<!-- Load Tailwind CSS - FIXED LINK -->
+<script src="https://www.google.com/url?sa=E&source=gmail&q=https://cdn.tailwindcss.com"></script>
 <!-- Use Inter font family (Tailwind default) -->
 <style>
-/* Base styles for the minimal, parchment theme /
+/* -------------------------------------- /
+/ --- GLOBAL & MINIMALIST BASE STYLES -- /
+/ -------------------------------------- /
 body {
 font-family: 'Inter', sans-serif;
-background-color: #f7f3e8; / Light Parchment background /
-color: #2c2c2c; / Dark text /
+background-color: #fce3a7; / Sandy Background /
+color: #2c2c2c; / Dark text */
 transition: background-color 0.3s ease;
+min-height: 100vh;
+position: relative;
+overflow-x: hidden;
 }
-/ Specific dark mode for the 'Outwit' module /
-.dark-mode-module {
-background-color: #1c1c1c !important; / Deep Stone/Wood /
-}
-/ Style for the main content area in dark mode /
-.dark-mode-module #content-area {
-background-color: #2c2c2c; / Slightly lighter inner background /
-color: #f0f0f0; / Light text /
-border-color: #4a4a4a;
-}
-/ Style for headers in dark mode /
-.dark-mode-module h1, .dark-mode-module h2 {
-color: #f7f3e8; / Parchment white for high contrast /
-}
-/ Style for all buttons /
-.primary-btn {
-background-color: #b45309; / Deep Amber/Earthy Orange /
-color: white;
-padding: 0.75rem 1.5rem;
-border-radius: 0.5rem;
-font-weight: 600;
-transition: background-color 0.2s;
-}
-.primary-btn:hover {
-background-color: #92400e;
-}
-/ Thematic button styles for the homepage /
-.thematic-btn {
-background-color: #f7f3e8;
-color: #2c2c2c;
-border: 2px solid #b45309;
-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-transition: all 0.3s ease;
-}
-.thematic-btn:hover {
-background-color: #b45309;
-color: white;
-transform: translateY(-2px);
-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-}
-/ Styling for the flow chart and diagram boxes /
-.flow-step {
-background-color: #fef3c7; / Light yellow background /
-border-left: 4px solid #b45309;
-padding: 1rem;
-border-radius: 0.5rem;
-margin-bottom: 0.75rem;
-}
-.tactical-box {
-background-color: #f7f3e8; / Same as body in light mode /
-border: 1px solid #b45309;
-border-radius: 0.5rem;
-padding: 1.5rem;
-}
-.dark-mode-module .tactical-box {
-background-color: #3f3f46; / Darker tone for contrast in dark mode /
-color: #f0f0f0;
-border-color: #b45309;
-}
-/ Ensure navigation links are readable /
-.nav-link.active {
-font-weight: 700;
-color: #b45309; / Active link color */
-border-bottom: 2px solid #b45309;
-}
+
+    /* Specific dark mode for the 'Outwit' module */
+    .dark-mode-module {
+        background-color: #1c1c1c !important;
+    }
+    /* Style for the main content area in dark mode */
+    .dark-mode-module #content-area {
+        background-color: #2c2c2c;
+        color: #f0f0f0;
+        border-color: #4a4a4a;
+    }
+    /* Style for headers in dark mode */
+    .dark-mode-module h1, .dark-mode-module h2 {
+        color: #f7f3e8;
+    }
+    /* Standard Buttons */
+    .primary-btn {
+        background-color: #b45309;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: background-color 0.2s;
+    }
+    .primary-btn:hover {
+        background-color: #92400e;
+    }
+    /* Navigation Links */
+    .nav-link.active {
+        font-weight: 700;
+        color: #b45309;
+        border-bottom: 2px solid #b45309;
+    }
+
+    /* -------------------------------------- */
+    /* --- HOME PAGE (SURVIVOR INTRO) CSS --- */
+    /* -------------------------------------- */
+
+    /* 1. Carved Title Effect */
+    .carved-title {
+        font-weight: 900;
+        text-shadow: 
+            3px 3px 0 #8b4513, /* Dark Wood Base */
+            6px 6px 0 #5c300f, /* Deeper Engraving */
+            9px 9px 0 #3c2009, /* Deepest Shadow */
+            12px 12px 10px rgba(0, 0, 0, 0.5); /* Cast Shadow */
+        color: #e0ac69; /* Light Wood Grain Color */
+    }
+
+    /* 2. Carved Button Look */
+    .carved-btn {
+        background-color: #a0522d; /* Sienna/Wood Color */
+        color: #f7f3e8; /* Parchment Text */
+        border: 4px solid #6c3f25; /* Darker Wood Border */
+        font-weight: 700;
+        text-shadow: 2px 2px 0 #6c3f25; /* Engraved Text */
+        box-shadow: 
+            0 6px 0 #6c3f25, /* Bottom Bevel */
+            0 8px 15px rgba(0, 0, 0, 0.4); /* Lifted Shadow */
+        transition: all 0.2s ease-in-out;
+    }
+
+    /* 3. Button Hover Effects */
+    .carved-btn:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 
+            0 10px 0 #6c3f25, 
+            0 15px 25px rgba(255, 165, 0, 0.5); /* Orange/Torch Glow */
+    }
+
+    /* 4. Ambient Torch Flicker Keyframes */
+    @keyframes torch-flicker {
+        0%, 100% { box-shadow: 0 0 10px #ff9900, 0 0 15px #ff6600, 0 0 20px rgba(255, 102, 0, 0.7); opacity: 0.8; }
+        50% { box-shadow: 0 0 8px #ff9900, 0 0 12px #ff6600, 0 0 18px rgba(255, 102, 0, 0.9); opacity: 1; }
+    }
+
+    /* 5. Ambient Shadow Sway Keyframes */
+    @keyframes shadow-sway {
+        0% { transform: rotate(0.5deg) translate(2px, 2px); }
+        50% { transform: rotate(-0.5deg) translate(-2px, -2px); }
+        100% { transform: rotate(0.5deg) translate(2px, 2px); }
+    }
+
+    /* Torch Glow Overlay (placed in corners for index page only) */
+    #torch-glow-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .torch-flicker {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        opacity: 0.8;
+        filter: blur(25px);
+        animation: torch-flicker 2s infinite alternate;
+    }
+
+    .torch-flicker.top-left {
+        top: 10%;
+        left: 5%;
+        background: radial-gradient(circle, #ffd700 0%, transparent 70%);
+    }
+
+    .torch-flicker.bottom-right {
+        bottom: 10%;
+        right: 5%;
+        background: radial-gradient(circle, #ff6600 0%, transparent 70%);
+        animation-delay: 0.5s;
+    }
+    
+    /* Palm Shadow Overlay (simplified for minimalism) */
+    #palm-shadow-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.1;
+        z-index: 0;
+        background: 
+            radial-gradient(circle at 10% 10%, rgba(0,0,0,0.5) 1%, transparent 30%),
+            radial-gradient(circle at 90% 90%, rgba(0,0,0,0.5) 1%, transparent 30%);
+        background-size: 50% 50%;
+        animation: shadow-sway 10s infinite alternate ease-in-out;
+    }
 </style>
+
+
 </head>
 <body class="min-h-screen">
 
+<!-- Ambient Overlays (Torch and Shadow) -->
+<!-- These are only visible/active on the index page via JS check -->
+<div id="palm-shadow-overlay" class="hidden"></div>
+<div id="torch-glow-overlay" class="hidden">
+    <div class="torch-flicker top-left"></div>
+    <div class="torch-flicker bottom-right"></div>
+</div>
+
+
 <!-- Header / Navigation Bar -->
-<header class="bg-amber-900 shadow-xl sticky top-0 z-10">
+<header class="bg-amber-900 shadow-xl sticky top-0 z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
             <!-- Logo/Title -->
@@ -110,7 +193,7 @@ border-bottom: 2px solid #b45309;
         </div>
     </div>
     <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-amber-800 absolute w-full shadow-lg">
+    <div id="mobile-menu" class="hidden md:hidden bg-amber-800 absolute w-full shadow-lg z-30">
         <nav class="pt-2 pb-3 space-y-1 sm:px-3" id="mobile-nav-links">
             <!-- Links populated by JS -->
         </nav>
@@ -118,14 +201,15 @@ border-bottom: 2px solid #b45309;
 </header>
 
 <!-- Main Content Area -->
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- The padding and background are slightly adjusted on the index page via JS for full theme immersion -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
     <div id="content-area" class="bg-stone-50 p-6 sm:p-10 lg:p-12 shadow-lg rounded-xl border border-stone-200 min-h-[70vh]">
         <!-- Content is injected here by JavaScript -->
     </div>
 </main>
 
 <!-- Footer for Navigation Controls -->
-<footer class="bg-stone-100 border-t border-stone-200 mt-10">
+<footer class="bg-stone-100 border-t border-stone-200 mt-10 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <button id="prev-btn" class="primary-btn flex items-center space-x-2 disabled:opacity-50" disabled>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
@@ -165,34 +249,31 @@ border-bottom: 2px solid #b45309;
     ];
 
     const PAGES_CONTENT = {
-        // --- INDEX (Home Page - Launchpad) ---
+        // --- INDEX (Home Page - Launchpad / Survivor Intro) ---
         'index': `
-            <div class="text-center py-8">
-                <h1 class="text-6xl sm:text-7xl font-extrabold text-amber-800 mb-6 tracking-tight">THE SURVIVOR CODE</h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Welcome to your operational guide for success on Survivor Québec. Select a strategic pillar to begin your training.</p>
-            </div>
+            <div class="text-center py-20 min-h-[60vh] flex flex-col justify-center items-center">
+                <h1 class="carved-title text-7xl sm:text-8xl md:text-9xl mb-16 tracking-tight font-extrabold select-none">
+                    SURVIVOR
+                </h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+                    <!-- Outwit Button -->
+                    <a href="#page1-1" class="carved-btn flex flex-col items-center p-6 sm:p-8 rounded-xl min-h-[150px] justify-center text-center text-3xl sm:text-4xl">
+                        MODULE I: OUTWIT
+                    </a>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <!-- Outwit Button -->
-                <a href="#page1-1" class="thematic-btn flex flex-col items-center p-8 rounded-xl min-h-[250px] justify-center text-center">
-                    <span class="text-6xl mb-4" role="img" aria-label="Chess Piece">♟️</span>
-                    <h2 class="text-3xl font-bold mb-2">MODULE I: OUTWIT</h2>
-                    <p class="text-sm text-gray-600">The Social Assassination & Strategic Blueprint</p>
-                </a>
+                    <!-- Outplay Button -->
+                    <a href="#phase2-intro" class="carved-btn flex flex-col items-center p-6 sm:p-8 rounded-xl min-h-[150px] justify-center text-center text-3xl sm:text-4xl">
+                        MODULE II: OUTPLAY
+                    </a>
 
-                <!-- Outplay Button -->
-                <a href="#phase2-intro" class="thematic-btn flex flex-col items-center p-8 rounded-xl min-h-[250px] justify-center text-center">
-                    <span class="text-6xl mb-4" role="img" aria-label="Trophy">🏆</span>
-                    <h2 class="text-3xl font-bold mb-2">MODULE II: OUTPLAY</h2>
-                    <p class="text-sm text-gray-600">Challenge Proficiency & Technical Mastery</p>
-                </a>
-
-                <!-- Outlast Button -->
-                <a href="#phase3-intro" class="thematic-btn flex flex-col items-center p-8 rounded-xl min-h-[250px] justify-center text-center">
-                    <span class="text-6xl mb-4" role="img" aria-label="Mountain">⛰️</span>
-                    <h2 class="text-3xl font-bold mb-2">MODULE III: OUTLAST</h2>
-                    <p class="text-sm text-gray-600">Longevity, Endurance & Psychological Hardening</p>
-                </a>
+                    <!-- Outlast Button -->
+                    <a href="#phase3-intro" class="carved-btn flex flex-col items-center p-6 sm:p-8 rounded-xl min-h-[150px] justify-center text-center text-3xl sm:text-4xl">
+                        MODULE III: OUTLAST
+                    </a>
+                </div>
+                <p class="text-lg text-gray-700 mt-16 max-w-3xl">
+                    The ultimate guide to mastering the social, physical, and psychological elements of the game.
+                </p>
             </div>
         `,
         // --- MODULE 1: OUTWIT (Dark Mode Aesthetic) ---
@@ -607,6 +688,9 @@ border-bottom: 2px solid #b45309;
     const mobileNav = document.getElementById('mobile-nav-links');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    const palmShadowOverlay = document.getElementById('palm-shadow-overlay');
+    const torchGlowOverlay = document.getElementById('torch-glow-overlay');
+    const mainElement = document.querySelector('main');
 
     // Toggle mobile menu visibility
     mobileMenuButton.addEventListener('click', () => {
@@ -619,11 +703,33 @@ border-bottom: 2px solid #b45309;
     // Function to apply aesthetic changes based on the current module
     const applyAesthetic = (pageId) => {
         const isOutwitModule = pageId.startsWith('page1-');
+        const isIndexPage = pageId === 'index';
+
+        // 1. Dark Mode Toggle (for Outwit)
         if (isOutwitModule) {
             document.body.classList.add('dark-mode-module');
         } else {
             document.body.classList.remove('dark-mode-module');
         }
+
+        // 2. Index Page Theme (Sand and Overlays)
+        if (isIndexPage) {
+            // Ensure main content area is transparent to show body background
+            contentArea.classList.remove('bg-stone-50', 'p-6', 'sm:p-10', 'lg:p-12', 'shadow-lg', 'rounded-xl', 'border', 'border-stone-200');
+            
+            // Show ambient overlays
+            palmShadowOverlay.classList.remove('hidden');
+            torchGlowOverlay.classList.remove('hidden');
+            
+        } else {
+            // Re-apply standard content area styling for reading modules
+            contentArea.classList.add('bg-stone-50', 'p-6', 'sm:p-10', 'lg:p-12', 'shadow-lg', 'rounded-xl', 'border', 'border-stone-200');
+
+            // Hide ambient overlays
+            palmShadowOverlay.classList.add('hidden');
+            torchGlowOverlay.classList.add('hidden');
+        }
+        
         // Close mobile menu on page load
         mobileMenu.classList.add('hidden');
     };
@@ -637,7 +743,7 @@ border-bottom: 2px solid #b45309;
             pageId = PAGES[0].id;
         }
 
-        // Apply module-specific aesthetic (dark mode for Outwit)
+        // Apply module-specific aesthetic (dark mode, index theme, etc.)
         applyAesthetic(pageId);
 
         // Inject content
