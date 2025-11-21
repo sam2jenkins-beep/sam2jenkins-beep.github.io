@@ -1,1 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survivor Preparation Handbook</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-pink': '#FF69B4',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        'super-wide': '0.2em',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 20s linear infinite',
+                        'spin-reverse': 'spin 15s linear infinite reverse',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* Reset and Base */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            color: white;
+            overflow: hidden; /* Prevent body scroll, handle in container */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Main Scroll Container */
+        #main-view {
+            height: 100%;
+            width: 100%;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Common Styles */
+        section {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 3rem;
+            }
+        }
+
+        /* Topic View Overlay */
+        #topic-view {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 50;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Scrollbar Hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.5s ease-out forwards;
+        }
+
+        /* Utilities */
+        .text-shadow-neon {
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+        
+        .selection-pink::selection {
+            background-color: #FF69B4;
+            color: black;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
+<body class="selection-pink">
+
+    <!-- MAIN SCROLL VIEW -->
+    <div id="main-view">
+        
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="bg-black">
+            <div class="z-10 flex flex-col items-center text-center space-y-8 max-w-4xl">
+                <h1 class="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.9]">
+                    Preparation <span class="text-neon-pink block md:inline">Handbook</span>
+                </h1>
+                
+                <div class="w-full h-px bg-gradient-to-r from-transparent via-neon-pink to-transparent opacity-50 my-4"></div>
+                
+                <div class="relative group mt-8 cursor-pointer">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white bg-black overflow-hidden">
+                        <!-- Using local file path as requested, with placeholder fallback -->
+                        <img 
+                            src="katesurvivor.jpeg" 
+                            onerror="this.src='https://placehold.co/800x800/000000/FF69B4?text=Player+Photo'"
+                            alt="Main Player" 
+                            class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                        >
+                    </div>
+                </div>
+                
+                <div class="absolute bottom-10 animate-bounce">
+                    <span class="text-neon-pink text-sm tracking-widest uppercase">Scroll to Begin</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. TIMELINE SECTION -->
+        <section id="timeline" class="bg-zinc-950 border-t border-zinc-900">
+            <div class="flex flex-col w-full h-full justify-center">
+                <h2 class="text-4xl font-bold text-white mb-12 uppercase tracking-wider px-4 md:px-0 border-l-4 border-neon-pink pl-4 ml-4 md:ml-0">
+                    The <span class="text-neon-pink">Journey</span>
+                </h2>
+                
+                <div id="timeline-container" class="w-full flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-12 items-center cursor-grab active:cursor-grabbing">
+                    <div class="flex space-x-12 px-[10vw] md:px-[25vw]" id="timeline-content">
+                        <!-- Timeline items injected by JS -->
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8 opacity-50 text-sm">
+                    <span class="md:hidden">Swipe Left</span>
+                    <span class="hidden md:inline">Scroll Horizontally</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CONTENT HUBS -->
+        <section id="content-hubs" class="bg-black">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-6xl h-full md:h-[70vh]">
+                <!-- Card 1 -->
+                <button onclick="openTopic('pregame')" class="relative group block w-full h-full border border-zinc-800 hover:border-neon-pink transition-colors duration-500 overflow-hidden bg-zinc-950 text-left focus:outline-none">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    
+                    <div class="relative h-full flex flex-col justify-end p-8 md:p-12 group-hover:translate-y-[-10px] transition-transform duration-500">
+                        <h3 class="text-4xl md:text-6xl font-black uppercase leading-tight text-white group-hover:text-neon-pink transition-colors">
+                            Pregame <br/> Guidelines
+                        </h3>
+                        <div class="h-1 w-12 bg-neon-pink mt-6 group-hover:w-full transition-all duration-700"></div>
+                        <p class="mt-4 text-zinc-400 text-sm tracking-widest uppercase group-hover:text-white">
+                            Historical Analysis & Strategy
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Card 2 -->
+                <button onclick="openTopic('meta')" class="relative group block w-full h-full border border-zinc-800 hover:border-neon-pink transition-colors duration-500 overflow-hidden bg-zinc-950 text-left focus:outline-none">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    
+                    <div class="relative h-full flex flex-col justify-end p-8 md:p-12 group-hover:translate-y-[-10px] transition-transform duration-500">
+                        <h3 class="text-4xl md:text-6xl font-black uppercase leading-tight text-white group-hover:text-neon-pink transition-colors">
+                            META <br/> GAME
+                        </h3>
+                        <div class="h-1 w-12 bg-neon-pink mt-6 group-hover:w-full transition-all duration-700"></div>
+                        <p class="mt-4 text-zinc-400 text-sm tracking-widest uppercase group-hover:text-white">
+                            Social Dynamics & Psychology
+                        </p>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- 4. CORE TRIANGLE -->
+        <section id="core-triangle" class="bg-zinc-950">
+            <div class="relative w-full max-w-5xl h-full flex flex-col justify-center">
+                <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+                    <svg viewBox="0 0 100 100" class="w-full h-full max-w-[80vh] max-h-[80vh] fill-none stroke-white stroke-1">
+                        <polygon points="50,100 0,0 100,0" />
+                    </svg>
+                </div>
+
+                <!-- Top Row -->
+                <div class="flex flex-col md:flex-row justify-between items-center w-full flex-1 md:items-start pt-12 md:px-12 z-10">
+                    <button onclick="openTopic('outwit')" class="group cursor-pointer mb-12 md:mb-0 text-center md:text-left focus:outline-none">
+                        <h2 class="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500 group-hover:from-neon-pink group-hover:to-pink-600 transition-all duration-300 uppercase tracking-tighter">
+                            Outwit
+                        </h2>
+                        <p class="opacity-0 group-hover:opacity-100 transition-opacity text-neon-pink tracking-widest uppercase text-xs mt-2">
+                            The Social Game
+                        </p>
+                    </button>
+
+                    <button onclick="openTopic('outplay')" class="group cursor-pointer text-center md:text-right focus:outline-none">
+                        <h2 class="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-500 group-hover:from-neon-pink group-hover:to-pink-600 transition-all duration-300 uppercase tracking-tighter">
+                            Outplay
+                        </h2>
+                        <p class="opacity-0 group-hover:opacity-100 transition-opacity text-neon-pink tracking-widest uppercase text-xs mt-2">
+                            The Physical Game
+                        </p>
+                    </button>
+                </div>
+
+                <!-- Bottom Row -->
+                <div class="flex justify-center items-end flex-1 pb-12 z-10">
+                    <button onclick="openTopic('outlast')" class="group cursor-pointer text-center focus:outline-none">
+                        <h2 class="text-7xl md:text-9xl font-black text-white group-hover:text-neon-pink transition-colors duration-300 uppercase tracking-tighter transform group-hover:scale-110 transition-transform">
+                            Outlast
+                        </h2>
+                        <p class="opacity-0 group-hover:opacity-100 transition-opacity text-neon-pink tracking-widest uppercase text-sm mt-4">
+                            The Endurance Game
+                        </p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. END GAME -->
+        <section id="end-game" class="bg-black border-y border-neon-pink/20">
+            <div class="relative z-10 mix-blend-difference">
+                <button onclick="openTopic('endgame')" class="text-[15vw] leading-none font-black text-white uppercase tracking-tighter text-center hover:text-neon-pink transition-colors duration-700 cursor-pointer select-none focus:outline-none">
+                    End<br/>Game
+                </button>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+                <div class="w-[50vw] h-[50vw] border rounded-full border-zinc-800 animate-[spin_20s_linear_infinite]"></div>
+                <div class="absolute w-[40vw] h-[40vw] border rounded-full border-zinc-700 animate-[spin_15s_linear_infinite_reverse]"></div>
+                <div class="absolute w-[30vw] h-[30vw] border rounded-full border-zinc-600 animate-[spin_10s_linear_infinite]"></div>
+            </div>
+        </section>
+
+        <!-- 6. PORTFOLIOS -->
+        <section id="portfolios" class="bg-zinc-950">
+            <div class="w-full max-w-7xl flex flex-col h-full py-12">
+                <div class="flex justify-between items-end mb-12 border-b border-zinc-800 pb-6 shrink-0">
+                    <h2 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter text-white">
+                        Player <span class="text-neon-pink">Portfolios</span>
+                    </h2>
+                    <span class="text-zinc-500 text-sm uppercase tracking-widest hidden md:block">Classified Data</span>
+                </div>
+
+                <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-y-auto pb-12 no-scrollbar">
+                    <!-- Portfolio items injected by JS -->
+                </div>
+                
+                <footer class="mt-auto text-center text-zinc-600 text-xs uppercase tracking-widest py-4 shrink-0">
+                    &copy; Survivor Prep Resource 2024
+                </footer>
+            </div>
+        </section>
+    </div>
+
+    <!-- TOPIC DETAIL VIEW (Overlay) -->
+    <div id="topic-view">
+        <div class="min-h-screen w-full bg-black text-white p-6 md:p-12">
+            <!-- Header -->
+            <header class="flex justify-between items-center mb-12 md:mb-24 sticky top-0 bg-black/90 backdrop-blur-sm py-4 z-50 border-b border-zinc-900">
+                <button onclick="closeTopic()" class="group flex items-center space-x-2 text-sm uppercase tracking-widest text-zinc-400 hover:text-neon-pink transition-colors focus:outline-none">
+                    <span class="block w-8 h-px bg-zinc-600 group-hover:bg-neon-pink transition-colors"></span>
+                    <span>Back to Handbook</span>
+                </button>
+                <div id="topic-header-id" class="text-neon-pink font-black text-xl tracking-tighter">SPR // TOPIC</div>
+            </header>
+
+            <!-- Title Section -->
+            <section id="topic-hero" class="mb-24 border-b border-zinc-800 pb-12 h-auto block !p-0">
+                <h1 id="topic-title" class="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-500">
+                    TITLE
+                </h1>
+                <p id="topic-subtitle" class="text-xl md:text-2xl text-zinc-400 max-w-3xl font-light leading-relaxed">
+                    Subtitle
+                </p>
+            </section>
+
+            <!-- Sub-topics Grid -->
+            <div id="subtopics-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                <!-- Injected by JS -->
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-auto pt-12 border-t border-zinc-900 text-center">
+                <button onclick="closeTopic()" class="text-zinc-600 hover:text-white uppercase tracking-widest text-xs transition-colors py-4 px-8 border border-zinc-900 hover:border-zinc-700 focus:outline-none">
+                    Return to Main View
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIC -->
+    <script>
+        // DATA CONSTANTS
+        const TIMELINE_EVENTS = [
+            { day: 'Day 1', title: 'Marooned' },
+            { day: 'Day 2', title: 'First Vote' },
+            { day: 'Day 13', title: 'Tribe Swap' },
+            { day: 'Day 24', title: 'The Merge' },
+            { day: 'Day 35', title: 'Loved Ones' },
+            { day: 'Day 41', title: 'Final 4' },
+            { day: 'Day 42', title: 'Sole SURVIVOR' },
+        ];
+
+        const PORTFOLIO_ITEMS = [
+            { id: '1', name: 'The Strategist', season: 'Season 45', image: 'https://picsum.photos/400/600?random=1' },
+            { id: '2', name: 'The Socialite', season: 'Season 32', image: 'https://picsum.photos/400/600?random=2' },
+            { id: '3', name: 'The Beast', season: 'Season 28', image: 'https://picsum.photos/400/600?random=3' },
+            { id: '4', name: 'The Villain', season: 'Season 20', image: 'https://picsum.photos/400/600?random=4' },
+        ];
+
+        const TOPICS = {
+            'pregame': {
+                title: 'Pregame Guidelines',
+                subtitle: 'The game begins before you hit the sand. Preparation is the only variable you can control.',
+                subTopics: [
+                    { title: 'Archetype Analysis', description: 'Identify where you fit in the casting spectrum. Are you the "Brain", the "Beauty", or the "Brawn"? Knowing your perceived role helps you break or lean into stereotypes.' },
+                    { title: 'Alliance Pre-viz', description: 'Strategies for forming early bonds. Learn to recognize the subtle cues of potential allies during the pre-game lockdown.' },
+                    { title: 'Survival Skills 101', description: 'Essential guide to fire making with flint, shelter structural integrity, and basic knot tying. Don\'t be the liability at camp.' }
+                ]
+            },
+            'meta': {
+                title: 'Meta Game',
+                subtitle: 'Understanding the invisible currents that drive the modern game.',
+                subTopics: [
+                    { title: 'Threat Management', description: 'The art of lowering your profile while maintaining agency. How to be a pilot, not a passenger, without painting a target on your back.' },
+                    { title: 'Voting Blocs', description: 'Navigating the fluid gameplay of the new era. Why rigid alliances are dead and how to surf the chaos of voting blocs.' },
+                    { title: 'Jury Management', description: 'Starting the game with the end in mind. How to vote people out in a way that makes them want to give you a million dollars.' }
+                ]
+            },
+            'outwit': {
+                title: 'Outwit',
+                subtitle: 'The Social Game. People are the most dangerous puzzle pieces.',
+                subTopics: [
+                    { title: 'Social Intelligence', description: 'Reading the room and understanding player motivations. The difference between hearing and listening.' },
+                    { title: 'Art of Deception', description: 'When to lie, how to lie, and crucially, when to tell the truth to build credit for a future blindside.' },
+                    { title: 'Info Brokerage', description: 'Controlling the flow of information. Information is the currency of the game; spend it wisely.' }
+                ]
+            },
+            'outplay': {
+                title: 'Outplay',
+                subtitle: 'The Physical Game. Adapting to the environment and the challenges.',
+                subTopics: [
+                    { title: 'Challenge Prowess', description: 'Training guides for swimming, balance, and endurance. You don\'t need to win everything, just the ones that save your life.' },
+                    { title: 'Camp Life', description: 'Balancing work ethic with energy conservation. How to be helpful enough to keep, but lazy enough to compete.' },
+                    { title: 'Advantage Hunting', description: 'Clues, idols, and advantages. How to search effectively without raising suspicion from the tribe.' }
+                ]
+            },
+            'outlast': {
+                title: 'Outlast',
+                subtitle: 'The Endurance Game. Surviving the elements and your own mind.',
+                subTopics: [
+                    { title: 'Mental Resilience', description: 'Coping mechanisms for isolation and paranoia. How to keep your sanity when everyone is plotting against you.' },
+                    { title: 'Physical Endurance', description: 'Managing hunger, sleep deprivation, and elements. Techniques to maintain focus on an empty stomach.' },
+                    { title: 'The Long Game', description: 'Pacing yourself for the 26-day marathon. Timing your peak performance for the final stretch.' }
+                ]
+            },
+            'endgame': {
+                title: 'End Game',
+                subtitle: 'Closing the deal. The final hurdles between you and the title.',
+                subTopics: [
+                    { title: 'Fire Making', description: 'Techniques to win the forced Final Four fire-making challenge. The only safety net left.' },
+                    { title: 'Final Tribal', description: 'Structuring your opening statement. How to articulate your game without sounding arrogant or passive.' },
+                    { title: 'The Pitch', description: 'Resume building 101. Identifying your key moves and translating them into a winning narrative.' }
+                ]
+            }
+        };
+
+        // INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTimeline();
+            renderPortfolios();
+            setupTimelineScroll();
+        });
+
+        // RENDERING FUNCTIONS
+        function renderTimeline() {
+            const container = document.getElementById('timeline-content');
+            container.innerHTML = TIMELINE_EVENTS.map((event, index) => `
+                <div class="flex-shrink-0 w-[80vw] md:w-[400px] snap-center flex flex-col items-start relative group">
+                    <!-- Line Connector -->
+                    <div class="absolute top-6 -left-12 w-12 h-[2px] bg-zinc-800 hidden md:block"></div>
+                    
+                    <span class="text-8xl font-black text-zinc-800 absolute -top-10 -left-4 -z-10 group-hover:text-zinc-700 transition-colors duration-300">
+                        ${index + 1}
+                    </span>
+                    
+                    <div class="border-l-2 border-neon-pink pl-6 py-4 transition-all duration-300 group-hover:bg-zinc-900/50 group-hover:pl-8 rounded-r-lg">
+                        <p class="text-neon-pink font-bold tracking-widest text-sm md:text-base mb-2 uppercase">
+                            ${event.day}
+                        </p>
+                        <h3 class="text-3xl md:text-5xl font-bold text-white uppercase leading-none">
+                            ${event.title}
+                        </h3>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPortfolios() {
+            const container = document.getElementById('portfolio-grid');
+            container.innerHTML = PORTFOLIO_ITEMS.map(item => `
+                <div class="group relative aspect-[3/4] bg-zinc-900 border border-zinc-800 hover:border-neon-pink transition-all duration-300 cursor-pointer overflow-hidden">
+                    <img 
+                        src="${item.image}" 
+                        alt="${item.name}" 
+                        class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500 grayscale group-hover:grayscale-0"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                        <p class="text-neon-pink text-xs font-bold uppercase tracking-widest mb-1">${item.season}</p>
+                        <h3 class="text-2xl font-bold text-white uppercase leading-none">${item.name}</h3>
+                        <div class="w-0 group-hover:w-full h-[2px] bg-neon-pink mt-3 transition-all duration-500"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupTimelineScroll() {
+            const el = document.getElementById('timeline-container');
+            el.addEventListener('wheel', (e) => {
+                if (e.deltaY === 0) return;
+                e.preventDefault();
+                el.scrollTo({
+                    left: el.scrollLeft + e.deltaY * 2,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // NAVIGATION LOGIC
+        function openTopic(id) {
+            const topicData = TOPICS[id];
+            if (!topicData) return;
+
+            // Populate Data
+            document.getElementById('topic-header-id').innerText = `SPR // ${id.toUpperCase()}`;
+            document.getElementById('topic-title').innerText = topicData.title;
+            document.getElementById('topic-subtitle').innerText = topicData.subtitle;
+
+            // Render Subtopics
+            const grid = document.getElementById('subtopics-grid');
+            grid.innerHTML = topicData.subTopics.map((sub, index) => `
+                <div class="group flex flex-col space-y-4 animate-slide-up" style="animation-delay: ${index * 0.1}s">
+                    <div class="overflow-hidden aspect-video bg-zinc-900 border border-zinc-800 group-hover:border-neon-pink transition-colors duration-300 relative cursor-pointer">
+                        <img 
+                            src="https://placehold.co/600x400/111/FFF?text=${encodeURIComponent(sub.title)}" 
+                            alt="${sub.title}"
+                            class="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
+                        >
+                        <div class="absolute top-0 right-0 bg-neon-pink text-black font-bold px-3 py-1 text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                            Read More
+                        </div>
+                        <div class="absolute top-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-neon-pink border border-neon-pink/30">
+                            0${index + 1}
+                        </div>
+                    </div>
+                    <div class="cursor-pointer">
+                        <h3 class="text-2xl font-bold uppercase text-white group-hover:text-neon-pink transition-colors">
+                            ${sub.title}
+                        </h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed border-l-2 border-zinc-800 pl-4 mt-2 group-hover:border-neon-pink transition-colors">
+                            ${sub.description}
+                        </p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Toggle Views
+            document.getElementById('topic-view').style.display = 'block';
+            document.getElementById('main-view').style.display = 'none';
+            document.getElementById('topic-view').scrollTop = 0;
+        }
+
+        function closeTopic() {
+            document.getElementById('topic-view').style.display = 'none';
+            document.getElementById('main-view').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
