@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Survivor Quebec Preparation Guide</title>
-<script src="https://cdn.tailwindcss.com"></script> 
+<title>Survivor Quebec Elite Training Manual</title>
+<!-- Load Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Load Fonts (Inter, Georgia for body; Oswald/Roboto for Timeline/Headers) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
 /* -------------------------------------- /
 / --- EXPEDITIONARY / ORGANIC AESTHETIC --- /
@@ -18,41 +23,45 @@
 
 /* Base Style: Hand-Drawn, Organic Look */
 body {
-    font-family: 'Georgia', serif; /* More readable, rugged serif */
+    font-family: 'Georgia', serif; /* Rugged serif for body */
     background-color: var(--color-base);
     color: var(--color-dark);
     min-height: 100vh;
-    line-height: 1.6; /* Increased line height for comfort */
-    background-image: repeating-linear-gradient(
-        -45deg,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.05) 1px,
-        transparent 1px,
-        transparent 2px
-    ); /* Subtle texture effect */
+    line-height: 1.6;
+    /* Subtle paper texture */
+    background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05) 1px, transparent 1px, transparent 2px);
 }
 
-/* TYPOGRAPHY: More Organic and Manual */
+/* TYPOGRAPHY: Elite Manual Tone */
 h1, h2, h3 {
-    font-family: 'Inter', sans-serif; /* Keep a strong, modern header */
-    font-weight: 800;
-    letter-spacing: -0.02em; /* Softer spacing */
+    font-family: 'Oswald', sans-serif; /* Strong, compressed header */
+    font-weight: 700;
+    letter-spacing: -0.02em;
     line-height: 1.2;
     margin-bottom: 0.8rem;
 }
 h1 { font-size: 2.8rem; }
 h2 { font-size: 1.8rem; }
-.text-body { line-height: 1.7; }
+.text-body { font-family: 'Roboto', sans-serif; line-height: 1.7; }
 li { line-height: 1.5; }
 
 /* LAYOUT & COMPOSITION: Softer, Bordered Look */
 .content-area-main {
     background-color: var(--color-base);
-    border: 3px solid var(--color-dark); /* Thick, Manual Border */
-    border-radius: 8px; /* Slightly rounded corners */
+    border: 3px solid var(--color-dark);
+    border-radius: 8px;
     box-shadow: 6px 6px 0px var(--color-neutral); /* Soft lift */
     transition: box-shadow 0.3s ease;
     padding: 2.5rem;
+}
+
+/* Header Theming: Aged Leather */
+header {
+    background-color: var(--color-dark) !important; 
+    border-bottom: 3px solid var(--color-accent);
+}
+#mobile-menu-button {
+    color: var(--color-base) !important;
 }
 
 /* Navigation & Buttons: Leather and Ink */
@@ -60,7 +69,7 @@ li { line-height: 1.5; }
     background-color: var(--color-accent);
     color: var(--color-base);
     padding: 0.75rem 1.5rem;
-    border-radius: 4px; /* Softened corners */
+    border-radius: 4px;
     font-weight: 700;
     border: 1px solid var(--color-accent);
     transition: all 0.3s;
@@ -70,7 +79,7 @@ li { line-height: 1.5; }
     background-color: var(--color-dark);
     border-color: var(--color-dark);
     color: var(--color-base);
-    box-shadow: 4px 4px 0px var(--color-accent); /* Accent hover lift */
+    box-shadow: 4px 4px 0px var(--color-accent);
     transform: translate(-1px, -1px);
 }
 .nav-link.active {
@@ -84,11 +93,12 @@ li { line-height: 1.5; }
 /* -------------------------------------- */
 
 .intro-title {
+    font-family: 'Inter', sans-serif; /* Extremely bold font for logo */
     font-size: clamp(3rem, 10vw, 7rem);
     font-weight: 900;
     line-height: 1.0;
     color: var(--color-dark);
-    text-shadow: 2px 2px 0 var(--color-neutral); /* Softer shadow */
+    text-shadow: 2px 2px 0 var(--color-neutral);
 }
 
 /* Thematic Block - Map Section Look */
@@ -97,18 +107,28 @@ li { line-height: 1.5; }
     color: var(--color-dark);
     border: 2px dashed var(--color-accent); /* Dashed/Sketchy Border */
     padding: 2rem;
-    box-shadow: 3px 3px 0px var(--color-neutral); /* Softer shadow */
+    box-shadow: 3px 3px 0px var(--color-neutral);
     transition: all 0.2s ease-in-out;
     border-radius: 6px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 /* Block Hover Effects */
 .thematic-block:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0px var(--color-accent); /* Accent shadow lift */
+    box-shadow: 5px 5px 0px var(--color-accent);
     color: var(--color-accent);
     border-color: var(--color-dark);
+}
+
+/* Intentional Asymmetry on Index Page */
+.asymmetric-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+@media (min-width: 768px) {
+    .asymmetric-grid {
+        grid-template-columns: 2fr 4fr 3fr; 
+    }
 }
 
 /* Dark Mode Module (Outwit) - Sketchbook/Charcoal */
@@ -124,7 +144,6 @@ li { line-height: 1.5; }
 .dark-mode-module h1, .dark-mode-module h2, .dark-mode-module h3 {
     color: var(--color-base);
 }
-/* Re-style text/accents for dark mode */
 .dark-mode-module p, .dark-mode-module li, .dark-mode-module .text-gray-700 {
     color: #c3baa3; /* Lighter text color */
 }
@@ -134,30 +153,82 @@ li { line-height: 1.5; }
 .dark-mode-module .border-b-4, .dark-mode-module .border-b {
     border-color: #ffcc99 !important;
 }
-
-/* Specific elements for dark mode */
 .dark-mode-module .tactical-box {
     background-color: rgba(0, 0, 0, 0.2);
     border: 2px solid #ffcc99;
 }
+.dark-mode-module .bg-red-800\/30 {
+    background-color: #88000030;
+}
+
+
+/* --- TIMELINE-SPECIFIC STYLES (Meta-Analysis Page) --- */
+.timeline-active body {
+    font-family: 'Roboto', sans-serif !important; 
+    background-color: #f0f9ff !important;
+    color: #1e293b !important; /* slate-800 */
+    background-image: none !important;
+}
+.timeline-active h1, .timeline-active h2, .timeline-active h3, .timeline-active .header-font { 
+    font-family: 'Oswald', sans-serif !important; 
+}
+/* Revert main content area background to transparent for full page timeline effect */
+.timeline-active #content-area {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+/* Timeline specific line/dot positioning */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: #cbd5e1;
+    z-index: 0;
+}
+@media (max-width: 768px) {
+    .timeline-line { left: 20px; }
+    .timeline-content { margin-left: 40px; }
+    .timeline-dot { left: 12px !important; }
+}
+
+/* Decision Tree Styling */
+.decision-node {
+    border: 2px solid #a35515;
+    background-color: #fff8e1;
+    transition: all 0.2s;
+}
+.decision-node:hover {
+    box-shadow: 0 4px 6px rgba(163, 85, 21, 0.3);
+}
+
 </style>
 
 
 </head>
 <body class="min-h-screen">
 
-<header class="bg-gray-800 shadow-xl sticky top-0 z-20">
+<!-- Header / Navigation Bar -->
+<header class="shadow-xl sticky top-0 z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
+            <!-- Logo/Title -->
             <div class="flex-shrink-0">
                 <a href="#index" class="text-xl font-extrabold tracking-wide text-white rounded-md p-2 hover:bg-gray-700 transition">
                     SURVIVOR STUDY
                 </a>
             </div>
             
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex md:space-x-8" id="desktop-nav">
-                </nav>
+                <!-- Links populated by JS -->
+            </nav>
 
+            <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden p-2 text-white hover:bg-gray-700 rounded-md">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -165,17 +236,22 @@ li { line-height: 1.5; }
             </button>
         </div>
     </div>
+    <!-- Mobile Menu (Hidden by default) -->
     <div id="mobile-menu" class="hidden md:hidden bg-gray-800 absolute w-full shadow-lg z-30">
         <nav class="pt-2 pb-3 space-y-1 sm:px-3" id="mobile-nav-links">
-            </nav>
+            <!-- Links populated by JS -->
+        </nav>
     </div>
 </header>
 
+<!-- Main Content Area -->
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
     <div id="content-area" class="content-area-main min-h-[70vh]">
-        </div>
+        <!-- Content is injected here by JavaScript -->
+    </div>
 </main>
 
+<!-- Footer for Navigation Controls -->
 <footer class="bg-white border-t border-gray-300 mt-10 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <button id="prev-btn" class="primary-btn flex items-center space-x-2 disabled:opacity-50" disabled>
@@ -193,9 +269,11 @@ li { line-height: 1.5; }
 </footer>
 
 <script>
-    // --- Core Application Data (No Change to Content Logic) ---
+    // --- Core Application Data ---
     const PAGES = [
         { id: 'index', title: '0. Orientation' },
+        // NEW PAGE: Meta-Analysis / Strategic Timeline
+        { id: 'meta-analysis', title: '0.5. Meta-Analysis' }, 
         // Module 1: Outwit
         { id: 'page1-1', title: '1.1. Rapport Weapon' },
         { id: 'page1-2', title: '1.2. The Numbers Game' },
@@ -215,9 +293,8 @@ li { line-height: 1.5; }
         { id: 'final-audit', title: '4. Final Audit' },
     ];
 
-    // --- PAGES_CONTENT: TEXTUAL CHANGES ONLY FOR AESTHETIC INTEGRITY ---
     const PAGES_CONTENT = {
-        // --- INDEX (Home Page - Launchpad / Organic Intro) ---
+        // --- 0. ORIENTATION (Home Page - Launchpad) ---
         'index': `
             <div class="min-h-[60vh] flex flex-col items-start relative pb-20">
                 <h1 class="intro-title select-none mt-10 md:mt-20 self-start text-left">
@@ -231,18 +308,21 @@ li { line-height: 1.5; }
                 </p>
 
                 <div class="asymmetric-grid grid grid-cols-1 gap-6 w-full max-w-5xl self-start">
+                    <!-- Outwit Button -->
                     <a href="#page1-1" class="thematic-block flex flex-col items-start justify-center text-left text-2xl font-black">
                         <span class="text-sm font-normal uppercase tracking-widest text-gray-500 mb-1">Module I: Strategy</span>
                         OUTWIT
                         <span class="text-xs font-normal mt-2 text-gray-700">Strategic Blueprint & Social Assassination</span>
                     </a>
 
+                    <!-- Outplay Button -->
                     <a href="#phase2-intro" class="thematic-block flex flex-col items-start justify-center text-left text-2xl font-black">
                         <span class="text-sm font-normal uppercase tracking-widest text-gray-500 mb-1">Module II: Competence</span>
                         OUTPLAY
                         <span class="text-xs font-normal mt-2 text-gray-700">Challenge Proficiency & Technical Mastery</span>
                     </a>
 
+                    <!-- Outlast Button -->
                     <a href="#phase3-intro" class="thematic-block flex flex-col items-start justify-center text-left text-2xl font-black">
                         <span class="text-sm font-normal uppercase tracking-widest text-gray-500 mb-1">Module III: Resilience</span>
                         OUTLAST
@@ -251,11 +331,152 @@ li { line-height: 1.5; }
                 </div>
             </div>
         `,
-        // --- MODULE 1: OUTWIT (Dark Mode Aesthetic - Notebook/Charcoal) ---
+        // --- 0.5. META-ANALYSIS (Strategic Timeline) ---
+        'meta-analysis': `
+            <div class="max-w-5xl mx-auto px-4 py-8 text-slate-800">
+                
+                <!-- Header -->
+                <div class="text-center mb-16 relative z-10">
+                    <h1 class="text-5xl font-bold text-blue-900 uppercase mb-2 header-font">Survivor Québec</h1>
+                    <h2 class="text-3xl text-orange-600 uppercase tracking-widest header-font">The Evolution of Strategy</h2>
+                    <p class="mt-4 text-slate-600 max-w-2xl mx-auto">A chronological guide to the shifting metagame, mechanics, and winning archetypes.</p>
+                </div>
+
+                <div class="relative">
+                    <!-- Central Line -->
+                    <div class="timeline-line"></div>
+
+                    <!-- SEASON 1 -->
+                    <div class="mb-16 relative w-full md:w-1/2 md:pr-12 ml-0 md:ml-auto transform md:translate-x-[-50%]">
+                        <!-- Dot -->
+                        <div class="absolute top-6 -right-3 md:-right-3 left-3 md:left-auto w-6 h-6 bg-blue-900 rounded-full border-4 border-white shadow-lg z-10 timeline-dot"></div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-l-8 border-blue-900 timeline-content">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase">2023</span>
+                                    <h3 class="text-2xl header-font text-blue-900 uppercase">Season 1: The Foundational Era</h3>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-500 uppercase">Winner</p>
+                                    <p class="font-bold text-orange-600">Nicolas Brunette</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2">The Metagame: Consensus</h4>
+                                <p class="text-sm text-slate-600">Defined by "politeness" and group cohesion. Big moves were frowned upon. The social contract was paramount.</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <strong class="text-orange-600 block text-sm uppercase">Primary Twist: Redemption Island</strong>
+                                    <p class="text-xs mt-1">Voted-out players duelled to return. <strong>Impact:</strong> Created a "Poisoned Jury" and allowed Nicolas to win via a "Warrior/Resilience" narrative rather than traditional social strategy.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <strong class="text-blue-900 block text-sm uppercase">Key Tactic: Defensive Idols</strong>
+                                    <p class="text-xs mt-1">Idols were used defensively (Joël/Sango) to save allies, forcing the adoption of the "Vote Split."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEASON 2 -->
+                    <div class="mb-16 relative w-full md:w-1/2 md:pl-12 md:ml-auto">
+                        <!-- Dot -->
+                        <div class="absolute top-6 left-3 md:-left-3 w-6 h-6 bg-orange-500 rounded-full border-4 border-white shadow-lg z-10 timeline-dot"></div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-l-8 border-orange-500 timeline-content">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="bg-orange-100 text-orange-800 text-xs font-bold px-2 py-1 rounded uppercase">2024</span>
+                                    <h3 class="text-2xl header-font text-blue-900 uppercase">Season 2: Economic & Physical</h3>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-500 uppercase">Winner</p>
+                                    <p class="font-bold text-orange-600">Ghyslain Octeau-Piché</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2">The Metagame: Control</h4>
+                                <p class="text-sm text-slate-600">A shift to resource management and physical dominance. Alliances were rigid ("Schoolyard Pick" exposed hierarchies).</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <strong class="text-orange-600 block text-sm uppercase">Primary Twist: The Store (Magasin)</strong>
+                                    <p class="text-xs mt-1">Players bought food (calories) or advantages. <strong>Impact:</strong> Validated the "Physical Game." Buying food allowed challenge beasts to stay immune.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <strong class="text-blue-900 block text-sm uppercase">Key Tactic: Meat Shields</strong>
+                                    <p class="text-xs mt-1">Ghyslain aligned with other threats (Sébastien) to ensure he was never the only target. Pre-merge Rock Draw proved "Ride-or-Die" loyalty.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEASON 3 -->
+                    <div class="mb-16 relative w-full md:w-1/2 md:pr-12 ml-0 md:ml-auto transform md:translate-x-[-50%]">
+                        <!-- Dot -->
+                        <div class="absolute top-6 -right-3 md:-right-3 left-3 md:left-auto w-6 h-6 bg-blue-900 rounded-full border-4 border-white shadow-lg z-10 timeline-dot"></div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-lg border-l-8 border-blue-900 timeline-content">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase">2025</span>
+                                    <h3 class="text-2xl header-font text-blue-900 uppercase">Season 3: Hyper-Variance</h3>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-500 uppercase">Winner</p>
+                                    <p class="font-bold text-orange-600">Geneviève La Haye</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2">The Metagame: Chaos Management</h4>
+                                <p class="text-sm text-slate-600">Agency was stripped from players. Adaptability and social fluidity replaced rigid planning.</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <strong class="text-orange-600 block text-sm uppercase">Primary Twist: Linked Destinies</strong>
+                                    <p class="text-xs mt-1">Random pairs share immunity and elimination. <strong>Impact:</strong> Broke the "Numbers Game." Forced cooperation with enemies and punished strong players paired with weak ones.</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded border border-slate-200">
+                                    <strong class="text-blue-900 block text-sm uppercase">Key Tactic: Social Stability</strong>
+                                    <p class="text-xs mt-1">Geneviève played an introverted, precise game. She let the chaos of "Player Steals" and "Thrown Hourglasses" take out loud targets while she built 1-on-1 bonds.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FUTURE OUTLOOK -->
+                    <div class="mb-12 relative w-full md:w-1/2 md:pl-12 md:ml-auto">
+                        <!-- Dot -->
+                        <div class="absolute top-6 left-3 md:-left-3 w-6 h-6 bg-slate-400 rounded-full border-4 border-white shadow-lg z-10 timeline-dot"></div>
+
+                        <div class="bg-gradient-to-br from-blue-900 to-blue-800 text-white p-6 rounded-xl shadow-lg timeline-content">
+                            <div class="mb-2">
+                                <span class="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded uppercase">Forecast</span>
+                                <h3 class="text-2xl header-font mt-2 uppercase">Season 4: Panama</h3>
+                            </div>
+                            <p class="text-sm text-blue-100 mb-4">The franchise moves from the Philippines to Panama.</p>
+                            <ul class="text-sm space-y-2">
+                                <li class="flex items-center"><span class="text-orange-400 mr-2">➤</span> <strong>Return of Exile?</strong> Panama is historically linked to Exile Island in the US franchise.</li>
+                                <li class="flex items-center"><span class="text-orange-400 mr-2">➤</span> <strong>Meta Shift:</strong> Moving away from "Alpha" dominance toward subtle social gamers like Geneviève.</li>
+                                <li class="flex items-center"><span class="text-orange-400 mr-2">➤</span> <strong>Casting:</strong> Evolution from "Average Joes" to studied "Gamers."</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `,
+        // --- 1. OUTWIT (Dark Mode Aesthetic) ---
 
         // 1.1 Rapport Weapon
         'page1-1': `
-            <h1 class="text-4xl font-extrabold mb-6">THE RAPPORT WEAPON: FORGE BONDS, FIND POWER</h1>
+            <h1 class="text-4xl font-extrabold mb-6 text-amber-500">THE RAPPORT WEAPON: FORGE BONDS, FIND POWER</h1>
             <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">The foundation of winning isn't finding an Idol; it's finding an alliance that trusts you more than they trust themselves. This trust is built on authentic, personal connection. Mastery of this skill is how winners like Kim Spradlin and Parvati Shallow controlled entire seasons.</p>
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.1.1. The One-on-One Domination: The Kim & Parvati Playbook</h2>
@@ -300,9 +521,9 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // 1.2 The Numbers Game (Only formatting changes)
+        // 1.2 The Numbers Game
         'page1-2': `
-            <h1 class="text-4xl font-extrabold mb-6">VFB: THE NUMBERS GAME: THE 80% RULE FOR STRATEGIC SUCCESS</h1>
+            <h1 class="text-4xl font-extrabold mb-6 text-amber-500">VFB: THE NUMBERS GAME: THE 80% RULE FOR STRATEGIC SUCCESS</h1>
             <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">Forget the highlight reel. The single most important statistical factor for a winner is Votes For Boot (VFB): how often you voted correctly. This is empirical proof of your influence and inclusion.</p>
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.2.1. The 80% Rule: Why Voting Correctly is the Only Stat That Matters</h2>
@@ -346,9 +567,9 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // 1.3 Advantage Warfare (Only formatting changes)
+        // 1.3 Advantage Warfare
         'page1-3': `
-            <h1 class="text-4xl font-extrabold mb-6">ADVANTAGE WARFARE: HOW TO HUNT, FLUSH, AND DEFEND</h1>
+            <h1 class="text-4xl font-extrabold mb-6 text-amber-500">ADVANTAGE WARFARE: HOW TO HUNT, FLUSH, AND DEFEND</h1>
             <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">Idols, Nullifiers, and Twists are the game's new currency. Mastery means treating every vote like a high-stakes auction where you anticipate every counter-bid.</p>
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.3.1. The Original Power Move: The Safe Vote Execution</h2>
@@ -388,9 +609,9 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // 1.4 Chaos Theory (Only formatting changes)
+        // 1.4 Chaos Theory
         'page1-4': `
-            <h1 class="text-4xl font-extrabold mb-6">CHAOS THEORY: SURVIVING THE QUÉBEC QUAKE</h1>
+            <h1 class="text-4xl font-extrabold mb-6 text-amber-500">CHAOS THEORY: SURVIVING THE QUÉBEC QUAKE</h1>
             <p class="text-lg text-body text-gray-400 mb-8 border-b border-gray-600 pb-4">The Survivor Québec production model is designed for structural instability. Your alliances are temporary; your adaptability must be permanent. Rigid loyalty is a high-risk liability.</p>
 
             <h2 class="text-2xl font-semibold text-amber-500 mb-4">1.4.1. Twist Inventory: What Survivor Québec Will Throw at You</h2>
@@ -418,9 +639,8 @@ li { line-height: 1.5; }
                 <p class="text-sm text-body">Internalize the two-time winner's ethos. This provides the necessary defensive ruthlessness. It legitimizes aligning with the opposition if it guarantees your safety and ensures you are never the person who becomes expendable.</p>
             </div>
         `,
-        
-        // Modules 2 and 3 retain their original content, but now use the new light mode styles (base colors).
-        // The classes used for styling (e.g., text-amber-700, border-b-4) automatically inherit the new color variables.
+
+        // --- 2. OUTPLAY (Light Mode Aesthetic - Intro) ---
         'phase2-intro': `
             <h1 class="text-5xl font-extrabold text-amber-700 mb-6 border-b-4 border-amber-500 pb-2">MODULE II: OUTPLAY INTRODUCTION</h1>
             <p class="text-xl text-gray-700 mb-6 text-body">The challenges are not just for immunity; they are social currency. This module ensures you have the physical, cognitive, and technical skills to always be perceived as an indispensable asset.</p>
@@ -436,7 +656,7 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // 2.1 Endurance & Grip (Only formatting changes)
+        // 2.1 Endurance & Grip
         'page2-1': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">2.1. OUTPLAY: ENDURANCE & GRIP</h1>
             <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Most immunity challenges boil down to one thing: delaying the inevitable muscle failure. Mastery of grip and static endurance is non-negotiable.</p>
@@ -462,7 +682,7 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // 2.2 Puzzle Mastery (Only formatting changes)
+        // 2.2 Puzzle Mastery
         'page2-2': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">2.2. OUTPLAY: PUZZLE MASTERY</h1>
             <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">The end of almost every critical challenge is a puzzle. Your competence here is often what prevents a challenge beast from controlling the game.</p>
@@ -491,13 +711,14 @@ li { line-height: 1.5; }
             </ul>
         `,
 
-        // 2.3 Camp Essentials (Only formatting changes)
+        // 2.3 Camp Essentials
         'page2-3': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">2.3. OUTPLAY: CAMP ESSENTIALS</h1>
             <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Fire and shelter are the baseline of survival. The person who provides these is instantly deemed essential and trustworthy.</p>
 
             <h2 class="text-2xl font-semibold text-amber-800 mb-3">Fire Mastery: The Bow Drill & Ferro Rod</h2>
 
+            <!-- Responsive Video Embed for Fire Starting -->
             <div class="relative pt-[56.25%] mb-8 border-2 border-amber-500 overflow-hidden">
                 <iframe 
                     class="absolute top-0 left-0 w-full h-full" 
@@ -528,7 +749,7 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // --- MODULE 3: OUTLAST (Light Mode Aesthetic - Intro) ---
+        // --- 3. OUTLAST (Light Mode Aesthetic - Intro) ---
         'phase3-intro': `
             <h1 class="text-5xl font-extrabold text-amber-700 mb-6 border-b-4 border-amber-500 pb-2">MODULE III: OUTLAST INTRODUCTION</h1>
             <p class="text-xl text-gray-700 mb-6 text-body">The longest game of Survivor is the one you play against your own body and mind. This module focuses on the psychological and physical endurance required to stay motivated through 40+ days of deprivation.</p>
@@ -544,7 +765,7 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // 3.1 Starvation Mindset (Only formatting changes)
+        // 3.1 Starvation Mindset
         'page3-1': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">3.1. OUTLAST: THE STARVATION MINDSET</h1>
             <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Your body will panic. Your mind must not. Winning the food war means controlling your energy expenditure and emotional response to chronic hunger.</p>
@@ -567,32 +788,59 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // 3.2 Psychological Hardening (Only formatting changes)
+        // 3.2 Psychological Hardening (Revised for Drill/Flowchart)
         'page3-2': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">3.2. OUTLAST: PSYCHOLOGICAL HARDENING</h1>
             <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">The social stress, isolation, and pain create a fragile mental state. A hardened player maintains composure when allies break.</p>
 
-            <h2 class="text-2xl font-semibold text-amber-800 mb-3">Pain Tolerance & Emotional Control</h2>
+            <h2 class="text-2xl font-semibold text-amber-800 mb-3">Composure Decision Flowchart: Tactical Response Drill</h2>
+            <p class="text-gray-700 mb-4 text-body">When overwhelmed by stress, fear, or paranoia, execute this rapid mental reset drill.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-3 text-sm text-center">
+                
+                <div class="decision-node p-3 rounded-md shadow-md col-span-1 md:col-span-2">
+                    <strong class="text-red-700 block">NODE 1: STRESS TRIGGER</strong>
+                    <p class="text-xs mt-1">Is stress, paranoia, or desperation preventing rational thought?</p>
+                </div>
+
+                <div class="flex items-center justify-center md:col-span-1">
+                    <svg class="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                
+                <div class="decision-node p-3 rounded-md shadow-md col-span-1 md:col-span-2">
+                    <strong class="text-amber-800 block">NODE 2: THE 5-MINUTE RULE</strong>
+                    <p class="text-xs mt-1">Allow 5 minutes of internal venting. **Immediate stop** after expiration.</p>
+                </div>
+
+                <div class="flex items-center justify-center md:col-span-2">
+                    <svg class="w-8 h-8 text-amber-700 rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="hidden md:block"></div>
+                <div class="hidden md:block"></div>
+                
+                <div class="decision-node p-3 rounded-md shadow-md col-span-1 md:col-span-2">
+                    <strong class="text-green-700 block">NODE 3: PRODUCTIVE ACTION</strong>
+                    <p class="text-xs mt-1">Transition to one immediate, low-cost activity: Rapport check, fire materials, hygiene.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-semibold text-amber-800 mt-8 mb-3">Cognitive Toolkit: Immediate Focus Control</h2>
             <div class="grid md:grid-cols-2 gap-6 text-gray-700">
                 <div>
-                    <h3 class="font-bold text-amber-800 mb-2">The 5-Minute Rule</h3>
-                    <p class="text-body">Allow yourself 5 minutes per day to complain, feel depressed, or vent frustration. After 5 minutes, the timer is off. Immediately transition to a productive activity (e.g., strengthening rapport with one person, searching for fire materials).</p>
+                    <h3 class="font-bold text-amber-800 mb-2">The Reframing Tactic</h3>
+                    <p class="text-body">View lack of sleep or hunger not as weakness, but as a strategic advantage: "This suffering proves I want it more than they do." Use suffering as proof of commitment to the jury.</p>
                 </div>
                 <div class="p-4 border-2 border-dashed border-amber-500 tactical-box bg-white">
-                    <h3 class="font-bold text-amber-800 mb-2">COGNITIVE TOOLKIT</h3>
+                    <h3 class="font-bold text-amber-800 mb-2">SENSORY GROUNDING</h3>
                     <ul class="list-disc list-inside space-y-1 ml-4 text-sm text-body">
-                        <li><strong>Mantra:</strong> Develop a simple phrase to repeat during intense moments ("Just one more day").</li>
-                        <li><strong>Reframing:</strong> View lack of sleep or hunger as a strategic advantage: "This suffering proves I want it more than they do."</li>
+                        <li><strong>Mantra:</strong> Simple phrase repeated during intense moments ("Just one more day").</li>
                         <li><strong>Sensory Focus:</strong> Focus on a simple, physical sensation (e.g., the feel of the sand, the smell of the fire) to ground yourself during high-stress Tribal Councils.</li>
                     </ul>
                 </div>
             </div>
-
-            <h2 class="text-2xl font-semibold text-amber-800 mt-8 mb-3">Managing Loneliness and Paranoia</h2>
-            <p class="text-gray-700 text-body">Isolation breeds paranoia, which is often mistaken for strategic insight. You are not the only one feeling alone. Actively seek out connection, even with those you plan to vote out, to keep your perception of the game accurate.</p>
         `,
 
-        // 3.3 Camp Health & Injury Prevention (Only formatting changes)
+        // 3.3 Camp Health & Injury Prevention
         'page3-3': `
             <h1 class="text-4xl font-extrabold text-amber-700 mb-6">3.3. OUTLAST: CAMP HEALTH & INJURY PREVENTION</h1>
             <p class="text-lg text-gray-700 mb-8 border-b border-neutral pb-4 text-body">Simple injuries (cuts, blisters) become mission-critical liabilities in the wilderness. Maintain impeccable hygiene to prevent medevac.</p>
@@ -614,14 +862,16 @@ li { line-height: 1.5; }
             </div>
         `,
 
-        // --- FINAL AUDIT ---
+        // --- 4. FINAL AUDIT (FTC Resume Builder) ---
         'final-audit': `
             <h1 class="text-5xl font-extrabold text-red-700 mb-6 border-b-4 border-red-500 pb-2">4. FINAL AUDIT & RESUME BUILDER</h1>
             <p class="text-xl text-gray-700 mb-8 text-body">This phase reviews all three pillars to construct your Final Tribal Council (FTC) resume. You must be able to articulate your game in terms of Outwit, Outplay, and Outlast.</p>
 
             <div class="space-y-10">
+                <!-- Outwit Audit -->
                 <div class="p-6 border-4 border-amber-500 bg-white shadow-md rounded-lg">
-                    <h2 class="text-3xl font-bold text-amber-800 mb-4">OUTWIT: STRATEGIC CLAIMS</h2>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4 flex items-center"><span class="mr-3 text-4xl">🧠</span> OUTWIT: STRATEGIC CLAIMS</h2>
+                    <p class="text-sm italic text-gray-600 mb-4">The Jury needs evidence of **intentional, narrative-driven control.**</p>
                     <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700 text-body">
                         <li><strong>VFB Success:</strong> What was your Votes For Boot percentage? How many times did you vote correctly? (Goal: >80%)</li>
                         <li><strong>Idol Flush:</strong> Name the most important Idol or Advantage you successfully flushed or neutralized.</li>
@@ -629,8 +879,10 @@ li { line-height: 1.5; }
                     </ul>
                 </div>
 
+                <!-- Outplay Audit -->
                 <div class="p-6 border-4 border-green-500 bg-white shadow-md rounded-lg">
-                    <h2 class="text-3xl font-bold text-green-800 mb-4">OUTPLAY: COMPETITIVE CLAIMS</h2>
+                    <h2 class="text-3xl font-bold text-green-800 mb-4 flex items-center"><span class="mr-3 text-4xl">💪</span> OUTPLAY: COMPETITIVE CLAIMS</h2>
+                    <p class="text-sm italic text-gray-600 mb-4">The Jury needs evidence of **indispensable utility and challenge proficiency.**</p>
                     <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700 text-body">
                         <li><strong>Immunity Wins:</strong> How many individual Immunity Challenges did you win?</li>
                         <li><strong>Camp Utility:</strong> Name a non-challenge moment (fire, shelter, fishing) where you saved the tribe from failure or misery.</li>
@@ -638,8 +890,10 @@ li { line-height: 1.5; }
                     </ul>
                 </div>
 
+                <!-- Outlast Audit -->
                 <div class="p-6 border-4 border-blue-500 bg-white shadow-md rounded-lg">
-                    <h2 class="text-3xl font-bold text-blue-800 mb-4">OUTLAST: SURVIVAL CLAIMS</h2>
+                    <h2 class="text-3xl font-bold text-blue-800 mb-4 flex items-center"><span class="mr-3 text-4xl">❤️</span> OUTLAST: SURVIVAL CLAIMS</h2>
+                    <p class="text-sm italic text-gray-600 mb-4">The Jury needs evidence of **mental fortitude and sustained resilience.**</p>
                     <ul class="list-disc list-inside space-y-3 ml-4 text-gray-700 text-body">
                         <li><strong>Physical Grit:</strong> Describe the worst moment of cold/hunger/pain and how you kept going while others quit.</li>
                         <li><strong>Social Control:</strong> How did you maintain your composure and relationships when you were at your most desperate?</li>
@@ -649,8 +903,8 @@ li { line-height: 1.5; }
             </div>
         `
     };
-    
-    // --- Core Application Logic (No functional change) ---
+
+    // --- Core Application Logic ---
 
     const contentArea = document.getElementById('content-area');
     const prevBtn = document.getElementById('prev-btn');
@@ -659,7 +913,6 @@ li { line-height: 1.5; }
     const mobileNav = document.getElementById('mobile-nav-links');
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const mainElement = document.querySelector('main');
     
     // Toggle mobile menu visibility
     mobileMenuButton.addEventListener('click', () => {
@@ -673,6 +926,7 @@ li { line-height: 1.5; }
     const applyAesthetic = (pageId) => {
         const isOutwitModule = pageId.startsWith('page1-');
         const isIndexPage = pageId === 'index';
+        const isTimelinePage = pageId === 'meta-analysis';
 
         // 1. Dark Mode Toggle (for Outwit)
         if (isOutwitModule) {
@@ -681,13 +935,22 @@ li { line-height: 1.5; }
             document.body.classList.remove('dark-mode-module');
         }
 
-        // 2. Index Page Theme (Removing content box styling for raw look)
+        // 2. Timeline Page (Switches to the Timeline's external, clean aesthetic)
+        if (isTimelinePage) {
+            document.body.classList.add('timeline-active');
+            contentArea.classList.remove('content-area-main'); // Remove main content block styling
+        } else {
+            document.body.classList.remove('timeline-active');
+        }
+
+
+        // 3. Index Page Theme (Removing content box styling for raw look)
         if (isIndexPage) {
             // Remove standard block styling for the 'broken grid' home page look
             contentArea.classList.remove('content-area-main', 'shadow-lg', 'border', 'border-stone-200', 'p-6', 'sm:p-10', 'lg:p-12');
             contentArea.classList.add('bg-transparent'); 
             
-        } else {
+        } else if (!isTimelinePage) {
             // Re-apply standard content area styling for reading modules (modular block look)
             contentArea.classList.add('content-area-main');
             contentArea.classList.remove('bg-transparent');
@@ -786,6 +1049,8 @@ li { line-height: 1.5; }
     const handleHashChange = () => {
         const pageId = window.location.hash.substring(1) || PAGES[0].id;
         loadPageById(pageId);
+        // Scroll to top when page loads to ensure correct viewing
+        window.scrollTo(0, 0); 
     };
 
     // Event listeners
@@ -797,3 +1062,4 @@ li { line-height: 1.5; }
 
 </body>
 </html>
+
