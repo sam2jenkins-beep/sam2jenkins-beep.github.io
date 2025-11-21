@@ -8,10 +8,13 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Oswald:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Configuration -->
     <script>
@@ -23,6 +26,8 @@
                     },
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
                     },
                     letterSpacing: {
                         'super-wide': '0.2em',
@@ -129,6 +134,86 @@
             background-color: #FF69B4;
             color: black;
         }
+
+        /* --- ADVANTAGES PAGE SPECIFIC STYLES --- */
+        #advantages-view {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Black */
+            color: #ffffff; /* White */
+            z-index: 60;
+            overflow-y: auto;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        #advantages-view h1, 
+        #advantages-view h2, 
+        #advantages-view h3, 
+        #advantages-view .header-font {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        #advantages-view .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        /* Custom Scrollbar for Advantages View */
+        #advantages-view::-webkit-scrollbar {
+            width: 8px;
+        }
+        #advantages-view::-webkit-scrollbar-track {
+            background: #18181b; /* Zinc-900 */
+        }
+        #advantages-view::-webkit-scrollbar-thumb {
+            background: #FF69B4; /* Neon Pink */
+            border-radius: 4px;
+        }
+        #advantages-view::-webkit-scrollbar-thumb:hover {
+            background: #db2777; /* Darker Pink */
+        }
+
+        /* --- PREPARATION PLAYBOOK SPECIFIC STYLES (Updated to Neon Theme) --- */
+        #preparation-view {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Black */
+            color: #ffffff; /* White */
+            z-index: 60;
+            overflow-y: auto;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #preparation-view h1, 
+        #preparation-view h2, 
+        #preparation-view h3, 
+        #preparation-view .header-font {
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        #preparation-view::-webkit-scrollbar {
+            width: 8px;
+        }
+        #preparation-view::-webkit-scrollbar-track {
+            background: #18181b;
+        }
+        #preparation-view::-webkit-scrollbar-thumb {
+            background: #FF69B4;
+            border-radius: 4px;
+        }
+
     </style>
 <script type="importmap">
 {
@@ -159,10 +244,13 @@
                 <div class="relative group mt-8 cursor-pointer">
                     <div class="absolute -inset-1 bg-gradient-to-r from-neon-pink to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                     <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white bg-black overflow-hidden">
-                        <!-- Using local file path as requested, with placeholder fallback -->
+                        <!-- 
+                           YOUR PHOTO CONFIGURATION
+                        -->
                         <img 
+                            id="hero-image"
                             src="katesurvivor.jpeg" 
-                            onerror="this.src='https://placehold.co/800x800/000000/FF69B4?text=Player+Photo'"
+                            onerror="this.src='https://placehold.co/800x800/000000/FF69B4?text=Add+Photo'"
                             alt="Main Player" 
                             class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0"
                         >
@@ -347,9 +435,503 @@
         </div>
     </div>
 
+    <!-- CUSTOM VIEW: ADVANTAGES ENCYCLOPEDIA (Theme: Neon) -->
+    <div id="advantages-view">
+        <!-- Back Button Overlay -->
+        <button onclick="closeAdvantagesPage()" class="fixed top-4 left-4 z-50 bg-zinc-900 text-zinc-300 px-4 py-2 rounded shadow-lg uppercase text-xs tracking-widest hover:bg-neon-pink hover:text-black transition-colors border border-zinc-700 hover:border-neon-pink">
+            &larr; Back to Outwit
+        </button>
+
+        <header class="bg-zinc-950 text-white py-12 shadow-lg border-b-8 border-neon-pink">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl uppercase tracking-wider mb-4"><span class="text-neon-pink">Survivor</span> Québec</h1>
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-zinc-400">Encyclopedia of Advantages & Twists</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-zinc-500 text-lg">A strategic analysis of the mechanics that defined Seasons 1, 2, and 3.</p>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-12">
+
+            <section class="mb-16">
+                <div class="flex flex-col items-center text-center mb-10">
+                    <h2 class="text-4xl header-font text-white uppercase border-b-4 border-neon-pink pb-2 inline-block">Strategic Metagame</h2>
+                    <p class="mt-4 text-zinc-400 max-w-3xl">Understanding not just <em>what</em> the twists are, but <em>how</em> they break the game.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div class="bg-zinc-950 p-6 rounded-xl shadow-md border border-zinc-800">
+                        <h3 class="text-2xl header-font text-neon-pink mb-2">The "Chaos Factor"</h3>
+                        <p class="text-sm text-zinc-500 mb-6">Ranking twists by their potential to disrupt a standard vote (High Variance vs. Low Variance).</p>
+                        <div class="chart-container">
+                            <canvas id="volatilityChart"></canvas>
+                        </div>
+                        <div class="mt-4 bg-zinc-900 p-4 rounded-lg text-sm text-zinc-300 border border-zinc-800">
+                            <strong>Insight:</strong> <em>Linked Destinies</em> and the <em>Hourglass</em> twist represent the highest game variance, often removing player agency entirely compared to standard tools like Idols.
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 p-6 rounded-xl shadow-md border border-zinc-800">
+                        <h3 class="text-2xl header-font text-white mb-2">Twist Taxonomy</h3>
+                        <p class="text-sm text-zinc-500 mb-6">Categorizing mechanics by their primary strategic function.</p>
+                        <div class="chart-container">
+                            <canvas id="typeChart"></canvas>
+                        </div>
+                        <div class="mt-4 bg-zinc-900 p-4 rounded-lg text-sm text-zinc-300 border border-zinc-800">
+                            <strong>Insight:</strong> Survivor Québec has heavily favored <em>Structural</em> changes (altering the game format itself) over simple <em>Defensive</em> advantages like extra idols.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex flex-col items-center text-center mb-12">
+                    <h2 class="text-4xl header-font text-white uppercase border-b-4 border-neon-pink pb-2 inline-block">Advantage Database</h2>
+                    <p class="mt-4 text-zinc-400">Detailed mechanics and strategic implications for every major twist.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                    <!-- Advantage Cards render here -->
+                    <!-- ... (kept from previous implementation) ... -->
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-black text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Standard Idol</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Seasons 1, 2, 3</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Nullifies all votes cast against a player at Tribal Council.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Forces "Vote Splitting" strategies to bypass protection. Essential survival tool for minority alliances facing a pagonging.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Redemption Island</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 1</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Voted-out players compete in duels to return to the game.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Rewards physical resilience over social maneuvering. Allows players to manage the jury from outside the main game loop.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Exile (Edge)</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 2</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Eliminated players wait in isolation for a single merge re-entry challenge.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Creates a "Shadow Jury" who bond emotionally. Harder to return from than Redemption Island due to the single-challenge bottleneck.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">The Store (Magasin)</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 2</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Players spend fire tokens/currency on food or game advantages.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Creates a "Resource Economy." Historically, purchasing food fueled challenge beasts more effectively than buying minor advantages.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Safety Without Power</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 2</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Player leaves Tribal Council immediately; cannot vote or be voted for.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">The ultimate defensive bailout. Perfect for a player who knows they are the target but lacks an idol or numbers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Linked Destinies</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 3</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Players paired up; pairs share one vote and suffer double elimination.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">High Variance. Forces cooperation with enemies. Can be used to snipe strong players by targeting their weaker partner.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Player Steal</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 3</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Winning tribe takes the "voted out" player from the losing tribe.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Weaponizes the elimination vote. Turns a victim into a defector, immediately shifting tribal power dynamics.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Thrown Hourglass</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 3</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Reverses the outcome of an immunity challenge for a target group.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Removes "earned" safety, creating immense bitterness. A dangerous tool that often backfires via jury management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Extra Vote</h3>
+                            <span class="bg-neon-pink text-black text-xs font-bold px-2 py-1 rounded uppercase">Season 3</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Allows a player to cast a second ballot at Tribal Council.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Critical in the small tribes of Season 3 (3-tribe format) where one vote swings the majority.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300 border border-zinc-800">
+                        <div class="bg-zinc-900 text-white p-4 flex justify-between items-center border-b border-zinc-800">
+                            <h3 class="text-xl font-bold">Tribal Raid</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <h4 class="text-sm font-bold text-neon-pink uppercase tracking-wide mb-1">Mechanism</h4>
+                                <p class="text-zinc-300">Winners loot the losers' camp (Fire, Tarps, Food).</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-zinc-500 uppercase tracking-wide mb-1">Strategic Implication</h4>
+                                <p class="text-zinc-400 text-sm leading-relaxed">Psychological warfare. Demoralizes the enemy and physically weakens them, creating a snowball effect for future challenges.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CUSTOM VIEW: PREPARATION PLAYBOOK (Theme: Neon Pink) -->
+    <div id="preparation-view">
+        <!-- Back Button -->
+        <button onclick="closePreparationPage()" class="fixed top-4 left-4 z-50 bg-zinc-900 text-zinc-300 px-4 py-2 rounded shadow-lg uppercase text-xs tracking-widest hover:bg-neon-pink hover:text-black transition-colors border border-zinc-700 hover:border-neon-pink">
+            &larr; Back to Pregame
+        </button>
+
+        <header class="bg-zinc-950 text-white py-12 shadow-lg border-b-8 border-neon-pink">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl uppercase tracking-wider mb-4"><span class="text-neon-pink">Survivor</span> Prep Playbook</h1>
+                <h2 class="text-2xl md:text-3xl font-light tracking-wide text-zinc-400">Contestant-Specific Preparation Guide</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-zinc-500 text-lg">A clean and organized guide detailing specific preparation strategies from Survivor USA and Survivor Québec contestants.</p>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-12">
+
+            <section id="andre" class="mb-16">
+                <h2 class="text-4xl header-font text-white uppercase border-b-4 border-neon-pink pb-2 mb-10 inline-block">André (Survivor Québec 2)</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                    
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-zinc-900 border-b border-zinc-800 p-4">
+                            <h3 class="text-xl font-bold text-neon-pink">Physical Training</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-zinc-300">Intensive CrossFit training and practiced functional strength (lifting, carrying, crawling). Deliberately slept outdoors in various weather conditions to acclimate to camp life.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-zinc-900 border-b border-zinc-800 p-4">
+                            <h3 class="text-xl font-bold text-neon-pink">Strategic Focus</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-zinc-300">Reviewed previous season twists from US and Québec. Developed a methodical approach to searching for idols, focusing on logic rather than random luck. Practiced public speaking/jury answers.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-zinc-900 border-b border-zinc-800 p-4">
+                            <h3 class="text-xl font-bold text-neon-pink">Survival Skills</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-zinc-300">Mastered fire-making with different friction techniques (bow drill). Studied local flora/fauna to identify edible sources specific to the filming location's climate.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEW PARVATI SECTION -->
+            <section id="parvati" class="mb-16">
+                <h2 class="text-4xl header-font text-white uppercase border-b-4 border-neon-pink pb-2 mb-10 inline-block">Parvati Shallow (Legend)</h2>
+                
+                <div class="bg-zinc-950 border border-zinc-800 rounded-xl shadow-lg overflow-hidden p-8 md:p-12">
+                    <h3 class="text-3xl header-font text-neon-pink mb-6 uppercase leading-tight">The Parvati Playbook: Strategic Genius and the Art of the Sexy-Functional Wardrobe</h3>
+                    
+                    <div class="prose prose-invert prose-zinc max-w-none">
+                        <p class="text-zinc-300 mb-6 leading-relaxed">
+                            When you think of legendary Survivor players, one name immediately springs to mind: Parvati Shallow. Her four appearances on the show weren't just a masterclass in social manipulation and strategic genius; they were also a fascinating lesson in preparation. Parvati didn't just show up to the island; she treated the game like a high-stakes psychological test, and her pre-game routine reveals just how deep her commitment to victory ran—right down to what she was wearing.
+                        </p>
+
+                        <h4 class="text-2xl font-bold text-white mb-4 mt-8 border-l-4 border-neon-pink pl-4">The Intellectual Game: Psychological Warfare</h4>
+                        <p class="text-zinc-300 mb-6 leading-relaxed">
+                            Parvati approached Survivor's social environment as pure psychological warfare. Her preparation wasn't just about practicing how to make fire or build shelter; it was about sharpening her mind for the social hack elements of the game.
+                        </p>
+                        <p class="text-zinc-300 mb-6 leading-relaxed">
+                            It's said that a general studies history, and Parvati studied power. In a move that became a famous piece of Survivor trivia, she recommended reading <em>The 48 Laws of Power</em> by Robert Greene as essential pre-game material. This intellectual groundwork clearly paid off. She perfected the difficult art of knowing exactly when to abandon or betray an alliance—and, crucially, she could flip alliances or throw others "under the bus" without destroying her relationship with the people she would later face on the jury. That ability to manage perceptions while making ruthless, game-winning moves cemented her reputation as a strategic genius.
+                        </p>
+                        <p class="text-zinc-300 mb-6 leading-relaxed">
+                            Perhaps her most defining skill, however, was her unparalleled adaptability. She shifted effortlessly between social groups, adapting her charm and strategy based on whom she was working with at any given moment. She knew the game wasn't static, and neither was her social persona.
+                        </p>
+
+                        <h4 class="text-2xl font-bold text-white mb-4 mt-8 border-l-4 border-neon-pink pl-4">The Wardrobe Strategy: The Flirty Persona</h4>
+                        <p class="text-zinc-300 mb-6 leading-relaxed">
+                            In a game where every detail is scrutinized, Parvati understood that her clothing wasn't just practical gear—it was a critical part of her strategy, tied directly to the "flirty persona" she so brilliantly cultivated.
+                        </p>
+                        <p class="text-zinc-300 mb-6 leading-relaxed">
+                            What many viewers don't realize is that wardrobe in Survivor is heavily controlled by production, who actively look for pieces that reinforce pre-designed visual archetypes. Parvati was fully aware of this dynamic. She noted that the production team approved every piece of clothing and would often push her toward specific pieces that fit her character arc, openly saying, "They were always looking for something sexy for me."
+                        </p>
+                        <p class="text-zinc-300 mb-6 leading-relaxed">
+                            Her challenge was maintaining this visual expectation—the "sexy" part—while meeting her practical needs—the "functional" part. She had to stay warm, dry, and comfortable enough to actually play the game.
+                        </p>
+
+                        <h4 class="text-2xl font-bold text-white mb-4 mt-8 border-l-4 border-neon-pink pl-4">Learning from Failure: The Evolution of Her Island Gear</h4>
+                        <p class="text-zinc-300 mb-4">Parvati's clothing choices evolved dramatically across her four seasons as she learned brutal lessons from the elements:</p>
+                        <ul class="list-disc pl-6 space-y-4 text-zinc-300 mb-6">
+                            <li>
+                                <strong class="text-neon-pink">First Time (Cook Islands):</strong> She admits she was completely unprepared, saying she "had no idea what [she] was getting into." Wearing a tank top and shorts, she was "freezing the entire time." The only thing that worked was a string bikini she could continually tie tighter as she lost weight. It was a learning experience she wouldn't repeat.
+                            </li>
+                            <li>
+                                <strong class="text-neon-pink">Second Time (Micronesia):</strong> Having learned her lesson, she prioritized protection. She knew she needed long pants and a long-sleeve shirt that could double as a dress if her pants were wet. She deliberately sought out clothes that would dry quickly.
+                            </li>
+                            <li>
+                                <strong class="text-neon-pink">Third Time (Heroes vs. Villains):</strong> She continued to refine her gear, hunting for an even better quick-dry, long-sleeved shirt because the one she used in Micronesia had retained moisture for too long.
+                            </li>
+                            <li>
+                                <strong class="text-neon-pink">Later Season (Winners at War):</strong> For her final run, she famously wore a leopard-print jumpsuit. Interestingly, sources indicate production specifically asked her to wear an animal print jumpsuit, and she struggled to find one that met their approval while still offering some level of functionality.
+                            </li>
+                        </ul>
+
+                        <p class="text-zinc-300 mb-6 leading-relaxed border-t border-zinc-800 pt-6 mt-6">
+                            Ultimately, Parvati aimed for clothes that were "sexy and functional." Like a military strategist designing a uniform, she knew it needed to look the part for the psychological effect (charming and disarming, in her case), but if it didn't keep her warm and mobile, the entire tactical mission would fail.
+                        </p>
+                        <p class="text-zinc-300 leading-relaxed">
+                            Despite her best efforts and meticulous planning, she candidly admits she generally "failed most of the time" in perfectly balancing sexiness, function, comfort, and warmth. But the fact that she treated her wardrobe with the same strategic intensity as her alliances is a perfect snapshot of what made Parvati Shallow one of the greatest to ever play.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="player-placeholder" class="mb-16">
+                <h2 class="text-4xl header-font text-white uppercase border-b-4 border-neon-pink pb-2 mb-10 inline-block">New Player Name (USA/SQ X)</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                    
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-zinc-900 border-b border-zinc-800 p-4">
+                            <h3 class="text-xl font-bold text-neon-pink">Strategic Play</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-zinc-300">**EDIT THIS:** Describe specific reading material, game simulation, or strategic focuses the player used (e.g., studying social network theory, rewatching final tribals).</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition duration-300">
+                        <div class="bg-zinc-900 border-b border-zinc-800 p-4">
+                            <h3 class="text-xl font-bold text-neon-pink">Audition & Social Persona</h3>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-zinc-300">**EDIT THIS:** Detail how they worked on their character or social game (e.g., practiced lying to friends, worked on being approachable, practiced being vulnerable).</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="bg-zinc-950 text-zinc-500 py-8 mt-12 border-t border-zinc-900">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-sm">Data compiled from contestant interviews and pre-show preparation guides.</p>
+                <p class="text-xs mt-2 opacity-60 text-neon-pink">Theme: Neon Prep</p>
+            </div>
+        </footer>
+    </div>
+
     <!-- LOGIC -->
     <script>
-        // DATA CONSTANTS
+        // ==========================================
+        // === YOUR PHOTOS & CONTENT CONFIGURATION ===
+        // ==========================================
+        
+        // 1. MAIN HERO IMAGE
+        // Place your photo in the same folder and paste the filename here inside the quotes.
+        const HERO_IMAGE_URL = 'katesurvivor.jpeg'; 
+
+        // 2. PORTFOLIO IMAGES
+        // Update the 'image' field with your filenames (e.g., 'image: "my-photo-1.jpg"')
+        const PORTFOLIO_ITEMS = [
+            { id: '1', name: 'The Strategist', season: 'Season 45', image: 'https://picsum.photos/400/600?random=1' },
+            { id: '2', name: 'The Socialite', season: 'Season 32', image: 'https://picsum.photos/400/600?random=2' },
+            { id: '3', name: 'The Beast', season: 'Season 28', image: 'https://picsum.photos/400/600?random=3' },
+            { id: '4', name: 'The Villain', season: 'Season 20', image: 'https://picsum.photos/400/600?random=4' },
+        ];
+
+        // 3. TOPIC CONTENT & IMAGES
+        // Update the 'image' field for each sub-topic below.
+        const TOPICS = {
+            'pregame': {
+                title: 'Pregame Guidelines',
+                subtitle: 'The game begins before you hit the sand. Preparation is the only variable you can control.',
+                subTopics: [
+                    { 
+                        title: 'How Have Others Prepared', 
+                        description: 'Analyzing the preparation routines of past winners. From physical training regimens to puzzle practice and social engineering research.', 
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=History' 
+                    },
+                    { 
+                        title: 'Suggestions Leading Up to Departure', 
+                        description: 'The final countdown. Physical tapering, caloric loading, mental checklists, and last-minute skill acquisition before marooning.', 
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Departure' 
+                    }
+                ]
+            },
+            'meta': {
+                title: 'Meta Game',
+                subtitle: 'Understanding the invisible currents that drive the modern game.',
+                subTopics: [
+                    { title: 'Threat Management', description: 'The art of lowering your profile while maintaining agency.', image: 'https://placehold.co/600x400/000000/FF69B4?text=Threats' },
+                    { title: 'Voting Blocs', description: 'Why rigid alliances are dead and how to surf the chaos of voting blocs.', image: 'https://placehold.co/600x400/000000/FF69B4?text=Voting+Blocs' },
+                    { title: 'Jury Management', description: 'Starting the game with the end in mind.', image: 'https://placehold.co/600x400/000000/FF69B4?text=The+Jury' }
+                ]
+            },
+            'outwit': {
+                title: 'Outwit',
+                subtitle: 'The Social Game. People are the most dangerous puzzle pieces.',
+                subTopics: [
+                    {
+                        title: 'History of Strategy: SQ',
+                        description: 'Mastering Social Intelligence (SQ). Analyzing the evolution of social strategy and behavioral patterns across 45+ seasons.',
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Strategy+SQ'
+                    },
+                    {
+                        title: 'Advantages & Twists',
+                        description: 'Knowledge is power. Navigating the complex web of Immunity Idols, Advantages, and game-breaking twists.',
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Advantages'
+                    },
+                    {
+                        title: 'Castaways Codex',
+                        description: 'The Encyclopedia of Players. Understanding player archetypes, psychological profiles, and threat levels.',
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Codex'
+                    }
+                ]
+            },
+            'outplay': {
+                title: 'Outplay',
+                subtitle: 'The Physical Game. Adapting to the environment and the challenges.',
+                subTopics: [
+                    {
+                        title: 'SQ: Old School Renaissance',
+                        description: 'Merging modern strategy with classic social awareness. Reading the unspoken hierarchy of the tribe.',
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=SQ+Renaissance'
+                    },
+                    {
+                        title: 'Puzzles',
+                        description: 'The great equalizer. Visualizing solutions under pressure. Slide puzzles, word scrambles, and pattern recognition.',
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Puzzles'
+                    },
+                    {
+                        title: 'Swimming',
+                        description: 'Water proficiency is essential. Breath holding, efficient strokes, and diving deep to retrieve keys or buoys.',
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Swimming'
+                    },
+                    {
+                        title: 'Physical',
+                        description: 'Raw athleticism and obstacle course readiness. Balance, agility, and the endurance to outlast the competition.',
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Physical'
+                    }
+                ]
+            },
+            'outlast': {
+                title: 'Outlast',
+                subtitle: 'The Endurance Game. Surviving the elements and your own mind.',
+                subTopics: [
+                    { title: 'Mental Resilience', description: 'Coping mechanisms for isolation and paranoia.', image: 'https://placehold.co/600x400/000000/FF69B4?text=Resilience' },
+                    { title: 'Physical Endurance', description: 'Managing hunger, sleep deprivation, and elements.', image: 'https://placehold.co/600x400/000000/FF69B4?text=Endurance' },
+                    { title: 'The Long Game', description: 'Pacing yourself for the 26-day marathon.', image: 'https://placehold.co/600x400/000000/FF69B4?text=Long+Game' }
+                ]
+            },
+            'endgame': {
+                title: 'End Game',
+                subtitle: 'Closing the deal. The final hurdles between you and the title.',
+                subTopics: [
+                    { 
+                        title: 'Fire Making', 
+                        description: 'Techniques to win the forced Final Four fire-making challenge.', 
+                        image: 'https://placehold.co/600x400/000000/FF69B4?text=Fire',
+                        video: 'https://www.youtube.com/embed/fL2yuWsBGT8'
+                    },
+                    { title: 'Final Tribal', description: 'Structuring your opening statement and argument.', image: 'https://placehold.co/600x400/000000/FF69B4?text=FTC' },
+                    { title: 'The Pitch', description: 'Resume building 101. Translating moves into narrative.', image: 'https://placehold.co/600x400/000000/FF69B4?text=Resume' }
+                ]
+            }
+        };
+
         const TIMELINE_EVENTS = [
             { day: 'Day 1', title: 'Marooned' },
             { day: 'Day 2', title: 'First Vote' },
@@ -360,76 +942,24 @@
             { day: 'Day 42', title: 'Sole SURVIVOR' },
         ];
 
-        const PORTFOLIO_ITEMS = [
-            { id: '1', name: 'The Strategist', season: 'Season 45', image: 'https://picsum.photos/400/600?random=1' },
-            { id: '2', name: 'The Socialite', season: 'Season 32', image: 'https://picsum.photos/400/600?random=2' },
-            { id: '3', name: 'The Beast', season: 'Season 28', image: 'https://picsum.photos/400/600?random=3' },
-            { id: '4', name: 'The Villain', season: 'Season 20', image: 'https://picsum.photos/400/600?random=4' },
-        ];
-
-        const TOPICS = {
-            'pregame': {
-                title: 'Pregame Guidelines',
-                subtitle: 'The game begins before you hit the sand. Preparation is the only variable you can control.',
-                subTopics: [
-                    { title: 'Archetype Analysis', description: 'Identify where you fit in the casting spectrum. Are you the "Brain", the "Beauty", or the "Brawn"? Knowing your perceived role helps you break or lean into stereotypes.' },
-                    { title: 'Alliance Pre-viz', description: 'Strategies for forming early bonds. Learn to recognize the subtle cues of potential allies during the pre-game lockdown.' },
-                    { title: 'Survival Skills 101', description: 'Essential guide to fire making with flint, shelter structural integrity, and basic knot tying. Don\'t be the liability at camp.' }
-                ]
-            },
-            'meta': {
-                title: 'Meta Game',
-                subtitle: 'Understanding the invisible currents that drive the modern game.',
-                subTopics: [
-                    { title: 'Threat Management', description: 'The art of lowering your profile while maintaining agency. How to be a pilot, not a passenger, without painting a target on your back.' },
-                    { title: 'Voting Blocs', description: 'Navigating the fluid gameplay of the new era. Why rigid alliances are dead and how to surf the chaos of voting blocs.' },
-                    { title: 'Jury Management', description: 'Starting the game with the end in mind. How to vote people out in a way that makes them want to give you a million dollars.' }
-                ]
-            },
-            'outwit': {
-                title: 'Outwit',
-                subtitle: 'The Social Game. People are the most dangerous puzzle pieces.',
-                subTopics: [
-                    { title: 'Social Intelligence', description: 'Reading the room and understanding player motivations. The difference between hearing and listening.' },
-                    { title: 'Art of Deception', description: 'When to lie, how to lie, and crucially, when to tell the truth to build credit for a future blindside.' },
-                    { title: 'Info Brokerage', description: 'Controlling the flow of information. Information is the currency of the game; spend it wisely.' }
-                ]
-            },
-            'outplay': {
-                title: 'Outplay',
-                subtitle: 'The Physical Game. Adapting to the environment and the challenges.',
-                subTopics: [
-                    { title: 'Challenge Prowess', description: 'Training guides for swimming, balance, and endurance. You don\'t need to win everything, just the ones that save your life.' },
-                    { title: 'Camp Life', description: 'Balancing work ethic with energy conservation. How to be helpful enough to keep, but lazy enough to compete.' },
-                    { title: 'Advantage Hunting', description: 'Clues, idols, and advantages. How to search effectively without raising suspicion from the tribe.' }
-                ]
-            },
-            'outlast': {
-                title: 'Outlast',
-                subtitle: 'The Endurance Game. Surviving the elements and your own mind.',
-                subTopics: [
-                    { title: 'Mental Resilience', description: 'Coping mechanisms for isolation and paranoia. How to keep your sanity when everyone is plotting against you.' },
-                    { title: 'Physical Endurance', description: 'Managing hunger, sleep deprivation, and elements. Techniques to maintain focus on an empty stomach.' },
-                    { title: 'The Long Game', description: 'Pacing yourself for the 26-day marathon. Timing your peak performance for the final stretch.' }
-                ]
-            },
-            'endgame': {
-                title: 'End Game',
-                subtitle: 'Closing the deal. The final hurdles between you and the title.',
-                subTopics: [
-                    { title: 'Fire Making', description: 'Techniques to win the forced Final Four fire-making challenge. The only safety net left.' },
-                    { title: 'Final Tribal', description: 'Structuring your opening statement. How to articulate your game without sounding arrogant or passive.' },
-                    { title: 'The Pitch', description: 'Resume building 101. Identifying your key moves and translating them into a winning narrative.' }
-                ]
-            }
-        };
+        // ==========================================
+        // === END CONFIGURATION ====================
+        // ==========================================
 
         // INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
+            setupHero();
             renderTimeline();
             renderPortfolios();
             setupTimelineScroll();
         });
+
+        function setupHero() {
+            const img = document.getElementById('hero-image');
+            if (img && HERO_IMAGE_URL) {
+                img.src = HERO_IMAGE_URL;
+            }
+        }
 
         // RENDERING FUNCTIONS
         function renderTimeline() {
@@ -463,12 +993,13 @@
                         src="${item.image}" 
                         alt="${item.name}" 
                         class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500 grayscale group-hover:grayscale-0"
+                        onerror="this.src='https://placehold.co/400x600/222/FFF?text=Missing+Img'"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                     
                     <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                        <p class="text-neon-pink text-xs font-bold uppercase tracking-widest mb-1">${item.season}</p>
-                        <h3 class="text-2xl font-bold text-white uppercase leading-none">${item.name}</h3>
+                        <p class="text-neon-pink text-xs font-bold uppercase tracking-widest mb-1">{item.season}</p>
+                        <h3 class="text-2xl font-bold text-white uppercase leading-none">{item.name}</h3>
                         <div class="w-0 group-hover:w-full h-[2px] bg-neon-pink mt-3 transition-all duration-500"></div>
                     </div>
                 </div>
@@ -499,22 +1030,36 @@
 
             // Render Subtopics
             const grid = document.getElementById('subtopics-grid');
-            grid.innerHTML = topicData.subTopics.map((sub, index) => `
+            
+            grid.innerHTML = topicData.subTopics.map((sub, index) => {
+                const isVideo = sub.video ? true : false;
+                const mediaContent = isVideo 
+                    ? `<iframe 
+                        src="${sub.video}" 
+                        class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 grayscale group-hover:grayscale-0" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                      ></iframe>`
+                    : `<img 
+                        src="${sub.image || `https://placehold.co/600x400/111/FFF?text=${encodeURIComponent(sub.title)}`}" 
+                        alt="${sub.title}"
+                        class="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
+                        onerror="this.src='https://placehold.co/600x400/222/FFF?text=Missing+Img'"
+                      />`;
+
+                return `
                 <div class="group flex flex-col space-y-4 animate-slide-up" style="animation-delay: ${index * 0.1}s">
-                    <div class="overflow-hidden aspect-video bg-zinc-900 border border-zinc-800 group-hover:border-neon-pink transition-colors duration-300 relative cursor-pointer">
-                        <img 
-                            src="https://placehold.co/600x400/111/FFF?text=${encodeURIComponent(sub.title)}" 
-                            alt="${sub.title}"
-                            class="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
-                        >
-                        <div class="absolute top-0 right-0 bg-neon-pink text-black font-bold px-3 py-1 text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div onclick="handleSubTopicClick('${id}', ${index})" class="overflow-hidden aspect-video bg-zinc-900 border border-zinc-800 group-hover:border-neon-pink transition-colors duration-300 relative cursor-pointer">
+                        ${mediaContent}
+                        ${!isVideo ? `<div class="absolute top-0 right-0 bg-neon-pink text-black font-bold px-3 py-1 text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                             Read More
-                        </div>
+                        </div>` : ''}
                         <div class="absolute top-4 left-4 bg-black/80 px-3 py-1 text-xs font-mono text-neon-pink border border-neon-pink/30">
                             0${index + 1}
                         </div>
                     </div>
-                    <div class="cursor-pointer">
+                    <div class="cursor-pointer" onclick="handleSubTopicClick('${id}', ${index})">
                         <h3 class="text-2xl font-bold uppercase text-white group-hover:text-neon-pink transition-colors">
                             ${sub.title}
                         </h3>
@@ -523,7 +1068,7 @@
                         </p>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
 
             // Toggle Views
             document.getElementById('topic-view').style.display = 'block';
@@ -531,9 +1076,172 @@
             document.getElementById('topic-view').scrollTop = 0;
         }
 
+        function handleSubTopicClick(topicId, index) {
+            const topic = TOPICS[topicId];
+            if (!topic) return;
+            const sub = topic.subTopics[index];
+            
+            // 1. Specific logic for "Advantages & Twists" (Outwit)
+            if (topicId === 'outwit' && sub.title === 'Advantages & Twists') {
+                openAdvantagesPage();
+            }
+
+            // 2. Specific logic for "How Have Others Prepared" (Pregame)
+            if (topicId === 'pregame' && sub.title === 'How Have Others Prepared') {
+                openPreparationPage();
+            }
+        }
+
         function closeTopic() {
             document.getElementById('topic-view').style.display = 'none';
             document.getElementById('main-view').style.display = 'block';
+        }
+
+        // --- ADVANTAGES ENCYCLOPEDIA LOGIC ---
+        let chartsInitialized = false;
+
+        function openAdvantagesPage() {
+            document.getElementById('topic-view').style.display = 'none';
+            document.getElementById('advantages-view').style.display = 'block';
+            
+            if (!chartsInitialized) {
+                initAdvantagesCharts();
+                chartsInitialized = true;
+            }
+        }
+
+        function closeAdvantagesPage() {
+            document.getElementById('advantages-view').style.display = 'none';
+            document.getElementById('topic-view').style.display = 'block';
+        }
+
+        // --- PREPARATION PLAYBOOK LOGIC ---
+        function openPreparationPage() {
+            document.getElementById('topic-view').style.display = 'none';
+            document.getElementById('preparation-view').style.display = 'block';
+        }
+
+        function closePreparationPage() {
+            document.getElementById('preparation-view').style.display = 'none';
+            document.getElementById('topic-view').style.display = 'block';
+        }
+
+
+        function initAdvantagesCharts() {
+            // Utility function to wrap long labels for charts (improves readability on mobile)
+            const wrapLabel = (str, maxWidth) => {
+                const words = str.split(' ');
+                let lines = [];
+                let currentLine = words[0];
+
+                for (let i = 1; i < words.length; i++) {
+                    if (currentLine.length + words[i].length + 1 < maxWidth) {
+                        currentLine += ' ' + words[i];
+                    } else {
+                        lines.push(currentLine);
+                        currentLine = words[i];
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            };
+
+            // Chart.js Tooltip Configuration
+            const tooltipConfig = {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                          return label.join(' ');
+                        }
+                        return label;
+                    }
+                }
+            };
+
+            // Chart 1: Volatility Index (Bar Chart)
+            const ctxVol = document.getElementById('volatilityChart').getContext('2d');
+            new Chart(ctxVol, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        wrapLabel('Linked Destinies', 12), 
+                        wrapLabel('Thrown Hourglass', 12), 
+                        wrapLabel('Player Steal', 12), 
+                        wrapLabel('Redemption Island', 12), 
+                        wrapLabel('Standard Idol', 12),
+                        wrapLabel('Exile (Edge)', 12),
+                        wrapLabel('Extra Vote', 12),
+                        wrapLabel('Tribal Raid', 12),
+                        wrapLabel('The Store', 12),
+                        wrapLabel('Safety w/o Power', 12)
+                    ],
+                    datasets: [{
+                        label: 'Game Chaos Score (Est.)',
+                        data: [10, 9, 8, 7, 6, 6, 5, 5, 4, 3], 
+                        backgroundColor: [
+                            '#FF69B4', '#FF69B4', '#FF69B4', // Neon Pink
+                            '#db2777', // Darker Pink
+                            '#a855f7', '#a855f7', // Purple
+                            '#7c3aed', '#7c3aed', // Darker Purple
+                            '#52525b', '#52525b'  // Zinc
+                        ],
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: tooltipConfig
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Chaos/Impact Rating', color: '#a1a1aa' },
+                            grid: { color: '#27272a' },
+                            ticks: { color: '#a1a1aa' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#a1a1aa' }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: Functional Distribution (Doughnut)
+            const ctxType = document.getElementById('typeChart').getContext('2d');
+            new Chart(ctxType, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Structural (Twists)', 'Offensive (Attacks)', 'Defensive (Protection)', 'Resurrection (Return)'],
+                    datasets: [{
+                        data: [4, 3, 2, 2], 
+                        backgroundColor: [
+                            '#FF69B4', // Neon Pink
+                            '#db2777', // Dark Pink
+                            '#a855f7', // Purple
+                            '#52525b'  // Zinc
+                        ],
+                        borderColor: '#000000',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { usePointStyle: true, padding: 20, color: '#a1a1aa' }
+                        },
+                        tooltip: tooltipConfig
+                    }
+                }
+            });
         }
     </script>
 </body>
