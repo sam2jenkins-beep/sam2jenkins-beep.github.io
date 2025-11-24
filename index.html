@@ -248,9 +248,10 @@
         /* Formatting for user content inside JS */
         .reader-content h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 2.5rem; }
         .reader-content h2 { margin-top: 30px; margin-bottom: 15px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
+        .reader-content h3 { color: white; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
         .reader-content p { margin-bottom: 20px; color: #ddd; }
         .reader-content ul { margin-left: 20px; margin-bottom: 20px; }
-        .reader-content li { margin-bottom: 10px; }
+        .reader-content li { margin-bottom: 10px; color: #ddd; }
         .reader-content strong { color: white; }
 
         /* Mobile Tweaks */
@@ -347,8 +348,6 @@
         /* =======================================================
         CONTENT ENGINE - EDIT YOUR SITE CONTENT HERE
         =======================================================
-        Use backticks ` ` for multi-line text in the 'body' fields.
-        HTML tags (h1, p, ul, li, b) are allowed.
         */
         
         const siteContent = {
@@ -360,21 +359,28 @@
                         title: "FINAL 48",
                         body: `
                             <h1>The Final 48 Hours</h1>
-                            <p>This is the checklist for the last two days before flying out.</p>
+                            <p>The frantic last moments before the drop.</p>
+                            <h3>Checklist</h3>
                             <ul>
                                 <li>Check passport expiration</li>
                                 <li>Pack one luxury item</li>
                                 <li>Review all strategy notes one last time</li>
+                                <li>Last meal strategy: Load on fats/proteins.</li>
+                                <li>Sleep bank: Get 10+ hours.</li>
                             </ul>
                         `
                     },
                     {
-                        title: "HOW OTHERS PREPARED",
+                        title: "HOW OTHERS HAVE PREPARED",
                         body: `<p>Notes on past winners' preparation routines...</p>`
                     },
                     {
                         title: "JOURNAL PROMPTS",
-                        body: `<p>Prompts to keep mind sharp...</p>`
+                        body: `
+                            <h3>Mental Clarity</h3>
+                            <p>1. Why do I deserve to win?</p>
+                            <p>2. What is my line in the sand?</p>
+                        `
                     },
                     {
                         title: "TRAINING SUGGESTIONS",
@@ -396,7 +402,7 @@
                         `
                     },
                     {
-                        title: "DAY 1: USA VS QC",
+                        title: "DAY 1: USA VS. QC",
                         body: `<p>Comparison of US vs International play styles on Day 1...</p>`
                     },
                     {
@@ -436,24 +442,27 @@
             outplay: {
                 title: "OUTPLAY",
                 items: [
-                    { title: "CHALLENGE HACKS", body: `<p>How to balance on the beam...</p>` },
-                    { title: "CAMP LIFE", body: `<p>Fire making, shelter building, fishing...</p>` }
+                    { title: "CHALLENGE ANALYSIS", body: `<p>Breakdown of recurring challenge structures.</p>` },
+                    { title: "PUZZLE DATABASE", body: `<p>Memorize these 5 common puzzle types...</p>` },
+                    { title: "PHYSICAL CONDITIONING", body: `<p>Calorie deficit training...</p>` }
                 ]
             },
 
             outlast: {
                 title: "OUTLAST",
                 items: [
-                    { title: "MANAGING HUNGER", body: `<p>Mental techniques for starvation...</p>` },
-                    { title: "SOCIAL ENDURANCE", body: `<p>How to not snap at people...</p>` }
+                    { title: "SOCIAL DYNAMICS", body: `<p>How to manage the camp energy.</p>` },
+                    { title: "CAMP LIFE HACKS", body: `<p>How to keep the fire going in rain.</p>` },
+                    { title: "MENTAL RESILIENCE", body: `<p>Meditation techniques for the island.</p>` }
                 ]
             },
 
             endGame: {
                 title: "END GAME",
                 items: [
-                    { title: "THE PITCH", body: `<p>Structuring the Final Tribal Council speech...</p>` },
-                    { title: "JURY MANAGEMENT", body: `<p>How to let them down easy...</p>` },
+                    { title: "THE PITCH", body: `<h1>FTC Speech Structure</h1><p>Past, Present, Future method.</p>` },
+                    { title: "FINAL TRIBAL COUNCIL", body: `<p>How to answer jury questions without getting defensive.</p>` },
+                    { title: "JURY MANAGEMENT", body: `<p>The game starts when you vote them out.</p>` },
                     { title: "FIRE MAKING YOUTUBE", body: `<p>Links to best fire making tutorials...</p>` }
                 ]
             }
@@ -464,7 +473,6 @@
         =======================================================
         */
 
-        // References to DOM Elements
         const categoryView = document.getElementById('category-view');
         const categoryTitle = document.getElementById('category-title');
         const categoryList = document.getElementById('category-list');
@@ -472,21 +480,19 @@
         const readerView = document.getElementById('reader-view');
         const readerBody = document.getElementById('reader-body');
 
-        // State
         let currentCategoryData = null;
 
-        // 1. Open The Category Menu (View 2)
         function openCategory(key) {
             const data = siteContent[key];
-            if (!data) return;
+            if (!data) {
+                console.error("Category data not found for:", key);
+                return;
+            }
 
             currentCategoryData = data;
             
-            // Set Title
             categoryTitle.innerText = data.title;
-
-            // Build List
-            categoryList.innerHTML = ''; // Clear old items
+            categoryList.innerHTML = ''; 
             
             data.items.forEach((item, index) => {
                 const btn = document.createElement('button');
@@ -496,32 +502,23 @@
                 categoryList.appendChild(btn);
             });
 
-            // Slide In
             categoryView.classList.add('active');
         }
 
-        // 2. Close Category Menu
         function closeCategory() {
             categoryView.classList.remove('active');
         }
 
-        // 3. Open Reader (View 3)
         function openReader(index) {
             const item = currentCategoryData.items[index];
-            
-            // Inject HTML content
             readerBody.innerHTML = item.body;
-
-            // Slide In
             readerView.classList.add('active');
         }
 
-        // 4. Close Reader
         function closeReader() {
             readerView.classList.remove('active');
         }
 
-        // 5. Special Link Handler
         function openNotebook() {
             window.open('https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f', '_blank');
         }
