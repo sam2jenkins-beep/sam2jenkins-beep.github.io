@@ -93,10 +93,10 @@
             height: 40vh;
             object-fit: cover;
             border: 2px solid var(--accent-color);
-            filter: grayscale(100%);
+            /* filter: grayscale(100%); Removed to show full color of katesurvivor.jpeg */
             transition: filter 0.5s;
         }
-        .hero-img:hover { filter: grayscale(0%); }
+        /* .hero-img:hover { filter: grayscale(0%); } */
 
         /* Timeline */
         #timeline { align-items: flex-start; justify-content: center; }
@@ -122,8 +122,14 @@
         /* Content Hubs */
         #content-hubs { gap: 20px; }
 
-        /* Core Triangle */
-        #core-triangle { gap: 30px; }
+        /* Core Triangle Layout */
+        #core-triangle { 
+            /* Mobile Default: Column */
+            display: flex;
+            flex-direction: column;
+            gap: 30px; 
+        }
+
         .triangle-item {
             font-size: 3.5rem;
             font-weight: 900;
@@ -133,6 +139,33 @@
         }
         .triangle-item:hover { color: var(--accent-color); text-shadow: 0 0 20px rgba(255,105,180,0.5); }
         
+        /* Desktop Triangle Layout */
+        @media (min-width: 768px) {
+            #core-triangle {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                justify-items: center;
+                align-content: center;
+                gap: 50px;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+            /* Top of Pyramid */
+            .triangle-item:nth-child(1) {
+                grid-column: 1 / -1; /* Spans across both columns */
+                order: 1;
+            }
+            /* Bottom Left */
+            .triangle-item:nth-child(2) {
+                order: 2;
+            }
+            /* Bottom Right */
+            .triangle-item:nth-child(3) {
+                order: 3;
+            }
+        }
+
         /* Portfolios */
         .grid-container {
             display: grid;
@@ -265,14 +298,18 @@
 </head>
 <body>
 
+    <!-- === VIEW 1: MAIN SCROLL === -->
     <main id="main-view">
         
+        <!-- Hero Section -->
         <section id="hero">
             <h1>Sole Survivor<br>Preparation</h1>
             <p>THE HANDBOOK</p>
-            <img src="https://placehold.co/800x1200/000000/FFFFFF?text=Main+Player+Photo" alt="Player" class="hero-img">
+            <!-- UPDATED: Uses local file katesurvivor.jpeg -->
+            <img src="katesurvivor.jpeg" alt="Kate Survivor" class="hero-img" onerror="this.src='https://placehold.co/800x1200/000000/FFFFFF?text=Add+katesurvivor.jpeg'">
         </section>
 
+        <!-- Timeline Section -->
         <section id="timeline">
             <div class="timeline-track">
                 <div class="time-node"><h4>Day 1</h4><p>Marooned</p></div>
@@ -285,6 +322,7 @@
             </div>
         </section>
 
+        <!-- Content Hubs -->
         <section id="content-hubs">
             <div class="card" onclick="openCategory('preGame')">
                 <h3>PRE GAME STRATEGIES</h3>
@@ -297,18 +335,21 @@
             </div>
         </section>
 
+        <!-- Core Triangle (Visually arranged via CSS Grid) -->
         <section id="core-triangle">
             <div class="triangle-item" onclick="openCategory('outwit')">OUTWIT</div>
             <div class="triangle-item" onclick="openCategory('outplay')">OUTPLAY</div>
             <div class="triangle-item" onclick="openCategory('outlast')">OUTLAST</div>
         </section>
 
+        <!-- End Game -->
         <section id="end-game">
             <div class="card" onclick="openCategory('endGame')">
                 <h3>END GAME</h3>
             </div>
         </section>
 
+        <!-- Portfolios -->
         <section id="portfolios">
             <h2>Player Portfolios</h2>
             <br>
@@ -324,15 +365,18 @@
 
     </main>
 
+    <!-- === VIEW 2: CATEGORY OVERLAY === -->
     <div id="category-view">
         <div class="overlay-header">
             <h2 id="category-title">CATEGORY</h2>
             <button class="close-btn" onclick="closeCategory()">Close</button>
         </div>
         <div id="category-list" class="sub-item-list">
-            </div>
+            <!-- Items injected via JS -->
+        </div>
     </div>
 
+    <!-- === VIEW 3: READER OVERLAY === -->
     <div id="reader-view">
         <div class="reader-container">
             <div class="overlay-header">
@@ -340,7 +384,8 @@
                 <span>READING MODE</span>
             </div>
             <div id="reader-body" class="reader-content">
-                </div>
+                <!-- Content injected via JS -->
+            </div>
         </div>
     </div>
 
@@ -418,15 +463,16 @@
                     {
                         title: "THE VOLATILITY MATRIX",
                         body: `
-                            <h1>Volatility Matrix</h1>
-                            <p><strong>High Volatility:</strong> Players who play hard and fast.</p>
-                            <p><strong>Low Volatility:</strong> Players who play safe and slow.</p>
-                            <p>Identify where everyone sits on this grid by Day 3.</p>
+                            <h1>The Volatility Matrix</h1>
+                            <p>Plotting players based on erratic vs. stable behavior.</p>
+                            <br>
+                            <strong>High Volatility:</strong> Unpredictable agents.
+                            <strong>Low Volatility:</strong> Stable anchors.
                         `
                     },
                     {
                         title: "HISTORY OF STRATEGY",
-                        body: `<p>Evolution of alliances...</p>`
+                        body: `<p>Evolution of alliances and voting blocs...</p>`
                     },
                     {
                         title: "ADVANTAGES & TWISTS",
@@ -442,18 +488,65 @@
             outplay: {
                 title: "OUTPLAY",
                 items: [
-                    { title: "CHALLENGE ANALYSIS", body: `<p>Breakdown of recurring challenge structures.</p>` },
-                    { title: "PUZZLE DATABASE", body: `<p>Memorize these 5 common puzzle types...</p>` },
-                    { title: "PHYSICAL CONDITIONING", body: `<p>Calorie deficit training...</p>` }
+                    {
+                        title: "SQ: OLD SCHOOL RENAISSANCE",
+                        body: `
+                            <h1>SQ: Old School Renaissance</h1>
+                            <p>Why the physical game matters again in the modern era.</p>
+                            <p>Thoughts on tribal strength vs individual immunity.</p>
+                        `
+                    },
+                    {
+                        title: "Puzzles",
+                        body: `
+                            <h1>Puzzle Database</h1>
+                            <p>1. Slide Puzzles</p>
+                            <p>2. Tangrams</p>
+                            <p>3. Word Scrambles</p>
+                        `
+                    },
+                    {
+                        title: "Physical",
+                        body: `<p>Calorie deficit training protocols...</p>`
+                    },
+                    {
+                        title: "Swimming",
+                        body: `<p>Open water techniques and breathing exercises.</p>`
+                    },
+                    {
+                        title: "Ways to practice",
+                        body: `<p>Backyard drills for balance and aim.</p>`
+                    }
                 ]
             },
 
             outlast: {
                 title: "OUTLAST",
                 items: [
-                    { title: "SOCIAL DYNAMICS", body: `<p>How to manage the camp energy.</p>` },
-                    { title: "CAMP LIFE HACKS", body: `<p>How to keep the fire going in rain.</p>` },
-                    { title: "MENTAL RESILIENCE", body: `<p>Meditation techniques for the island.</p>` }
+                    {
+                        title: "DESTINATION: PANAMA",
+                        body: `
+                            <h1>Panama</h1>
+                            <p>Climate data, flora, and fauna risks.</p>
+                            <p>What to expect from the weather in this specific season.</p>
+                        `
+                    },
+                    {
+                        title: "COLD",
+                        body: `
+                            <h1>Managing the Cold</h1>
+                            <p>Techniques for sleeping on bamboo without warmth.</p>
+                            <p>Huddling strategies.</p>
+                        `
+                    },
+                    {
+                        title: "I'M A CITY GIRL",
+                        body: `
+                            <h1>Adapting to Nature</h1>
+                            <p>Overcoming the fear of bugs and dirt.</p>
+                            <p>Strategies for the urban player in the wild.</p>
+                        `
+                    }
                 ]
             },
 
@@ -463,7 +556,7 @@
                     { title: "THE PITCH", body: `<h1>FTC Speech Structure</h1><p>Past, Present, Future method.</p>` },
                     { title: "FINAL TRIBAL COUNCIL", body: `<p>How to answer jury questions without getting defensive.</p>` },
                     { title: "JURY MANAGEMENT", body: `<p>The game starts when you vote them out.</p>` },
-                    { title: "FIRE MAKING YOUTUBE", body: `<p>Links to best fire making tutorials...</p>` }
+                    { title: "FIRE MAKING YOUTUBE", body: `<p>Links to top tutorials...</p>` }
                 ]
             }
         };
