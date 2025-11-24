@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sole Survivor Preparation Handbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #FFFFFF;
+            --accent-color: #FF69B4; /* Hot Pink */
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            overflow: hidden; /* Handled by main container */
+        }
+
+        /* === VIEW 1: MAIN SCROLL CONTAINER === */
+        #main-view {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        h1, h2, h3 {
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* Interactive Elements */
+        .card {
+            border: 1px solid #333;
+            padding: 2rem;
+            margin: 1rem 0;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+            transform: scale(1.02);
+        }
+
+        .card h3 {
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* === SECTION SPECIFIC STYLES === */
+
+        /* Hero */
+        #hero h1 { font-size: 3rem; margin-bottom: 10px; text-align: center; }
+        #hero p { color: var(--accent-color); letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
+        .hero-img {
+            width: 100%;
+            max-width: 800px;
+            height: 40vh;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+            filter: grayscale(100%);
+            transition: filter 0.5s;
+        }
+        .hero-img:hover { filter: grayscale(0%); }
+
+        /* Timeline */
+        #timeline { align-items: flex-start; justify-content: center; }
+        .timeline-track {
+            display: flex;
+            gap: 40px;
+            overflow-x: auto;
+            width: 100%;
+            padding: 50px 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+        .timeline-track::-webkit-scrollbar { display: none; }
+        .time-node {
+            flex: 0 0 auto;
+            min-width: 200px;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        .time-node h4 { color: var(--accent-color); margin-bottom: 5px; font-size: 1.2rem; }
+        .time-node p { font-size: 0.9rem; opacity: 0.8; }
+
+        /* Content Hubs */
+        #content-hubs { gap: 20px; }
+
+        /* Core Triangle */
+        #core-triangle { gap: 30px; }
+        .triangle-item {
+            font-size: 3.5rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: color 0.3s;
+            text-align: center;
+        }
+        .triangle-item:hover { color: var(--accent-color); text-shadow: 0 0 20px rgba(255,105,180,0.5); }
+        
+        /* Portfolios */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .portfolio-item {
+            background: #111;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+            color: #666;
+        }
+
+        /* === VIEW 2: CATEGORY MENU (OVERLAY) === */
+        #category-view {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 500px; /* Sidebar on desktop, full on mobile */
+            height: 100%;
+            background: #0a0a0a;
+            border-left: 1px solid #333;
+            z-index: 100;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        #category-view.active { transform: translateX(0); }
+
+        .overlay-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 20px;
+        }
+
+        .close-btn {
+            background: none;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .close-btn:hover { background: var(--accent-color); border-color: var(--accent-color); color: black; }
+
+        .sub-item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        .sub-item-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-family: var(--font-main);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sub-item-btn:hover {
+            border-color: var(--accent-color);
+            padding-left: 30px;
+            background: rgba(255, 105, 180, 0.05);
+        }
+
+        /* === VIEW 3: READER VIEW (FULL OVERLAY) === */
+        #reader-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 200; /* Topmost layer */
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        #reader-view.active { transform: translateX(0); }
+
+        .reader-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reader-content {
+            margin-top: 40px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Formatting for user content inside JS */
+        .reader-content h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 2.5rem; }
+        .reader-content h2 { margin-top: 30px; margin-bottom: 15px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
+        .reader-content p { margin-bottom: 20px; color: #ddd; }
+        .reader-content ul { margin-left: 20px; margin-bottom: 20px; }
+        .reader-content li { margin-bottom: 10px; }
+        .reader-content strong { color: white; }
+
+        /* Mobile Tweaks */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2rem; }
+            .triangle-item { font-size: 2.5rem; }
+            #category-view { max-width: 100%; }
+            .hero-img { height: 30vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <main id="main-view">
+        
+        <section id="hero">
+            <h1>Sole Survivor<br>Preparation</h1>
+            <p>THE HANDBOOK</p>
+            <img src="https://placehold.co/800x1200/000000/FFFFFF?text=Main+Player+Photo" alt="Player" class="hero-img">
+        </section>
+
+        <section id="timeline">
+            <div class="timeline-track">
+                <div class="time-node"><h4>Day 1</h4><p>Marooned</p></div>
+                <div class="time-node"><h4>Day 2</h4><p>First Vote</p></div>
+                <div class="time-node"><h4>Day 13</h4><p>Tribe Swap</p></div>
+                <div class="time-node"><h4>Day 24</h4><p>The Merge</p></div>
+                <div class="time-node"><h4>Day 35</h4><p>Loved Ones</p></div>
+                <div class="time-node"><h4>Day 41</h4><p>Final 4</p></div>
+                <div class="time-node"><h4>Day 42</h4><p>Sole SURVIVOR</p></div>
+            </div>
+        </section>
+
+        <section id="content-hubs">
+            <div class="card" onclick="openCategory('preGame')">
+                <h3>PRE GAME STRATEGIES</h3>
+            </div>
+            <div class="card" onclick="openCategory('metaGame')">
+                <h3>META GAME</h3>
+            </div>
+            <div class="card" onclick="openNotebook()">
+                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+            </div>
+        </section>
+
+        <section id="core-triangle">
+            <div class="triangle-item" onclick="openCategory('outwit')">OUTWIT</div>
+            <div class="triangle-item" onclick="openCategory('outplay')">OUTPLAY</div>
+            <div class="triangle-item" onclick="openCategory('outlast')">OUTLAST</div>
+        </section>
+
+        <section id="end-game">
+            <div class="card" onclick="openCategory('endGame')">
+                <h3>END GAME</h3>
+            </div>
+        </section>
+
+        <section id="portfolios">
+            <h2>Player Portfolios</h2>
+            <br>
+            <div class="grid-container">
+                <div class="portfolio-item">Player 1</div>
+                <div class="portfolio-item">Player 2</div>
+                <div class="portfolio-item">Player 3</div>
+                <div class="portfolio-item">Player 4</div>
+                <div class="portfolio-item">Player 5</div>
+                <div class="portfolio-item">Player 6</div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="category-view">
+        <div class="overlay-header">
+            <h2 id="category-title">CATEGORY</h2>
+            <button class="close-btn" onclick="closeCategory()">Close</button>
+        </div>
+        <div id="category-list" class="sub-item-list">
+            </div>
+    </div>
+
+    <div id="reader-view">
+        <div class="reader-container">
+            <div class="overlay-header">
+                <button class="close-btn" onclick="closeReader()">← Back</button>
+                <span>READING MODE</span>
+            </div>
+            <div id="reader-body" class="reader-content">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        /* =======================================================
+        CONTENT ENGINE - EDIT YOUR SITE CONTENT HERE
+        =======================================================
+        Use backticks ` ` for multi-line text in the 'body' fields.
+        HTML tags (h1, p, ul, li, b) are allowed.
+        */
+        
+        const siteContent = {
+            
+            preGame: {
+                title: "PRE GAME STRATEGIES",
+                items: [
+                    {
+                        title: "FINAL 48",
+                        body: `
+                            <h1>The Final 48 Hours</h1>
+                            <p>This is the checklist for the last two days before flying out.</p>
+                            <ul>
+                                <li>Check passport expiration</li>
+                                <li>Pack one luxury item</li>
+                                <li>Review all strategy notes one last time</li>
+                            </ul>
+                        `
+                    },
+                    {
+                        title: "HOW OTHERS PREPARED",
+                        body: `<p>Notes on past winners' preparation routines...</p>`
+                    },
+                    {
+                        title: "JOURNAL PROMPTS",
+                        body: `<p>Prompts to keep mind sharp...</p>`
+                    },
+                    {
+                        title: "TRAINING SUGGESTIONS",
+                        body: `<p>Swimming, balance, and puzzle practice...</p>`
+                    }
+                ]
+            },
+
+            metaGame: {
+                title: "META GAME",
+                items: [
+                    {
+                        title: "REALITIES OF REALITY TV",
+                        body: `
+                            <h1>The Production Reality</h1>
+                            <p>Remember that the camera is always rolling. The producers want a story.</p>
+                            <h2>Key Rules</h2>
+                            <p>1. Never be boring.<br>2. Give full sentence answers in confessionals.<br>3. Narrate your own game.</p>
+                        `
+                    },
+                    {
+                        title: "DAY 1: USA VS QC",
+                        body: `<p>Comparison of US vs International play styles on Day 1...</p>`
+                    },
+                    {
+                        title: "META STRATEGY DEEP DIVE",
+                        body: `<p>Advanced concepts regarding threat levels...</p>`
+                    }
+                ]
+            },
+
+            outwit: {
+                title: "OUTWIT",
+                items: [
+                    {
+                        title: "THE VOLATILITY MATRIX",
+                        body: `
+                            <h1>Volatility Matrix</h1>
+                            <p><strong>High Volatility:</strong> Players who play hard and fast.</p>
+                            <p><strong>Low Volatility:</strong> Players who play safe and slow.</p>
+                            <p>Identify where everyone sits on this grid by Day 3.</p>
+                        `
+                    },
+                    {
+                        title: "HISTORY OF STRATEGY",
+                        body: `<p>Evolution of alliances...</p>`
+                    },
+                    {
+                        title: "ADVANTAGES & TWISTS",
+                        body: `<p>List of known idols and how to find them...</p>`
+                    },
+                    {
+                        title: "CASTAWAYS CODEX",
+                        body: `<p>Profiles on archetypes...</p>`
+                    }
+                ]
+            },
+
+            outplay: {
+                title: "OUTPLAY",
+                items: [
+                    { title: "CHALLENGE HACKS", body: `<p>How to balance on the beam...</p>` },
+                    { title: "CAMP LIFE", body: `<p>Fire making, shelter building, fishing...</p>` }
+                ]
+            },
+
+            outlast: {
+                title: "OUTLAST",
+                items: [
+                    { title: "MANAGING HUNGER", body: `<p>Mental techniques for starvation...</p>` },
+                    { title: "SOCIAL ENDURANCE", body: `<p>How to not snap at people...</p>` }
+                ]
+            },
+
+            endGame: {
+                title: "END GAME",
+                items: [
+                    { title: "THE PITCH", body: `<p>Structuring the Final Tribal Council speech...</p>` },
+                    { title: "JURY MANAGEMENT", body: `<p>How to let them down easy...</p>` },
+                    { title: "FIRE MAKING YOUTUBE", body: `<p>Links to best fire making tutorials...</p>` }
+                ]
+            }
+        };
+
+        /* =======================================================
+        LOGIC - DO NOT TOUCH UNLESS YOU KNOW JAVASCRIPT
+        =======================================================
+        */
+
+        // References to DOM Elements
+        const categoryView = document.getElementById('category-view');
+        const categoryTitle = document.getElementById('category-title');
+        const categoryList = document.getElementById('category-list');
+        
+        const readerView = document.getElementById('reader-view');
+        const readerBody = document.getElementById('reader-body');
+
+        // State
+        let currentCategoryData = null;
+
+        // 1. Open The Category Menu (View 2)
+        function openCategory(key) {
+            const data = siteContent[key];
+            if (!data) return;
+
+            currentCategoryData = data;
+            
+            // Set Title
+            categoryTitle.innerText = data.title;
+
+            // Build List
+            categoryList.innerHTML = ''; // Clear old items
+            
+            data.items.forEach((item, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'sub-item-btn';
+                btn.innerText = item.title;
+                btn.onclick = () => openReader(index);
+                categoryList.appendChild(btn);
+            });
+
+            // Slide In
+            categoryView.classList.add('active');
+        }
+
+        // 2. Close Category Menu
+        function closeCategory() {
+            categoryView.classList.remove('active');
+        }
+
+        // 3. Open Reader (View 3)
+        function openReader(index) {
+            const item = currentCategoryData.items[index];
+            
+            // Inject HTML content
+            readerBody.innerHTML = item.body;
+
+            // Slide In
+            readerView.classList.add('active');
+        }
+
+        // 4. Close Reader
+        function closeReader() {
+            readerView.classList.remove('active');
+        }
+
+        // 5. Special Link Handler
+        function openNotebook() {
+            window.open('https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f', '_blank');
+        }
+
+    </script>
+</body>
+</html>
