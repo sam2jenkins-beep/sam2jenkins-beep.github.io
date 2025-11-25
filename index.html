@@ -16,6 +16,44 @@
             --font-main: 'Poppins', sans-serif;
         }
 
+                /* === FIELD MANUAL STYLES === */
+        .protocol-box {
+            border: 2px solid var(--accent-color);
+            background: rgba(255, 105, 180, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            color: #fff;
+            font-family: monospace;
+            border-left-width: 10px;
+        }
+        
+        .tip-box {
+            background: #1a1a1a;
+            border-left: 4px solid #fff;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #ccc;
+        }
+        
+        .tactical-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        .tactical-table th, .tactical-table td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: left;
+        }
+        .tactical-table th {
+            background-color: #111;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+        .tactical-table tr:nth-child(even) { background-color: #0a0a0a; }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -334,6 +372,7 @@
             line-height: 1.8;
             font-size: 1.1rem;
         }
+        
 
         /* Formatting for user content inside JS */
         .reader-content h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 2.5rem; }
@@ -998,14 +1037,86 @@
                         `
                     },
                     {
-                        title: "I'M A CITY GIRL",
-                        body: `
-                            <h1>Adapting to Nature</h1>
-                            <p>Overcoming the fear of bugs and dirt.</p>
-                            <p>Strategies for the urban player in the wild.</p>
-                        `
-                    }
-                ]
+                title: "I'M A CITY GIRL",
+                body: `
+                    <h1 style="color: #FF69B4; line-height: 1;">URBANITE TO<br>SURVIVALIST</h1>
+                    <h3 style="margin-top: 5px; opacity: 0.7;">Expeditionary Field Manual (42-Day Protocol)</h3>
+
+                    <div class="tip-box">
+                        <strong>MISSION BRIEF:</strong> Forget the bugs. Your greatest threats are heat stress and dehydration. This guide reorders priorities to maximize energy conservation in Panama.
+                    </div>
+
+                    <hr style="border: 1px solid #333; margin: 30px 0;">
+
+                    <h3>I. THE CALORIC DEFICIT BATTLEFIELD</h3>
+                    <p>The Panama dry season is defined by peak heat and high humidity. Survival priorities must shift away from "hunting" and towards "surviving."</p>
+                    
+                    <div class="protocol-box">
+                        <strong>HIERARCHY PROTOCOL:</strong><br>
+                        WATER (Hydration/Shade) > SHELTER > FIRE > FOOD
+                    </div>
+
+                    <p><strong>The Energy Accounting Rule:</strong> You are under chronic caloric restriction. A single coconut (1,400 kcal) is insufficient. Physical conservation is more valuable than aggressive gathering.</p>
+
+                    <h3>II. SHELTER ENGINEERING</h3>
+                    <p><strong>FAILURE CASE:</strong> Do NOT dig down (The Rupert S7 Mistake). Pits flood. Elevation is mandatory.</p>
+                    
+                    <table class="tactical-table">
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Requirement</th>
+                                <th>Rationale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ground Barrier</td>
+                                <td>12 inches of debris</td>
+                                <td>Stops conductive heat loss (shivering).</td>
+                            </tr>
+                            <tr>
+                                <td>Elevation</td>
+                                <td>Min 6 inches</td>
+                                <td>Prevents flooding & pests.</td>
+                            </tr>
+                            <tr>
+                                <td>Roof Pitch</td>
+                                <td>45-degree angle</td>
+                                <td>Maximizes water runoff.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>III. FIRE & WATER UTILITY</h3>
+                    <p><strong>Fire Mastery:</strong> Do not rush the coal. Use "cotton-ball consistency" tinder. Aggressively gather wood <em>in advance</em> to mask your effort levels.</p>
+                    
+                    <div class="protocol-box">
+                        <strong>WATER PROTOCOL:</strong><br>
+                        Boil water for a FULL ROLLING MINUTE. Rainwater harvesting via tarp is the safest method.
+                    </div>
+
+                    <h3>IV. RISK & ERGONOMICS</h3>
+                    <p><strong>1. Trauma:</strong> Clear the camp floor of trip hazards (coconuts/roots) to prevent ankle sprains in the dark.</p>
+                    
+
+[Image of proper heavy lifting technique]
+
+                    <p><strong>2. The Triangulation Model:</strong> Arrange your Shelter, Fire, and Water in a tight triangle to minimize walking distance for chores.</p>
+
+                    <hr style="border: 1px solid #333; margin: 30px 0;">
+
+                    <h3>V. CONCLUSION: THE CONSERVATIONIST MODEL</h3>
+                    <div style="border: 1px solid #FF69B4; padding: 20px;">
+                        <h4 style="color: #FF69B4; margin-top: 0;">SYNTHESIS</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 10px;">✔ <strong>Immediate Mitigation:</strong> Focus on shade first.</li>
+                            <li style="margin-bottom: 10px;">✔ <strong>Passive Defense:</strong> Build the shelter right the first time.</li>
+                            <li>✔ <strong>The Safety Role:</strong> Quietly enforce hygiene to become "Essential" without being a "Threat."</li>
+                        </ul>
+                        <p style="margin-bottom: 0; opacity: 0.7; font-size: 0.9rem;"><em>Strategic idleness is the highest form of tactical utility.</em></p>
+                    </div>
+                `
             },
 
             endGame: {
