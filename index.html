@@ -389,6 +389,132 @@
             .triangle-item { font-size: 2.5rem; }
             #category-view { max-width: 100%; }
             .hero-img { height: 30vh; }
+            /* === TACTICAL DATA HUBS (Complete Style) === */
+        
+        /* 1. The Grid Container */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile: 1 column */
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 768px) {
+            .hub-grid {
+                grid-template-columns: 1fr 1fr 1fr; /* Desktop: 3 columns */
+            }
+        }
+
+        /* 2. The Card Container */
+        .hud-card {
+            position: relative;
+            background: linear-gradient(145deg, #0a0a0a, #000);
+            border: 1px solid #333;
+            border-top: 4px solid #333; /* Thick top bar default */
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            overflow: hidden; /* Keeps the zooming image inside the box */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Hover Effect: Glow, Lift, Pink Borders */
+        .hud-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+        }
+
+        /* 3. The "Cut Corner" Aesthetic (Bottom Right Triangle) */
+        .hud-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background: #222;
+            clip-path: polygon(100% 0, 0 100%, 100% 100%);
+            transition: background 0.3s;
+            z-index: 5;
+        }
+        .hud-card:hover::after {
+            background: var(--accent-color);
+        }
+
+        /* 4. The Background Image (Layer 0) */
+        .hud-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15; /* Very faint by default */
+            z-index: 0; /* Bottom Layer */
+            filter: grayscale(100%) contrast(1.2); /* Gritty look */
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hud-card:hover .hud-bg-img {
+            opacity: 0.4; /* Brighter on hover */
+            transform: scale(1.1); /* Slow zoom */
+            filter: grayscale(0%) contrast(1); /* Color reveal */
+        }
+
+        /* 5. The Watermark Number (Layer 1) */
+        .hud-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 8rem;
+            font-weight: 900;
+            color: #111;
+            z-index: 1; /* Sits above image, below text */
+            transition: color 0.3s;
+            line-height: 1;
+        }
+        .hud-card:hover .hud-number { color: #1a1a1a; }
+
+        /* 6. The Text (Layer 2 - Top) */
+        .hud-title {
+            position: relative;
+            z-index: 2;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.2;
+            padding: 0 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* Ensures readability over image */
+        }
+
+        .hud-subtitle {
+            position: relative;
+            z-index: 2;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-top: 10px;
+            transition: color 0.3s;
+            background: rgba(0,0,0,0.6); /* Small pill background for readability */
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .hud-card:hover .hud-subtitle { color: var(--accent-color); }
+
+        /* 7. NotebookLM Specifics (External Link) */
+        .hud-card.external {
+            border-top-color: var(--accent-color); /* Always pink top */
+            background: rgba(255, 105, 180, 0.02);
+        }
+        .hud-card.external .hud-number {
+            color: #1a1115; /* Slight pink tint */
         }
     </style>
 </head>
@@ -419,15 +545,40 @@
         </section>
 
         <!-- Content Hubs -->
+        <!-- Content Hubs (Final Version) -->
         <section id="content-hubs">
-            <div class="card" onclick="openCategory('preGame')">
-                <h3>PRE GAME STRATEGIES</h3>
-            </div>
-            <div class="card" onclick="openCategory('metaGame')">
-                <h3>META GAME</h3>
-            </div>
-            <div class="card" onclick="openNotebook()">
-                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+            <div class="hub-grid">
+                
+                <!-- CARD 01: PRE GAME -->
+                <div class="hud-card" onclick="openCategory('preGame')">
+                    <!-- Background Image (Faint) -->
+                    <img src="https://placehold.co/600x800/1a1a1a/FFFFFF/png?text=Map+&+Compass" alt="Strategy" class="hud-bg-img">
+                    
+                    <span class="hud-number">01</span>
+                    <h3 class="hud-title">PRE GAME<br>STRATEGIES</h3>
+                    <span class="hud-subtitle">Protocol // Prep</span>
+                </div>
+
+                <!-- CARD 02: META GAME -->
+                <div class="hud-card" onclick="openCategory('metaGame')">
+                    <!-- Background Image (Faint) -->
+                    <img src="https://placehold.co/600x800/1a1a1a/FFFFFF/png?text=Social+Chess" alt="Psychology" class="hud-bg-img">
+
+                    <span class="hud-number">02</span>
+                    <h3 class="hud-title">META<br>GAME</h3>
+                    <span class="hud-subtitle">Psychology // Social</span>
+                </div>
+
+                <!-- CARD 03: NOTEBOOKLM (External) -->
+                <div class="hud-card external" onclick="openNotebook()">
+                    <!-- Background Image (Faint) -->
+                    <img src="https://placehold.co/600x800/FF69B4/000000/png?text=Digital+Uplink" alt="Database" class="hud-bg-img">
+
+                    <span class="hud-number">03</span>
+                    <h3 class="hud-title">SURVIVOR<br>NOTEBOOKLM</h3>
+                    <span class="hud-subtitle">External Database ↗</span>
+                </div>
+
             </div>
         </section>
 
