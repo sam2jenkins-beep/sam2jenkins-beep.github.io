@@ -61,14 +61,15 @@
         /* Interactive Elements */
         .card {
             border: 1px solid #333;
-            padding: 2rem;
+            padding: 3rem;
             margin: 1rem 0;
-            width: 100%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 600px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
         }
 
         .card:hover {
@@ -78,8 +79,9 @@
         }
 
         .card h3 {
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         /* === SECTION SPECIFIC STYLES === */
@@ -94,7 +96,7 @@
             object-fit: cover;
             border: 2px solid var(--accent-color);
             /* filter: grayscale(100%); Removed to show full color of katesurvivor.jpeg */
-            transition: filter 0.5s;
+            transition: filter 0.3s;
         }
         /* .hero-img:hover { filter: grayscale(0%); } */
 
