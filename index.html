@@ -511,19 +511,64 @@
             preGame: {
                 title: "PRE GAME STRATEGIES",
                 items: [
-                    {
+                                        {
                         title: "FINAL 48",
                         body: `
-                            <h1>The Final 48 Hours</h1>
-                            <p>The frantic last moments before the drop.</p>
-                            <h3>Checklist</h3>
-                            <ul>
-                                <li>Check passport expiration</li>
-                                <li>Pack one luxury item</li>
-                                <li>Review all strategy notes one last time</li>
-                                <li>Last meal strategy: Load on fats/proteins.</li>
-                                <li>Sleep bank: Get 10+ hours.</li>
-                            </ul>
+                            <!-- NEWSPAPER HEADER -->
+                            <div style="border-bottom: 4px double var(--accent-color); padding-bottom: 20px; margin-bottom: 30px; text-align: center;">
+                                <h1 style="font-family: 'Georgia', serif; font-size: 3rem; line-height: 1; margin-bottom: 10px; text-transform: uppercase; letter-spacing: -1px;">The Final 48 Hours</h1>
+                                <h2 style="font-family: 'Georgia', serif; font-size: 1.2rem; font-style: italic; color: #ccc; margin-bottom: 20px; font-weight: normal;">Shutting Down Systems for Survival Success</h2>
+                                
+                                <div style="font-family: monospace; font-size: 0.8rem; color: var(--accent-color); border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 10px 0; display: flex; justify-content: space-between; text-transform: uppercase;">
+                                    <span>By Health & Strategy Correspondent</span>
+                                    <span>Montreal, QC</span>
+                                    <span>Pre-Game Intelligence</span>
+                                </div>
+                            </div>
+
+                            <!-- NEWSPAPER BODY (Columns) -->
+                            <div style="font-family: 'Georgia', serif; line-height: 1.6; color: #ddd; column-count: 2; column-gap: 40px; text-align: justify;">
+                                <style>
+                                    @media (max-width: 768px) { div[style*='column-count'] { column-count: 1 !important; } }
+                                </style>
+
+                                <p style="margin-top: 0;"><strong style="color: var(--accent-color); font-size: 1.1rem;">MONTREAL—</strong>With mere hours remaining before contestants are dropped into a 42-day crucible of starvation, social warfare, and tropical exposure, preparation must shift from broad training to surgical system shutdown. The 48 hours before the game begins—often spent in quarantine—are not for cramming, but for metabolic stabilization.</p>
+                                
+                                <p>The objective is simple: Reduce all non-critical systemic demands to maximize the body's scarce physical and cognitive capital for Day 1.</p>
+
+                                <h3 style="border-bottom: 1px solid #555; margin-top: 30px; font-weight: bold; text-transform: uppercase; font-size: 1.1rem; color: white;">Metabolic Shutdown</h3>
+                                <p>The final two days are dedicated to reaching a metabolic "zero-state."</p>
+                                
+                                <h4 style="color: var(--accent-color); margin-top: 15px; margin-bottom: 5px;">1. Controlled Detox</h4>
+                                <p><strong>Caffeine Reset:</strong> The contestant should be fully off caffeine. The final 48 hours serve to clear the last physiological remnants, avoiding withdrawal headaches during the first three critical days.</p>
+                                <p><strong>Digital Fast:</strong> A strict digital black-out must be maintained. The goal is to break the dopamine feedback loop and force the brain to re-attune its observation skills.</p>
+
+                                <h4 style="color: var(--accent-color); margin-top: 15px; margin-bottom: 5px;">2. Hydration Loading</h4>
+                                <p><strong>Pre-Load Water:</strong> Maintain constant, forced hydration. The body must be fully saturated to buffer the impact of the immediate tropical heat.</p>
+                                <p><strong>Mineral Stabilization:</strong> Consume a final intake of salts. This ensures maximum fluid retention before the rapid depletion of island sweating begins.</p>
+
+                                <h3 style="border-bottom: 1px solid #555; margin-top: 30px; font-weight: bold; text-transform: uppercase; font-size: 1.1rem; color: white;">Physical Final Checks</h3>
+                                <p>The greatest risk is a preventable injury that cripples a player early.</p>
+
+                                <h4 style="color: var(--accent-color); margin-top: 15px; margin-bottom: 5px;">1. Meticulous Foot Care</h4>
+                                <p><strong>Final Skin Audit:</strong> Inspect feet for blisters or cuts. Apply antiseptic to seal the skin barrier against immediate tropical infections.</p>
+                                <p><strong>Nail Hygiene:</strong> Trim toenails short and smooth to prevent snags during early physical challenges.</p>
+
+                                <h4 style="color: var(--accent-color); margin-top: 15px; margin-bottom: 5px;">2. Ergonomics Reset</h4>
+                                <p><strong>Practice Ergonomics:</strong> Mentally drill the habit of lifting with the legs. This must be automatic to prevent the musculoskeletal trauma that leads to med-evacs.</p>
+                                <p><strong>Mindful Pacing:</strong> Practice the "Working Smart" model. Avoid any unnecessary exertion in the final 48 hours to conserve every calorie.</p>
+
+                                <h3 style="border-bottom: 1px solid #555; margin-top: 30px; font-weight: bold; text-transform: uppercase; font-size: 1.1rem; color: white;">Psychological Stabilization</h3>
+                                <p>The mental crucible is about to begin. Lock down the blueprint.</p>
+
+                                <h4 style="color: var(--accent-color); margin-top: 15px; margin-bottom: 5px;">1. Finalizing the Narrative</h4>
+                                <p><strong>Backwards Induction:</strong> Review strategy based on the Final Tribal Council. Have the clear justification for every planned move memorized.</p>
+                                <p><strong>Embrace Paranoia:</strong> Acknowledge that paranoia is an engineered symptom. Develop a mental cue to compartmentalize these feelings.</p>
+
+                                <h4 style="color: var(--accent-color); margin-top: 15px; margin-bottom: 5px;">2. Systemic Boundaries</h4>
+                                <p><strong>Compartmentalize Crew:</strong> Treat the crew as mute signals. Focus entirely on observing camera focus for game clues.</p>
+                                <p><strong>The Vulnerability Paradox:</strong> Vow to avoid oversharing. Sensitive emotional confessions will be withheld to prevent strategic targeting.</p>
+                            </div>
                         `
                     },
                     {
@@ -993,89 +1038,66 @@
                             <h1 style="color: #FF69B4; line-height: 1;">URBANITE TO<br>SURVIVALIST</h1>
                             <h3 style="margin-top: 5px; opacity: 0.7;">Expeditionary Field Manual (42-Day Protocol)</h3>
 
-                            <div class="tip-box">
-                                <strong>MISSION BRIEF:</strong> Forget the bugs. Your greatest threats are heat stress and dehydration. This guide reorders priorities to maximize energy conservation.
-                            </div>
-
                             <hr style="border: 1px solid #333; margin: 30px 0;">
 
-                            <h3>I. THE CALORIC DEFICIT BATTLEFIELD</h3>
+                            <h3>1. ENVIRONMENTAL ADAPTATION</h3>
+                            <div class="tip-box">
+                                <strong>THE TROPICAL HIERARCHY:</strong> In Panama, heat stress and dehydration are the immediate threats. Functional collapse happens here first.
+                            </div>
                             <div class="protocol-box">
-                                <strong>HIERARCHY PROTOCOL:</strong><br>
-                                WATER (Hydration/Shade) > SHELTER > FIRE > FOOD
+                                <strong>MODIFIED PRIORITIES:</strong><br>
+                                WATER (Hydration & Shade) > SHELTER > FIRE > FOOD
                             </div>
 
-                            <h3>II. SHELTER ENGINEERING</h3>
-                            <p><strong>FAILURE CASE:</strong> Do NOT dig down (The Rupert S7 Mistake). Pits flood. Elevation is mandatory.</p>
+                            <h3>2. SHELTER ENGINEERING</h3>
+                            <p><strong>Goal:</strong> Mitigate dampness, provide shade, and prevent ground-transfer energy loss.</p>
+                            <ul>
+                                <li><strong>Elevation is MANDATORY:</strong> Build a platform min. 6 inches off the floor to mitigate pests and dampness.</li>
+                                <li><strong>Failure Case:</strong> Never dig below ground level. Pits guarantee flooding.</li>
+                                <li><strong>Insulation:</strong> Place a 6-12 inch mattress of dry debris on the platform to combat conductive heat loss (80% of heat loss).</li>
+                                <li><strong>Steep Roof Pitch:</strong> Min. 45-degree angle for rapid tropical runoff.</li>
+                            </ul>
+
+                            <p><strong>The Triangulation Model:</strong> Arrange Shelter, Fire, and Water in a tight triangle to minimize travel time and energy expenditure.</p>
                             
+
+                            <h3>3. FIRE MASTERY</h3>
+                            <p>Secure immediate utility without projecting excessive physical dominance.</p>
+                            <ul>
+                                <li><strong>Tinder (The Powder Rule):</strong> Break material down to "cotton ball" consistency to catch low heat.</li>
+                                <li><strong>Coal Transfer:</strong> Master the slow, gentle transfer. Avoid premature aggression (blowing too hard).</li>
+                                <li><strong>Staging:</strong> Aggressively gather wood <em>upon arrival</em> to transition to low-visibility maintenance.</li>
+                            </ul>
+
+                            <h3>4. RISK MITIGATION PROTOCOL</h3>
                             <table class="tactical-table">
                                 <thead>
                                     <tr>
-                                        <th>Element</th>
-                                        <th>Requirement</th>
-                                        <th>Rationale</th>
+                                        <th>Vector</th>
+                                        <th>Actionable Protocol</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Ground Barrier</td>
-                                        <td>12 inches of debris</td>
-                                        <td>Stops conductive heat loss (shivering).</td>
+                                        <td>Water</td>
+                                        <td><strong>FULL ROLLING BOIL</strong> for 1 minute. Prioritize rainwater harvesting.</td>
                                     </tr>
                                     <tr>
-                                        <td>Elevation</td>
-                                        <td>Min 6 inches</td>
-                                        <td>Prevents flooding & pests.</td>
+                                        <td>Infection</td>
+                                        <td>Meticulous hand hygiene before food prep is mandatory.</td>
                                     </tr>
                                     <tr>
-                                        <td>Roof Pitch</td>
-                                        <td>45-degree angle</td>
-                                        <td>Maximizes water runoff.</td>
+                                        <td>Trauma</td>
+                                        <td>Lift with legs, straight back. Clear camp perimeter of trip hazards.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wardrobe</td>
+                                        <td>Quick-dry long sleeves/pants to mitigate sun and insects.</td>
                                     </tr>
                                 </tbody>
                             </table>
-
-                            <h3>III. FIRE & WATER UTILITY</h3>
-                            <p><strong>Fire Mastery:</strong> Do not rush the coal. Use "cotton-ball consistency" tinder.</p>
-                            
-                            <div class="protocol-box">
-                                <strong>WATER PROTOCOL:</strong><br>
-                                Boil water for a FULL ROLLING MINUTE. Rainwater harvesting via tarp is the safest method.
-                            </div>
-
-                            <h3>IV. RISK & ERGONOMICS</h3>
-                            <p><strong>1. Trauma:</strong> Clear the camp floor of trip hazards to prevent ankle sprains.</p>
-                            
-                            <!-- FIXED: Added real image tag instead of text placeholder -->
-                            
-
-[Image of proper lifting technique]
-
-                            <img src="https://placehold.co/600x300/111/FF69B4/png?text=Lift+With+Legs" class="content-img" alt="Lifting Technique">
-
-                            <p><strong>2. The Triangulation Model:</strong> Arrange Shelter, Fire, and Water in a tight triangle to minimize walking.</p>
-
-                            <hr style="border: 1px solid #333; margin: 30px 0;">
-
-                            <h3>V. CONCLUSION</h3>
-                            <div style="border: 1px solid #FF69B4; padding: 20px; background: rgba(255, 105, 180, 0.05);">
-                                <h4 style="color: #FF69B4; margin-top: 0;">SYNTHESIS</h4>
-                                <p style="margin-bottom: 0; opacity: 0.7;"><em>Strategic idleness is the highest form of tactical utility.</em></p>
-                            </div>
                         `
                     }
-                ]
-            },
-
-            endGame: {
-                title: "END GAME",
-                items: [
-                    { title: "THE PITCH", body: `<h1>FTC Speech Structure</h1><p>Past, Present, Future method.</p>` },
-                    { title: "FINAL TRIBAL COUNCIL", body: `<p>How to answer jury questions without getting defensive.</p>` },
-                    { title: "JURY MANAGEMENT", body: `<p>The game starts when you vote them out.</p>` },
-                    { title: "FIRE MAKING YOUTUBE", body: `<p>Links to top tutorials...</p>` }
-                ]
-            }
         };
 
         /* =======================================================
