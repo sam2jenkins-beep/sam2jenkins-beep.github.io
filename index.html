@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -14,9 +15,10 @@
             --text-color: #FFFFFF;
             --accent-color: #FF69B4; /* Hot Pink */
             --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Black Ops One', sans-serif;
         }
 
-                /* === FIELD MANUAL STYLES === */
+        /* === FIELD MANUAL STYLES === */
         .protocol-box {
             border: 2px solid var(--accent-color);
             background: rgba(255, 105, 180, 0.1);
@@ -62,6 +64,7 @@
 
         body {
             background-color: var(--bg-color);
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVpaWlraeft7e2+vr6xsbGjo6O3t7evr6+0tLTZ2dna2tqamprPz8/Ly8vJycnGxsZ4eHjBwcG9vb2UlJSUlJTS0tKDPn9pAAAAB3RSTlMAAgYGIyM0d72eAAAACXBIWXMAAAsSAAALEgHS3X78AAAAQ0lEQVRIx2NmYGAUlgADYCEBCgxEaAUIjAUgYAVBMRMCEwYwEAEpIATsYAXbGTQ2p+DGBhcjJzYg5CTe3BQ4AX3gAAnk53S/nN49AAAAAElFTkSuQmCC);
             color: var(--text-color);
             font-family: var(--font-main);
             overflow: hidden; /* Handled by main container */
@@ -92,6 +95,7 @@
         }
 
         h1, h2, h3 {
+            font-family: var(--font-heading);
             text-transform: uppercase;
             line-height: 1.1;
         }
@@ -99,10 +103,10 @@
         /* Interactive Elements */
         .card {
             border: 1px solid #333;
-            padding: 3rem;
+            padding: 4rem;
             margin: 1rem 0;
             width: 90%;
-            max-width: 600px;
+            max-width: 700px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -122,7 +126,17 @@
             letter-spacing: 2px;
         }
 
+        .card-tagline {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+
         /* === SECTION SPECIFIC STYLES === */
+
+        .textured-section {
+            background-color: #000;
+        }
 
         /* Hero */
         #hero h1 { font-size: 3rem; margin-bottom: 10px; text-align: center; }
@@ -352,7 +366,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: black;
+            background-color: #f5f5dc;
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVpaWlraeft7e2+vr6xsbGjo6O3t7evr6+0tLTZ2dna2tqamprPz8/Ly8vJycnGxsZ4eHjBwcG9vb2UlJSUlJTS0tKDPn9pAAAAB3RSTlMAAgYGIyM0d72eAAAACXBIWXMAAAsSAAALEgHS3X78AAAAQ0lEQVRIx2NmYGAUlgADYCEBCgxEaAUIjAUgYAVBMRMCEwYwEAEpIATsYAXbGTQ2p+DGBhcjJzYg5CTe3BQ4AX3gAAnk53S/nN49AAAAAElFTSuQmCC");
             z-index: 200; /* Topmost layer */
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
@@ -375,13 +390,13 @@
         
 
         /* Formatting for user content inside JS */
-        .reader-content h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 2.5rem; }
-        .reader-content h2 { margin-top: 30px; margin-bottom: 15px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
-        .reader-content h3 { color: white; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
-        .reader-content p { margin-bottom: 20px; color: #ddd; }
+        .reader-content h1 { font-family: 'Georgia', serif; color: #333; margin-bottom: 20px; font-size: 2.5rem; }
+        .reader-content h2 { font-family: 'Georgia', serif; margin-top: 30px; margin-bottom: 15px; border-left: 3px solid var(--accent-color); padding-left: 15px; color: #333; }
+        .reader-content h3 { font-family: 'Georgia', serif; color: #555; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
+        .reader-content p { margin-bottom: 20px; color: #333; }
         .reader-content ul { margin-left: 20px; margin-bottom: 20px; }
-        .reader-content li { margin-bottom: 10px; color: #ddd; }
-        .reader-content strong { color: white; }
+        .reader-content li { margin-bottom: 10px; color: #333; }
+        .reader-content strong { color: #000; }
 
         /* Mobile Tweaks */
         @media (max-width: 768px) {
@@ -406,7 +421,7 @@
         </section>
 
         <!-- Timeline Section -->
-        <section id="timeline">
+        <section id="timeline" class="textured-section">
             <div class="timeline-track">
                 <div class="time-node"><h4>Day 1</h4><p>Marooned</p></div>
                 <div class="time-node"><h4>Day 2</h4><p>First Vote</p></div>
@@ -419,15 +434,18 @@
         </section>
 
         <!-- Content Hubs -->
-        <section id="content-hubs">
+        <section id="content-hubs" class="textured-section">
             <div class="card" onclick="openCategory('preGame')">
                 <h3>PRE GAME STRATEGIES</h3>
+                <p class="card-tagline">Final preparations and mental conditioning.</p>
             </div>
             <div class="card" onclick="openCategory('metaGame')">
                 <h3>META GAME</h3>
+                <p class="card-tagline">Understanding the fabric of reality TV.</p>
             </div>
             <div class="card" onclick="openNotebook()">
                 <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+                <p class="card-tagline">External link to your private notes.</p>
             </div>
         </section>
 
@@ -454,14 +472,15 @@
         </section>
 
         <!-- End Game -->
-        <section id="end-game">
+        <section id="end-game" class="textured-section">
             <div class="card" onclick="openCategory('endGame')">
                 <h3>END GAME</h3>
+                <p class="card-tagline">Navigating the final days and the jury.</p>
             </div>
         </section>
 
         <!-- Portfolios -->
-        <section id="portfolios">
+        <section id="portfolios" class="textured-section">
             <h2>Player Portfolios</h2>
             <br>
             <div class="grid-container">
