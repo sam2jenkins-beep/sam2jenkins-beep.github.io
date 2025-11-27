@@ -161,12 +161,280 @@
             background-color: #000;
         }
 
+        /* Why / About Carousel */
+        .carousel-wrapper {
+            position: relative;
+            width: 80%; /* Wrapper is wider to hold arrows */
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-container {
+            width: 80%; /* The visible window is smaller */
+            overflow-x: auto;
+            display: flex;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 20px 0;
+            /* Hide scrollbar */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .why-card {
+            min-width: 100%;
+            scroll-snap-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .why-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            font-family: var(--font-main);
+            font-weight: 600;
+            text-transform: none; /* User didn't request uppercase everywhere */
+        }
+
+        .why-card p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .why-card ul {
+            text-align: left;
+            margin-bottom: 20px;
+            list-style: none;
+        }
+
+        .why-card li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .why-card li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .why-card img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Unique Card Styles */
+        .why-card-1 { border-top: 4px solid #3623ff; }
+        .why-card-2 { border-top: 4px solid #992fcc; }
+        .why-card-3 { border-top: 4px solid #cb36b2; }
+        .why-card-4 { border-top: 4px solid #fd3c98; }
+
+        .nav-arrow {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            margin: 0 10px;
+            flex-shrink: 0;
+        }
+        .nav-arrow:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* How / Features Layout */
+        .how-container {
+            width: 80%; /* 4/5ths of the page */
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
+            gap: 30px;
+            align-items: stretch; /* Cards and image same height */
+            margin: 0 auto;
+        }
+
+        .how-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .how-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Unique styles matching hero palette */
+        .how-card-left {
+            border-left: 5px solid #6829e5;
+            box-shadow: -5px 5px 20px rgba(104, 41, 229, 0.2);
+        }
+        .how-card-right {
+            border-right: 5px solid #cb36b2;
+            box-shadow: 5px 5px 20px rgba(203, 54, 178, 0.2);
+        }
+
+        .how-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            font-family: var(--font-heading); /* Or main font, user said "modern unique" */
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+
+        .how-card p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .how-card ul {
+            list-style: none;
+        }
+        .how-card li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .how-card li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: #fd3c98;
+            font-weight: bold;
+        }
+
+        .how-image-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+            display: flex;
+        }
+        .how-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .how-image-container:hover .how-image {
+            transform: scale(1.05);
+        }
+
+        /* NotebookLM / Welcome Section */
+        .notebook-container {
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .notebook-header {
+            margin-bottom: 40px;
+        }
+
+        .notebook-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: var(--text-color);
+        }
+
+        .notebook-header p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(245, 245, 220, 0.9);
+        }
+
+        /* Update existing card to match modern style */
+        .notebook-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #fd3c98; /* Pink from palette */
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notebook-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(253, 60, 152, 0.2);
+        }
+
+        .notebook-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .notebook-card p {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .how-container {
+                grid-template-columns: 1fr; /* Stack on mobile */
+                width: 90%;
+            }
+            .how-image-container {
+                height: 300px; /* Fixed height on mobile */
+            }
+        }
+
         /* Hero */
         #hero {
             position: relative;
             overflow: hidden;
             /* New gradient using the beige and lilac colors */
-            background: linear-gradient(-45deg, #4b4b4b, #C8A2C8, #2b2b2b, #F5F5DC);
+            background: linear-gradient(-45deg, #3623ff, #6829e5, #992fcc, #cb36b2, #fd3c98);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
@@ -435,13 +703,13 @@
     <aside id="timeline">
         <div class="timeline-track">
             <div class="time-node" data-section="hero"><h4>Intro</h4><p>Start</p></div>
+            <div class="time-node" data-section="about-website"><h4>Why</h4><p>About</p></div>
+            <div class="time-node" data-section="key-features"><h4>How</h4><p>Highlights</p></div>
+            <div class="time-node" data-section="welcome"><h4>NotebookLM</h4><p>Guide</p></div>
             <div class="time-node" data-section="content-hubs"><h4>Hubs</h4><p>Main</p></div>
             <div class="time-node" data-section="core-triangle"><h4>Core</h4><p>Strategy</p></div>
             <div class="time-node" data-section="end-game"><h4>End</h4><p>Game</p></div>
             <div class="time-node" data-section="portfolios"><h4>Players</h4><p>Portfolios</p></div>
-            <div class="time-node" data-section="welcome"><h4>Welcome</h4><p>Guide</p></div>
-            <div class="time-node" data-section="key-features"><h4>Features</h4><p>Highlights</p></div>
-            <div class="time-node" data-section="about-website"><h4>Website</h4><p>About</p></div>
         </div>
     </aside>
 
@@ -456,6 +724,111 @@
             <h1><span id="dynamic-text">Sole Survivor</span><br>Preparation</h1>
             <p>THE HANDBOOK</p>
             <img src="katesurvivor.jpeg" alt="Contestant ready for the challenge" class="hero-img">
+        </section>
+
+        <!-- About the Website -->
+        <section id="about-website" data-section="about-website">
+            <div class="carousel-wrapper">
+                <button class="nav-arrow" onclick="scrollCarousel(-1)">&#8592;</button>
+
+                <div class="carousel-container" id="why-carousel">
+
+                    <!-- Card 1 -->
+                    <div class="why-card why-card-1">
+                        <h3>A Gift of Preparation: Your Pre-Adventure Handbook</h3>
+                        <p>This handbook is my early Christmas gift to you as you gear up for the biggest adventure of your life!</p>
+                        <img src="https://placehold.co/600x400/3623ff/FFFFFF?text=Landscape+Photo" alt="Landscape Photo">
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="why-card why-card-2">
+                        <h3>No Stress Required!<br>(The Real Goal)</h3>
+                        <p>Seriously, please don't let this book stress you out or feel like more homework. The goal here is quite literally the opposite. This is just a token of support, and go-to resource to give you a place to:</p>
+                        <ul>
+                            <li><strong>Prep Your Mind:</strong> Get an outlet for some fun research and start mentally preparing for all the awesome craziness that's coming your way.</li>
+                            <li><strong>Feel Totally Ready:</strong> Give you some confidence and a few strategies for things you can start doing right now before you leave.</li>
+                            <li><strong>Breathe Easier:</strong> I want nothing more than for you to feel confident, prepared, and ready to tackle anything the moment you land!</li>
+                        </ul>
+                        <p>Think of this as a big brutish virtual hug filled with guidelines, excitement, and absolutely zero pressure.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="why-card why-card-3">
+                        <h3>Note</h3>
+                        <p>Writing this has been such a journey for me, filled with three huge emotions:</p>
+                        <ul>
+                            <li><strong>Stress:</strong> (because I wanted to get this done for you two weeks ago, and thinking about my poor body after feeding myself for 3 months).</li>
+                            <li><strong>Jealousy:</strong> (because you get to live out this dream before I do, haha!).</li>
+                            <li><strong>EXCITEMENT:</strong> to see you take on something that was literally just a dream until recently.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="why-card why-card-4">
+                        <h3>Good Luck</h3>
+                        <p>I can't wait to watch you light up the screen. I'm already counting down the seconds until I see you on the NOOVO Instagram announcement!</p>
+                        <p>Love you lots. This is YOUR time!</p>
+                        <img src="https://placehold.co/600x400/fd3c98/FFFFFF?text=Landscape+Photo" alt="Landscape Photo">
+                    </div>
+
+                </div>
+
+                <button class="nav-arrow" onclick="scrollCarousel(1)">&#8594;</button>
+            </div>
+        </section>
+
+        <!-- Key Features (Renamed to How) -->
+        <section id="key-features" data-section="key-features">
+            <!-- <h2>How</h2> Removed title to let layout speak, or could keep it. User said "Change title Features to How".
+                 Usually clean layout prefers no big header if cards are focus, but let's keep it clean or minimal.
+                 The user said "Change the title 'Features' to 'How'". I'll assume they mean the timeline label,
+                 but if there's a visible header, it should be How.
+                 The request says "The three pieces combined should cover about 4/5ths of the entire page."
+                 So I will rely on the 3 columns.
+            -->
+
+            <div class="how-container">
+
+                <!-- Card 1: Format -->
+                <div class="how-card how-card-left">
+                    <h3>Format of Handbook</h3>
+                    <p>Each title will open to a couple specific writings I’ve created through long hours of research. They are formatted in different ways to make it more palatable to read.</p>
+                    <p>I considered having it all in French but would have had no way of confirming what I wanted to say was being translated correctly haha.</p>
+                </div>
+
+                <!-- Center: Vertical Photo -->
+                <div class="how-image-container">
+                    <img src="https://placehold.co/400x800/992fcc/FFFFFF?text=Vertical+Photo" alt="Vertical Aesthetic Shot" class="how-image">
+                </div>
+
+                <!-- Card 2: Content -->
+                <div class="how-card how-card-right">
+                    <h3>Content: What’s Here</h3>
+                    <ul>
+                        <li><strong>NotebookLM:</strong> (described on next page)</li>
+                        <li><strong>Outside The Game:</strong> (Pregame Strategies and Meta Game)</li>
+                        <li><strong>In Game:</strong> (Outwit Outplay Outlast)</li>
+                        <li><strong>End Game:</strong> (For when you need to sell yourself)</li>
+                        <li><strong>Player Portfolios:</strong> (Players I thought could be cool to look at deeper)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Welcome Section (Renamed Headline to NotebookLM) -->
+        <section id="welcome" data-section="welcome">
+            <div class="notebook-container">
+                <div class="notebook-header">
+                    <h2>NotebookLM Customized<br>Survivor Experience</h2>
+                    <p>This is a program I have designed for you that is preloaded with hundreds of PDFs, podcasts, articles, interviews and challenge databases. This tool accompanies the website by allowing you to research different ideas in more depth from this website, or anything else about Survivor. There are also premade resources on the right side.</p>
+                </div>
+
+                <div class="notebook-card" onclick="openNotebook()">
+                    <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+                     <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Content Hubs -->
@@ -512,33 +885,6 @@
                 <div class="portfolio-item">Player 5</div>
                 <div class="portfolio-item">Player 6</div>
             </div>
-        </section>
-
-        <!-- Welcome Section -->
-        <section id="welcome" data-section="welcome">
-            <h2>Welcome</h2>
-            <p>This handbook is your new best friend. It's a living document, a toolkit, and a roadmap designed to get you to the final tribal council. It's built on a simple premise: knowledge is power. The more you know about the game, the better you'll play.</p>
-            <div class="card" onclick="openNotebook()">
-                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
-                 <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
-            </div>
-        </section>
-
-        <!-- Key Features -->
-        <section id="key-features" data-section="key-features">
-            <h2>Key Features</h2>
-            <p>This handbook is designed to be a comprehensive, interactive resource.</p>
-            <ul>
-                <li>Interactive Cards: Click on any topic to dive deeper.</li>
-                <li>Dynamic Timeline: Easily navigate through different phases of the game.</li>
-                <li>Content-Rich: Packed with strategies, historical analysis, and survival tips.</li>
-            </ul>
-        </section>
-
-        <!-- About the Website -->
-        <section id="about-website" data-section="about-website">
-            <h2>About the Website</h2>
-            <p>This handbook was created by a long-time fan of the show, combining a passion for game theory and a deep respect for the castaways who brave the elements and the social gauntlet.</p>
         </section>
 
     </main>
@@ -1076,9 +1422,6 @@
                             
                             <!-- FIXED: Added real image tag instead of text placeholder -->
                             
-
-[Image of Panama climate map]
-
                             <img src="https://placehold.co/600x400/111/FF69B4/png?text=Panama+Climate+Map" class="content-img" alt="Map of Panama">
 
                             <hr style="border: 1px solid #333; margin: 20px 0;">
@@ -1312,6 +1655,18 @@
         }
 
         document.addEventListener('DOMContentLoaded', type);
+
+        /* CAROUSEL LOGIC */
+        function scrollCarousel(direction) {
+            const container = document.getElementById('why-carousel');
+            const cardWidth = container.offsetWidth;
+            const scrollAmount = cardWidth * direction;
+
+            container.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
 
     </script>
 
