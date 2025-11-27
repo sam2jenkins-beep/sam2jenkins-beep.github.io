@@ -166,7 +166,7 @@
             position: relative;
             overflow: hidden;
             /* New gradient using the beige and lilac colors */
-            background: linear-gradient(-45deg, #4b4b4b, #C8A2C8, #2b2b2b, #F5F5DC);
+            background: linear-gradient(-45deg, #3623ff, #6829e5, #992fcc, #cb36b2, #fd3c98);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
@@ -435,13 +435,13 @@
     <aside id="timeline">
         <div class="timeline-track">
             <div class="time-node" data-section="hero"><h4>Intro</h4><p>Start</p></div>
+            <div class="time-node" data-section="about-website"><h4>Website</h4><p>About</p></div>
+            <div class="time-node" data-section="key-features"><h4>Features</h4><p>Highlights</p></div>
+            <div class="time-node" data-section="welcome"><h4>Welcome</h4><p>Guide</p></div>
             <div class="time-node" data-section="content-hubs"><h4>Hubs</h4><p>Main</p></div>
             <div class="time-node" data-section="core-triangle"><h4>Core</h4><p>Strategy</p></div>
             <div class="time-node" data-section="end-game"><h4>End</h4><p>Game</p></div>
             <div class="time-node" data-section="portfolios"><h4>Players</h4><p>Portfolios</p></div>
-            <div class="time-node" data-section="welcome"><h4>Welcome</h4><p>Guide</p></div>
-            <div class="time-node" data-section="key-features"><h4>Features</h4><p>Highlights</p></div>
-            <div class="time-node" data-section="about-website"><h4>Website</h4><p>About</p></div>
         </div>
     </aside>
 
@@ -456,6 +456,33 @@
             <h1><span id="dynamic-text">Sole Survivor</span><br>Preparation</h1>
             <p>THE HANDBOOK</p>
             <img src="katesurvivor.jpeg" alt="Contestant ready for the challenge" class="hero-img">
+        </section>
+
+        <!-- About the Website -->
+        <section id="about-website" data-section="about-website">
+            <h2>About the Website</h2>
+            <p>This handbook was created by a long-time fan of the show, combining a passion for game theory and a deep respect for the castaways who brave the elements and the social gauntlet.</p>
+        </section>
+
+        <!-- Key Features -->
+        <section id="key-features" data-section="key-features">
+            <h2>Key Features</h2>
+            <p>This handbook is designed to be a comprehensive, interactive resource.</p>
+            <ul>
+                <li>Interactive Cards: Click on any topic to dive deeper.</li>
+                <li>Dynamic Timeline: Easily navigate through different phases of the game.</li>
+                <li>Content-Rich: Packed with strategies, historical analysis, and survival tips.</li>
+            </ul>
+        </section>
+
+        <!-- Welcome Section -->
+        <section id="welcome" data-section="welcome">
+            <h2>Welcome</h2>
+            <p>This handbook is your new best friend. It's a living document, a toolkit, and a roadmap designed to get you to the final tribal council. It's built on a simple premise: knowledge is power. The more you know about the game, the better you'll play.</p>
+            <div class="card" onclick="openNotebook()">
+                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+                 <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
+            </div>
         </section>
 
         <!-- Content Hubs -->
@@ -512,33 +539,6 @@
                 <div class="portfolio-item">Player 5</div>
                 <div class="portfolio-item">Player 6</div>
             </div>
-        </section>
-
-        <!-- Welcome Section -->
-        <section id="welcome" data-section="welcome">
-            <h2>Welcome</h2>
-            <p>This handbook is your new best friend. It's a living document, a toolkit, and a roadmap designed to get you to the final tribal council. It's built on a simple premise: knowledge is power. The more you know about the game, the better you'll play.</p>
-            <div class="card" onclick="openNotebook()">
-                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
-                 <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
-            </div>
-        </section>
-
-        <!-- Key Features -->
-        <section id="key-features" data-section="key-features">
-            <h2>Key Features</h2>
-            <p>This handbook is designed to be a comprehensive, interactive resource.</p>
-            <ul>
-                <li>Interactive Cards: Click on any topic to dive deeper.</li>
-                <li>Dynamic Timeline: Easily navigate through different phases of the game.</li>
-                <li>Content-Rich: Packed with strategies, historical analysis, and survival tips.</li>
-            </ul>
-        </section>
-
-        <!-- About the Website -->
-        <section id="about-website" data-section="about-website">
-            <h2>About the Website</h2>
-            <p>This handbook was created by a long-time fan of the show, combining a passion for game theory and a deep respect for the castaways who brave the elements and the social gauntlet.</p>
         </section>
 
     </main>
@@ -1076,9 +1076,6 @@
                             
                             <!-- FIXED: Added real image tag instead of text placeholder -->
                             
-
-[Image of Panama climate map]
-
                             <img src="https://placehold.co/600x400/111/FF69B4/png?text=Panama+Climate+Map" class="content-img" alt="Map of Panama">
 
                             <hr style="border: 1px solid #333; margin: 20px 0;">
