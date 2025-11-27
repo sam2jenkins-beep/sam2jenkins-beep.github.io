@@ -272,6 +272,102 @@
             color: var(--bg-color);
         }
 
+        /* How / Features Layout */
+        .how-container {
+            width: 80%; /* 4/5ths of the page */
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
+            gap: 30px;
+            align-items: stretch; /* Cards and image same height */
+            margin: 0 auto;
+        }
+
+        .how-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .how-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Unique styles matching hero palette */
+        .how-card-left {
+            border-left: 5px solid #6829e5;
+            box-shadow: -5px 5px 20px rgba(104, 41, 229, 0.2);
+        }
+        .how-card-right {
+            border-right: 5px solid #cb36b2;
+            box-shadow: 5px 5px 20px rgba(203, 54, 178, 0.2);
+        }
+
+        .how-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            font-family: var(--font-heading); /* Or main font, user said "modern unique" */
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+
+        .how-card p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .how-card ul {
+            list-style: none;
+        }
+        .how-card li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .how-card li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: #fd3c98;
+            font-weight: bold;
+        }
+
+        .how-image-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--accent-color);
+            display: flex;
+        }
+        .how-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .how-image-container:hover .how-image {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 900px) {
+            .how-container {
+                grid-template-columns: 1fr; /* Stack on mobile */
+                width: 90%;
+            }
+            .how-image-container {
+                height: 300px; /* Fixed height on mobile */
+            }
+        }
+
         /* Hero */
         #hero {
             position: relative;
@@ -547,7 +643,7 @@
         <div class="timeline-track">
             <div class="time-node" data-section="hero"><h4>Intro</h4><p>Start</p></div>
             <div class="time-node" data-section="about-website"><h4>Why</h4><p>About</p></div>
-            <div class="time-node" data-section="key-features"><h4>Features</h4><p>Highlights</p></div>
+            <div class="time-node" data-section="key-features"><h4>How</h4><p>Highlights</p></div>
             <div class="time-node" data-section="welcome"><h4>Welcome</h4><p>Guide</p></div>
             <div class="time-node" data-section="content-hubs"><h4>Hubs</h4><p>Main</p></div>
             <div class="time-node" data-section="core-triangle"><h4>Core</h4><p>Strategy</p></div>
@@ -620,15 +716,43 @@
             </div>
         </section>
 
-        <!-- Key Features -->
+        <!-- Key Features (Renamed to How) -->
         <section id="key-features" data-section="key-features">
-            <h2>Key Features</h2>
-            <p>This handbook is designed to be a comprehensive, interactive resource.</p>
-            <ul>
-                <li>Interactive Cards: Click on any topic to dive deeper.</li>
-                <li>Dynamic Timeline: Easily navigate through different phases of the game.</li>
-                <li>Content-Rich: Packed with strategies, historical analysis, and survival tips.</li>
-            </ul>
+            <!-- <h2>How</h2> Removed title to let layout speak, or could keep it. User said "Change title Features to How".
+                 Usually clean layout prefers no big header if cards are focus, but let's keep it clean or minimal.
+                 The user said "Change the title 'Features' to 'How'". I'll assume they mean the timeline label,
+                 but if there's a visible header, it should be How.
+                 The request says "The three pieces combined should cover about 4/5ths of the entire page."
+                 So I will rely on the 3 columns.
+            -->
+
+            <div class="how-container">
+
+                <!-- Card 1: Format -->
+                <div class="how-card how-card-left">
+                    <h3>Format of Handbook</h3>
+                    <p>Each title will open to a couple specific writings I’ve created through long hours of research. They are formatted in different ways to make it more palatable to read.</p>
+                    <p>I considered having it all in French but would have had no way of confirming what I wanted to say was being translated correctly haha.</p>
+                </div>
+
+                <!-- Center: Vertical Photo -->
+                <div class="how-image-container">
+                    <img src="https://placehold.co/400x800/992fcc/FFFFFF?text=Vertical+Photo" alt="Vertical Aesthetic Shot" class="how-image">
+                </div>
+
+                <!-- Card 2: Content -->
+                <div class="how-card how-card-right">
+                    <h3>Content: What’s Here</h3>
+                    <ul>
+                        <li><strong>NotebookLM:</strong> (described on next page)</li>
+                        <li><strong>Outside The Game:</strong> (Pregame Strategies and Meta Game)</li>
+                        <li><strong>In Game:</strong> (Outwit Outplay Outlast)</li>
+                        <li><strong>End Game:</strong> (For when you need to sell yourself)</li>
+                        <li><strong>Player Portfolios:</strong> (Players I thought could be cool to look at deeper)</li>
+                    </ul>
+                </div>
+
+            </div>
         </section>
 
         <!-- Welcome Section -->
