@@ -6,57 +6,17 @@
     <title>Sole Survivor Preparation Handbook</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Removed Black Ops One as requested "pure white modern sans-serif typography" (Poppins covers this) -->
     
     <style>
         :root {
-            --bg-color: #1a1a1a; /* Dark Grey/Black */
-            --text-color: #F5F5DC; /* Beige */
-            --accent-color: #C8A2C8; /* Lilac (Muted Purple/Pink) */
-            --border-color: #444444; /* Grey for borders */
+            --bg-color: #1a1a1a;
+            --text-color: #FFFFFF; /* Pure White */
+            --accent-color: #FFFFFF; /* Changed to White for Hero typography, kept lilac for accents if needed later */
+            --lilac: #C8A2C8;
             --font-main: 'Poppins', sans-serif;
-            --font-heading: 'Black Ops One', sans-serif;
         }
-
-        /* === FIELD MANUAL STYLES === */
-        .protocol-box {
-            border: 2px solid var(--accent-color);
-            background: rgba(200, 162, 200, 0.1);
-            padding: 20px;
-            margin: 20px 0;
-            color: #fff;
-            font-family: monospace;
-            border-left-width: 10px;
-        }
-        
-        .tip-box {
-            background: #2b2b2b; /* Slightly lighter grey */
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
-            color: var(--text-color);
-            opacity: 0.9;
-        }
-        
-        .tactical-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
-        }
-        .tactical-table th, .tactical-table td {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
-        }
-        .tactical-table th {
-            background-color: #2b2b2b;
-            color: var(--accent-color);
-            text-transform: uppercase;
-        }
-        .tactical-table tr:nth-child(even) { background-color: #222222; }
 
         * {
             box-sizing: border-box;
@@ -66,978 +26,409 @@
 
         body {
             background-color: var(--bg-color);
-            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVpaWlraeft7e2+vr6xsbGjo6O3t7evr6+0tLTZ2dna2tqamprPz8/Ly8vJycnGxsZ4eHjBwcG9vb2UlJSUlJTS0tKDPn9pAAAAB3RSTlMAAgYGIyM0d72eAAAACXBIWXMAAAsSAAALEgHS3X78AAAAQ0lEQVRIx2NmYGAUlgADYCEBCgxEaAUIjAUgYAVBMRMCEwYwEAEpIATsYAXbGTQ2p+DGBhcjJzYg5CTe3BQ4AX3gAAnk53S/nN49AAAAAElFTkSuQmCC);
             color: var(--text-color);
             font-family: var(--font-main);
-            overflow: hidden; /* Handled by main container */
+            overflow-x: hidden;
         }
 
-        /* === VIEW 1: MAIN SCROLL CONTAINER === */
-        #main-view {
-            height: 100vh;
-            width: 100vw;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-            position: relative;
-            z-index: 1;
-            /* Make space for the bottom timeline */
-            box-sizing: border-box;
-        }
-
-        section {
-            height: 100vh;
-            width: 100%;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* Give last section padding to not be overlapped by timeline */
-        section:last-of-type {
-            padding-bottom: 100px;
-        }
-
-        h1, h2, h3 {
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        /* Interactive Elements */
-        .card {
-            padding: 2.5rem 3rem;
-            margin: 1rem 0;
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid transparent;
-            border-radius: 10px;
-            background-clip: padding-box; /* Ensures the background doesn't bleed into the border area */
-            z-index: 1;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            z-index: -1;
-            margin: -1px; /* Adjust to border width */
-            border-radius: inherit; /* Match the parent's border-radius */
-            background: linear-gradient(90deg, #C8A2C8, #8E44AD); /* Lilac to Purple */
-        }
-
-        .card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            background-color: rgba(245, 245, 220, 0.1); /* Beige with low opacity */
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .card-tagline {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 10px;
-        }
-
-        /* === SECTION SPECIFIC STYLES === */
-
-        .textured-section {
-            background-color: #000;
-        }
-
-        /* Why / About Carousel */
-        .carousel-wrapper {
-            position: relative;
-            width: 80%; /* Wrapper is wider to hold arrows */
-            max-width: 900px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-container {
-            width: 80%; /* The visible window is smaller */
-            overflow-x: auto;
-            display: flex;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            gap: 20px;
-            padding: 20px 0;
-            /* Hide scrollbar */
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        .carousel-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .why-card {
-            min-width: 100%;
-            scroll-snap-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .why-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            font-family: var(--font-main);
-            font-weight: 600;
-            text-transform: none; /* User didn't request uppercase everywhere */
-        }
-
-        .why-card p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-
-        .why-card ul {
-            text-align: left;
-            margin-bottom: 20px;
-            list-style: none;
-        }
-
-        .why-card li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px;
-        }
-        .why-card li::before {
-            content: '•';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-        }
-
-        .why-card img {
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-top: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Unique Card Styles */
-        .why-card-1 { border-top: 4px solid #3623ff; }
-        .why-card-2 { border-top: 4px solid #992fcc; }
-        .why-card-3 { border-top: 4px solid #cb36b2; }
-        .why-card-4 { border-top: 4px solid #fd3c98; }
-
-        .nav-arrow {
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            margin: 0 10px;
-            flex-shrink: 0;
-        }
-        .nav-arrow:hover {
-            background: var(--accent-color);
-            color: var(--bg-color);
-        }
-
-        /* How / Features Layout */
-        .how-container {
-            width: 80%; /* 4/5ths of the page */
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
-            gap: 30px;
-            align-items: stretch; /* Cards and image same height */
-            margin: 0 auto;
-        }
-
-        .how-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-        .how-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* Unique styles matching hero palette */
-        .how-card-left {
-            border-left: 5px solid #6829e5;
-            box-shadow: -5px 5px 20px rgba(104, 41, 229, 0.2);
-        }
-        .how-card-right {
-            border-right: 5px solid #cb36b2;
-            box-shadow: 5px 5px 20px rgba(203, 54, 178, 0.2);
-        }
-
-        .how-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-            font-family: var(--font-heading); /* Or main font, user said "modern unique" */
-            letter-spacing: 1px;
-            text-transform: none;
-        }
-
-        .how-card p {
-            line-height: 1.6;
-            margin-bottom: 15px;
-            opacity: 0.9;
-        }
-
-        .how-card ul {
-            list-style: none;
-        }
-        .how-card li {
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .how-card li::before {
-            content: '>';
-            position: absolute;
-            left: 0;
-            color: #fd3c98;
-            font-weight: bold;
-        }
-
-        .how-image-container {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 2px solid var(--accent-color);
-            display: flex;
-        }
-        .how-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .how-image-container:hover .how-image {
-            transform: scale(1.05);
-        }
-
-        /* NotebookLM / Welcome Section */
-        .notebook-container {
-            width: 80%;
-            max-width: 900px;
-            text-align: center;
-        }
-
-        .notebook-header {
-            margin-bottom: 40px;
-        }
-
-        .notebook-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            color: var(--text-color);
-        }
-
-        .notebook-header p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            color: rgba(245, 245, 220, 0.9);
-        }
-
-        /* Update existing card to match modern style */
-        .notebook-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid #fd3c98; /* Pink from palette */
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .notebook-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(253, 60, 152, 0.2);
-        }
-
-        .notebook-card h3 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-
-        .notebook-card p {
-            font-size: 1rem;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        /* End Game / Final Tribal Styles */
-        .ftc-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .ftc-header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-        }
-        .ftc-header p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .ftc-card {
-            background: #222;
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            margin-bottom: 40px;
-            border-radius: 10px;
-        }
-        .ftc-card h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #fd3c98;
-        }
-        .ftc-intro-text {
-            text-align: center;
-            margin-bottom: 30px;
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        .two-column-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .column h3 {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        .column h4 {
-            color: white;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        @media (max-width: 768px) {
-            .two-column-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 900px) {
-            .how-container {
-                grid-template-columns: 1fr; /* Stack on mobile */
-                width: 90%;
-            }
-            .how-image-container {
-                height: 300px; /* Fixed height on mobile */
-            }
-        }
-
-        /* Hero */
+        /* === HERO SECTION REDESIGN === */
         #hero {
             position: relative;
-            overflow: hidden;
-            /* New gradient using the beige and lilac colors */
+            height: 100vh;
+            width: 100vw;
+            overflow: visible; /* Changed from hidden to allow spill-over */
+            z-index: 10; /* Ensure spilled content sits on top of next section */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            /*
+               Grid Areas:
+               Top-Left (Header) | Top-Right (Nav)
+               Middle (Empty/Image)
+               Bottom-Left (Purpose) | Bottom-Right (Art)
+            */
+            padding: 40px;
+
+            /* Dynamic Fading Gradient Background */
             background: linear-gradient(-45deg, #3623ff, #6829e5, #992fcc, #cb36b2, #fd3c98);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
 
         @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        #hero h1 { font-size: 3rem; margin-bottom: 10px; text-align: center; }
-        #hero p { color: var(--accent-color); letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
-        .hero-img {
-            width: 100%;
-            max-width: 800px;
-            height: 40vh;
-            object-fit: cover;
-            border: 2px solid var(--accent-color);
-            /* filter: grayscale(100%); Removed to show full color of katesurvivor.jpeg */
-            transition: filter 0.3s;
-        }
-        /* .hero-img:hover { filter: grayscale(0%); } */
-
-        /* Timeline */
-        #timeline {
-            position: fixed;
-            bottom: 0;
+        /* Background Image Layer (Full Width/Height, mix-blend-mode for effect) */
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            padding: 15px 0;
-            z-index: 10;
-            overflow-x: auto;
-            white-space: nowrap;
-            border-top: 1px solid var(--border-color);
-        }
-        .timeline-track {
-            display: inline-flex;
-            gap: 30px;
-            padding: 0 30px;
-        }
-        .time-node {
-            cursor: pointer;
-            text-align: center;
-            min-width: 100px;
-        }
-        .time-node:hover h4 {
-            color: var(--text-color);
-        }
-        .time-node h4 {
-            color: var(--accent-color);
-            margin-bottom: 5px;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        .time-node p {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin: 0;
-        }
-
-        /* Content Hubs */
-        #content-hubs { gap: 20px; }
-
-        /* === THE NEON TRINITY (UPSIDE DOWN TRIANGLE) === */
-        #core-triangle {
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .triangle-background {
-            position: absolute;
-            width: 100%;
             height: 100%;
-            max-width: 600px;
-            max-height: 520px;
-            clip-path: polygon(50% 100%, 0 0, 100% 0);
-            background: rgba(200, 162, 200, 0.05); /* Lilac */
-            border: 1px solid var(--accent-color);
+            object-fit: cover;
+            opacity: 0.6;
+            mix-blend-mode: overlay; /* Blends with gradient */
             z-index: 0;
         }
 
-        .triangle-container {
+        /* Content Layer (Above Image) */
+        .hero-content {
+            z-index: 10;
             position: relative;
-            width: 100%;
-            max-width: 500px;
-            height: 450px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            grid-template-areas:
-                "left right"
-                "bottom bottom";
-            gap: 20px;
         }
 
-        .triangle-node {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(5px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            padding: 20px;
-        }
-        .triangle-node:hover {
-            transform: scale(1.05);
-            background: rgba(200, 162, 200, 0.2);
-            border-color: var(--accent-color);
+        /* Top Left: Title */
+        .hero-top-left {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            align-self: start;
         }
 
-        .node-bottom { grid-area: bottom; }
-        .node-top-left { grid-area: left; }
-        .node-top-right { grid-area: right; }
-
-        .triangle-node h2 { font-size: 2rem; }
-        .triangle-node p { opacity: 0.7; }
-
-        /* Portfolios */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 800px;
+        .hero-top-left h1 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
         }
-        .portfolio-item {
-            background: #2b2b2b;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
+
+        .hero-top-left span {
             opacity: 0.7;
         }
 
-        /* === VIEW 2: CATEGORY MENU (OVERLAY) === */
-        #category-view {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            max-width: 500px; /* Sidebar on desktop, full on mobile */
-            height: 100%;
-            background: var(--bg-color);
-            border-left: 1px solid var(--border-color);
-            z-index: 100;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        /* Top Right: Location & Nav */
+        .hero-top-right {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            justify-self: end;
+            text-align: right;
             display: flex;
             flex-direction: column;
-            padding: 40px;
+            align-items: flex-end;
+            gap: 20px;
         }
 
-        #category-view.active { transform: translateX(0); }
+        .location-tag {
+            font-size: 1rem;
+            font-weight: 500;
+        }
 
-        .overlay-header {
+        .hero-nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 20px;
+            gap: 20px;
+            list-style: none;
         }
 
-        .close-btn {
-            background: none;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            padding: 10px 20px;
-            cursor: pointer;
-            font-family: var(--font-main);
+        .hero-nav li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
             text-transform: uppercase;
-            font-weight: bold;
         }
-        .close-btn:hover { background: var(--accent-color); border-color: var(--accent-color); color: var(--bg-color); }
-
-        .sub-item-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            overflow-y: auto;
+        .hero-nav li a:hover {
+            opacity: 1;
         }
 
-        .sub-item-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 20px;
-            text-align: left;
-            font-family: var(--font-main);
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: 0.3s;
+        /* Lower Left: Purpose */
+        .hero-lower-left {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            align-self: end;
+            max-width: 400px;
+            margin-bottom: 20px; /* Space from bottom edge */
         }
 
-        .sub-item-btn:hover {
-            border-color: var(--accent-color);
-            padding-left: 30px;
-            background: rgba(200, 162, 200, 0.1);
-        }
-
-        /* === VIEW 3: READER VIEW (FULL OVERLAY) === */
-        #reader-view {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-color);
-            z-index: 200; /* Topmost layer */
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            overflow-y: auto;
-            padding: 40px 20px;
-        }
-
-        #reader-view.active { transform: translateX(0); }
-
-        .reader-container {
-            max-width: 1100px; /* Increased width for wider cards */
-            margin: 0 auto;
-        }
-
-        .reader-content {
-            margin-top: 40px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        
-
-        /* Formatting for user content inside JS */
-        .reader-content h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 2.5rem; }
-        .reader-content h2 { margin-top: 30px; margin-bottom: 15px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
-        .reader-content h3 { margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
-        .reader-content p { margin-bottom: 20px; color: var(--text-color); opacity: 0.9; }
-        .reader-content ul { margin-left: 20px; margin-bottom: 20px; }
-        .reader-content li { margin-bottom: 10px; color: var(--text-color); opacity: 0.9; }
-        .reader-content strong { color: var(--text-color); }
-
-        /* Day 1: USA vs QC Styles */
-        .day1-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        .day1-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Abstract Flag Backgrounds */
-        .day1-card.usa {
-            border-top: 5px solid #3623ff; /* Blue */
-            background-image: linear-gradient(135deg, rgba(54, 35, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 0, 0, 0.05) 100%);
-        }
-
-        .day1-card.qc {
-            border-top: 5px solid #fd3c98; /* Pink/Lilac Brand Color */
-            background-image: linear-gradient(135deg, rgba(253, 60, 152, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 100%);
-        }
-
-        .day1-card h2 {
+        .hero-lower-left h2 {
             font-size: 1.5rem;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .day1-card h3 {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-
-        .day1-card p {
-            font-size: 0.95rem;
             margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-lower-left p {
+            font-size: 0.9rem;
             line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Bottom: Grid of Art Placeholders */
+        .hero-bottom-right {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            display: flex;
+            gap: 20px;
+            align-self: end;
+            justify-self: end;
+            transform: translateY(30%); /* "Half-visible above fold" */
+        }
+
+        .art-placeholder {
+            width: 200px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
         }
 
         @media (max-width: 900px) {
-            .day1-container {
+            #hero {
                 grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
+                padding: 20px;
+            }
+            .hero-top-right {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                justify-self: start;
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+            .hero-nav {
+                flex-wrap: wrap;
+            }
+            .hero-bottom-right {
+                display: none; /* Hide art on mobile if too crowded, or stack */
             }
         }
 
-        /* Mobile Tweaks */
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 2rem; }
-            .triangle-item { font-size: 2.5rem; }
-            #category-view { max-width: 100%; }
-            .hero-img { height: 30vh; }
+        /* === REST OF CONTENT STYLES (Adapted) === */
+
+        /* Smooth Scrolling for Sections */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 80px 20px;
+            min-height: 100vh;
+            border-bottom: 1px solid #333;
+            position: relative;
+        }
+
+        /* Reuse existing styles but cleaned up */
+        .carousel-wrapper, .how-container, .notebook-container, .grid-container, .ftc-card {
+            margin: 0 auto;
+        }
+
+        /* Typography Global Update */
+        h1, h2, h3, h4, p, li, a {
+            font-family: var(--font-main);
+        }
+
+        /* ... Include previous specific styles for cards, tables, etc ... */
+        /* I will include the critical CSS from the previous file to ensure functionality remains */
+
+        .carousel-wrapper { position: relative; width: 80%; max-width: 900px; display: flex; align-items: center; justify-content: center; margin-top: 50px; }
+        .carousel-container { width: 80%; overflow-x: auto; display: flex; scroll-snap-type: x mandatory; gap: 20px; padding: 20px 0; scrollbar-width: none; }
+        .why-card { min-width: 100%; scroll-snap-align: center; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .why-card img { width: 100%; max-height: 250px; object-fit: cover; margin-top: 20px; }
+        .nav-arrow { background: transparent; border: 1px solid white; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+        .how-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; max-width: 1200px; }
+        .how-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; }
+        .how-image-container { overflow: hidden; border-radius: 15px; border: 1px solid white; }
+        .how-image { width: 100%; height: 100%; object-fit: cover; }
+
+        .notebook-card { max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; cursor: pointer; text-align: left; border-top: 4px solid #fd3c98; }
+
+        .card { padding: 2.5rem; margin: 2rem auto; max-width: 700px; background: rgba(255,255,255,0.1); border-radius: 10px; text-align: center; cursor: pointer; }
+
+        .triangle-container { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; grid-template-areas: "left right" "bottom bottom"; gap: 20px; max-width: 500px; margin: 0 auto; height: 450px; }
+        .triangle-node { background: rgba(255,255,255,0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
+        .node-top-left { grid-area: left; } .node-top-right { grid-area: right; } .node-bottom { grid-area: bottom; }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
+        .portfolio-item { background: #333; height: 150px; display: flex; align-items: center; justify-content: center; }
+
+        /* Overlays */
+        #category-view, #reader-view { position: fixed; top: 0; right: 0; width: 100%; height: 100%; background: #111; z-index: 100; transform: translateX(100%); transition: transform 0.4s; overflow-y: auto; padding: 40px; }
+        #category-view.active, #reader-view.active { transform: translateX(0); }
+        #category-view { max-width: 500px; border-left: 1px solid #333; }
+
+        .overlay-header { display: flex; justify-content: space-between; margin-bottom: 40px; border-bottom: 1px solid white; padding-bottom: 20px; }
+        .close-btn { background: none; border: 1px solid white; color: white; padding: 10px 20px; cursor: pointer; }
+        .sub-item-btn { background: transparent; border: 1px solid #333; color: white; padding: 20px; text-align: left; width: 100%; cursor: pointer; margin-bottom: 10px; }
+        .sub-item-btn:hover { border-color: white; padding-left: 30px; }
+
+        .reader-container { max-width: 800px; margin: 0 auto; }
+        .reader-content { line-height: 1.8; font-size: 1.1rem; }
+
+        @media (max-width: 900px) {
+            .how-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- === TIMELINE === -->
-    <aside id="timeline">
-        <div class="timeline-track">
-            <div class="time-node" data-section="hero"><h4>Intro</h4><p>Start</p></div>
-            <div class="time-node" data-section="about-website"><h4>Why</h4><p>About</p></div>
-            <div class="time-node" data-section="key-features"><h4>How</h4><p>Highlights</p></div>
-            <div class="time-node" data-section="welcome"><h4>NotebookLM</h4><p>Guide</p></div>
-            <div class="time-node" data-section="content-hubs"><h4>Hubs</h4><p>Main</p></div>
-            <div class="time-node" data-section="core-triangle"><h4>Core</h4><p>Strategy</p></div>
-            <div class="time-node" data-section="end-game"><h4>End</h4><p>Game</p></div>
-            <div class="time-node" data-section="portfolios"><h4>Players</h4><p>Portfolios</p></div>
+    <!-- HERO SECTION -->
+    <div id="hero">
+        <img src="katesurvivor.jpeg" alt="Survivor Kate" class="hero-bg-img">
+
+        <!-- Top Left -->
+        <div class="hero-top-left hero-content">
+            <h1>Preparation.<br><span>// The Handbook</span></h1>
         </div>
-    </aside>
 
-    <!-- === DECORATIVE BACKGROUND ELEMENT === -->
-    <div class="triangle-lines"></div>
+        <!-- Top Right -->
+        <div class="hero-top-right hero-content">
+            <div class="location-tag">Montreal, QC.</div>
+            <ul class="hero-nav">
+                <li><a href="#hero">Intro</a></li>
+                <li><a href="#about-website">Why</a></li>
+                <li><a href="#key-features">How</a></li>
+                <li><a href="#welcome">NotebookLM</a></li>
+                <li><a href="#content-hubs">Hubs</a></li>
+                <li><a href="#core-triangle">Core</a></li>
+                <li><a href="#end-game">End</a></li>
+                <li><a href="#portfolios">Players</a></li>
+            </ul>
+        </div>
 
-    <!-- === VIEW 1: MAIN SCROLL === -->
-    <main id="main-view">
-        
-        <!-- Hero Section -->
-        <section id="hero" data-section="hero">
-            <h1><span id="dynamic-text">Sole Survivor</span><br>Preparation</h1>
-            <p>THE HANDBOOK</p>
-            <img src="katesurvivor.jpeg" alt="Contestant ready for the challenge" class="hero-img">
-        </section>
+        <!-- Lower Left -->
+        <div class="hero-lower-left hero-content">
+            <h2>Purpose. &#8594;</h2>
+            <p>A collection of preparation ideas for someone who probably already knows it all.</p>
+        </div>
 
-        <!-- About the Website -->
-        <section id="about-website" data-section="about-website">
-            <div class="carousel-wrapper">
-                <button class="nav-arrow" onclick="scrollCarousel(-1)">&#8592;</button>
+        <!-- Bottom Right (Art) -->
+        <div class="hero-bottom-right hero-content">
+            <div class="art-placeholder"></div>
+            <div class="art-placeholder"></div>
+        </div>
+    </div>
 
-                <div class="carousel-container" id="why-carousel">
-
-                    <!-- Card 1 -->
-                    <div class="why-card why-card-1">
-                        <h3>A Gift of Preparation: Your Pre-Adventure Handbook</h3>
-                        <p>This handbook is my early Christmas gift to you as you gear up for the biggest adventure of your life!</p>
-                        <img src="https://placehold.co/600x400/3623ff/FFFFFF?text=Landscape+Photo" alt="Landscape Photo">
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="why-card why-card-2">
-                        <h3>No Stress Required!<br>(The Real Goal)</h3>
-                        <p>Seriously, please don't let this book stress you out or feel like more homework. The goal here is quite literally the opposite. This is just a token of support, and go-to resource to give you a place to:</p>
-                        <ul>
-                            <li><strong>Prep Your Mind:</strong> Get an outlet for some fun research and start mentally preparing for all the awesome craziness that's coming your way.</li>
-                            <li><strong>Feel Totally Ready:</strong> Give you some confidence and a few strategies for things you can start doing right now before you leave.</li>
-                            <li><strong>Breathe Easier:</strong> I want nothing more than for you to feel confident, prepared, and ready to tackle anything the moment you land!</li>
-                        </ul>
-                        <p>Think of this as a big brutish virtual hug filled with guidelines, excitement, and absolutely zero pressure.</p>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="why-card why-card-3">
-                        <h3>Note</h3>
-                        <p>Writing this has been such a journey for me, filled with three huge emotions:</p>
-                        <ul>
-                            <li><strong>Stress:</strong> (because I wanted to get this done for you two weeks ago, and thinking about my poor body after feeding myself for 3 months).</li>
-                            <li><strong>Jealousy:</strong> (because you get to live out this dream before I do, haha!).</li>
-                            <li><strong>EXCITEMENT:</strong> to see you take on something that was literally just a dream until recently.</li>
-                        </ul>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="why-card why-card-4">
-                        <h3>Good Luck</h3>
-                        <p>I can't wait to watch you light up the screen. I'm already counting down the seconds until I see you on the NOOVO Instagram announcement!</p>
-                        <p>Love you lots. This is YOUR time!</p>
-                        <img src="https://placehold.co/600x400/fd3c98/FFFFFF?text=Landscape+Photo" alt="Landscape Photo">
-                    </div>
-
+    <!-- MAIN CONTENT SECTIONS -->
+    <!-- About the Website -->
+    <section id="about-website" data-section="about-website">
+        <h2 style="text-align: center; margin-bottom: 20px;">Why This Exists</h2>
+        <div class="carousel-wrapper">
+            <button class="nav-arrow" onclick="scrollCarousel(-1)">&#8592;</button>
+            <div class="carousel-container" id="why-carousel">
+                <!-- Card 1 -->
+                <div class="why-card">
+                    <h3>A Gift of Preparation</h3>
+                    <p>This handbook is my early Christmas gift to you as you gear up for the biggest adventure of your life!</p>
+                    <img src="https://placehold.co/600x400/3623ff/FFFFFF?text=Landscape+Photo" alt="Landscape Photo">
                 </div>
-
-                <button class="nav-arrow" onclick="scrollCarousel(1)">&#8594;</button>
-            </div>
-        </section>
-
-        <!-- Key Features (Renamed to How) -->
-        <section id="key-features" data-section="key-features">
-            <!-- <h2>How</h2> Removed title to let layout speak, or could keep it. User said "Change title Features to How".
-                 Usually clean layout prefers no big header if cards are focus, but let's keep it clean or minimal.
-                 The user said "Change the title 'Features' to 'How'". I'll assume they mean the timeline label,
-                 but if there's a visible header, it should be How.
-                 The request says "The three pieces combined should cover about 4/5ths of the entire page."
-                 So I will rely on the 3 columns.
-            -->
-
-            <div class="how-container">
-
-                <!-- Card 1: Format -->
-                <div class="how-card how-card-left">
-                    <h3>Format of Handbook</h3>
-                    <p>Each title will open to a couple specific writings I’ve created through long hours of research. They are formatted in different ways to make it more palatable to read.</p>
-                    <p>I considered having it all in French but would have had no way of confirming what I wanted to say was being translated correctly haha.</p>
+                <!-- Card 2 -->
+                <div class="why-card">
+                    <h3>No Stress Required!</h3>
+                    <p>The goal here is quite literally the opposite of homework. It's a resource to help you feel confident and prepared.</p>
                 </div>
-
-                <!-- Center: Vertical Photo -->
-                <div class="how-image-container">
-                    <img src="https://placehold.co/400x800/992fcc/FFFFFF?text=Vertical+Photo" alt="Vertical Aesthetic Shot" class="how-image">
+                <!-- Card 3 -->
+                <div class="why-card">
+                    <h3>Note</h3>
+                    <p>Writing this has been such a journey for me, filled with Stress, Jealousy, and EXCITEMENT!</p>
                 </div>
-
-                <!-- Card 2: Content -->
-                <div class="how-card how-card-right">
-                    <h3>Content: What’s Here</h3>
-                    <ul>
-                        <li><strong>NotebookLM:</strong> (described on next page)</li>
-                        <li><strong>Outside The Game:</strong> (Pregame Strategies and Meta Game)</li>
-                        <li><strong>In Game:</strong> (Outwit Outplay Outlast)</li>
-                        <li><strong>End Game:</strong> (For when you need to sell yourself)</li>
-                        <li><strong>Player Portfolios:</strong> (Players I thought could be cool to look at deeper)</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Welcome Section (Renamed Headline to NotebookLM) -->
-        <section id="welcome" data-section="welcome">
-            <div class="notebook-container">
-                <div class="notebook-header">
-                    <h2>NotebookLM Customized<br>Survivor Experience</h2>
-                    <p>This is a program I have designed for you that is preloaded with hundreds of PDFs, podcasts, articles, interviews and challenge databases. This tool accompanies the website by allowing you to research different ideas in more depth from this website, or anything else about Survivor. There are also premade resources on the right side.</p>
-                </div>
-
-                <div class="notebook-card" onclick="openNotebook()">
-                    <h3>SURVIVOR NOTEBOOKLM ↗</h3>
-                     <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
+                <!-- Card 4 -->
+                <div class="why-card">
+                    <h3>Good Luck</h3>
+                    <p>I can't wait to watch you light up the screen. This is YOUR time!</p>
                 </div>
             </div>
-        </section>
+            <button class="nav-arrow" onclick="scrollCarousel(1)">&#8594;</button>
+        </div>
+    </section>
 
-        <!-- Content Hubs -->
-        <section id="content-hubs" data-section="content-hubs">
-            <div class="card" onclick="openCategory('preGame')">
-                <h3>PRE GAME STRATEGIES</h3>
-                <p class="card-tagline">Final preparations and mental conditioning.</p>
+    <!-- How -->
+    <section id="key-features" data-section="key-features">
+        <div class="how-container">
+            <div class="how-card">
+                <h3>Format of Handbook</h3>
+                <p>Specific writings created through long hours of research.</p>
             </div>
-            <div class="card" onclick="openCategory('metaGame')">
-                <h3>META GAME</h3>
-                <p class="card-tagline">Understanding the fabric of reality TV.</p>
+            <div class="how-image-container">
+                <img src="https://placehold.co/400x800/992fcc/FFFFFF?text=Vertical+Photo" alt="Vertical Aesthetic Shot" class="how-image">
             </div>
-        </section>
-
-        <!-- Core Triangle (Visually arranged via CSS Grid) -->
-        <section id="core-triangle" data-section="core-triangle">
-            <!-- Visual Background -->
-            <div class="triangle-background"></div>
-
-            <!-- Nodes -->
-            <div class="triangle-container">
-                <div class="triangle-node node-top-left" onclick="openCategory('outwit')">
-                    <h2>OUTWIT</h2>
-                    <p>The Social Game</p>
-                </div>
-                <div class="triangle-node node-top-right" onclick="openCategory('outplay')">
-                    <h2>OUTPLAY</h2>
-                    <p>The Physical Game</p>
-                </div>
-                <div class="triangle-node node-bottom" onclick="openCategory('outlast')">
-                    <h2>OUTLAST</h2>
-                    <p>The Mental Game</p>
-                </div>
+            <div class="how-card">
+                <h3>Content: What’s Here</h3>
+                <p>NotebookLM, Outside The Game, In Game, End Game, Player Portfolios.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- End Game -->
-        <section id="end-game" data-section="end-game">
-            <div class="card" onclick="openCategory('endGame')">
-                <h3>END GAME</h3>
-                <p class="card-tagline">Navigating the final days and the jury.</p>
+    <!-- NotebookLM -->
+    <section id="welcome" data-section="welcome">
+        <div class="notebook-container">
+            <h2 style="text-align: center; margin-bottom: 20px;">NotebookLM Experience</h2>
+            <div class="notebook-card" onclick="openNotebook()">
+                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+                 <p>Your private, AI-powered workspace to strategize, analyze, and prepare.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Portfolios -->
-        <section id="portfolios" data-section="portfolios">
-            <h2>Player Portfolios</h2>
-            <br>
-            <div class="grid-container">
-                <div class="portfolio-item">Player 1</div>
-                <div class="portfolio-item">Player 2</div>
-                <div class="portfolio-item">Player 3</div>
-                <div class="portfolio-item">Player 4</div>
-                <div class="portfolio-item">Player 5</div>
-                <div class="portfolio-item">Player 6</div>
+    <!-- Content Hubs -->
+    <section id="content-hubs" data-section="content-hubs">
+        <div class="card" onclick="openCategory('preGame')">
+            <h3>PRE GAME STRATEGIES</h3>
+        </div>
+        <div class="card" onclick="openCategory('metaGame')">
+            <h3>META GAME</h3>
+        </div>
+    </section>
+
+    <!-- Core Triangle -->
+    <section id="core-triangle" data-section="core-triangle">
+        <div class="triangle-container">
+            <div class="triangle-node node-top-left" onclick="openCategory('outwit')">
+                <h2>OUTWIT</h2>
             </div>
-        </section>
+            <div class="triangle-node node-top-right" onclick="openCategory('outplay')">
+                <h2>OUTPLAY</h2>
+            </div>
+            <div class="triangle-node node-bottom" onclick="openCategory('outlast')">
+                <h2>OUTLAST</h2>
+            </div>
+        </div>
+    </section>
 
-    </main>
+    <!-- End Game -->
+    <section id="end-game" data-section="end-game">
+        <div class="card" onclick="openCategory('endGame')">
+            <h3>END GAME</h3>
+        </div>
+    </section>
 
-    <!-- === VIEW 2: CATEGORY OVERLAY === -->
+    <!-- Portfolios -->
+    <section id="portfolios" data-section="portfolios">
+        <h2 style="text-align:center; margin-bottom: 20px;">Player Portfolios</h2>
+        <div class="grid-container">
+            <div class="portfolio-item">Player 1</div>
+            <div class="portfolio-item">Player 2</div>
+            <div class="portfolio-item">Player 3</div>
+            <div class="portfolio-item">Player 4</div>
+            <div class="portfolio-item">Player 5</div>
+            <div class="portfolio-item">Player 6</div>
+        </div>
+    </section>
+
+    <!-- OVERLAYS -->
     <div id="category-view">
         <div class="overlay-header">
             <h2 id="category-title">CATEGORY</h2>
             <button class="close-btn" onclick="closeCategory()">Close</button>
         </div>
-        <div id="category-list" class="sub-item-list">
-            <!-- Items injected via JS -->
-        </div>
+        <div id="category-list" class="sub-item-list"></div>
     </div>
 
-    <!-- === VIEW 3: READER OVERLAY === -->
     <div id="reader-view">
         <div class="reader-container">
             <div class="overlay-header">
                 <button class="close-btn" onclick="closeReader()">← Back</button>
                 <span>READING MODE</span>
             </div>
-            <div id="reader-body" class="reader-content">
-                <!-- Content injected via JS -->
-            </div>
+            <div id="reader-body" class="reader-content"></div>
         </div>
     </div>
 
     <script>
-        /* =======================================================
-        CONTENT ENGINE - EDIT YOUR SITE CONTENT HERE
-        =======================================================
-        */
-        
+        /* SITE CONTENT OBJECT */
         const siteContent = {
             
             preGame: {
@@ -1794,32 +1185,19 @@
             }
         };
 
-        /* =======================================================
-        LOGIC - DO NOT TOUCH UNLESS YOU KNOW JAVASCRIPT
-        =======================================================
-        */
-
         const categoryView = document.getElementById('category-view');
         const categoryTitle = document.getElementById('category-title');
         const categoryList = document.getElementById('category-list');
-        
         const readerView = document.getElementById('reader-view');
         const readerBody = document.getElementById('reader-body');
-
         let currentCategoryData = null;
 
         function openCategory(key) {
             const data = siteContent[key];
-            if (!data) {
-                console.error("Category data not found for:", key);
-                return;
-            }
-
+            if (!data) { return; }
             currentCategoryData = data;
-            
             categoryTitle.innerText = data.title;
             categoryList.innerHTML = ''; 
-            
             data.items.forEach((item, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'sub-item-btn';
@@ -1827,13 +1205,10 @@
                 btn.onclick = () => openReader(index);
                 categoryList.appendChild(btn);
             });
-
             categoryView.classList.add('active');
         }
 
-        function closeCategory() {
-            categoryView.classList.remove('active');
-        }
+        function closeCategory() { categoryView.classList.remove('active'); }
 
         function openReader(index) {
             const item = currentCategoryData.items[index];
@@ -1841,99 +1216,14 @@
             readerView.classList.add('active');
         }
 
-        function closeReader() {
-            readerView.classList.remove('active');
-        }
+        function closeReader() { readerView.classList.remove('active'); }
+        function openNotebook() { window.open('https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f', '_blank'); }
 
-        function openNotebook() {
-            window.open('https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f', '_blank');
-        }
-
-        /* TIMELINE LOGIC */
-        const mainView = document.getElementById('main-view');
-        const timeNodes = document.querySelectorAll('.time-node');
-        const sections = document.querySelectorAll('#main-view section');
-
-        mainView.addEventListener('scroll', () => {
-            let activeSection = null;
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - mainView.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (mainView.scrollTop >= sectionTop - sectionHeight / 2) {
-                    activeSection = section.getAttribute('data-section');
-                }
-            });
-
-            timeNodes.forEach(node => {
-                const nodeSection = node.getAttribute('data-section');
-                if (nodeSection === activeSection) {
-                    node.style.borderBottom = '2px solid var(--accent-color)';
-                    node.querySelector('h4').style.color = 'var(--text-color)';
-                } else {
-                    node.style.borderBottom = '2px solid transparent';
-                    node.querySelector('h4').style.color = 'var(--accent-color)';
-                }
-            });
-        });
-
-        timeNodes.forEach(node => {
-            node.addEventListener('click', () => {
-                const sectionId = node.getAttribute('data-section');
-                const section = document.querySelector(`#main-view section[data-section="${sectionId}"]`);
-                if (section) {
-                    mainView.scrollTo({
-                        top: section.offsetTop - mainView.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        /* DYNAMIC HERO TEXT LOGIC */
-        const dynamicText = document.getElementById('dynamic-text');
-        const words = ["Outwit", "Outplay", "Outlast"];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            const currentChar = currentWord.substring(0, charIndex);
-
-            dynamicText.textContent = currentChar;
-            dynamicText.style.color = 'var(--accent-color)';
-
-
-            if (!isDeleting && charIndex < currentWord.length) {
-                charIndex++;
-                setTimeout(type, 150);
-            } else if (isDeleting && charIndex > 0) {
-                charIndex--;
-                setTimeout(type, 100);
-            } else {
-                isDeleting = !isDeleting;
-                if (!isDeleting) {
-                    wordIndex = (wordIndex + 1) % words.length;
-                }
-                setTimeout(type, 1200);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', type);
-
-        /* CAROUSEL LOGIC */
         function scrollCarousel(direction) {
             const container = document.getElementById('why-carousel');
             const cardWidth = container.offsetWidth;
-            const scrollAmount = cardWidth * direction;
-
-            container.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
+            container.scrollBy({ left: cardWidth * direction, behavior: 'smooth' });
         }
-
     </script>
-
 </body>
 </html>
