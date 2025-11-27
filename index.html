@@ -6,57 +6,17 @@
     <title>Sole Survivor Preparation Handbook</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Removed Black Ops One as requested "pure white modern sans-serif typography" (Poppins covers this) -->
     
     <style>
         :root {
-            --bg-color: #1a1a1a; /* Dark Grey/Black */
-            --text-color: #F5F5DC; /* Beige */
-            --accent-color: #C8A2C8; /* Lilac (Muted Purple/Pink) */
-            --border-color: #444444; /* Grey for borders */
+            --bg-color: #1a1a1a;
+            --text-color: #FFFFFF; /* Pure White */
+            --accent-color: #FFFFFF; /* Changed to White for Hero typography, kept lilac for accents if needed later */
+            --lilac: #C8A2C8;
             --font-main: 'Poppins', sans-serif;
-            --font-heading: 'Black Ops One', sans-serif;
         }
-
-        /* === FIELD MANUAL STYLES === */
-        .protocol-box {
-            border: 2px solid var(--accent-color);
-            background: rgba(200, 162, 200, 0.1);
-            padding: 20px;
-            margin: 20px 0;
-            color: #fff;
-            font-family: monospace;
-            border-left-width: 10px;
-        }
-        
-        .tip-box {
-            background: #2b2b2b; /* Slightly lighter grey */
-            border-left: 4px solid var(--accent-color);
-            padding: 15px;
-            margin: 20px 0;
-            font-style: italic;
-            color: var(--text-color);
-            opacity: 0.9;
-        }
-        
-        .tactical-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
-        }
-        .tactical-table th, .tactical-table td {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
-        }
-        .tactical-table th {
-            background-color: #2b2b2b;
-            color: var(--accent-color);
-            text-transform: uppercase;
-        }
-        .tactical-table tr:nth-child(even) { background-color: #222222; }
 
         * {
             box-sizing: border-box;
@@ -66,513 +26,409 @@
 
         body {
             background-color: var(--bg-color);
-            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVpaWlraeft7e2+vr6xsbGjo6O3t7evr6+0tLTZ2dna2tqamprPz8/Ly8vJycnGxsZ4eHjBwcG9vb2UlJSUlJTS0tKDPn9pAAAAB3RSTlMAAgYGIyM0d72eAAAACXBIWXMAAAsSAAALEgHS3X78AAAAQ0lEQVRIx2NmYGAUlgADYCEBCgxEaAUIjAUgYAVBMRMCEwYwEAEpIATsYAXbGTQ2p+DGBhcjJzYg5CTe3BQ4AX3gAAnk53S/nN49AAAAAElFTkSuQmCC);
             color: var(--text-color);
             font-family: var(--font-main);
-            overflow: hidden; /* Handled by main container */
+            overflow-x: hidden;
         }
 
-        /* === VIEW 1: MAIN SCROLL CONTAINER === */
-        #main-view {
-            height: 100vh;
-            width: 100vw;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
-            position: relative;
-            z-index: 1;
-            /* Make space for the bottom timeline */
-            box-sizing: border-box;
-        }
-
-        section {
-            height: 100vh;
-            width: 100%;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* Give last section padding to not be overlapped by timeline */
-        section:last-of-type {
-            padding-bottom: 100px;
-        }
-
-        h1, h2, h3 {
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        /* Interactive Elements */
-        .card {
-            padding: 2.5rem 3rem;
-            margin: 1rem 0;
-            width: 90%;
-            max-width: 700px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid transparent;
-            border-radius: 10px;
-            background-clip: padding-box; /* Ensures the background doesn't bleed into the border area */
-            z-index: 1;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            z-index: -1;
-            margin: -1px; /* Adjust to border width */
-            border-radius: inherit; /* Match the parent's border-radius */
-            background: linear-gradient(90deg, #C8A2C8, #8E44AD); /* Lilac to Purple */
-        }
-
-        .card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            background-color: rgba(245, 245, 220, 0.1); /* Beige with low opacity */
-        }
-
-        .card h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .card-tagline {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 10px;
-        }
-
-        /* === SECTION SPECIFIC STYLES === */
-
-        .textured-section {
-            background-color: #000;
-        }
-
-        /* Hero */
+        /* === HERO SECTION REDESIGN === */
         #hero {
             position: relative;
-            overflow: hidden;
-            /* New gradient using the beige and lilac colors */
-            background: linear-gradient(-45deg, #4b4b4b, #C8A2C8, #2b2b2b, #F5F5DC);
+            height: 100vh;
+            width: 100vw;
+            overflow: visible; /* Changed from hidden to allow spill-over */
+            z-index: 10; /* Ensure spilled content sits on top of next section */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            /*
+               Grid Areas:
+               Top-Left (Header) | Top-Right (Nav)
+               Middle (Empty/Image)
+               Bottom-Left (Purpose) | Bottom-Right (Art)
+            */
+            padding: 40px;
+
+            /* Dynamic Fading Gradient Background */
+            background: linear-gradient(-45deg, #3623ff, #6829e5, #992fcc, #cb36b2, #fd3c98);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
         }
 
         @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        #hero h1 { font-size: 3rem; margin-bottom: 10px; text-align: center; }
-        #hero p { color: var(--accent-color); letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
-        .hero-img {
-            width: 100%;
-            max-width: 800px;
-            height: 40vh;
-            object-fit: cover;
-            border: 2px solid var(--accent-color);
-            /* filter: grayscale(100%); Removed to show full color of katesurvivor.jpeg */
-            transition: filter 0.3s;
-        }
-        /* .hero-img:hover { filter: grayscale(0%); } */
-
-        /* Timeline */
-        #timeline {
-            position: fixed;
-            bottom: 0;
+        /* Background Image Layer (Full Width/Height, mix-blend-mode for effect) */
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            padding: 15px 0;
-            z-index: 10;
-            overflow-x: auto;
-            white-space: nowrap;
-            border-top: 1px solid var(--border-color);
-        }
-        .timeline-track {
-            display: inline-flex;
-            gap: 30px;
-            padding: 0 30px;
-        }
-        .time-node {
-            cursor: pointer;
-            text-align: center;
-            min-width: 100px;
-        }
-        .time-node:hover h4 {
-            color: var(--text-color);
-        }
-        .time-node h4 {
-            color: var(--accent-color);
-            margin-bottom: 5px;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-        .time-node p {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            margin: 0;
-        }
-
-        /* Content Hubs */
-        #content-hubs { gap: 20px; }
-
-        /* === THE NEON TRINITY (UPSIDE DOWN TRIANGLE) === */
-        #core-triangle {
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .triangle-background {
-            position: absolute;
-            width: 100%;
             height: 100%;
-            max-width: 600px;
-            max-height: 520px;
-            clip-path: polygon(50% 100%, 0 0, 100% 0);
-            background: rgba(200, 162, 200, 0.05); /* Lilac */
-            border: 1px solid var(--accent-color);
+            object-fit: cover;
+            opacity: 0.6;
+            mix-blend-mode: overlay; /* Blends with gradient */
             z-index: 0;
         }
 
-        .triangle-container {
+        /* Content Layer (Above Image) */
+        .hero-content {
+            z-index: 10;
             position: relative;
-            width: 100%;
-            max-width: 500px;
-            height: 450px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            grid-template-areas:
-                "left right"
-                "bottom bottom";
-            gap: 20px;
         }
 
-        .triangle-node {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(5px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            padding: 20px;
-        }
-        .triangle-node:hover {
-            transform: scale(1.05);
-            background: rgba(200, 162, 200, 0.2);
-            border-color: var(--accent-color);
+        /* Top Left: Title */
+        .hero-top-left {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            align-self: start;
         }
 
-        .node-bottom { grid-area: bottom; }
-        .node-top-left { grid-area: left; }
-        .node-top-right { grid-area: right; }
-
-        .triangle-node h2 { font-size: 2rem; }
-        .triangle-node p { opacity: 0.7; }
-
-        /* Portfolios */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 800px;
+        .hero-top-left h1 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
         }
-        .portfolio-item {
-            background: #2b2b2b;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
+
+        .hero-top-left span {
             opacity: 0.7;
         }
 
-        /* === VIEW 2: CATEGORY MENU (OVERLAY) === */
-        #category-view {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            max-width: 500px; /* Sidebar on desktop, full on mobile */
-            height: 100%;
-            background: var(--bg-color);
-            border-left: 1px solid var(--border-color);
-            z-index: 100;
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        /* Top Right: Location & Nav */
+        .hero-top-right {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            justify-self: end;
+            text-align: right;
             display: flex;
             flex-direction: column;
-            padding: 40px;
+            align-items: flex-end;
+            gap: 20px;
         }
 
-        #category-view.active { transform: translateX(0); }
+        .location-tag {
+            font-size: 1rem;
+            font-weight: 500;
+        }
 
-        .overlay-header {
+        .hero-nav {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 20px;
+            gap: 20px;
+            list-style: none;
         }
 
-        .close-btn {
-            background: none;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            padding: 10px 20px;
-            cursor: pointer;
-            font-family: var(--font-main);
+        .hero-nav li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
             text-transform: uppercase;
-            font-weight: bold;
         }
-        .close-btn:hover { background: var(--accent-color); border-color: var(--accent-color); color: var(--bg-color); }
+        .hero-nav li a:hover {
+            opacity: 1;
+        }
 
-        .sub-item-list {
+        /* Lower Left: Purpose */
+        .hero-lower-left {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            align-self: end;
+            max-width: 400px;
+            margin-bottom: 20px; /* Space from bottom edge */
+        }
+
+        .hero-lower-left h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-lower-left p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Bottom: Grid of Art Placeholders */
+        .hero-bottom-right {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            overflow-y: auto;
+            gap: 20px;
+            align-self: end;
+            justify-self: end;
+            transform: translateY(30%); /* "Half-visible above fold" */
         }
 
-        .sub-item-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 20px;
-            text-align: left;
-            font-family: var(--font-main);
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: 0.3s;
+        .art-placeholder {
+            width: 200px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
         }
 
-        .sub-item-btn:hover {
-            border-color: var(--accent-color);
-            padding-left: 30px;
-            background: rgba(200, 162, 200, 0.1);
+        @media (max-width: 900px) {
+            #hero {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
+                padding: 20px;
+            }
+            .hero-top-right {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                justify-self: start;
+                align-items: flex-start;
+                margin-top: 20px;
+            }
+            .hero-nav {
+                flex-wrap: wrap;
+            }
+            .hero-bottom-right {
+                display: none; /* Hide art on mobile if too crowded, or stack */
+            }
         }
 
-        /* === VIEW 3: READER VIEW (FULL OVERLAY) === */
-        #reader-view {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-color);
-            z-index: 200; /* Topmost layer */
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-            overflow-y: auto;
-            padding: 40px 20px;
+        /* === REST OF CONTENT STYLES (Adapted) === */
+
+        /* Smooth Scrolling for Sections */
+        html {
+            scroll-behavior: smooth;
         }
 
-        #reader-view.active { transform: translateX(0); }
+        section {
+            padding: 80px 20px;
+            min-height: 100vh;
+            border-bottom: 1px solid #333;
+            position: relative;
+        }
 
-        .reader-container {
-            max-width: 800px;
+        /* Reuse existing styles but cleaned up */
+        .carousel-wrapper, .how-container, .notebook-container, .grid-container, .ftc-card {
             margin: 0 auto;
         }
 
-        .reader-content {
-            margin-top: 40px;
-            line-height: 1.8;
-            font-size: 1.1rem;
+        /* Typography Global Update */
+        h1, h2, h3, h4, p, li, a {
+            font-family: var(--font-main);
         }
-        
 
-        /* Formatting for user content inside JS */
-        .reader-content h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 2.5rem; }
-        .reader-content h2 { margin-top: 30px; margin-bottom: 15px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
-        .reader-content h3 { margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
-        .reader-content p { margin-bottom: 20px; color: var(--text-color); opacity: 0.9; }
-        .reader-content ul { margin-left: 20px; margin-bottom: 20px; }
-        .reader-content li { margin-bottom: 10px; color: var(--text-color); opacity: 0.9; }
-        .reader-content strong { color: var(--text-color); }
+        /* ... Include previous specific styles for cards, tables, etc ... */
+        /* I will include the critical CSS from the previous file to ensure functionality remains */
 
-        /* Mobile Tweaks */
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 2rem; }
-            .triangle-item { font-size: 2.5rem; }
-            #category-view { max-width: 100%; }
-            .hero-img { height: 30vh; }
+        .carousel-wrapper { position: relative; width: 80%; max-width: 900px; display: flex; align-items: center; justify-content: center; margin-top: 50px; }
+        .carousel-container { width: 80%; overflow-x: auto; display: flex; scroll-snap-type: x mandatory; gap: 20px; padding: 20px 0; scrollbar-width: none; }
+        .why-card { min-width: 100%; scroll-snap-align: center; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .why-card img { width: 100%; max-height: 250px; object-fit: cover; margin-top: 20px; }
+        .nav-arrow { background: transparent; border: 1px solid white; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+        .how-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; max-width: 1200px; }
+        .how-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; }
+        .how-image-container { overflow: hidden; border-radius: 15px; border: 1px solid white; }
+        .how-image { width: 100%; height: 100%; object-fit: cover; }
+
+        .notebook-card { max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 40px; border-radius: 15px; cursor: pointer; text-align: left; border-top: 4px solid #fd3c98; }
+
+        .card { padding: 2.5rem; margin: 2rem auto; max-width: 700px; background: rgba(255,255,255,0.1); border-radius: 10px; text-align: center; cursor: pointer; }
+
+        .triangle-container { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; grid-template-areas: "left right" "bottom bottom"; gap: 20px; max-width: 500px; margin: 0 auto; height: 450px; }
+        .triangle-node { background: rgba(255,255,255,0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
+        .node-top-left { grid-area: left; } .node-top-right { grid-area: right; } .node-bottom { grid-area: bottom; }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
+        .portfolio-item { background: #333; height: 150px; display: flex; align-items: center; justify-content: center; }
+
+        /* Overlays */
+        #category-view, #reader-view { position: fixed; top: 0; right: 0; width: 100%; height: 100%; background: #111; z-index: 100; transform: translateX(100%); transition: transform 0.4s; overflow-y: auto; padding: 40px; }
+        #category-view.active, #reader-view.active { transform: translateX(0); }
+        #category-view { max-width: 500px; border-left: 1px solid #333; }
+
+        .overlay-header { display: flex; justify-content: space-between; margin-bottom: 40px; border-bottom: 1px solid white; padding-bottom: 20px; }
+        .close-btn { background: none; border: 1px solid white; color: white; padding: 10px 20px; cursor: pointer; }
+        .sub-item-btn { background: transparent; border: 1px solid #333; color: white; padding: 20px; text-align: left; width: 100%; cursor: pointer; margin-bottom: 10px; }
+        .sub-item-btn:hover { border-color: white; padding-left: 30px; }
+
+        .reader-container { max-width: 800px; margin: 0 auto; }
+        .reader-content { line-height: 1.8; font-size: 1.1rem; }
+
+        @media (max-width: 900px) {
+            .how-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- === TIMELINE === -->
-    <aside id="timeline">
-        <div class="timeline-track">
-            <div class="time-node" data-section="hero"><h4>Intro</h4><p>Start</p></div>
-            <div class="time-node" data-section="content-hubs"><h4>Hubs</h4><p>Main</p></div>
-            <div class="time-node" data-section="core-triangle"><h4>Core</h4><p>Strategy</p></div>
-            <div class="time-node" data-section="end-game"><h4>End</h4><p>Game</p></div>
-            <div class="time-node" data-section="portfolios"><h4>Players</h4><p>Portfolios</p></div>
-            <div class="time-node" data-section="welcome"><h4>Welcome</h4><p>Guide</p></div>
-            <div class="time-node" data-section="key-features"><h4>Features</h4><p>Highlights</p></div>
-            <div class="time-node" data-section="about-website"><h4>Website</h4><p>About</p></div>
+    <!-- HERO SECTION -->
+    <div id="hero">
+        <img src="katesurvivor.jpeg" alt="Survivor Kate" class="hero-bg-img">
+
+        <!-- Top Left -->
+        <div class="hero-top-left hero-content">
+            <h1>Preparation.<br><span>// The Handbook</span></h1>
         </div>
-    </aside>
 
-    <!-- === DECORATIVE BACKGROUND ELEMENT === -->
-    <div class="triangle-lines"></div>
-
-    <!-- === VIEW 1: MAIN SCROLL === -->
-    <main id="main-view">
-        
-        <!-- Hero Section -->
-        <section id="hero" data-section="hero">
-            <h1><span id="dynamic-text">Sole Survivor</span><br>Preparation</h1>
-            <p>THE HANDBOOK</p>
-            <img src="katesurvivor.jpeg" alt="Contestant ready for the challenge" class="hero-img">
-        </section>
-
-        <!-- Content Hubs -->
-        <section id="content-hubs" data-section="content-hubs">
-            <div class="card" onclick="openCategory('preGame')">
-                <h3>PRE GAME STRATEGIES</h3>
-                <p class="card-tagline">Final preparations and mental conditioning.</p>
-            </div>
-            <div class="card" onclick="openCategory('metaGame')">
-                <h3>META GAME</h3>
-                <p class="card-tagline">Understanding the fabric of reality TV.</p>
-            </div>
-        </section>
-
-        <!-- Core Triangle (Visually arranged via CSS Grid) -->
-        <section id="core-triangle" data-section="core-triangle">
-            <!-- Visual Background -->
-            <div class="triangle-background"></div>
-
-            <!-- Nodes -->
-            <div class="triangle-container">
-                <div class="triangle-node node-top-left" onclick="openCategory('outwit')">
-                    <h2>OUTWIT</h2>
-                    <p>The Social Game</p>
-                </div>
-                <div class="triangle-node node-top-right" onclick="openCategory('outplay')">
-                    <h2>OUTPLAY</h2>
-                    <p>The Physical Game</p>
-                </div>
-                <div class="triangle-node node-bottom" onclick="openCategory('outlast')">
-                    <h2>OUTLAST</h2>
-                    <p>The Mental Game</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- End Game -->
-        <section id="end-game" data-section="end-game">
-            <div class="card" onclick="openCategory('endGame')">
-                <h3>END GAME</h3>
-                <p class="card-tagline">Navigating the final days and the jury.</p>
-            </div>
-        </section>
-
-        <!-- Portfolios -->
-        <section id="portfolios" data-section="portfolios">
-            <h2>Player Portfolios</h2>
-            <br>
-            <div class="grid-container">
-                <div class="portfolio-item">Player 1</div>
-                <div class="portfolio-item">Player 2</div>
-                <div class="portfolio-item">Player 3</div>
-                <div class="portfolio-item">Player 4</div>
-                <div class="portfolio-item">Player 5</div>
-                <div class="portfolio-item">Player 6</div>
-            </div>
-        </section>
-
-        <!-- Welcome Section -->
-        <section id="welcome" data-section="welcome">
-            <h2>Welcome</h2>
-            <p>This handbook is your new best friend. It's a living document, a toolkit, and a roadmap designed to get you to the final tribal council. It's built on a simple premise: knowledge is power. The more you know about the game, the better you'll play.</p>
-            <div class="card" onclick="openNotebook()">
-                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
-                 <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
-            </div>
-        </section>
-
-        <!-- Key Features -->
-        <section id="key-features" data-section="key-features">
-            <h2>Key Features</h2>
-            <p>This handbook is designed to be a comprehensive, interactive resource.</p>
-            <ul>
-                <li>Interactive Cards: Click on any topic to dive deeper.</li>
-                <li>Dynamic Timeline: Easily navigate through different phases of the game.</li>
-                <li>Content-Rich: Packed with strategies, historical analysis, and survival tips.</li>
+        <!-- Top Right -->
+        <div class="hero-top-right hero-content">
+            <div class="location-tag">Montreal, QC.</div>
+            <ul class="hero-nav">
+                <li><a href="#hero">Intro</a></li>
+                <li><a href="#about-website">Why</a></li>
+                <li><a href="#key-features">How</a></li>
+                <li><a href="#welcome">NotebookLM</a></li>
+                <li><a href="#content-hubs">Hubs</a></li>
+                <li><a href="#core-triangle">Core</a></li>
+                <li><a href="#end-game">End</a></li>
+                <li><a href="#portfolios">Players</a></li>
             </ul>
-        </section>
+        </div>
 
-        <!-- About the Website -->
-        <section id="about-website" data-section="about-website">
-            <h2>About the Website</h2>
-            <p>This handbook was created by a long-time fan of the show, combining a passion for game theory and a deep respect for the castaways who brave the elements and the social gauntlet.</p>
-        </section>
+        <!-- Lower Left -->
+        <div class="hero-lower-left hero-content">
+            <h2>Purpose. &#8594;</h2>
+            <p>A collection of preparation ideas for someone who probably already knows it all.</p>
+        </div>
 
-    </main>
+        <!-- Bottom Right (Art) -->
+        <div class="hero-bottom-right hero-content">
+            <div class="art-placeholder"></div>
+            <div class="art-placeholder"></div>
+        </div>
+    </div>
 
-    <!-- === VIEW 2: CATEGORY OVERLAY === -->
+    <!-- MAIN CONTENT SECTIONS -->
+    <!-- About the Website -->
+    <section id="about-website" data-section="about-website">
+        <h2 style="text-align: center; margin-bottom: 20px;">Why This Exists</h2>
+        <div class="carousel-wrapper">
+            <button class="nav-arrow" onclick="scrollCarousel(-1)">&#8592;</button>
+            <div class="carousel-container" id="why-carousel">
+                <!-- Card 1 -->
+                <div class="why-card">
+                    <h3>A Gift of Preparation</h3>
+                    <p>This handbook is my early Christmas gift to you as you gear up for the biggest adventure of your life!</p>
+                    <img src="https://placehold.co/600x400/3623ff/FFFFFF?text=Landscape+Photo" alt="Landscape Photo">
+                </div>
+                <!-- Card 2 -->
+                <div class="why-card">
+                    <h3>No Stress Required!</h3>
+                    <p>The goal here is quite literally the opposite of homework. It's a resource to help you feel confident and prepared.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="why-card">
+                    <h3>Note</h3>
+                    <p>Writing this has been such a journey for me, filled with Stress, Jealousy, and EXCITEMENT!</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="why-card">
+                    <h3>Good Luck</h3>
+                    <p>I can't wait to watch you light up the screen. This is YOUR time!</p>
+                </div>
+            </div>
+            <button class="nav-arrow" onclick="scrollCarousel(1)">&#8594;</button>
+        </div>
+    </section>
+
+    <!-- How -->
+    <section id="key-features" data-section="key-features">
+        <div class="how-container">
+            <div class="how-card">
+                <h3>Format of Handbook</h3>
+                <p>Specific writings created through long hours of research.</p>
+            </div>
+            <div class="how-image-container">
+                <img src="https://placehold.co/400x800/992fcc/FFFFFF?text=Vertical+Photo" alt="Vertical Aesthetic Shot" class="how-image">
+            </div>
+            <div class="how-card">
+                <h3>Content: What’s Here</h3>
+                <p>NotebookLM, Outside The Game, In Game, End Game, Player Portfolios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NotebookLM -->
+    <section id="welcome" data-section="welcome">
+        <div class="notebook-container">
+            <h2 style="text-align: center; margin-bottom: 20px;">NotebookLM Experience</h2>
+            <div class="notebook-card" onclick="openNotebook()">
+                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+                 <p>Your private, AI-powered workspace to strategize, analyze, and prepare.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Hubs -->
+    <section id="content-hubs" data-section="content-hubs">
+        <div class="card" onclick="openCategory('preGame')">
+            <h3>PRE GAME STRATEGIES</h3>
+        </div>
+        <div class="card" onclick="openCategory('metaGame')">
+            <h3>META GAME</h3>
+        </div>
+    </section>
+
+    <!-- Core Triangle -->
+    <section id="core-triangle" data-section="core-triangle">
+        <div class="triangle-container">
+            <div class="triangle-node node-top-left" onclick="openCategory('outwit')">
+                <h2>OUTWIT</h2>
+            </div>
+            <div class="triangle-node node-top-right" onclick="openCategory('outplay')">
+                <h2>OUTPLAY</h2>
+            </div>
+            <div class="triangle-node node-bottom" onclick="openCategory('outlast')">
+                <h2>OUTLAST</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- End Game -->
+    <section id="end-game" data-section="end-game">
+        <div class="card" onclick="openCategory('endGame')">
+            <h3>END GAME</h3>
+        </div>
+    </section>
+
+    <!-- Portfolios -->
+    <section id="portfolios" data-section="portfolios">
+        <h2 style="text-align:center; margin-bottom: 20px;">Player Portfolios</h2>
+        <div class="grid-container">
+            <div class="portfolio-item">Player 1</div>
+            <div class="portfolio-item">Player 2</div>
+            <div class="portfolio-item">Player 3</div>
+            <div class="portfolio-item">Player 4</div>
+            <div class="portfolio-item">Player 5</div>
+            <div class="portfolio-item">Player 6</div>
+        </div>
+    </section>
+
+    <!-- OVERLAYS -->
     <div id="category-view">
         <div class="overlay-header">
             <h2 id="category-title">CATEGORY</h2>
             <button class="close-btn" onclick="closeCategory()">Close</button>
         </div>
-        <div id="category-list" class="sub-item-list">
-            <!-- Items injected via JS -->
-        </div>
+        <div id="category-list" class="sub-item-list"></div>
     </div>
 
-    <!-- === VIEW 3: READER OVERLAY === -->
     <div id="reader-view">
         <div class="reader-container">
             <div class="overlay-header">
                 <button class="close-btn" onclick="closeReader()">← Back</button>
                 <span>READING MODE</span>
             </div>
-            <div id="reader-body" class="reader-content">
-                <!-- Content injected via JS -->
-            </div>
+            <div id="reader-body" class="reader-content"></div>
         </div>
     </div>
 
     <script>
-        /* =======================================================
-        CONTENT ENGINE - EDIT YOUR SITE CONTENT HERE
-        =======================================================
-        */
-        
+        /* SITE CONTENT OBJECT */
         const siteContent = {
             
             preGame: {
@@ -744,7 +600,58 @@
             },
                     {
                         title: "DAY 1: USA VS. QC",
-                        body: `<p>Comparison of US vs International play styles on Day 1...</p>`
+                        body: `
+                            <div class="day1-header">
+                                <h1>Day 1: USA vs. QC</h1>
+                                <p>Below are two side-by-side articles detailing the distinct strategic environments and Day 1 priorities for contestants on Survivor USA (Modern Era) and Survivor Québec (Franchise Launch).</p>
+                            </div>
+
+                            <div class="day1-container">
+                                <!-- LEFT SIDE: USA -->
+                                <div class="day1-card usa">
+                                    <h2>Survivor USA (Modern Era): Day 1 Strategic Blueprint</h2>
+                                    <p>The strategic landscape of Day 1 in modern Survivor USA is defined by high-stakes competition, complex twists, and a relentless focus on navigating non-survival variables.</p>
+
+                                    <h3>I. The Initial Descent: Twist-Driven Competition</h3>
+                                    <p>The modern Survivor USA marooning is no longer a simple scramble; it is a high-stakes, twist-laden Reward/Immunity Challenge. The objective is to win to avoid Tribal Council and secure essential resources like flint and a pot. The strategic focus shifts immediately to competitive success and avoiding the perception of weakness.</p>
+                                    <p><strong>Strategic Goal:</strong> Winning the challenge secures vital social capital and narrative control, establishing the tribe as competent. However, the long-term, purely existential value of the win is reduced since production guarantees flint by Day 3. The risk of early dominance is immediate target designation.</p>
+                                    <p><strong>Cognitive Load:</strong> High. Players must immediately dedicate mental energy to deciphering complex twists and searching for Hidden Immunity Idols or Advantages, which are highly likely to be present immediately upon arrival.</p>
+                                    <p><strong>Tribe Size:</strong> Typically 6-9 players, often subject to immediate swaps or small tribe dynamics, which demands rapid relationship solidification.</p>
+
+                                    <h3>II. Camp Life & Production Management</h3>
+                                    <p><strong>Camp Life Visibility:</strong> Detailed camp life scenes (shelter building, fire-making) are often minimized or heavily edited out to prioritize airtime for twists and strategic maneuvering. Physical utility is a lower strategic currency than strategic acumen.</p>
+                                    <p><strong>Production Constraints:</strong> Contestants must manage the close proximity of the camera crew. The movement of the crew acts as a visual signal that strategic activity (e.g., idol hunting) is occurring, making truly subtle strategy exceptionally difficult.</p>
+                                    <p><strong>Confessional Strategy:</strong> Producers often ask pointed, directional questions. Players must use this information as intelligence, inferring what dynamics other tribemates are discussing and what the producers view as central to the narrative. Control the narrative brand from minute one.</p>
+
+                                    <h3>III. Alliance Dynamics & Psychological Risk</h3>
+                                    <p><strong>Alliance Formation:</strong> The mandate is to immediately "Create an alliance of 4 in your tribe as soon as the game starts." These Day 1 bonds are primarily a numerical risk-mitigation shield against the first vote, acknowledging the high volatility and lack of developed trust metrics.</p>
+                                    <p><strong>Assertive Behavior Risk:</strong> High. Players who are overly aggressive or direction-giving—like the "bossy" archetype—become immediate targets. This accelerated targeting is a direct result of acquiring negative social capital, regardless of physical strength.</p>
+                                    <p><strong>Vulnerability Paradox:</strong> Day 1 oversharing or "trauma dumping" (excessive personal disclosure) is often misinterpreted by tribemates as a manipulative tactic to garner sympathy or "pull focus," increasing the risk of targeting.</p>
+                                </div>
+
+                                <!-- RIGHT SIDE: QC -->
+                                <div class="day1-card qc">
+                                    <h2>Survivor Québec: Day 1 Strategic Blueprint</h2>
+                                    <p>The strategic landscape of Day 1 in Survivor Québec is defined by a commitment to the "old school" format, emphasizing visible contribution to survival and authentic social bonding within a larger group.</p>
+
+                                    <h3>I. The Initial Descent: Resource-Driven Survival</h3>
+                                    <p>The Survivor Québec marooning utilized an "old school" resource scramble mechanic. Tribes of 10 collected as many supplies as possible from a boat within a time limit. The focus is on immediate resource management and the visible demonstration of collective coordination.</p>
+                                    <p><strong>Strategic Goal:</strong> Maximize the acquisition of resources to immediately offset deprivation. The extended focus on camp life makes demonstrable physical utility and effort in the scramble an essential protective shield against early elimination.</p>
+                                    <p><strong>Cognitive Load:</strong> Reduced. The documented absence of Idols or Advantages in the premiere allows players to dedicate 100% of their mental energy to fundamental social bonding and physical survival essentials. There is no need to prioritize a search.</p>
+                                    <p><strong>Tribe Size:</strong> Two larger tribes (10 players each), delaying individual exposure but requiring quicker assimilation into a larger majority structure (4-5 members).</p>
+
+                                    <h3>II. Camp Life & Production Management</h3>
+                                    <p><strong>Camp Life Visibility:</strong> Extended runtime is dedicated to camp life and relationship dynamics. This maximizes a contestant's visibility, making demonstrated competence in fire-making and shelter construction a high-priority strategic asset (higher currency than in modern USA).</p>
+                                    <p><strong>Production Constraints:</strong> The "no-wall rule" for shelters is enforced for camera access, forcing players to endure exposure. This accelerates bonding and conflict. Contestants should integrate the crew's presence into their strategy to leverage the need for isolated walks (for confessionals) as a cover for scouting or decompression.</p>
+                                    <p><strong>Confessional Strategy:</strong> Treat the Day 1 interview as a critical press conference. The answers define the initial edited narrative. All statements must reinforce the desired strategic brand (e.g., collaborative, competent) to avoid accidental negative portrayal.</p>
+
+                                    <h3>III. Alliance Dynamics & Psychological Risk</h3>
+                                    <p><strong>Alliance Formation:</strong> Secure a Day 1 majority alliance (4-5 members) to mitigate the first vote risk. The extended focus on relationships in SQ suggests that establishing authenticity is an enhanced currency over immediate, highly manufactured strategic maneuvering.</p>
+                                    <p><strong>Assertive Behavior Risk:</strong> High. The "older guy who makes himself a target by declaring himself the tribe leader" is a common SQ archetype to avoid. The strategic imperative is to Lead Collaboratively, demonstrating competence in survival skills (fire, shelter) rather than attempting to enforce authority.</p>
+                                    <p><strong>Vulnerability Paradox:</strong> Emotional connection is valuable for rapport, but Day 1 personal vulnerability must be measured and controlled. Oversharing high-trauma backstories should be strictly avoided to foster genuine connections without triggering the perception of strategic manipulation.</p>
+                                </div>
+                            </div>
+                        `
                     },
                     {
                         title: "META STRATEGY DEEP DIVE",
@@ -1076,9 +983,6 @@
                             
                             <!-- FIXED: Added real image tag instead of text placeholder -->
                             
-
-[Image of Panama climate map]
-
                             <img src="https://placehold.co/600x400/111/FF69B4/png?text=Panama+Climate+Map" class="content-img" alt="Map of Panama">
 
                             <hr style="border: 1px solid #333; margin: 20px 0;">
@@ -1172,7 +1076,102 @@
                 items: [
                     {
                         title: "Final Tribal Council",
-                        body: `<h1>Final Tribal Council</h1><p>This is where you plead your case to the jury. It's the most important speech of your life.</p>`
+                        body: `
+                            <div class="ftc-header">
+                                <h1>The Survivor Winner's Compendium: Mastering the Final Tribal Council</h1>
+                                <p>This section contains the two essential ideas—the Rhetorical Blueprint for structure, and the Winner's Narrative for content—followed by two case studies demonstrating how champions apply these rules to secure the million-dollar prize.</p>
+                            </div>
+
+                            <!-- CARD 1 -->
+                            <div class="ftc-card">
+                                <h2>Final Tribal Council Speech Structure</h2>
+                                <p class="ftc-intro-text">Success at the Final Tribal Council (FTC) requires combining a clear structure (The Rhetorical Blueprint) with a compelling theme (The Winner’s Narrative).</p>
+
+                                <div class="two-column-layout">
+                                    <div class="column">
+                                        <h3>The Rhetorical Blueprint (The Structure)</h3>
+                                        <p>This is the required three-part framework for your opening statement, ensuring you address every angle of your game:</p>
+
+                                        <h4>The Strategic Case ("What I Did")</h4>
+                                        <p>Outline your entire game trajectory with Intentionality. Identify key alliances, critical votes, and idol plays to establish yourself as the active competitor.</p>
+
+                                        <h4>The Social Case ("How I Managed You")</h4>
+                                        <p>Address the emotional reality of the game. Acknowledge betrayal, reframe negative reputations, and secure respect by demonstrating superior social intelligence.</p>
+
+                                        <h4>The Closing Case ("Why Me Now")</h4>
+                                        <p>Isolate and highlight your Endgame Moves (post-Final 6) to prove you engineered the final result.</p>
+                                    </div>
+                                    <div class="column">
+                                        <h3>The Winner's Narrative (The Content)</h3>
+                                        <p>This is the thematic lens you apply to your story to overcome jury resentment and spin flaws into strategic assets:</p>
+
+                                        <h4>Ruthlessness as Necessary Competence</h4>
+                                        <p>Own the lies, but pivot immediately to the strategic benefit, asking the jury to reward effectiveness over ethical consistency.</p>
+
+                                        <h4>Reframe Physical Weakness as Superior Social Cunning</h4>
+                                        <p>Argue that being underestimated was a deliberate social strategy, asking the jury to reward the master manipulator over the athlete.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CARD 2 -->
+                            <div class="ftc-card">
+                                <h2>Case Study: The FTC Legends</h2>
+                                <br>
+                                <div class="two-column-layout">
+                                    <div class="column">
+                                        <h3>The FTC GOAT: How Todd Herzog Mastered the Jury</h3>
+                                        <p>If you want to know how to win Survivor, you don't look at the challenge beasts—you look at the Final Tribal Council (FTC) legends. And leading the pack is Todd Herzog from Survivor: China. Todd didn't just win; he gave a masterclass in reading the room, owning his ruthless game, and delivering one of the most persuasive final speeches ever.</p>
+                                        <p>He didn't just survive to the end, he designed it. Here’s the breakdown of how the little flight attendant slayed the jury with pure charisma and strategic truth bombs.</p>
+
+                                        <h4>The Todd Model: Ruthlessness is Just Competence</h4>
+                                        <p>Todd knew the jury was bitter. He had lied, flipped, and generally played a cutthroat game. But instead of apologizing for being a player, he apologized for the pain it caused, and then immediately pivoted to the strategic genius of the move.</p>
+
+                                        <h4>His Winning Narrative: "I am a liar, but only because I am a better player than you."</h4>
+                                        <p>When he faced a question about betrayal, he didn't mince words. He acknowledged the hurt feelings, made eye contact, and then explained that the very act of betraying them was a testament to his necessary, calculated strategy. He was telling the jury: "You're smart enough to recognize a million-dollar move, even if it cost you the game." By treating them like intelligent competitors, he earned their respect back.</p>
+
+                                        <h4>The Rhetorical Blueprint in Action</h4>
+                                        <p>Todd’s speech was perfectly structured to leave no doubt about his control:</p>
+                                        <ul>
+                                            <li><strong>The Strategic Case:</strong> He didn't wait for questions; he laid out his entire plan first. He explained his initial alliance, the shift at the merge, and how he controlled the numbers without ever seeming too dominant. He framed his gameplay as a flawless chain of intentional decisions.</li>
+                                            <li><strong>The Social Case:</strong> When Jean-Robert criticized his passive attitude around camp, Todd didn't get defensive. He calmly explained that he was managing Jean-Robert's volatility as part of his strategy. He turned a social flaw into proof of social skill. It was a surgical strike showing he understood the personal dynamics better than anyone else.</li>
+                                            <li><strong>The Endgame Moves:</strong> He hammered home the Final 4 Tribal Council—when he, Amanda, and Denise blindsided James (with James sitting on two unused idols!). This proved he was the one actively engineering the end game, not just riding along.</li>
+                                        </ul>
+
+                                        <h4>The Human Key: A Moment of Vulnerability</h4>
+                                        <p>The final piece of Todd's winning formula was injecting genuine emotion. He spoke about his deep desire to win and the immense pressure he felt, even shedding a few tears. This was crucial: by being briefly vulnerable, he reminded the jury that behind the ruthless strategy was a person playing for their dreams. This human moment gave the bitter jurors the permission they needed to cast their vote for the strategic genius, and not just the manipulator.</p>
+
+                                        <div style="margin-top: 20px;">
+                                            <p><strong>Watch the genius at work below. This is the gold standard for how to win the jury:</strong></p>
+                                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/5FXF23mz_4o?si=5R0bjviecM8McXuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        </div>
+
+                                        <p><strong>The Takeaway:</strong> If you make it to the end, don't beg. Don't hide. Own your game. Look every single juror in the eye and prove that you played a better game than they did. That's the Todd Herzog way.</p>
+                                    </div>
+
+                                    <div class="column">
+                                        <h3>The Emotional Sweep: How Adam Klein Turned Paranoia into a Perfect 10-0-0</h3>
+                                        <p>If Todd Herzog is the master of the strategic flip, Adam Klein (Survivor: Millennials vs. Gen X) is the master of the emotional clean sweep. Adam's gameplay was often messy, frantic, and paranoid, yet he walked away with a unanimous 10-0-0 victory. How? He used the Rhetorical Blueprint to clean up the strategic chaos and connect with the jury's deepest sympathies.</p>
+
+                                        <h4>🌪️ The Adam Model: Intentionality Over Chaos</h4>
+                                        <p>Adam didn't pretend his game was flawless. Instead, he owned his paranoia and reframed it as necessary vigilance. His strategy wasn't to deny the mess, but to justify it as a function of the pressure he felt and the chaotic environment.</p>
+
+                                        <h4>His Winning Narrative: "My chaos was a reflection of how hard I fought, not how poorly I played."</h4>
+                                        <p>He needed the jury to look past the Millennial flailing and see the competitor fighting for the highest stakes.</p>
+
+                                        <h4>🧭 The Rhetorical Blueprint in Action</h4>
+                                        <p>Adam's speech was designed to validate his strategy while connecting his personal life to the game's stakes:</p>
+                                        <ul>
+                                            <li><strong>The Strategic Case:</strong> Adam didn't let the jury focus on his errors. He highlighted his proactive hunt for advantages and his perfect Idol play on Hannah. This demonstrated that his frantic energy was actually strategic aggression—he was playing the game the season demanded. He showed he was driving the car, even if he was swerving.</li>
+                                            <li><strong>The Social Case:</strong> Adam secured a crucial vote by being honest about his betrayal of his closest ally, Taylor. He took ownership but explained it was the strategic necessity of the moment. Furthermore, he used his reputation for being emotional not as a flaw, but as a symptom of the immense pressure he felt, demonstrating humility and relatability.</li>
+                                            <li><strong>The Closing Case:</strong> Adam secured his spot with two major endgame moves: winning the Final Immunity Challenge and expertly cutting the biggest threat, David. He showed he deserved to be there on merit. The true final move, however, was his emotional closer. He revealed his mother's battle with cancer, tying his fight for the million dollars to her fight for life. This emotional climax gave the jury a compelling, genuine reason to reward him, transcending gameplay and resulting in the clean sweep.</li>
+                                        </ul>
+
+                                        <p><strong>The Takeaway:</strong> If your game is chaotic, control the narrative. Use honesty and humility to disarm the jury, and give them a meaningful, human reason to reward your strategic fight. That's the Adam Klein way.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `
                     },
                     {
                         title: "Jury Management",
@@ -1186,32 +1185,19 @@
             }
         };
 
-        /* =======================================================
-        LOGIC - DO NOT TOUCH UNLESS YOU KNOW JAVASCRIPT
-        =======================================================
-        */
-
         const categoryView = document.getElementById('category-view');
         const categoryTitle = document.getElementById('category-title');
         const categoryList = document.getElementById('category-list');
-        
         const readerView = document.getElementById('reader-view');
         const readerBody = document.getElementById('reader-body');
-
         let currentCategoryData = null;
 
         function openCategory(key) {
             const data = siteContent[key];
-            if (!data) {
-                console.error("Category data not found for:", key);
-                return;
-            }
-
+            if (!data) { return; }
             currentCategoryData = data;
-            
             categoryTitle.innerText = data.title;
             categoryList.innerHTML = ''; 
-            
             data.items.forEach((item, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'sub-item-btn';
@@ -1219,13 +1205,10 @@
                 btn.onclick = () => openReader(index);
                 categoryList.appendChild(btn);
             });
-
             categoryView.classList.add('active');
         }
 
-        function closeCategory() {
-            categoryView.classList.remove('active');
-        }
+        function closeCategory() { categoryView.classList.remove('active'); }
 
         function openReader(index) {
             const item = currentCategoryData.items[index];
@@ -1233,87 +1216,14 @@
             readerView.classList.add('active');
         }
 
-        function closeReader() {
-            readerView.classList.remove('active');
+        function closeReader() { readerView.classList.remove('active'); }
+        function openNotebook() { window.open('https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f', '_blank'); }
+
+        function scrollCarousel(direction) {
+            const container = document.getElementById('why-carousel');
+            const cardWidth = container.offsetWidth;
+            container.scrollBy({ left: cardWidth * direction, behavior: 'smooth' });
         }
-
-        function openNotebook() {
-            window.open('https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f', '_blank');
-        }
-
-        /* TIMELINE LOGIC */
-        const mainView = document.getElementById('main-view');
-        const timeNodes = document.querySelectorAll('.time-node');
-        const sections = document.querySelectorAll('#main-view section');
-
-        mainView.addEventListener('scroll', () => {
-            let activeSection = null;
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - mainView.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (mainView.scrollTop >= sectionTop - sectionHeight / 2) {
-                    activeSection = section.getAttribute('data-section');
-                }
-            });
-
-            timeNodes.forEach(node => {
-                const nodeSection = node.getAttribute('data-section');
-                if (nodeSection === activeSection) {
-                    node.style.borderBottom = '2px solid var(--accent-color)';
-                    node.querySelector('h4').style.color = 'var(--text-color)';
-                } else {
-                    node.style.borderBottom = '2px solid transparent';
-                    node.querySelector('h4').style.color = 'var(--accent-color)';
-                }
-            });
-        });
-
-        timeNodes.forEach(node => {
-            node.addEventListener('click', () => {
-                const sectionId = node.getAttribute('data-section');
-                const section = document.querySelector(`#main-view section[data-section="${sectionId}"]`);
-                if (section) {
-                    mainView.scrollTo({
-                        top: section.offsetTop - mainView.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        /* DYNAMIC HERO TEXT LOGIC */
-        const dynamicText = document.getElementById('dynamic-text');
-        const words = ["Outwit", "Outplay", "Outlast"];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            const currentChar = currentWord.substring(0, charIndex);
-
-            dynamicText.textContent = currentChar;
-            dynamicText.style.color = 'var(--accent-color)';
-
-
-            if (!isDeleting && charIndex < currentWord.length) {
-                charIndex++;
-                setTimeout(type, 150);
-            } else if (isDeleting && charIndex > 0) {
-                charIndex--;
-                setTimeout(type, 100);
-            } else {
-                isDeleting = !isDeleting;
-                if (!isDeleting) {
-                    wordIndex = (wordIndex + 1) % words.length;
-                }
-                setTimeout(type, 1200);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', type);
-
     </script>
-
 </body>
 </html>
