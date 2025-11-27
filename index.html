@@ -10,16 +10,17 @@
     
     <style>
         :root {
-            --bg-color: #000000;
-            --text-color: #FFFFFF;
-            --accent-color: #FF69B4; /* Hot Pink */
+            --bg-color: #1a1a1a; /* Dark Grey/Black */
+            --text-color: #F5F5DC; /* Beige */
+            --accent-color: #C8A2C8; /* Lilac (Muted Purple/Pink) */
+            --border-color: #444444; /* Grey for borders */
             --font-main: 'Poppins', sans-serif;
         }
 
                 /* === FIELD MANUAL STYLES === */
         .protocol-box {
             border: 2px solid var(--accent-color);
-            background: rgba(255, 105, 180, 0.1);
+            background: rgba(200, 162, 200, 0.1);
             padding: 20px;
             margin: 20px 0;
             color: #fff;
@@ -28,12 +29,13 @@
         }
         
         .tip-box {
-            background: #1a1a1a;
-            border-left: 4px solid #fff;
+            background: #2b2b2b; /* Slightly lighter grey */
+            border-left: 4px solid var(--accent-color);
             padding: 15px;
             margin: 20px 0;
             font-style: italic;
-            color: #ccc;
+            color: var(--text-color);
+            opacity: 0.9;
         }
         
         .tactical-table {
@@ -43,16 +45,16 @@
             font-size: 0.9rem;
         }
         .tactical-table th, .tactical-table td {
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             padding: 12px;
             text-align: left;
         }
         .tactical-table th {
-            background-color: #111;
+            background-color: #2b2b2b;
             color: var(--accent-color);
             text-transform: uppercase;
         }
-        .tactical-table tr:nth-child(even) { background-color: #0a0a0a; }
+        .tactical-table tr:nth-child(even) { background-color: #222222; }
 
         * {
             box-sizing: border-box;
@@ -76,6 +78,8 @@
             scroll-behavior: smooth;
             position: relative;
             z-index: 1;
+            /* Make space for the bottom timeline */
+            box-sizing: border-box;
         }
 
         section {
@@ -88,7 +92,12 @@
             align-items: center;
             padding: 20px;
             position: relative;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Give last section padding to not be overlapped by timeline */
+        section:last-of-type {
+            padding-bottom: 100px;
         }
 
         h1, h2, h3 {
@@ -98,22 +107,36 @@
 
         /* Interactive Elements */
         .card {
-            border: 1px solid #333;
-            padding: 3rem;
+            padding: 2.5rem 3rem;
             margin: 1rem 0;
             width: 90%;
             max-width: 600px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(5px);
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            background-clip: padding-box; /* Ensures the background doesn't bleed into the border area */
+            z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px; /* Adjust to border width */
+            border-radius: inherit; /* Match the parent's border-radius */
+            background: linear-gradient(90deg, #C8A2C8, #8E44AD); /* Lilac to Purple */
         }
 
         .card:hover {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-            transform: scale(1.02);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background-color: rgba(245, 245, 220, 0.1); /* Beige with low opacity */
         }
 
         .card h3 {
@@ -125,6 +148,27 @@
         /* === SECTION SPECIFIC STYLES === */
 
         /* Hero */
+        #hero {
+            position: relative;
+            overflow: hidden;
+            /* New gradient using the beige and lilac colors */
+            background: linear-gradient(-45deg, #4b4b4b, #C8A2C8, #2b2b2b, #F5F5DC);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         #hero h1 { font-size: 3rem; margin-bottom: 10px; text-align: center; }
         #hero p { color: var(--accent-color); letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
         .hero-img {
@@ -139,127 +183,105 @@
         /* .hero-img:hover { filter: grayscale(0%); } */
 
         /* Timeline */
-        #timeline { align-items: flex-start; justify-content: center; }
-        .timeline-track {
-            display: flex;
-            gap: 40px;
-            overflow-x: auto;
+        #timeline {
+            position: fixed;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            padding: 50px 20px;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            padding: 15px 0;
+            z-index: 10;
+            overflow-x: auto;
+            white-space: nowrap;
+            border-top: 1px solid var(--border-color);
         }
-        .timeline-track::-webkit-scrollbar { display: none; }
+        .timeline-track {
+            display: inline-flex;
+            gap: 30px;
+            padding: 0 30px;
+        }
         .time-node {
-            flex: 0 0 auto;
-            min-width: 200px;
-            border-left: 2px solid var(--accent-color);
-            padding-left: 15px;
+            cursor: pointer;
+            text-align: center;
+            min-width: 100px;
         }
-        .time-node h4 { color: var(--accent-color); margin-bottom: 5px; font-size: 1.2rem; }
-        .time-node p { font-size: 0.9rem; opacity: 0.8; }
+        .time-node:hover h4 {
+            color: var(--text-color);
+        }
+        .time-node h4 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .time-node p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin: 0;
+        }
 
         /* Content Hubs */
         #content-hubs { gap: 20px; }
 
-        /* === THE NEON TRINITY (CENTERED) === */
-
-        /* Mobile: Stacked Vertical Column */
+        /* === THE NEON TRINITY (UPSIDE DOWN TRIANGLE) === */
         #core-triangle {
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .triangle-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            max-height: 520px;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            background: rgba(200, 162, 200, 0.05); /* Lilac */
+            border: 1px solid var(--accent-color);
+            z-index: 0;
+        }
+
+        .triangle-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 450px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas:
+                "left right"
+                "bottom bottom";
+            gap: 20px;
+        }
+
+        .triangle-node {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            padding: 40px 20px;
-            width: 100%;
+            justify-content: center;
             align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 20px;
+        }
+        .triangle-node:hover {
+            transform: scale(1.05);
+            background: rgba(200, 162, 200, 0.2);
+            border-color: var(--accent-color);
         }
 
-        /* Desktop: The Triangle Grid */
-        @media (min-width: 768px) {
-            #core-triangle {
-                display: grid;
-                grid-template-columns: 1fr 1fr; 
-                grid-template-rows: auto auto;
-                
-                /* CENTERING MAGIC */
-                width: 100%;
-                max-width: 900px;
-                margin-left: auto;
-                margin-right: auto;
-                justify-content: center;
-                align-content: center;
-                justify-items: center;
-                
-                height: 100vh;
-                position: relative;
-            }
+        .node-bottom { grid-area: bottom; }
+        .node-top-left { grid-area: left; }
+        .node-top-right { grid-area: right; }
 
-            /* THE VISUAL TRIANGLE LINES */
-            .triangle-lines {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 500px;
-                height: 400px;
-                clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-                border: 2px solid var(--accent-color);
-                background: rgba(255, 105, 180, 0.05);
-                z-index: 0;
-                pointer-events: none;
-            }
-
-            /* THE TEXT NODES */
-            .triangle-node {
-                z-index: 2;
-                text-align: center;
-                cursor: pointer;
-                background: var(--bg-color);
-                padding: 15px 30px;
-                border: 1px solid #333;
-                transition: transform 0.3s ease, box-shadow 0.3s;
-                min-width: 200px;
-            }
-
-            .triangle-node:hover {
-                transform: scale(1.1);
-                border-color: var(--accent-color);
-                box-shadow: 0 0 20px var(--accent-color);
-            }
-
-            .triangle-node h2 {
-                font-size: 2.5rem;
-                margin: 0;
-                color: white;
-            }
-
-            .triangle-node p {
-                color: var(--accent-color);
-                font-size: 0.8rem;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                margin-top: 5px;
-            }
-
-            /* POSITIONING */
-            .node-top {
-                grid-column: 1 / -1;
-                grid-row: 1;
-                margin-bottom: 60px;
-            }
-
-            .node-left {
-                grid-column: 1;
-                grid-row: 2;
-                margin-right: 40px;
-            }
-
-            .node-right {
-                grid-column: 2;
-                grid-row: 2;
-                margin-left: 40px;
-            }
-        }
+        .triangle-node h2 { font-size: 2rem; }
+        .triangle-node p { opacity: 0.7; }
 
         /* Portfolios */
         .grid-container {
@@ -270,13 +292,14 @@
             max-width: 800px;
         }
         .portfolio-item {
-            background: #111;
+            background: #2b2b2b;
             height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #333;
-            color: #666;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            opacity: 0.7;
         }
 
         /* === VIEW 2: CATEGORY MENU (OVERLAY) === */
@@ -287,8 +310,8 @@
             width: 100%;
             max-width: 500px; /* Sidebar on desktop, full on mobile */
             height: 100%;
-            background: #0a0a0a;
-            border-left: 1px solid #333;
+            background: var(--bg-color);
+            border-left: 1px solid var(--border-color);
             z-index: 100;
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
@@ -318,7 +341,7 @@
             text-transform: uppercase;
             font-weight: bold;
         }
-        .close-btn:hover { background: var(--accent-color); border-color: var(--accent-color); color: black; }
+        .close-btn:hover { background: var(--accent-color); border-color: var(--accent-color); color: var(--bg-color); }
 
         .sub-item-list {
             display: flex;
@@ -329,8 +352,8 @@
 
         .sub-item-btn {
             background: transparent;
-            border: 1px solid #333;
-            color: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
             padding: 20px;
             text-align: left;
             font-family: var(--font-main);
@@ -342,7 +365,7 @@
         .sub-item-btn:hover {
             border-color: var(--accent-color);
             padding-left: 30px;
-            background: rgba(255, 105, 180, 0.05);
+            background: rgba(200, 162, 200, 0.1);
         }
 
         /* === VIEW 3: READER VIEW (FULL OVERLAY) === */
@@ -352,7 +375,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: black;
+            background: var(--bg-color);
             z-index: 200; /* Topmost layer */
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
@@ -377,11 +400,11 @@
         /* Formatting for user content inside JS */
         .reader-content h1 { color: var(--accent-color); margin-bottom: 20px; font-size: 2.5rem; }
         .reader-content h2 { margin-top: 30px; margin-bottom: 15px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
-        .reader-content h3 { color: white; margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
-        .reader-content p { margin-bottom: 20px; color: #ddd; }
+        .reader-content h3 { margin-top: 20px; margin-bottom: 10px; text-transform: uppercase; }
+        .reader-content p { margin-bottom: 20px; color: var(--text-color); opacity: 0.9; }
         .reader-content ul { margin-left: 20px; margin-bottom: 20px; }
-        .reader-content li { margin-bottom: 10px; color: #ddd; }
-        .reader-content strong { color: white; }
+        .reader-content li { margin-bottom: 10px; color: var(--text-color); opacity: 0.9; }
+        .reader-content strong { color: var(--text-color); }
 
         /* Mobile Tweaks */
         @media (max-width: 768px) {
@@ -394,74 +417,74 @@
 </head>
 <body>
 
+    <!-- === TIMELINE === -->
+    <aside id="timeline">
+        <div class="timeline-track">
+            <div class="time-node" data-section="hero"><h4>Intro</h4><p>Start</p></div>
+            <div class="time-node" data-section="content-hubs"><h4>Hubs</h4><p>Main</p></div>
+            <div class="time-node" data-section="core-triangle"><h4>Core</h4><p>Strategy</p></div>
+            <div class="time-node" data-section="end-game"><h4>End</h4><p>Game</p></div>
+            <div class="time-node" data-section="portfolios"><h4>Players</h4><p>Portfolios</p></div>
+            <div class="time-node" data-section="welcome"><h4>Welcome</h4><p>Guide</p></div>
+            <div class="time-node" data-section="key-features"><h4>Features</h4><p>Highlights</p></div>
+            <div class="time-node" data-section="about-website"><h4>Website</h4><p>About</p></div>
+        </div>
+    </aside>
+
+    <!-- === DECORATIVE BACKGROUND ELEMENT === -->
+    <div class="triangle-lines"></div>
+
     <!-- === VIEW 1: MAIN SCROLL === -->
     <main id="main-view">
         
         <!-- Hero Section -->
-        <section id="hero">
-            <h1>Sole Survivor<br>Preparation</h1>
+        <section id="hero" data-section="hero">
+            <h1><span id="dynamic-text">Sole Survivor</span><br>Preparation</h1>
             <p>THE HANDBOOK</p>
-            <!-- UPDATED: Uses local file katesurvivor.jpeg -->
-            <img src="katesurvivor.jpeg" alt="Kate Survivor" class="hero-img" onerror="this.src='https://placehold.co/800x1200/000000/FFFFFF?text=Add+katesurvivor.jpeg'">
-        </section>
-
-        <!-- Timeline Section -->
-        <section id="timeline">
-            <div class="timeline-track">
-                <div class="time-node"><h4>Day 1</h4><p>Marooned</p></div>
-                <div class="time-node"><h4>Day 2</h4><p>First Vote</p></div>
-                <div class="time-node"><h4>Day 13</h4><p>Tribe Swap</p></div>
-                <div class="time-node"><h4>Day 24</h4><p>The Merge</p></div>
-                <div class="time-node"><h4>Day 35</h4><p>Loved Ones</p></div>
-                <div class="time-node"><h4>Day 41</h4><p>Final 4</p></div>
-                <div class="time-node"><h4>Day 42</h4><p>Sole SURVIVOR</p></div>
-            </div>
+            <img src="katesurvivor.jpeg" alt="Contestant ready for the challenge" class="hero-img">
         </section>
 
         <!-- Content Hubs -->
-        <section id="content-hubs">
+        <section id="content-hubs" data-section="content-hubs">
             <div class="card" onclick="openCategory('preGame')">
                 <h3>PRE GAME STRATEGIES</h3>
             </div>
             <div class="card" onclick="openCategory('metaGame')">
                 <h3>META GAME</h3>
             </div>
-            <div class="card" onclick="openNotebook()">
-                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
-            </div>
         </section>
 
         <!-- Core Triangle (Visually arranged via CSS Grid) -->
-        <section id="core-triangle">
+        <section id="core-triangle" data-section="core-triangle">
             <!-- Visual Background -->
-            <div class="triangle-lines"></div>
+            <div class="triangle-background"></div>
 
             <!-- Nodes -->
-            <div class="triangle-node node-top" onclick="openCategory('outwit')">
-                <h2>OUTWIT</h2>
-                <p>The Social Game</p>
-            </div>
-
-            <div class="triangle-node node-left" onclick="openCategory('outplay')">
-                <h2>OUTPLAY</h2>
-                <p>The Physical Game</p>
-            </div>
-
-            <div class="triangle-node node-right" onclick="openCategory('outlast')">
-                <h2>OUTLAST</h2>
-                <p>The Mental Game</p>
+            <div class="triangle-container">
+                <div class="triangle-node node-top-left" onclick="openCategory('outwit')">
+                    <h2>OUTWIT</h2>
+                    <p>The Social Game</p>
+                </div>
+                <div class="triangle-node node-top-right" onclick="openCategory('outplay')">
+                    <h2>OUTPLAY</h2>
+                    <p>The Physical Game</p>
+                </div>
+                <div class="triangle-node node-bottom" onclick="openCategory('outlast')">
+                    <h2>OUTLAST</h2>
+                    <p>The Mental Game</p>
+                </div>
             </div>
         </section>
 
         <!-- End Game -->
-        <section id="end-game">
+        <section id="end-game" data-section="end-game">
             <div class="card" onclick="openCategory('endGame')">
                 <h3>END GAME</h3>
             </div>
         </section>
 
         <!-- Portfolios -->
-        <section id="portfolios">
+        <section id="portfolios" data-section="portfolios">
             <h2>Player Portfolios</h2>
             <br>
             <div class="grid-container">
@@ -472,6 +495,33 @@
                 <div class="portfolio-item">Player 5</div>
                 <div class="portfolio-item">Player 6</div>
             </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section id="welcome" data-section="welcome">
+            <h2>Welcome</h2>
+            <p>This handbook is your new best friend. It's a living document, a toolkit, and a roadmap designed to get you to the final tribal council. It's built on a simple premise: knowledge is power. The more you know about the game, the better you'll play.</p>
+            <div class="card" onclick="openNotebook()">
+                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+                 <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section id="key-features" data-section="key-features">
+            <h2>Key Features</h2>
+            <p>This handbook is designed to be a comprehensive, interactive resource.</p>
+            <ul>
+                <li>Interactive Cards: Click on any topic to dive deeper.</li>
+                <li>Dynamic Timeline: Easily navigate through different phases of the game.</li>
+                <li>Content-Rich: Packed with strategies, historical analysis, and survival tips.</li>
+            </ul>
+        </section>
+
+        <!-- About the Website -->
+        <section id="about-website" data-section="about-website">
+            <h2>About the Website</h2>
+            <p>This handbook was created by a long-time fan of the show, combining a passion for game theory and a deep respect for the castaways who brave the elements and the social gauntlet.</p>
         </section>
 
     </main>
@@ -1174,6 +1224,79 @@
             window.open('https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f', '_blank');
         }
 
+        /* TIMELINE LOGIC */
+        const mainView = document.getElementById('main-view');
+        const timeNodes = document.querySelectorAll('.time-node');
+        const sections = document.querySelectorAll('#main-view section');
+
+        mainView.addEventListener('scroll', () => {
+            let activeSection = null;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - mainView.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (mainView.scrollTop >= sectionTop - sectionHeight / 2) {
+                    activeSection = section.getAttribute('data-section');
+                }
+            });
+
+            timeNodes.forEach(node => {
+                const nodeSection = node.getAttribute('data-section');
+                if (nodeSection === activeSection) {
+                    node.style.borderBottom = '2px solid var(--accent-color)';
+                    node.querySelector('h4').style.color = 'var(--text-color)';
+                } else {
+                    node.style.borderBottom = '2px solid transparent';
+                    node.querySelector('h4').style.color = 'var(--accent-color)';
+                }
+            });
+        });
+
+        timeNodes.forEach(node => {
+            node.addEventListener('click', () => {
+                const sectionId = node.getAttribute('data-section');
+                const section = document.querySelector(`#main-view section[data-section="${sectionId}"]`);
+                if (section) {
+                    mainView.scrollTo({
+                        top: section.offsetTop - mainView.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        /* DYNAMIC HERO TEXT LOGIC */
+        const dynamicText = document.getElementById('dynamic-text');
+        const words = ["Outwit", "Outplay", "Outlast"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            const currentChar = currentWord.substring(0, charIndex);
+
+            dynamicText.textContent = currentChar;
+            dynamicText.style.color = 'var(--accent-color)';
+
+
+            if (!isDeleting && charIndex < currentWord.length) {
+                charIndex++;
+                setTimeout(type, 150);
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(type, 100);
+            } else {
+                isDeleting = !isDeleting;
+                if (!isDeleting) {
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+                setTimeout(type, 1200);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+
     </script>
+
 </body>
 </html>
