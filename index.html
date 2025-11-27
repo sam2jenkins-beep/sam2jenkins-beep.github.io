@@ -358,6 +358,67 @@
             transform: scale(1.05);
         }
 
+        /* NotebookLM / Welcome Section */
+        .notebook-container {
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .notebook-header {
+            margin-bottom: 40px;
+        }
+
+        .notebook-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: var(--text-color);
+        }
+
+        .notebook-header p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(245, 245, 220, 0.9);
+        }
+
+        /* Update existing card to match modern style */
+        .notebook-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #fd3c98; /* Pink from palette */
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notebook-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(253, 60, 152, 0.2);
+        }
+
+        .notebook-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .notebook-card p {
+            font-size: 1rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
         @media (max-width: 900px) {
             .how-container {
                 grid-template-columns: 1fr; /* Stack on mobile */
@@ -644,7 +705,7 @@
             <div class="time-node" data-section="hero"><h4>Intro</h4><p>Start</p></div>
             <div class="time-node" data-section="about-website"><h4>Why</h4><p>About</p></div>
             <div class="time-node" data-section="key-features"><h4>How</h4><p>Highlights</p></div>
-            <div class="time-node" data-section="welcome"><h4>Welcome</h4><p>Guide</p></div>
+            <div class="time-node" data-section="welcome"><h4>NotebookLM</h4><p>Guide</p></div>
             <div class="time-node" data-section="content-hubs"><h4>Hubs</h4><p>Main</p></div>
             <div class="time-node" data-section="core-triangle"><h4>Core</h4><p>Strategy</p></div>
             <div class="time-node" data-section="end-game"><h4>End</h4><p>Game</p></div>
@@ -755,13 +816,18 @@
             </div>
         </section>
 
-        <!-- Welcome Section -->
+        <!-- Welcome Section (Renamed Headline to NotebookLM) -->
         <section id="welcome" data-section="welcome">
-            <h2>Welcome</h2>
-            <p>This handbook is your new best friend. It's a living document, a toolkit, and a roadmap designed to get you to the final tribal council. It's built on a simple premise: knowledge is power. The more you know about the game, the better you'll play.</p>
-            <div class="card" onclick="openNotebook()">
-                <h3>SURVIVOR NOTEBOOKLM ↗</h3>
-                 <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
+            <div class="notebook-container">
+                <div class="notebook-header">
+                    <h2>NotebookLM Customized<br>Survivor Experience</h2>
+                    <p>This is a program I have designed for you that is preloaded with hundreds of PDFs, podcasts, articles, interviews and challenge databases. This tool accompanies the website by allowing you to research different ideas in more depth from this website, or anything else about Survivor. There are also premade resources on the right side.</p>
+                </div>
+
+                <div class="notebook-card" onclick="openNotebook()">
+                    <h3>SURVIVOR NOTEBOOKLM ↗</h3>
+                     <p>The Survivor NotebookLM is your private, AI-powered workspace to strategize, analyze, and prepare. Use it to break down challenges, simulate tribal councils, and develop your winning narrative. It's your secret weapon.</p>
+                </div>
             </div>
         </section>
 
