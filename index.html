@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survivor Web Guide</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Updated Fonts: Google Fonts has Roboto. For the bold headers, we rely on local system fonts or web safe fonts as defined in CSS. -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="scroll-container">
-        <!-- 1. HOME -->
+        <!-- 1. HOME REDESIGN -->
         <section id="home" class="section">
-            <h1 class="neon-text">Survivor Web Guide</h1>
-            <div class="image-container home-image">
-                <!-- REPLACE: assets/survivorkate.jpeg -->
-                <img src="assets/survivorkate.jpeg" alt="Survivor Kate" class="neon-border">
+            <div class="home-content-wrapper">
+                <h1 class="massive-title">SURVIVOR<br>WEB GUIDE</h1>
+                <div class="home-subtext">
+                    <a href="#about" class="guide-link">The Guide &rarr;</a>
+                    <p class="intro-text">
+                        Welcome to your ultimate preparation hub.
+                        Strategies, mental fortitude, and game mechanics
+                        deconstructed for the sole survivor.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -66,25 +73,25 @@
         <section id="pregame" class="section">
             <h2 class="section-title">Pregame Preparation</h2>
             <div class="grid-2x2">
-                <div class="glass-card">
+                <div class="glass-card clickable-card" data-modal-type="full">
                     <h3>Ways You Can Train</h3>
                     <!-- REPLACE: assets/train.jpg -->
                     <img src="assets/placeholder.jpg" alt="Training">
                     <p>Physical and mental prep.</p>
                 </div>
-                <div class="glass-card">
+                <div class="glass-card clickable-card" data-modal-type="full">
                     <h3>How Past Survivors Have Prepared</h3>
                     <!-- REPLACE: assets/past_survivors.jpg -->
                     <img src="assets/placeholder.jpg" alt="Past Survivors">
                     <p>Learn from the best.</p>
                 </div>
-                <div class="glass-card">
+                <div class="glass-card clickable-card" data-modal-type="full">
                     <h3>Final 48 Hours</h3>
                     <!-- REPLACE: assets/48hours.jpg -->
                     <img src="assets/placeholder.jpg" alt="Final 48 Hours">
                     <p>Crunch time checklist.</p>
                 </div>
-                <div class="glass-card">
+                <div class="glass-card clickable-card" data-modal-type="full">
                     <h3>Mindfulness</h3>
                     <!-- REPLACE: assets/mindfulness.jpg -->
                     <img src="assets/placeholder.jpg" alt="Mindfulness">
@@ -97,19 +104,19 @@
         <section id="metagame" class="section">
             <h2 class="section-title">Meta Game</h2>
             <div class="responsive-grid">
-                <div class="card">
+                <div class="card clickable-card" data-modal-type="full">
                     <h3>Realities of Reality TV</h3>
                     <!-- REPLACE: assets/reality_tv.jpg -->
                     <img src="assets/placeholder.jpg" alt="Reality TV">
                     <p>Behind the scenes truth.</p>
                 </div>
-                <div class="card">
+                <div class="card clickable-card" data-modal-type="full">
                     <h3>Day 1 USA vs QC</h3>
                     <!-- REPLACE: assets/usavsqc.jpg -->
                     <img src="assets/placeholder.jpg" alt="USA vs QC">
                     <p>Comparative strategies.</p>
                 </div>
-                <div class="card">
+                <div class="card clickable-card" data-modal-type="full">
                     <h3>History of Survivor Quebec</h3>
                     <!-- REPLACE: assets/history_qc.jpg -->
                     <img src="assets/placeholder.jpg" alt="History QC">
@@ -118,40 +125,50 @@
             </div>
         </section>
 
-        <!-- 6. PHASES OF THE GAME -->
+        <!-- 6. PHASES OF THE GAME (Redesigned) -->
         <section id="phases" class="section">
             <h2 class="section-title">Phases of the Game</h2>
-            <div class="timeline-container">
-                <div class="timeline-card">
-                    <h3>Day 1</h3>
-                    <!-- REPLACE: assets/day1.jpg -->
-                    <img src="assets/placeholder.jpg" alt="Day 1">
+            <div class="carousel-wrapper">
+                <button id="prev-phase" class="nav-arrow">&lt;</button>
+                <div class="timeline-container" id="phases-scroll">
+                    <div class="timeline-card">
+                        <h3>Day 1</h3>
+                        <!-- REPLACE: assets/day1.jpg -->
+                        <img src="assets/placeholder.jpg" alt="Day 1">
+                        <p>The journey begins.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>The Pre Merge Gauntlet</h3>
+                        <!-- REPLACE: assets/premerge.jpg -->
+                        <img src="assets/placeholder.jpg" alt="Pre Merge">
+                        <p>Survive the vote.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>The Mid Game Shake Up</h3>
+                        <!-- REPLACE: assets/midgame.jpg -->
+                        <img src="assets/placeholder.jpg" alt="Mid Game">
+                        <p>Adapt or die.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>The Post Merge Arena</h3>
+                        <!-- REPLACE: assets/postmerge.jpg -->
+                        <img src="assets/placeholder.jpg" alt="Post Merge">
+                        <p>Individual immunity.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>The End Game Sprint</h3>
+                        <!-- REPLACE: assets/endgame_sprint.jpg -->
+                        <img src="assets/placeholder.jpg" alt="End Game Sprint">
+                        <p>Final obstacles.</p>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>Conclusion</h3>
+                        <!-- REPLACE: assets/conclusion.jpg -->
+                        <img src="assets/placeholder.jpg" alt="Conclusion">
+                        <p>The final verdict.</p>
+                    </div>
                 </div>
-                <div class="timeline-card">
-                    <h3>The Pre Merge Gauntlet</h3>
-                    <!-- REPLACE: assets/premerge.jpg -->
-                    <img src="assets/placeholder.jpg" alt="Pre Merge">
-                </div>
-                <div class="timeline-card">
-                    <h3>The Mid Game Shake Up</h3>
-                    <!-- REPLACE: assets/midgame.jpg -->
-                    <img src="assets/placeholder.jpg" alt="Mid Game">
-                </div>
-                <div class="timeline-card">
-                    <h3>The Post Merge Arena</h3>
-                    <!-- REPLACE: assets/postmerge.jpg -->
-                    <img src="assets/placeholder.jpg" alt="Post Merge">
-                </div>
-                <div class="timeline-card">
-                    <h3>The End Game Sprint</h3>
-                    <!-- REPLACE: assets/endgame_sprint.jpg -->
-                    <img src="assets/placeholder.jpg" alt="End Game Sprint">
-                </div>
-                <div class="timeline-card">
-                    <h3>Conclusion</h3>
-                    <!-- REPLACE: assets/conclusion.jpg -->
-                    <img src="assets/placeholder.jpg" alt="Conclusion">
-                </div>
+                <button id="next-phase" class="nav-arrow">&gt;</button>
             </div>
         </section>
 
@@ -159,15 +176,15 @@
         <section id="pillars" class="section">
             <h2 class="section-title">Pillars of Survivor</h2>
             <div class="triangle-container">
-                <div class="pillar-card" data-pillar="outwit">
+                <div class="pillar-card clickable-card" data-modal-type="popup" data-pillar="outwit">
                     <h3>OUTWIT</h3>
                     <div class="glow-effect"></div>
                 </div>
-                <div class="pillar-card" data-pillar="outplay">
+                <div class="pillar-card clickable-card" data-modal-type="popup" data-pillar="outplay">
                     <h3>OUTPLAY</h3>
                     <div class="glow-effect"></div>
                 </div>
-                <div class="pillar-card" data-pillar="outlast">
+                <div class="pillar-card clickable-card" data-modal-type="popup" data-pillar="outlast">
                     <h3>OUTLAST</h3>
                     <div class="glow-effect"></div>
                 </div>
@@ -178,13 +195,13 @@
         <section id="endgame" class="section">
             <h2 class="section-title">End Game</h2>
             <div class="endgame-container">
-                <div class="large-card gold-border">
+                <div class="large-card gold-border clickable-card" data-modal-type="full">
                     <h3>Jury Management</h3>
                     <!-- REPLACE: assets/jury.jpg -->
                     <img src="assets/placeholder.jpg" alt="Jury Management">
                     <p>Securing the votes.</p>
                 </div>
-                <div class="large-card gold-border">
+                <div class="large-card gold-border clickable-card" data-modal-type="full">
                     <h3>Final Tribal Council</h3>
                     <!-- REPLACE: assets/ftc.jpg -->
                     <img src="assets/placeholder.jpg" alt="Final Tribal Council">
@@ -194,14 +211,19 @@
         </section>
     </main>
 
-    <!-- Modals for Pillars -->
-    <div id="modal-overlay" class="modal-overlay hidden">
-        <div class="modal-content glass-panel">
+    <!-- Unified Modal Container -->
+    <div id="modal-overlay" class="modal-overlay">
+        <!-- Back Button for Full Page Modals -->
+        <button class="back-button" id="modal-back-btn">&larr; BACK</button>
+
+        <div class="modal-content" id="modal-content-box">
             <span class="close-modal">&times;</span>
             <h2 id="modal-title">Title</h2>
-            <ul id="modal-list">
-                <!-- List items will be injected here -->
-            </ul>
+            <div id="modal-body">
+                <!-- Content injected via JS -->
+                 <ul id="modal-list"></ul>
+                 <p id="modal-text"></p>
+            </div>
         </div>
     </div>
 

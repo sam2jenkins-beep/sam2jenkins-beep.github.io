@@ -6,6 +6,8 @@
     --text-white: #FFFFFF;
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
+    --font-heading: 'Helvetica Neue', 'Arial Black', Impact, sans-serif;
+    --font-body: 'Roboto', Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -16,16 +18,18 @@
 
 body, html {
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-body);
+    font-weight: 500; /* Medium weight */
     color: var(--text-white);
     background: linear-gradient(135deg, var(--bg-deep-purple), var(--bg-dark-blue));
     overflow: hidden; /* Only the main container scrolls */
 }
 
 h1, h2, h3 {
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-heading);
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: -1px; /* Tighter for that massive feel */
 }
 
 /* Scroll Snap Container */
@@ -51,7 +55,7 @@ h1, h2, h3 {
 
 /* Common Styles */
 .section-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     color: var(--neon-pink);
     text-shadow: 0 0 10px var(--neon-pink);
     margin-bottom: 2rem;
@@ -82,25 +86,63 @@ img {
     box-shadow: 0 0 15px var(--neon-pink);
 }
 
-/* 1. HOME */
+/* 1. HOME REDESIGN */
 #home {
-    background: radial-gradient(circle at center, var(--bg-deep-purple), #000);
+    background: #000;
+    justify-content: center;
+    align-items: flex-start; /* Left align content container */
+    padding-left: 5vw;
 }
 
-.neon-text {
-    font-size: 4rem;
-    color: var(--text-white);
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 40px var(--neon-pink);
+.home-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.massive-title {
+    font-size: 12vw; /* Enormous */
+    line-height: 0.9;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    /* Image Clipping Magic */
+    background-image: url('assets/survivorkate.jpeg');
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    width: 100%;
     margin-bottom: 2rem;
-    text-align: center;
 }
 
-.home-image img {
-    height: 400px;
-    width: auto;
-    max-width: 100%;
-    border: 3px solid var(--neon-pink);
-    box-shadow: 0 0 20px var(--neon-pink);
+.home-subtext {
+    margin-left: 10px;
+    max-width: 500px;
+}
+
+.guide-link {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--neon-pink);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.guide-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
 }
 
 /* 2. ABOUT (Carousel) */
@@ -189,19 +231,56 @@ img {
     width: 90%;
 }
 
-/* 6. PHASES (Timeline) */
+/* 6. PHASES (Single Card Carousel) */
 .timeline-container {
     display: flex;
-    overflow-x: auto;
-    gap: 1.5rem;
+    overflow-x: hidden; /* Hide scrollbar */
+    gap: 0;
     width: 100%;
-    padding: 2rem 1rem;
+    height: 60vh;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    position: relative;
+    justify-content: flex-start; /* Items start from left */
 }
 
 .timeline-card {
-    min-width: 250px;
+    min-width: 100%; /* Full width of container */
+    height: 100%;
+    scroll-snap-align: center;
     background-color: var(--bg-deep-purple);
     border-top: 4px solid var(--neon-pink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+/* Wrapper to center the carousel logic */
+#phases .carousel-wrapper {
+    position: relative;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: none;
+    color: var(--neon-pink);
+    font-size: 4rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0 1rem;
+    transition: transform 0.2s;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--neon-pink);
 }
 
 /* 7. PILLARS (Triangle) */
@@ -222,7 +301,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%; /* Circle looks cool for pillars */
+    border-radius: 50%;
     border: 3px solid var(--neon-pink);
     cursor: pointer;
     box-shadow: 0 0 15px var(--neon-pink);
@@ -239,9 +318,7 @@ img {
     z-index: 2;
 }
 
-/* Triangle Layout Trick (Visual approximation for responsiveness) */
 .pillar-card:nth-child(3) {
-    /* Center the 3rd one below to form inverted triangle roughly if screen permits */
     width: 220px;
     height: 220px;
     margin-top: 2rem;
@@ -269,7 +346,7 @@ img {
     box-shadow: 0 0 20px gold;
 }
 
-/* MODAL */
+/* MODALS */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -281,22 +358,43 @@ img {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    opacity: 1;
+    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.3s ease;
 }
 
-.modal-overlay.hidden {
-    opacity: 0;
-    pointer-events: none;
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
-.modal-content {
+/* Standard Popup (Pillars) */
+.modal-content.popup {
     width: 90%;
     max-width: 500px;
     background: var(--bg-deep-purple);
     border: 2px solid var(--neon-pink);
     position: relative;
     padding: 3rem;
+    border-radius: 15px;
+}
+
+/* Full Page Overlay */
+.modal-overlay.full-page {
+    background: #000; /* Solid dark background */
+}
+
+.modal-content.full-page-content {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: none;
 }
 
 .close-modal {
@@ -306,6 +404,36 @@ img {
     font-size: 2rem;
     cursor: pointer;
     color: var(--neon-pink);
+}
+
+/* Specific Back Button for Full Page */
+.back-button {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-white);
+    background: transparent;
+    border: 2px solid var(--text-white);
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    display: none; /* Hidden by default */
+}
+
+.back-button:hover {
+    background: var(--text-white);
+    color: #000;
+}
+
+.modal-overlay.full-page .back-button {
+    display: block;
+}
+
+.modal-overlay.full-page .close-modal {
+    display: none; /* Hide X button in full page */
 }
 
 #modal-list li {
