@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survivor Web Guide</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Updated Fonts: Google Fonts has Roboto. For the bold headers, we rely on local system fonts or web safe fonts as defined in CSS. -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -31,26 +30,18 @@
             <div class="carousel-container">
                 <div class="card">
                     <h3>A Gift</h3>
-                    <!-- REPLACE: assets/gift.jpg -->
-                    <img src="assets/placeholder.jpg" alt="A Gift">
                     <p>Something special just for you.</p>
                 </div>
                 <div class="card">
                     <h3>No Stress Required</h3>
-                    <!-- REPLACE: assets/nostress.jpg -->
-                    <img src="assets/placeholder.jpg" alt="No Stress">
                     <p>Relax and enjoy the journey.</p>
                 </div>
                 <div class="card">
                     <h3>Note</h3>
-                    <!-- REPLACE: assets/note.jpg -->
-                    <img src="assets/placeholder.jpg" alt="Note">
                     <p>A few things to keep in mind.</p>
                 </div>
                 <div class="card">
                     <h3>Good Luck</h3>
-                    <!-- REPLACE: assets/goodluck.jpg -->
-                    <img src="assets/placeholder.jpg" alt="Good Luck">
                     <p>May the odds be in your favor.</p>
                 </div>
             </div>
@@ -64,8 +55,7 @@
             </div>
             <div class="split-right glass-panel">
                 <h2>Launch Notebook</h2>
-                <!-- REPLACE: External URL -->
-                <a href="https://notebooklm.google.com/" target="_blank" class="neon-button">Open NotebookLM</a>
+                <a href="https://notebooklm.google.com/notebook/b89282b3-22b0-424e-9647-f2e699a3756f" target="_blank" class="neon-button">Open NotebookLM</a>
             </div>
         </section>
 
@@ -133,38 +123,26 @@
                 <div class="timeline-container" id="phases-scroll">
                     <div class="timeline-card">
                         <h3>Day 1</h3>
-                        <!-- REPLACE: assets/day1.jpg -->
-                        <img src="assets/placeholder.jpg" alt="Day 1">
                         <p>The journey begins.</p>
                     </div>
                     <div class="timeline-card">
                         <h3>The Pre Merge Gauntlet</h3>
-                        <!-- REPLACE: assets/premerge.jpg -->
-                        <img src="assets/placeholder.jpg" alt="Pre Merge">
                         <p>Survive the vote.</p>
                     </div>
                     <div class="timeline-card">
                         <h3>The Mid Game Shake Up</h3>
-                        <!-- REPLACE: assets/midgame.jpg -->
-                        <img src="assets/placeholder.jpg" alt="Mid Game">
                         <p>Adapt or die.</p>
                     </div>
                     <div class="timeline-card">
                         <h3>The Post Merge Arena</h3>
-                        <!-- REPLACE: assets/postmerge.jpg -->
-                        <img src="assets/placeholder.jpg" alt="Post Merge">
                         <p>Individual immunity.</p>
                     </div>
                     <div class="timeline-card">
                         <h3>The End Game Sprint</h3>
-                        <!-- REPLACE: assets/endgame_sprint.jpg -->
-                        <img src="assets/placeholder.jpg" alt="End Game Sprint">
                         <p>Final obstacles.</p>
                     </div>
                     <div class="timeline-card">
                         <h3>Conclusion</h3>
-                        <!-- REPLACE: assets/conclusion.jpg -->
-                        <img src="assets/placeholder.jpg" alt="Conclusion">
                         <p>The final verdict.</p>
                     </div>
                 </div>
@@ -176,15 +154,15 @@
         <section id="pillars" class="section">
             <h2 class="section-title">Pillars of Survivor</h2>
             <div class="triangle-container">
-                <div class="pillar-card clickable-card" data-modal-type="popup" data-pillar="outwit">
+                <div class="pillar-card clickable-card" data-modal-type="pillars-grid" data-pillar="outwit">
                     <h3>OUTWIT</h3>
                     <div class="glow-effect"></div>
                 </div>
-                <div class="pillar-card clickable-card" data-modal-type="popup" data-pillar="outplay">
+                <div class="pillar-card clickable-card" data-modal-type="pillars-grid" data-pillar="outplay">
                     <h3>OUTPLAY</h3>
                     <div class="glow-effect"></div>
                 </div>
-                <div class="pillar-card clickable-card" data-modal-type="popup" data-pillar="outlast">
+                <div class="pillar-card clickable-card" data-modal-type="pillars-grid" data-pillar="outlast">
                     <h3>OUTLAST</h3>
                     <div class="glow-effect"></div>
                 </div>
@@ -223,6 +201,7 @@
                 <!-- Content injected via JS -->
                  <ul id="modal-list"></ul>
                  <p id="modal-text"></p>
+                 <div id="modal-grid" class="modal-grid"></div>
             </div>
         </div>
     </div>

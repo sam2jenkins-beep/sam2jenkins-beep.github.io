@@ -1,17 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Data for Pillars (Popup Modals) ---
+    // --- Data for Pillars (Grid + Deep Linking) ---
     const pillarsData = {
         outwit: {
             title: "OUTWIT",
-            items: ["Advantages & Twists", "The Huddle Test", "Tribal Council", "Common Mistakes"]
+            items: [
+                { title: "Advantages & Twists", content: "Details on idols, advantages, and twists." },
+                { title: "The Huddle Test", content: "How to survive the huddle." },
+                { title: "Tribal Council", content: "Navigating the vote." },
+                { title: "Common Mistakes", content: "What not to do." }
+            ]
         },
         outplay: {
             title: "OUTPLAY",
-            items: ["Return to the Old School", "Physical", "Swimming", "Puzzles"]
+            items: [
+                { title: "Return to the Old School", content: "Old school tactics." },
+                { title: "Physical", content: "Winning challenges." },
+                { title: "Swimming", content: "Water survival." },
+                { title: "Puzzles", content: "Mastering puzzles." }
+            ]
         },
         outlast: {
             title: "OUTLAST",
-            items: ["Fire", "Shelter", "Self Care", "Food"]
+            items: [
+                { title: "Fire", content: "Making fire is life." },
+                { title: "Shelter", content: "Building a home." },
+                { title: "Self Care", content: "Taking care of your body." },
+                { title: "Food", content: "Finding sustenance." }
+            ]
         }
     };
 
@@ -21,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modal-title');
     const modalList = document.getElementById('modal-list');
     const modalText = document.getElementById('modal-text');
+    const modalGrid = document.getElementById('modal-grid');
     const closeModalBtn = document.querySelector('.close-modal');
     const backBtn = document.getElementById('modal-back-btn');
     const clickableCards = document.querySelectorAll('.clickable-card');
@@ -35,44 +51,72 @@ document.addEventListener('DOMContentLoaded', () => {
         modalContentBox.className = 'modal-content';
         modalList.innerHTML = '';
         modalText.textContent = '';
+        modalGrid.innerHTML = '';
 
-        if (type === 'popup') {
-            // Pillars Logic
+        if (type === 'pillars-grid') {
+            // Pillars Intermediate Grid View
             const pillarKey = card.getAttribute('data-pillar');
             const data = pillarsData[pillarKey];
 
-            modalContentBox.classList.add('popup');
+            modalContentBox.classList.add('grid-view'); // Special width
             modalTitle.textContent = data ? data.title : title;
 
             if (data && data.items) {
                 data.items.forEach(item => {
-                    const li = document.createElement('li');
-                    li.textContent = item;
-                    modalList.appendChild(li);
+                    const gridCard = document.createElement('div');
+                    gridCard.className = 'sub-topic-card';
+                    gridCard.textContent = item.title;
+                    gridCard.addEventListener('click', () => openSubTopicModal(item));
+                    modalGrid.appendChild(gridCard);
                 });
             }
         } else if (type === 'full') {
-            // Full Page Logic
+            // Full Page Logic (Standard)
             modalOverlay.classList.add('full-page');
             modalContentBox.classList.add('full-page-content');
             modalTitle.textContent = title;
 
-            // For now, use the paragraph text from the card or a placeholder
             const cardDesc = card.querySelector('p');
             const descText = cardDesc ? cardDesc.textContent : "Detailed content for this section goes here.";
-
             modalText.textContent = descText;
-            // You could add more complex content injection here later
         }
+    }
+
+    // --- Open Sub-Topic Modal (Full Page) ---
+    function openSubTopicModal(item) {
+        // Transition from Grid to Full Page
+        // We can just re-style the current modal or close and reopen.
+        // Let's modify current state to look like full page.
+
+        // First, clear the grid
+        modalGrid.innerHTML = '';
+        modalContentBox.classList.remove('grid-view');
+
+        // Add Full Page classes
+        modalOverlay.classList.add('full-page');
+        modalContentBox.classList.add('full-page-content');
+
+        // Set Content
+        modalTitle.textContent = item.title;
+        modalText.textContent = item.content; // This is where the deep content goes
+
+        // Note: Back button logic.
+        // If we want Back to go to Grid, we need state management.
+        // For now, Back closes the overlay as per prompt "Back button... of the overlay".
+        // If we want to support nested navigation, we'd need a stack.
+        // Requirement: "When the user clicks on one of these... trigger the Full Page Overlay Modal"
+        // Requirement: "Replace... 'X' close button... with a prominent '← BACK' button"
+        // The previous implementation closed the modal on Back. Keeping that consistent.
     }
 
     // --- Close Modal Function ---
     function closeModal() {
         modalOverlay.classList.remove('active');
-        // Wait for transition to finish before cleaning up classes (optional, but cleaner)
+        // Wait for transition to finish before cleaning up classes
         setTimeout(() => {
             modalOverlay.classList.remove('full-page');
-            modalContentBox.classList.remove('popup', 'full-page-content');
+            modalContentBox.classList.remove('popup', 'full-page-content', 'grid-view');
+            modalGrid.innerHTML = ''; // Clean grid
         }, 300);
     }
 
@@ -82,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closeModalBtn.addEventListener('click', closeModal);
-    backBtn.addEventListener('click', closeModal);
+    backBtn.addEventListener('click', closeModal); // Currently just closes, could be enhanced
 
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
@@ -117,5 +161,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    console.log("Survivor Web Guide Loaded - v2");
+    console.log("Survivor Web Guide Loaded - v3");
 });
