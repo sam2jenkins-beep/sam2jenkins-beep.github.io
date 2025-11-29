@@ -811,3 +811,124 @@ img {
         -1em 2em 0 var(--pixel-color), 1em 2em 0 var(--pixel-color),
         0 3em 0 var(--pixel-color);
 }
+
+/* --- Newspaper Layout --- */
+.newspaper-container {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #f0f0f0; /* Keeping light text on dark background as per theme */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.newspaper-header {
+    text-align: center;
+    border-bottom: 3px double #ccc;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.newspaper-headline {
+    font-family: 'Impact', 'Charcoal', sans-serif;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+}
+
+.newspaper-subhead {
+    font-style: italic;
+    font-size: 1.8rem;
+    margin: 0 0 20px 0;
+    font-weight: normal;
+}
+
+.newspaper-byline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #777;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.newspaper-body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.newspaper-columns {
+    column-count: 1; /* Default to 1 column for mobile */
+    column-gap: 40px;
+}
+
+.newspaper-img {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.float-left {
+    float: none;
+    width: 100%;
+}
+
+.float-right {
+    float: none;
+    width: 100%;
+}
+
+.dateline {
+    font-variant: small-caps;
+}
+
+.newspaper-body h3 {
+    text-transform: uppercase;
+    border-bottom: 2px solid #ccc;
+    margin-top: 30px;
+    padding-bottom: 5px;
+    font-size: 1.5rem;
+    break-after: avoid;
+}
+
+.newspaper-body h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    break-after: avoid;
+}
+
+/* Tablet & Desktop */
+@media (min-width: 768px) {
+    .newspaper-columns {
+        column-count: 2;
+    }
+
+    .float-left {
+        float: left;
+        width: 45%;
+        margin-right: 25px;
+        margin-bottom: 15px;
+    }
+
+    .float-right {
+        float: right;
+        width: 45%;
+        margin-left: 25px;
+        margin-bottom: 15px;
+    }
+
+    .newspaper-headline {
+        font-size: 4.5rem;
+    }
+}
