@@ -6,8 +6,8 @@
     --text-white: #FFFFFF;
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
-    --font-heading: 'Helvetica Neue', 'Arial Black', Impact, sans-serif;
-    --font-body: 'Roboto', Helvetica, Arial, sans-serif;
+    --font-heading: 'Bitter', serif;
+    --font-body: 'Bitter', serif;
 }
 
 * {
@@ -71,8 +71,10 @@ img {
 }
 
 /* Glassmorphism */
-.glass-panel, .glass-card, .card, .timeline-card, .large-card {
-    background: var(--glass-bg);
+.glass-panel, .glass-card, .card, .timeline-card, .large-card, .pillar-card, .sub-topic-card {
+    background: linear-gradient(135deg, rgba(0, 20, 168, 0.6), rgba(255, 104, 206, 0.6));
+    background-size: 200% 200%;
+    animation: cardGradient 8s ease infinite alternate;
     backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: 15px;
@@ -81,17 +83,40 @@ img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glass-card:hover, .card:hover, .timeline-card:hover, .large-card:hover {
+@keyframes cardGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.glass-card:hover, .card:hover, .timeline-card:hover, .large-card:hover, .pillar-card:hover, .sub-topic-card:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px var(--neon-pink);
 }
 
 /* 1. HOME REDESIGN */
 #home {
-    background: #000;
+    background: linear-gradient(-45deg, #FF00FF, #F6CCFF, #0000CD, #FF8374, #662F72, #CD0000);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
     justify-content: center;
     align-items: flex-start;
     padding-left: 5vw;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .home-content-wrapper {
@@ -99,19 +124,14 @@ img {
     max-width: 1200px;
 }
 
-.massive-title {
-    font-size: 12vw;
-    line-height: 0.9;
-    font-weight: 900;
-    text-transform: uppercase;
-    background-image: url('assets/katesurvivor.jpeg');
-    background-size: cover;
-    background-position: center;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.home-hero-image {
     width: 100%;
+    max-width: 1000px; /* Cap width to prevent it being too massive on huge screens */
+    height: auto;      /* Maintain aspect ratio */
+    max-height: 60vh;  /* Ensure it doesn't take up the entire vertical space */
+    object-fit: cover;
     margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Add some depth */
 }
 
 .home-subtext {
@@ -127,7 +147,7 @@ img {
     color: var(--neon-pink);
     text-decoration: none;
     margin-bottom: 1rem;
-    text-transform: uppercase;
+    /* Removed text-transform: uppercase to respect precise user text */
     transition: color 0.3s;
 }
 
@@ -142,26 +162,93 @@ img {
     color: #ccc;
 }
 
-/* 2. ABOUT (Carousel) - Vertical Center, No Images */
-.carousel-container {
+/* 2. ABOUT (Accordion) - No Scroll, Interactive */
+.accordion-container {
     display: flex;
-    overflow-x: auto;
-    gap: 2rem;
-    width: 100%;
-    padding: 1rem;
-    scroll-snap-type: x mandatory;
+    width: 90%;
+    max-width: 1200px;
+    height: 60vh;
+    gap: 1rem;
+    overflow: hidden; /* Ensure no scroll */
 }
 
-.carousel-container .card {
-    min-width: 300px;
-    height: 300px; /* Fixed height for consistent look without images */
-    scroll-snap-align: center;
-    background-color: var(--card-blue);
+.accordion-card {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    /* Glassmorphism from common styles */
+    background: linear-gradient(135deg, rgba(0, 20, 168, 0.6), rgba(255, 104, 206, 0.6));
+    background-size: 200% 200%;
+    animation: cardGradient 8s ease infinite alternate;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: flex 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    position: relative;
+}
+
+.accordion-card:hover {
+    flex: 3; /* Expand on hover */
+    box-shadow: 0 0 20px var(--neon-pink);
+    background: linear-gradient(135deg, rgba(63, 0, 113, 0.8), rgba(0, 2, 161, 0.8)); /* Slightly darker on hover for contrast */
+}
+
+.accordion-card h3 {
+    margin: 0;
+    transition: transform 0.3s ease, font-size 0.3s ease;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* Rotate title if space is tight in default state?
+   For now, let's keep it simple. If 4 cards fit, horizontal is fine.
+   We will center it. */
+
+.accordion-card .content {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    transition: opacity 0.4s 0.1s ease, max-height 0.4s ease, margin-top 0.4s ease;
+    overflow: hidden;
+    width: 100%;
+}
+
+.accordion-card:hover .content {
+    opacity: 1;
+    max-height: 200px; /* Adjust as needed */
+    margin-top: 1rem;
+}
+
+.accordion-card p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .accordion-container {
+        flex-direction: column;
+        height: 70vh; /* Taller on mobile to fit content */
+    }
+
+    .accordion-card {
+        width: 100%;
+        flex: 1;
+    }
+
+    .accordion-card:hover {
+        flex: 2; /* Less expansion needed on mobile vertical */
+    }
+
+    .accordion-card:hover .content {
+        max-height: 150px;
+    }
 }
 
 /* 3. NOTEBOOKLM (Split) */
@@ -251,7 +338,7 @@ img {
     min-width: 100%;
     height: 100%;
     scroll-snap-align: center;
-    background-color: var(--bg-deep-purple);
+    /* Background handled by common glass-card styles now */
     border-top: 4px solid var(--neon-pink);
     display: flex;
     flex-direction: column;
@@ -301,7 +388,7 @@ img {
 .pillar-card {
     width: 200px;
     height: 200px;
-    background: var(--card-blue);
+    /* Background handled by common glass-card styles now */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -418,17 +505,17 @@ img {
 }
 
 .sub-topic-card {
-    background: var(--glass-bg);
+    /* Background handled by common glass-card styles now */
     border: 1px solid var(--neon-pink);
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    transition: transform 0.2s;
 }
 
 .sub-topic-card:hover {
-    background: var(--neon-pink);
+    /* Hover background handled by common styles or specific override if needed */
     color: #fff;
     transform: scale(1.05);
 }
