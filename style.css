@@ -666,3 +666,132 @@ img {
     background: linear-gradient(135deg, rgba(25, 25, 112, 0.8), rgba(119, 136, 153, 0.6));
     background-size: 200% 200%;
 }
+
+/* --- Pixel Art Icons --- */
+.pixel-icon-spine {
+    /* 1em = 4px (pixel size) */
+    font-size: 4px;
+    width: 1em;
+    height: 1em;
+    background: transparent;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 5;
+    transition: all 0.5s ease;
+}
+
+/* Hide spine icon when card is expanded (optional, but cleaner) */
+.accordion-card:hover .pixel-icon-spine {
+    opacity: 0;
+}
+
+.pixel-icon-bg {
+    /* 1em = 4px (pixel size base) */
+    font-size: 4px;
+    width: 1em;
+    height: 1em;
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Scale up the 4px grid by 20x for background */
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Pixel Art Color */
+:root {
+    --pixel-color: rgba(0, 0, 0, 1);
+}
+
+/* 1. Gift Box (7x7 approx) */
+.icon-gift {
+    box-shadow:
+        /* Bow */
+        -1em -3em 0 var(--pixel-color), 1em -3em 0 var(--pixel-color),
+        0 -2em 0 var(--pixel-color),
+        /* Box Top */
+        -3em -1em 0 var(--pixel-color), -2em -1em 0 var(--pixel-color), -1em -1em 0 var(--pixel-color), 0 -1em 0 var(--pixel-color), 1em -1em 0 var(--pixel-color), 2em -1em 0 var(--pixel-color), 3em -1em 0 var(--pixel-color),
+        /* Box Body Row 1 */
+        -3em 0 0 var(--pixel-color), -2em 0 0 var(--pixel-color), -1em 0 0 var(--pixel-color), 0 0 0 var(--pixel-color), 1em 0 0 var(--pixel-color), 2em 0 0 var(--pixel-color), 3em 0 0 var(--pixel-color),
+        /* Box Body Row 2 */
+        -3em 1em 0 var(--pixel-color), -2em 1em 0 var(--pixel-color), 0 1em 0 var(--pixel-color), 2em 1em 0 var(--pixel-color), 3em 1em 0 var(--pixel-color),
+        /* Box Body Row 3 */
+        -3em 2em 0 var(--pixel-color), -2em 2em 0 var(--pixel-color), 0 2em 0 var(--pixel-color), 2em 2em 0 var(--pixel-color), 3em 2em 0 var(--pixel-color),
+        /* Box Body Row 4 */
+        -3em 3em 0 var(--pixel-color), -2em 3em 0 var(--pixel-color), -1em 3em 0 var(--pixel-color), 0 3em 0 var(--pixel-color), 1em 3em 0 var(--pixel-color), 2em 3em 0 var(--pixel-color), 3em 3em 0 var(--pixel-color);
+}
+
+/* 2. Peace Sign (7x7) */
+.icon-peace {
+    box-shadow:
+        /* Circle Top */
+        -1em -3em 0 var(--pixel-color), 0 -3em 0 var(--pixel-color), 1em -3em 0 var(--pixel-color),
+        /* Circle Upper Sides */
+        -2em -2em 0 var(--pixel-color), 2em -2em 0 var(--pixel-color),
+        /* Middle Horizontalish / Vertical Line Top */
+        -3em -1em 0 var(--pixel-color), 0 -1em 0 var(--pixel-color), 3em -1em 0 var(--pixel-color),
+        /* Middle Row */
+        -3em 0 0 var(--pixel-color), 0 0 0 var(--pixel-color), 3em 0 0 var(--pixel-color),
+        /* Diagonals */
+        -3em 1em 0 var(--pixel-color), -1em 1em 0 var(--pixel-color), 0 1em 0 var(--pixel-color), 1em 1em 0 var(--pixel-color), 3em 1em 0 var(--pixel-color),
+        /* Bottom Sides */
+        -2em 2em 0 var(--pixel-color), -1em 2em 0 var(--pixel-color), 0 2em 0 var(--pixel-color), 1em 2em 0 var(--pixel-color), 2em 2em 0 var(--pixel-color),
+        /* Bottom */
+        -1em 3em 0 var(--pixel-color), 0 3em 0 var(--pixel-color), 1em 3em 0 var(--pixel-color);
+}
+/* Refined Peace Sign (Simplification for small grid) */
+.icon-peace {
+    box-shadow:
+        /* Rim */
+        0 -3em 0 var(--pixel-color),
+        -2em -2em 0 var(--pixel-color), 2em -2em 0 var(--pixel-color),
+        -3em 0 0 var(--pixel-color), 3em 0 0 var(--pixel-color),
+        -2em 2em 0 var(--pixel-color), 2em 2em 0 var(--pixel-color),
+        0 3em 0 var(--pixel-color),
+        /* Center Line */
+        0 -2em 0 var(--pixel-color), 0 -1em 0 var(--pixel-color), 0 0 0 var(--pixel-color), 0 1em 0 var(--pixel-color), 0 2em 0 var(--pixel-color),
+        /* Diagonals */
+        -1em 1em 0 var(--pixel-color), -2em 2em 0 var(--pixel-color),
+        1em 1em 0 var(--pixel-color), 2em 2em 0 var(--pixel-color);
+}
+
+
+/* 3. Exclamation Point (Note) */
+.icon-note {
+    box-shadow:
+        0 -3em 0 var(--pixel-color),
+        0 -2em 0 var(--pixel-color),
+        0 -1em 0 var(--pixel-color),
+        0 0 0 var(--pixel-color),
+        /* Gap */
+        0 2em 0 var(--pixel-color);
+}
+/* Make it thicker */
+.icon-note {
+    box-shadow:
+        -0.5em -3em 0 var(--pixel-color), 0.5em -3em 0 var(--pixel-color),
+        -0.5em -2em 0 var(--pixel-color), 0.5em -2em 0 var(--pixel-color),
+        -0.5em -1em 0 var(--pixel-color), 0.5em -1em 0 var(--pixel-color),
+        -0.5em 0 0 var(--pixel-color), 0.5em 0 0 var(--pixel-color),
+        /* Dot */
+        -0.5em 2em 0 var(--pixel-color), 0.5em 2em 0 var(--pixel-color);
+}
+
+
+/* 4. Heart (Good Luck) */
+.icon-heart {
+    box-shadow:
+        -2em -2em 0 var(--pixel-color), -1em -2em 0 var(--pixel-color), 1em -2em 0 var(--pixel-color), 2em -2em 0 var(--pixel-color),
+        -3em -1em 0 var(--pixel-color), 3em -1em 0 var(--pixel-color),
+        -3em 0 0 var(--pixel-color), 3em 0 0 var(--pixel-color),
+        -2em 1em 0 var(--pixel-color), 2em 1em 0 var(--pixel-color),
+        -1em 2em 0 var(--pixel-color), 1em 2em 0 var(--pixel-color),
+        0 3em 0 var(--pixel-color);
+}
