@@ -202,34 +202,43 @@ img {
 }
 
 .accordion-card:hover {
-    flex: 3; /* Expand on hover */
+    flex: 5; /* Drastically expand on hover */
     box-shadow: 0 0 20px var(--neon-pink);
-    background: linear-gradient(135deg, rgba(63, 0, 113, 0.8), rgba(0, 2, 161, 0.8)); /* Slightly darker on hover for contrast */
+    background: linear-gradient(135deg, rgba(63, 0, 113, 0.8), rgba(0, 2, 161, 0.8));
 }
 
 .accordion-card h3 {
     margin: 0;
-    transition: transform 0.3s ease, font-size 0.3s ease;
+    transition: all 0.5s ease;
     white-space: nowrap;
     z-index: 2;
+    /* Vertical Text Mode (Spine) */
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg); /* Fix direction to read bottom-up if preferred, or remove for top-down */
 }
 
-/* Rotate title if space is tight in default state?
-   For now, let's keep it simple. If 4 cards fit, horizontal is fine.
-   We will center it. */
+.accordion-card:hover h3 {
+    /* Reset to horizontal on expand */
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg);
+}
 
 .accordion-card .content {
     opacity: 0;
     max-height: 0;
     margin-top: 0;
-    transition: opacity 0.4s 0.1s ease, max-height 0.4s ease, margin-top 0.4s ease;
+    transition: opacity 0.4s 0.2s ease, max-height 0.4s ease, margin-top 0.4s ease;
     overflow: hidden;
     width: 100%;
+    /* Ensure content doesn't break layout while hidden */
+    display: none;
 }
 
 .accordion-card:hover .content {
+    display: block;
     opacity: 1;
-    max-height: 200px; /* Adjust as needed */
+    max-height: 300px;
     margin-top: 1rem;
 }
 
@@ -251,6 +260,12 @@ img {
 
     .accordion-card:hover {
         flex: 2; /* Less expansion needed on mobile vertical */
+    }
+
+    /* Disable vertical text on mobile */
+    .accordion-card h3 {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
     }
 
     .accordion-card:hover .content {
@@ -580,4 +595,74 @@ img {
     color: var(--neon-pink);
     position: absolute;
     left: 0;
+}
+
+.home-top-right-text {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--text-white);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-align: right;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .home-top-right-text {
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Section-Specific Card Gradients --- */
+
+/* 2. ABOUT: Deep Violet to Magenta */
+#about .accordion-card {
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.7), rgba(238, 130, 238, 0.7));
+    background-size: 200% 200%;
+}
+#about .accordion-card:hover {
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.9), rgba(238, 130, 238, 0.9));
+}
+
+/* 3. NOTEBOOKLM: Tech Green */
+#notebooklm .glass-panel {
+    background: linear-gradient(135deg, rgba(0, 50, 0, 0.7), rgba(0, 255, 127, 0.4));
+    background-size: 200% 200%;
+}
+
+/* 4. PREGAME: Cyan to Electric Blue */
+#pregame .glass-card {
+    background: linear-gradient(135deg, rgba(0, 139, 139, 0.6), rgba(0, 191, 255, 0.6));
+    background-size: 200% 200%;
+}
+
+/* 5. META GAME: Neon Pink to Hot Purple */
+#metagame .card {
+    background: linear-gradient(135deg, rgba(199, 21, 133, 0.6), rgba(255, 20, 147, 0.6));
+    background-size: 200% 200%;
+}
+
+/* 6. PHASES: Red to Orange (Intensity) */
+#phases .timeline-card {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.7), rgba(255, 69, 0, 0.6));
+    background-size: 200% 200%;
+}
+
+/* 7. PILLARS: Gold to Bronze */
+#pillars .pillar-card {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.7), rgba(218, 165, 32, 0.7));
+    background-size: 200% 200%;
+}
+
+/* 8. END GAME: Deep Midnight Blue to Silver */
+#endgame .large-card {
+    background: linear-gradient(135deg, rgba(25, 25, 112, 0.8), rgba(119, 136, 153, 0.6));
+    background-size: 200% 200%;
 }
