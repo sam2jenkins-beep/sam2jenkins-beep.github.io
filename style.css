@@ -682,24 +682,27 @@ img {
 
 /* --- Pixel Art Icons --- */
 .pixel-icon-spine {
-    /* 1em = 4px (pixel size) */
-    font-size: 4px;
+    /* 1em = 10px (Increased pixel size for spine visibility) */
+    font-size: 10px;
     width: 1em;
     height: 1em;
     background: transparent;
     position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Perfect center */
     pointer-events: none;
-    opacity: 0.7;
+    opacity: 1; /* Fully visible */
     z-index: 5;
     transition: all 0.5s ease;
+    /* Override global pixel color for spine */
+    --pixel-color: #FF5F1F; /* Neon Orange */
 }
 
-/* Hide spine icon when card is expanded (optional, but cleaner) */
+/* Hide spine icon when card is expanded */
 .accordion-card:hover .pixel-icon-spine {
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5); /* Shrink effect on exit */
 }
 
 .pixel-icon-bg {
@@ -718,7 +721,7 @@ img {
     z-index: 0;
 }
 
-/* Pixel Art Color */
+/* Pixel Art Color (Global Default - Black) */
 :root {
     --pixel-color: rgba(0, 0, 0, 1);
 }
