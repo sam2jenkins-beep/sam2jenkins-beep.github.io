@@ -302,6 +302,23 @@ img {
     text-align: center;
 }
 
+/* Specific overrides for NotebookLM content to fit without scrolling */
+#notebooklm .split-left {
+    justify-content: center;
+    padding: 2rem;
+}
+
+#notebooklm .split-left p {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+#notebooklm .split-left p:last-child {
+    margin-bottom: 0;
+}
+
 .neon-button {
     display: inline-block;
     padding: 1rem 2rem;
@@ -330,6 +347,28 @@ img {
         width: 100%;
         height: auto;
         padding: 1rem;
+    }
+
+    /* NotebookLM Mobile adjustments */
+    #notebooklm .split-screen {
+        justify-content: space-evenly;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    #notebooklm .split-left {
+        flex: 0 1 auto; /* Don't grow aggressively */
+        margin-bottom: 0.5rem;
+        padding: 1rem;
+    }
+
+    #notebooklm .split-left p {
+        font-size: 0.8rem; /* Smaller font on mobile to ensure fit */
+        text-align: justify;
+    }
+
+    #notebooklm .split-right {
+        flex: 0 0 auto;
     }
 }
 
