@@ -5,7 +5,66 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "OUTWIT",
             items: [
                 { title: "Advantages & Twists", content: "Details on idols, advantages, and twists." },
-                { title: "The Huddle Test", content: "How to survive the huddle." },
+                {
+                    title: "The Huddle Test",
+                    content: `
+                    <div class="huddle-blog-post">
+                        <h2 class="huddle-title">Winning the Last Minute Whisper War</h2>
+                        <h3 class="huddle-subtitle">The "Live Tribal" Phenomenon</h3>
+
+                        <p>Modern Survivor has evolved past the era where the vote is locked before the torches are lit. The "Live Tribal" is the moment where the plan disintegrates—usually triggered by a leaked secret, a misspoken word, or a revealed advantage.</p>
+                        <p>This is not just noise; it is a real-time market crash of trust. The Huddle Test is your ability to navigate this crash without going broke.</p>
+
+                        <h3 class="neon-heading">I. The Anatomy of the Huddle</h3>
+                        <p>To win the whisper war, you must identify which phase of the chaos is occurring.</p>
+                        <ul>
+                            <li><strong>The Catalyst:</strong> Someone feels unsafe and whispers to a neighbor.</li>
+                            <li><strong>The Contagion:</strong> Paranoia spreads. Even secure players stand up.</li>
+                            <li><strong>The Huddle:</strong> Discrete conversations merge into a group huddle.</li>
+                            <li><strong>The Settlement:</strong> The group sits. The vote is locked or anxiety peaks.</li>
+                        </ul>
+                        <p class="huddle-key-rule"><strong>KEY RULE:</strong> Never remain seated if the majority of the tribe stands up. Even if you are safe, sitting signals you are out of the loop or stubbornly opposed to the consensus.</p>
+
+                        <h3 class="neon-heading">II. Strategic Positioning</h3>
+                        <p>Your role depends entirely on your position in the hierarchy.</p>
+
+                        <h4>A. The Architect (The Leader)</h4>
+                        <p><strong>Goal:</strong> Containment. Do not initiate whispering. Use the <em>Anchor Technique</em>: Keep body language open but firm. Repeat: "It’s still [Name]. Stick to the plan." <strong>Risk:</strong> Appearing too authoritarian.</p>
+
+                        <h4>B. The Target (The Bottom)</h4>
+                        <p><strong>Goal:</strong> Disruption. You must trigger the whisper. Use the <em>"Grenade" Technique</em>: Whisper a believable lie to the bottom of the majority: "They are splitting the vote on you just in case."</p>
+
+                        <h4>C. The Swing (The Middle)</h4>
+                        <p><strong>Goal:</strong> Leverage. Stand in the middle. Use the <em>"Bid War" Technique</em>: Look visibly conflicted. Extract a promise for the next round in exchange for your vote right now.</p>
+
+                        <h3 class="neon-heading">III. Mechanics of the Whisper</h3>
+                        <ul>
+                            <li><strong>The Physical Block:</strong> Position your shoulder to block the line of sight of the enemy. Prevent lip-reading.</li>
+                            <li><strong>The Performative Whisper:</strong> Cover your mouth and say nothing important (e.g., "Is that a spider?"). Make the other alliance panic.</li>
+                            <li><strong>Lip Reading Defense:</strong> Hand-over-mouth is mandatory. High-def cameras capture everything.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">IV. Psychological Management</h3>
+                        <p><strong>Combating "FOMO":</strong> If you don't know the plan, look at the person you trust most. Mirror their vote.</p>
+                        <p><strong>The Eye Contact Check:</strong></p>
+                        <ul>
+                            <li>Steady gaze + nod = Plan unchanged.</li>
+                            <li>Darting eyes + avoidance = Plan shifted (You might be the target).</li>
+                        </ul>
+
+                        <div class="huddle-checklist">
+                            <h3>SUMMARY CHECKLIST</h3>
+                            <ul>
+                                <li>✔ Did I cover my mouth?</li>
+                                <li>✔ Did I stand up when the majority stood up?</li>
+                                <li>✔ Did I verify the target name with two people?</li>
+                                <li>✔ Did I maintain eye contact with my #1 ally?</li>
+                            </ul>
+                        </div>
+                        <p class="huddle-outro">The winning move isn't always changing the vote; it's ensuring you are on the right side of the chaos.</p>
+                    </div>
+                    `
+                },
                 { title: "Tribal Council", content: "Navigating the vote." },
                 { title: "Common Mistakes", content: "What not to do." }
             ]
@@ -486,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Set Content
         modalTitle.textContent = item.title;
-        modalText.textContent = item.content; // This is where the deep content goes
+        modalText.innerHTML = item.content; // This is where the deep content goes
 
         // Note: Back button logic.
         // If we want Back to go to Grid, we need state management.

@@ -1458,3 +1458,123 @@ img {
         width: 100%;
     }
 }
+
+/* --- The Huddle Test Blog Post --- */
+
+.huddle-blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px;
+}
+
+.huddle-title {
+    font-size: 2.5rem;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.huddle-subtitle {
+    font-size: 1.5rem;
+    color: #ccc;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.neon-heading {
+    font-size: 1.8rem;
+    color: #00FFFF; /* Neon Cyan */
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    border-left: 4px solid #00FFFF;
+    padding-left: 1rem;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.huddle-blog-post h4 {
+    font-size: 1.3rem;
+    color: var(--neon-pink);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.huddle-blog-post p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.huddle-blog-post ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    list-style-type: none; /* We'll use custom bullets if needed, or rely on global */
+}
+
+.huddle-blog-post li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Custom bullet for Huddle list */
+.huddle-blog-post li::before {
+    /* Rely on global styling or add specific if needed. Global uses '►' */
+    /* Let's keep global for consistency */
+}
+
+.huddle-key-rule {
+    background: rgba(255, 0, 0, 0.2);
+    border: 1px solid red;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    font-weight: bold;
+}
+
+.huddle-checklist {
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #00FF00;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.huddle-checklist h3 {
+    color: #00FF00;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px #00FF00;
+}
+
+.huddle-checklist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.huddle-checklist li {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Remove default bullet for checklist since we have checks */
+.huddle-checklist li::before {
+    content: none !important;
+}
+
+.huddle-outro {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #fff;
+    margin-top: 2rem;
+    opacity: 0.8;
+}
