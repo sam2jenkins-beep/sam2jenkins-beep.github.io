@@ -932,3 +932,58 @@ img {
         font-size: 4.5rem;
     }
 }
+
+/* --- Realities Manifesto Extras --- */
+
+.newspaper-img-center {
+    display: block;
+    width: 100%;
+    margin: 30px 0;
+    border: 5px solid white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    break-inside: avoid;
+}
+
+.stat-box {
+    border: 4px double #f0f0f0;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    break-inside: avoid;
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Impact', sans-serif;
+    color: #FF00FF; /* Neon accent */
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Ensure headers span nicely if possible, but keep in flow for now as per newspaper column logic */
+@media (min-width: 768px) {
+    /* If we wanted the image to span both columns, we would use column-span: all
+       However, browser support for column-span inside column-count is good but can be finicky.
+       Let's try it for the center image to make it "bite into both sides" */
+
+    .newspaper-img-center {
+        column-span: all;
+        max-height: 400px;
+        object-fit: cover;
+    }
+
+    .newspaper-body h3 {
+        column-span: all; /* Headers breaking the flow looks very newspaper-like */
+        text-align: center;
+        border-bottom: 3px solid #ccc;
+    }
+}

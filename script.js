@@ -89,6 +89,66 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    const realitiesContent = `
+        <div class="newspaper-container">
+            <header class="newspaper-header">
+                <h2 class="newspaper-headline">The Reality Star Manifesto</h2>
+                <h3 class="newspaper-subhead">Survivor Protocol For The Unseen Reality</h3>
+                <div class="newspaper-byline">
+                    <div>Unknown Author</div>
+                    <div>Reporting from an Unknown Location</div>
+                    <div>//</div>
+                </div>
+            </header>
+
+            <div class="newspaper-body">
+                <div class="newspaper-columns">
+                    <p>Competitive reality TV is not a game; it is an engineered conflict designed to break you. Read this and prepare for war.</p>
+
+                    <h3>01. THE LOGISTICAL CAGE</h3>
+                    <p>The production team has constructed a highly polished prison. Your existence is non-private, non-spontaneous, and entirely controlled.</p>
+
+                    <h4>24/7 SURVEILLANCE</h4>
+                    <p>You are a goldfish in an engineered bowl. Dedicated camera crews are "a few feet away" at all times. Abandon the illusion of privacy immediately.</p>
+
+                    <h4>MUTE INTELLIGENCE</h4>
+                    <p>Watch where the glass points. If the crew suddenly focuses, an Idol is being hunted. Use their silence as a tactical scout.</p>
+
+                    <p><strong>STRICT PROTOCOL:</strong> If you attempt to speak to a crew member, their mandated response will be an "awkward silence." This is designed to maximize your isolation.</p>
+
+                    <img src="assets/manifesto.jpeg" class="newspaper-img-center" alt="Manifesto">
+
+                    <h3>02. COGNITIVE WARFARE</h3>
+                    <p>Your strategic mind will be running on deficit, paranoia will be your constant companion, and your primary enemy will be your own depleted psyche.</p>
+
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Projected Burnout Rate</span>
+                    </div>
+
+                    <p>Strategic errors are not mistakes; they are the planned side-effect of engineered caloric collapse.</p>
+
+                    <h4>THE VULNERABILITY PARADOX</h4>
+                    <p>Under stress, players "trauma dump" deep personal details to build rapport.</p>
+                    <p><strong>THE RISK:</strong> This is frequently misinterpreted by tribemates as pure manipulation. Oversharing makes you a target. Silence is safer.</p>
+
+                    <h3>03. THE EXECUTIONER'S STAGE</h3>
+                    <p>Tribal Council is not a vote; it is a lengthy, high-surveillance public interrogation. BE READY TO ENTERTAIN. You don’t need to be anybody but yourself, but you do need to be able to speak in a way editors will feel obligated to include you in the edit.</p>
+                    <p><strong>THE RISK:</strong> Don’t let yourself show your hand by overhearing at tribal just because the host keeps pushing you. It’s his job to pull info out of you, but it’s your job to stay in the game!</p>
+
+                    <h4>Prepare for a Marathon</h4>
+                    <p>The televised segment lasts minutes, but the interrogation lasts hours. The sustained scrutiny will exploit every mental weakness.</p>
+
+                    <h4>Host Asymmetry</h4>
+                    <p>The Host is an active strategic threat. They use producer intel to ask surgically precise questions designed to expose alliances.</p>
+
+                    <h4>Deliver or Die</h4>
+                    <p>Tribal is heavily redacted. If you do not deliver clear, dramatic rhetoric, you are strategically irrelevant—a silent ghost in the final cut. Think Purple Kelly.</p>
+                </div>
+            </div>
+        </div>
+    `;
+
     // --- Modal Elements ---
     const modalOverlay = document.getElementById('modal-overlay');
     const modalContentBox = document.getElementById('modal-content-box');
@@ -139,6 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (contentId === 'final48') {
                 modalTitle.style.display = 'none'; // Hide default title for newspaper layout
                 modalText.innerHTML = final48Content; // Inject HTML
+            } else if (contentId === 'realities') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = realitiesContent;
             } else {
                 modalTitle.style.display = 'block';
                 modalTitle.textContent = title;
