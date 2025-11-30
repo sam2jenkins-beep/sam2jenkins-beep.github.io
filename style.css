@@ -479,6 +479,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
+    height: 100dvh; /* Mobile viewport fix */
     background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
@@ -516,13 +517,14 @@ img {
     height: 100%;
     background: transparent;
     border: none;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 2rem; /* Reduced padding for mobile friendliness */
+    padding-bottom: 150px; /* Massive bottom buffer for mobile scrolling */
+    display: block; /* Flow layout instead of flex centering */
+    overflow-y: auto; /* Enable vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
     max-width: none;
     border-radius: 0;
+    text-align: center; /* Default align, specific content can override */
 }
 
 /* Pillars Grid View (Intermediate State) */
@@ -566,9 +568,10 @@ img {
 
 /* Specific Back Button for Full Page */
 .back-button {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
+    /* Removed absolute positioning to allow scrolling with content */
+    position: relative;
+    display: none; /* Hidden by default */
+    margin: 0 0 2rem 0; /* Bottom margin for spacing */
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--text-white);
@@ -578,8 +581,7 @@ img {
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.3s;
-    display: none;
-    z-index: 1100; /* Ensure it is above the modal content */
+    z-index: 1100;
 }
 
 .back-button:hover {
@@ -588,7 +590,9 @@ img {
 }
 
 .modal-overlay.full-page .back-button {
-    display: block;
+    display: block; /* Show in flow as block to allow alignment */
+    width: fit-content;
+    margin-right: auto; /* Force alignment to the left */
 }
 
 .modal-overlay.full-page .close-modal {
@@ -985,5 +989,341 @@ img {
         column-span: all; /* Headers breaking the flow looks very newspaper-like */
         text-align: center;
         border-bottom: 3px solid #ccc;
+    }
+}
+
+/* --- Case Studies Layout --- */
+.case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1400px; /* Allow it to be wide */
+    margin: 0 auto;
+    text-align: left;
+}
+
+.case-study-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.case-study-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 1rem 0;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.case-study-card h2 {
+    font-size: 1.5rem;
+    color: var(--text-white);
+    border-bottom: 1px solid var(--text-white);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.case-study-card h3 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.case-study-card ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.case-study-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* Neon Colors */
+.neon-blue {
+    color: #00FFFF;
+    text-shadow: 0 0 5px #00FFFF;
+}
+
+.neon-pink {
+    color: #FF00FF;
+    text-shadow: 0 0 5px #FF00FF;
+}
+
+.neon-orange {
+    color: #FF5F1F;
+    text-shadow: 0 0 5px #FF5F1F;
+}
+
+/* Responsive Case Studies */
+@media (max-width: 1024px) {
+    .case-studies-grid {
+        grid-template-columns: 1fr; /* Stack vertically on tablet/mobile */
+        gap: 3rem;
+    }
+
+    .case-study-card {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* --- Constellation/Star Map Timeline --- */
+
+.constellation-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.constellation-header h2 {
+    font-size: 2.5rem;
+    color: var(--text-white);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.constellation-header h3 {
+    font-size: 1.5rem;
+    color: var(--neon-blue); /* Assuming neon-blue variable or fallback */
+    color: #00FFFF;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.constellation-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Central Line */
+.constellation-timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Star Node */
+.timeline-item::after {
+    content: '★'; /* Star character */
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    background-color: var(--bg-deep-purple);
+    border: 2px solid #00FFFF; /* Neon Cyan */
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00FFFF;
+    font-size: 14px;
+    box-shadow: 0 0 15px #00FFFF;
+}
+
+/* Left/Right Positioning */
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+}
+
+.timeline-item.right::after {
+    left: -15px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.05); /* Very subtle glass */
+    border: 1px solid rgba(0, 255, 255, 0.3); /* Cyan border */
+    position: relative;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s;
+}
+
+.timeline-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Typography */
+.timeline-content .year {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 5px;
+    font-family: 'Courier New', monospace;
+}
+
+.timeline-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+    text-transform: uppercase;
+}
+
+.timeline-content .winner {
+    font-size: 1.1rem;
+    color: gold;
+    margin-bottom: 15px;
+    font-style: italic;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.timeline-content .meta-title {
+    font-size: 1.2rem;
+    color: #00FFFF; /* Neon Cyan */
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.key-mechanic {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-left: 3px solid var(--neon-pink);
+}
+
+.key-mechanic strong {
+    color: var(--neon-pink);
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.key-mechanic p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+/* Forecast/Future Section Styles */
+.timeline-item.forecast .timeline-content {
+    border: 1px dashed #FF00FF; /* Neon Pink Dashed Border */
+    background: rgba(255, 0, 255, 0.05);
+}
+
+.timeline-item.forecast::after {
+    content: '✦'; /* Different Star */
+    background-color: #3F0071;
+    border-color: #FF00FF;
+    color: #FF00FF;
+    box-shadow: 0 0 15px #FF00FF;
+    font-size: 18px;
+}
+
+.timeline-item.forecast .year-future {
+    color: #FF00FF;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.forecast-list {
+    list-style: none;
+    padding: 0;
+}
+
+.forecast-list li {
+    margin-bottom: 10px;
+    padding-left: 0;
+    text-align: left;
+}
+
+.forecast-list strong {
+    color: #fff;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Line moves to left */
+    .constellation-timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+    }
+
+    .timeline-item.left::after, .timeline-item.right::after {
+        left: 15px;
+    }
+
+    .timeline-item.right {
+        left: 0%;
     }
 }

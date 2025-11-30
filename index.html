@@ -117,7 +117,7 @@
                     <img src="assets/training.jpeg" alt="Training">
                     <p>Physical and mental prep.</p>
                 </div>
-                <div class="glass-card clickable-card" data-modal-type="full">
+                <div class="glass-card clickable-card" data-modal-type="full" data-content-id="survivors-prep">
                     <h3>How Past Survivors Have Prepared</h3>
                     <!-- REPLACE: assets/past_survivors.jpg -->
                     <img src="assets/othersprepare.jpeg" alt="Past Survivors">
@@ -154,7 +154,7 @@
                     <img src="assets/usavsqc.jpeg" alt="USA vs QC">
                     <p>Comparative strategies.</p>
                 </div>
-                <div class="card clickable-card" data-modal-type="full">
+                <div class="card clickable-card" data-modal-type="full" data-content-id="history-qc">
                     <h3>History of Survivor Quebec</h3>
                     <!-- REPLACE: assets/history_qc.jpg -->
                     <img src="assets/history.jpeg" alt="History QC">
@@ -239,16 +239,16 @@
 
     <!-- Unified Modal Container -->
     <div id="modal-overlay" class="modal-overlay">
-        <!-- Back Button for Full Page Modals -->
-        <button class="back-button" id="modal-back-btn">&larr; BACK</button>
-
         <div class="modal-content" id="modal-content-box">
+            <!-- Back Button for Full Page Modals (Moved inside content for flow) -->
+            <button class="back-button" id="modal-back-btn">&larr; BACK</button>
+
             <span class="close-modal">&times;</span>
             <h2 id="modal-title">Title</h2>
             <div id="modal-body">
                 <!-- Content injected via JS -->
                  <ul id="modal-list"></ul>
-                 <p id="modal-text"></p>
+                 <div id="modal-text"></div>
                  <div id="modal-grid" class="modal-grid"></div>
             </div>
         </div>
