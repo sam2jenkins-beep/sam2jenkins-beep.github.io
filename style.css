@@ -516,13 +516,12 @@ img {
     height: 100%;
     background: transparent;
     border: none;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 2rem; /* Reduced padding for mobile friendliness */
+    display: block; /* Flow layout instead of flex centering */
+    overflow-y: auto; /* Enable vertical scrolling */
     max-width: none;
     border-radius: 0;
+    text-align: center; /* Default align, specific content can override */
 }
 
 /* Pillars Grid View (Intermediate State) */
@@ -566,9 +565,10 @@ img {
 
 /* Specific Back Button for Full Page */
 .back-button {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
+    /* Removed absolute positioning to allow scrolling with content */
+    position: relative;
+    display: none; /* Hidden by default */
+    margin: 0 0 2rem 0; /* Bottom margin for spacing */
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--text-white);
@@ -578,8 +578,7 @@ img {
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.3s;
-    display: none;
-    z-index: 1100; /* Ensure it is above the modal content */
+    z-index: 1100;
 }
 
 .back-button:hover {
@@ -588,7 +587,9 @@ img {
 }
 
 .modal-overlay.full-page .back-button {
-    display: block;
+    display: block; /* Show in flow as block to allow alignment */
+    width: fit-content;
+    margin-right: auto; /* Force alignment to the left */
 }
 
 .modal-overlay.full-page .close-modal {

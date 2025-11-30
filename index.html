@@ -239,16 +239,16 @@
 
     <!-- Unified Modal Container -->
     <div id="modal-overlay" class="modal-overlay">
-        <!-- Back Button for Full Page Modals -->
-        <button class="back-button" id="modal-back-btn">&larr; BACK</button>
-
         <div class="modal-content" id="modal-content-box">
+            <!-- Back Button for Full Page Modals (Moved inside content for flow) -->
+            <button class="back-button" id="modal-back-btn">&larr; BACK</button>
+
             <span class="close-modal">&times;</span>
             <h2 id="modal-title">Title</h2>
             <div id="modal-body">
                 <!-- Content injected via JS -->
                  <ul id="modal-list"></ul>
-                 <p id="modal-text"></p>
+                 <div id="modal-text"></div>
                  <div id="modal-grid" class="modal-grid"></div>
             </div>
         </div>
