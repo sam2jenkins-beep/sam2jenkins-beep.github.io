@@ -149,6 +149,109 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    const survivorsContent = `
+        <div class="case-studies-grid">
+            <!-- Case Study 1: Andre -->
+            <div class="case-study-card">
+                <h2>Case Study: The "Professional Contestant" Approach</h2>
+                <img src="assets/andre.jpeg" alt="Andre - Survivor Quebec" class="case-study-img">
+                <p><strong>Subject:</strong> André (Survivor Québec Season 2)<br>
+                <strong>Core Philosophy:</strong> Transitioning from "Superfan" to "High-Performance Athlete," treating the game not as an adventure, but as a vocation requiring specific technical training.</p>
+
+                <h3 class="neon-blue">I. Physical Conditioning (Functional Utility)</h3>
+                <p><strong>Objective:</strong> Mitigate biological failure points to maintain cognitive function.</p>
+                <ul>
+                    <li><strong>Metabolic Simulation:</strong> Utilized CrossFit/AMRAP (As Many Reps As Possible) to train decision-making while at near-maximum heart rate, simulating the stop-start nature of immunity challenges.</li>
+                    <li><strong>Biomechanical Mimicry:</strong> Replaced gym isolation exercises with "awkward object" training (sandbags, logs) and isometrics (static holds) to replicate the specific physical demands of tribal challenges.</li>
+                    <li><strong>Hardening:</strong> Deliberately slept outdoors in adverse weather to acclimate circadian rhythms, preventing the "culture shock" and sleep deprivation that typically hamper players in the first 72 hours.</li>
+                </ul>
+
+                <h3 class="neon-blue">II. Strategic Focus (Game Theory)</h3>
+                <p><strong>Objective:</strong> Remove emotion to view the game as a solveable logic puzzle.</p>
+                <ul>
+                    <li><strong>Asset Acquisition:</strong> Abandoned random searching for "Grid Searching" and pattern recognition, analyzing production tendencies for hiding idols (e.g., unique trees, rock formations).</li>
+                    <li><strong>Communication Architecture:</strong> Practiced "Claim, Evidence, Reasoning" rhetorical structures to prepare for Final Tribal Council, ensuring game moves could be explained clearly to a Jury.</li>
+                    <li><strong>Ego Management:</strong> Prepared specifically for the "aftercare" of blindsided allies to manage bitterness and secure jury votes.</li>
+                </ul>
+
+                <h3 class="neon-blue">III. Survival Skills (Energy Economics)</h3>
+                <p><strong>Objective:</strong> Minimize caloric deficit to preserve mental energy for strategy.</p>
+                <ul>
+                    <li><strong>Technical Mastery:</strong> Mastered friction fire-making (bow drill) in wet/windy conditions to establish immediate value to the tribe and ensure survival without a flint.</li>
+                    <li><strong>Botanical Intelligence:</strong> Memorized the specific flora of the filming location (Philippines) to instantly distinguish high-calorie resources (taro, coconut) from low-value fillers or toxic threats.</li>
+                </ul>
+            </div>
+
+            <!-- Case Study 2: Parvati -->
+            <div class="case-study-card">
+                <h2>Case Study: The "Social Manipulator" Approach</h2>
+                <img src="assets/parvati.jpeg" alt="Parvati Shallow" class="case-study-img">
+                <p><strong>Subject:</strong> Parvati Shallow (Survivor Legend)<br>
+                <strong>Core Philosophy:</strong> Psychological warfare and "Visual Branding." She treats the game as a sociological experiment, combining Machiavellian strategy with a meticulously curated character archetype.</p>
+
+                <h3 class="neon-pink">I. Strategic Preparation (Psychological Warfare)</h3>
+                <p><strong>Objective:</strong> Master the "Social Hack" to control outcomes without absorbing emotional damage.</p>
+                <ul>
+                    <li><strong>The Syllabus:</strong> Cited Robert Greene’s The 48 Laws of Power as essential pre-game reading. She studied manipulation as an academic subject rather than relying solely on intuition.</li>
+                    <li><strong>Emotional Compartmentalization:</strong> Internalized the distinction between "Real Life" and "The Game." This allowed her to betray allies and "throw people under the bus" without hesitation, viewing these actions as game mechanics rather than moral failings.</li>
+                    <li><strong>Fluid Adaptability:</strong> Trained herself to be non-dogmatic with alliances. Unlike players who stick to a "ride or die" mentality, Parvati prepared to shift loyalties instantly based on the immediate power vacuum.</li>
+                </ul>
+
+                <h3 class="neon-pink">II. Wardrobe Engineering (The Visual Meta)</h3>
+                <p><strong>Objective:</strong> Balance physiological survival needs with Production’s desired visual storytelling.</p>
+                <ul>
+                    <li><strong>Archetype Alignment:</strong> Understood that Production casts for specific roles (in her case, "The Flirt"). She cooperated with their requests for "sexy" clothing to secure her spot, acknowledging that branding is part of the game.</li>
+                    <li><strong>Iterative Equipment Learning:</strong>
+                        <ul>
+                            <li>Phase 1 (Cook Islands): Failure. Wore basic tank/shorts and froze.</li>
+                            <li>Phase 2 (Micronesia): Adaptation. Switched to long pants and long sleeves (which doubled as a dress).</li>
+                            <li>Phase 3 (HvV): Optimization. Focused on fabric technology, specifically seeking "quick-dry" materials after realizing previous layers retained moisture too long.</li>
+                        </ul>
+                    </li>
+                    <li><strong>The "Weight Loss" Hack:</strong> Deliberately selected string bikinis rather than clasps, allowing her to tie them tighter as she rapidly lost body mass, preventing wardrobe malfunctions.</li>
+                </ul>
+
+                <h3 class="neon-pink">III. Social Dynamics (Jury Management)</h3>
+                <p><strong>Objective:</strong> Weaponize charm to mitigate the fallout of betrayal.</p>
+                <ul>
+                    <li><strong>The "Black Widow" Effect:</strong> Perfected the art of the blindside where the victim is charmed rather than insulted. She prepared to maintain relationships while cutting them, ensuring that the people she voted out would still respect her gameplay.</li>
+                    <li><strong>Jury Curating:</strong> Focused on "aftercare." She understood that a winning game requires the people you defeat to feel outwitted, not bullied.</li>
+                </ul>
+            </div>
+
+            <!-- Case Study 3: Justine -->
+            <div class="case-study-card">
+                <h2>Case Study: The "Technical Tactician" Approach</h2>
+                <img src="assets/justine.jpeg" alt="Justine - Survivor Quebec" class="case-study-img">
+                <p><strong>Subject:</strong> Justine (Survivor Québec Season 3)<br>
+                <strong>Core Philosophy:</strong> Skill Specialization and Risk Mitigation. She treats the game as a series of technical hurdles to be cleared via expertise (puzzles) while using other players as defensive buffers.</p>
+
+                <h3 class="neon-orange">I. Intellectual Specialization (The "Closer" Role)</h3>
+                <p><strong>Objective:</strong> Guarantee Immunity wins by mastering the final stage of challenges.</p>
+                <ul>
+                    <li><strong>The Puzzle Vault:</strong> Systematically memorized solutions and mechanics for recurring franchise puzzles (Tower of Hanoi, slide puzzles, Tangrams), effectively pre-solving the game's hardest cognitive tasks.</li>
+                    <li><strong>Stress inoculation:</strong> Practiced logic problems immediately following anaerobic exercise to train the brain to function under "race pace" heart rates.</li>
+                    <li><strong>Resource Allocation:</strong> Developed a heuristic for assigning tribe roles, ensuring she could position herself on the puzzle (the "glory position") or identify who to pair with for maximum efficiency.</li>
+                </ul>
+
+                <h3 class="neon-orange">II. Social Engineering (The Shield Strategy)</h3>
+                <p><strong>Objective:</strong> Lower personal threat level by hiding behind "bigger targets."</p>
+                <ul>
+                    <li><strong>Defensive Alignment:</strong> Prioritized early alliances with "Meat Shields"—players with high physical strength or loud personalities who would naturally attract votes before her.</li>
+                    <li><strong>Active Listening:</strong> Weaponized silence. By listening more than speaking, she gathers data on alliance cracks without ever being the one to spread a rumor, keeping her "threat level" low.</li>
+                    <li><strong>The Pivot:</strong> Established a mental trigger for the Merge, shifting from "Team Loyalty" to "Mercenary Adaptability" to cut her shields once individual immunity made them dangerous opponents.</li>
+                </ul>
+
+                <h3 class="neon-orange">III. Physical Durability (Static Endurance)</h3>
+                <p><strong>Objective:</strong> Outlast opponents in "Willpower" challenges.</p>
+                <ul>
+                    <li><strong>Stabilizer Isolation:</strong> Focused on core density and balance (slacklining, yoga) specifically for the "stand still and hold this" challenges common in the post-merge game.</li>
+                    <li><strong>Dissociative Meditation:</strong> Trained mind-body control to lower heart rate and manage pain during long-duration static holds.</li>
+                </ul>
+            </div>
+        </div>
+    `;
+
     // --- Modal Elements ---
     const modalOverlay = document.getElementById('modal-overlay');
     const modalContentBox = document.getElementById('modal-content-box');
@@ -202,6 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (contentId === 'realities') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = realitiesContent;
+            } else if (contentId === 'survivors-prep') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = survivorsContent;
             } else {
                 modalTitle.style.display = 'block';
                 modalTitle.textContent = title;
