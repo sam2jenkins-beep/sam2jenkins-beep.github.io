@@ -252,6 +252,77 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    const usaVsQcContent = `
+        <div class="usa-qc-container">
+            <header class="usa-qc-header">
+                <h2>Day 1: USA vs. QC</h2>
+                <p class="usa-qc-subheading">Below are two side-by-side articles detailing the distinct strategic environments and Day 1 priorities for contestants on Survivor USA (Modern Era) and Survivor Québec (Franchise Launch).</p>
+            </header>
+
+            <!-- Row 1: Blueprint Intro -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h3>Survivor USA (Modern Era): Day 1 Strategic Blueprint</h3>
+                    <p>The strategic landscape of Day 1 in modern Survivor USA is defined by high-stakes competition, complex twists, and a relentless focus on navigating non-survival variables.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h3>Survivor Québec: Day 1 Strategic Blueprint</h3>
+                    <p>The strategic landscape of Day 1 in Survivor Québec is defined by a commitment to the "old school" format, emphasizing visible contribution to survival and authentic social bonding within a larger group.</p>
+                </div>
+            </div>
+
+            <!-- Row 2: Section I -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h4>I. The Initial Descent: Twist-Driven Competition</h4>
+                    <p>The modern Survivor USA marooning is no longer a simple scramble; it is a high-stakes, twist-laden Reward/Immunity Challenge. The objective is to win to avoid Tribal Council and secure essential resources like flint and a pot. The strategic focus shifts immediately to competitive success and avoiding the perception of weakness.</p>
+                    <p><strong>Strategic Goal:</strong> Winning the challenge secures vital social capital and narrative control, establishing the tribe as competent. However, the long-term, purely existential value of the win is reduced since production guarantees flint by Day 3. The risk of early dominance is immediate target designation.</p>
+                    <p><strong>Cognitive Load:</strong> High. Players must immediately dedicate mental energy to deciphering complex twists and searching for Hidden Immunity Idols or Advantages, which are highly likely to be present immediately upon arrival.</p>
+                    <p><strong>Tribe Size:</strong> Typically 6-9 players, often subject to immediate swaps or small tribe dynamics, which demands rapid relationship solidification.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h4>I. The Initial Descent: Resource-Driven Survival</h4>
+                    <p>The Survivor Québec marooning utilized an "old school" resource scramble mechanic. Tribes of 10 collected as many supplies as possible from a boat within a time limit. The focus is on immediate resource management and the visible demonstration of collective coordination.</p>
+                    <p><strong>Strategic Goal:</strong> Maximize the acquisition of resources to immediately offset deprivation. The extended focus on camp life makes demonstrable physical utility and effort in the scramble an essential protective shield against early elimination.</p>
+                    <p><strong>Cognitive Load:</strong> Reduced. The documented absence of Idols or Advantages in the premiere allows players to dedicate 100% of their mental energy to fundamental social bonding and physical survival essentials. There is no need to prioritize a search.</p>
+                    <p><strong>Tribe Size:</strong> Two larger tribes (10 players each), delaying individual exposure but requiring quicker assimilation into a larger majority structure (4-5 members).</p>
+                </div>
+            </div>
+
+            <!-- Row 3: Section II -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h4>II. Camp Life & Production Management</h4>
+                    <p><strong>Camp Life Visibility:</strong> Detailed camp life scenes (shelter building, fire-making) are often minimized or heavily edited out to prioritize airtime for twists and strategic maneuvering. Physical utility is a lower strategic currency than strategic acumen.</p>
+                    <p><strong>Production Constraints:</strong> Contestants must manage the close proximity of the camera crew. The movement of the crew acts as a visual signal that strategic activity (e.g., idol hunting) is occurring, making truly subtle strategy exceptionally difficult.</p>
+                    <p><strong>Confessional Strategy:</strong> Producers often ask pointed, directional questions. Players must use this information as intelligence, inferring what dynamics other tribemates are discussing and what the producers view as central to the narrative. Control the narrative brand from minute one.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h4>II. Camp Life & Production Management</h4>
+                    <p><strong>Camp Life Visibility:</strong> Extended runtime is dedicated to camp life and relationship dynamics. This maximizes a contestant's visibility, making demonstrated competence in fire-making and shelter construction a high-priority strategic asset (higher currency than in modern USA).</p>
+                    <p><strong>Production Constraints:</strong> The "no-wall rule" for shelters is enforced for camera access, forcing players to endure exposure. This accelerates bonding and conflict. Contestants should integrate the crew's presence into their strategy to leverage the need for isolated walks (for confessionals) as a cover for scouting or decompression.</p>
+                    <p><strong>Confessional Strategy:</strong> Treat the Day 1 interview as a critical press conference. The answers define the initial edited narrative. All statements must reinforce the desired strategic brand (e.g., collaborative, competent) to avoid accidental negative portrayal.</p>
+                </div>
+            </div>
+
+            <!-- Row 4: Section III -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h4>III. Alliance Dynamics & Psychological Risk</h4>
+                    <p><strong>Alliance Formation:</strong> The mandate is to immediately "Create an alliance of 4 in your tribe as soon as the game starts." These Day 1 bonds are primarily a numerical risk-mitigation shield against the first vote, acknowledging the high volatility and lack of developed trust metrics.</p>
+                    <p><strong>Assertive Behavior Risk:</strong> High. Players who are overly aggressive or direction-giving—like the "bossy" archetype—become immediate targets. This accelerated targeting is a direct result of acquiring negative social capital, regardless of physical strength.</p>
+                    <p><strong>Vulnerability Paradox:</strong> Day 1 oversharing or "trauma dumping" (excessive personal disclosure) is often misinterpreted by tribemates as a manipulative tactic to garner sympathy or "pull focus," increasing the risk of targeting.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h4>III. Alliance Dynamics & Psychological Risk</h4>
+                    <p><strong>Alliance Formation:</strong> Secure a Day 1 majority alliance (4-5 members) to mitigate the first vote risk. The extended focus on relationships in SQ suggests that establishing authenticity is an enhanced currency over immediate, highly manufactured strategic maneuvering.</p>
+                    <p><strong>Assertive Behavior Risk:</strong> High. The "older guy who makes himself a target by declaring himself the tribe leader" is a common SQ archetype to avoid. The strategic imperative is to Lead Collaboratively, demonstrating competence in survival skills (fire, shelter) rather than attempting to enforce authority.</p>
+                    <p><strong>Vulnerability Paradox:</strong> Emotional connection is valuable for rapport, but Day 1 personal vulnerability must be measured and controlled. Oversharing high-trauma backstories should be strictly avoided to foster genuine connections without triggering the perception of strategic manipulation.</p>
+                </div>
+            </div>
+        </div>
+    `;
+
     const historyContent = `
         <div class="constellation-header">
             <h2>SURVIVOR QUÉBEC</h2>
@@ -385,6 +456,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (contentId === 'history-qc') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = historyContent;
+            } else if (contentId === 'usa-vs-qc') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = usaVsQcContent;
             } else {
                 modalTitle.style.display = 'block';
                 modalTitle.textContent = title;
