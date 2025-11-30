@@ -5,7 +5,66 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "OUTWIT",
             items: [
                 { title: "Advantages & Twists", content: "Details on idols, advantages, and twists." },
-                { title: "The Huddle Test", content: "How to survive the huddle." },
+                {
+                    title: "The Huddle Test",
+                    content: `
+                    <div class="huddle-blog-post">
+                        <h2 class="huddle-title">Winning the Last Minute Whisper War</h2>
+                        <h3 class="huddle-subtitle">The "Live Tribal" Phenomenon</h3>
+
+                        <p>Modern Survivor has evolved past the era where the vote is locked before the torches are lit. The "Live Tribal" is the moment where the plan disintegrates—usually triggered by a leaked secret, a misspoken word, or a revealed advantage.</p>
+                        <p>This is not just noise; it is a real-time market crash of trust. The Huddle Test is your ability to navigate this crash without going broke.</p>
+
+                        <h3 class="neon-heading">I. The Anatomy of the Huddle</h3>
+                        <p>To win the whisper war, you must identify which phase of the chaos is occurring.</p>
+                        <ul>
+                            <li><strong>The Catalyst:</strong> Someone feels unsafe and whispers to a neighbor.</li>
+                            <li><strong>The Contagion:</strong> Paranoia spreads. Even secure players stand up.</li>
+                            <li><strong>The Huddle:</strong> Discrete conversations merge into a group huddle.</li>
+                            <li><strong>The Settlement:</strong> The group sits. The vote is locked or anxiety peaks.</li>
+                        </ul>
+                        <p class="huddle-key-rule"><strong>KEY RULE:</strong> Never remain seated if the majority of the tribe stands up. Even if you are safe, sitting signals you are out of the loop or stubbornly opposed to the consensus.</p>
+
+                        <h3 class="neon-heading">II. Strategic Positioning</h3>
+                        <p>Your role depends entirely on your position in the hierarchy.</p>
+
+                        <h4>A. The Architect (The Leader)</h4>
+                        <p><strong>Goal:</strong> Containment. Do not initiate whispering. Use the <em>Anchor Technique</em>: Keep body language open but firm. Repeat: "It’s still [Name]. Stick to the plan." <strong>Risk:</strong> Appearing too authoritarian.</p>
+
+                        <h4>B. The Target (The Bottom)</h4>
+                        <p><strong>Goal:</strong> Disruption. You must trigger the whisper. Use the <em>"Grenade" Technique</em>: Whisper a believable lie to the bottom of the majority: "They are splitting the vote on you just in case."</p>
+
+                        <h4>C. The Swing (The Middle)</h4>
+                        <p><strong>Goal:</strong> Leverage. Stand in the middle. Use the <em>"Bid War" Technique</em>: Look visibly conflicted. Extract a promise for the next round in exchange for your vote right now.</p>
+
+                        <h3 class="neon-heading">III. Mechanics of the Whisper</h3>
+                        <ul>
+                            <li><strong>The Physical Block:</strong> Position your shoulder to block the line of sight of the enemy. Prevent lip-reading.</li>
+                            <li><strong>The Performative Whisper:</strong> Cover your mouth and say nothing important (e.g., "Is that a spider?"). Make the other alliance panic.</li>
+                            <li><strong>Lip Reading Defense:</strong> Hand-over-mouth is mandatory. High-def cameras capture everything.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">IV. Psychological Management</h3>
+                        <p><strong>Combating "FOMO":</strong> If you don't know the plan, look at the person you trust most. Mirror their vote.</p>
+                        <p><strong>The Eye Contact Check:</strong></p>
+                        <ul>
+                            <li>Steady gaze + nod = Plan unchanged.</li>
+                            <li>Darting eyes + avoidance = Plan shifted (You might be the target).</li>
+                        </ul>
+
+                        <div class="huddle-checklist">
+                            <h3>SUMMARY CHECKLIST</h3>
+                            <ul>
+                                <li>✔ Did I cover my mouth?</li>
+                                <li>✔ Did I stand up when the majority stood up?</li>
+                                <li>✔ Did I verify the target name with two people?</li>
+                                <li>✔ Did I maintain eye contact with my #1 ally?</li>
+                            </ul>
+                        </div>
+                        <p class="huddle-outro">The winning move isn't always changing the vote; it's ensuring you are on the right side of the chaos.</p>
+                    </div>
+                    `
+                },
                 { title: "Tribal Council", content: "Navigating the vote." },
                 { title: "Common Mistakes", content: "What not to do." }
             ]
@@ -149,6 +208,254 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    const survivorsContent = `
+        <div class="case-studies-grid">
+            <!-- Case Study 1: Andre -->
+            <div class="case-study-card">
+                <h2>Case Study: The "Professional Contestant" Approach</h2>
+                <img src="assets/andre.jpeg" alt="Andre - Survivor Quebec" class="case-study-img">
+                <p><strong>Subject:</strong> André (Survivor Québec Season 2)<br>
+                <strong>Core Philosophy:</strong> Transitioning from "Superfan" to "High-Performance Athlete," treating the game not as an adventure, but as a vocation requiring specific technical training.</p>
+
+                <h3 class="neon-blue">I. Physical Conditioning (Functional Utility)</h3>
+                <p><strong>Objective:</strong> Mitigate biological failure points to maintain cognitive function.</p>
+                <ul>
+                    <li><strong>Metabolic Simulation:</strong> Utilized CrossFit/AMRAP (As Many Reps As Possible) to train decision-making while at near-maximum heart rate, simulating the stop-start nature of immunity challenges.</li>
+                    <li><strong>Biomechanical Mimicry:</strong> Replaced gym isolation exercises with "awkward object" training (sandbags, logs) and isometrics (static holds) to replicate the specific physical demands of tribal challenges.</li>
+                    <li><strong>Hardening:</strong> Deliberately slept outdoors in adverse weather to acclimate circadian rhythms, preventing the "culture shock" and sleep deprivation that typically hamper players in the first 72 hours.</li>
+                </ul>
+
+                <h3 class="neon-blue">II. Strategic Focus (Game Theory)</h3>
+                <p><strong>Objective:</strong> Remove emotion to view the game as a solveable logic puzzle.</p>
+                <ul>
+                    <li><strong>Asset Acquisition:</strong> Abandoned random searching for "Grid Searching" and pattern recognition, analyzing production tendencies for hiding idols (e.g., unique trees, rock formations).</li>
+                    <li><strong>Communication Architecture:</strong> Practiced "Claim, Evidence, Reasoning" rhetorical structures to prepare for Final Tribal Council, ensuring game moves could be explained clearly to a Jury.</li>
+                    <li><strong>Ego Management:</strong> Prepared specifically for the "aftercare" of blindsided allies to manage bitterness and secure jury votes.</li>
+                </ul>
+
+                <h3 class="neon-blue">III. Survival Skills (Energy Economics)</h3>
+                <p><strong>Objective:</strong> Minimize caloric deficit to preserve mental energy for strategy.</p>
+                <ul>
+                    <li><strong>Technical Mastery:</strong> Mastered friction fire-making (bow drill) in wet/windy conditions to establish immediate value to the tribe and ensure survival without a flint.</li>
+                    <li><strong>Botanical Intelligence:</strong> Memorized the specific flora of the filming location (Philippines) to instantly distinguish high-calorie resources (taro, coconut) from low-value fillers or toxic threats.</li>
+                </ul>
+            </div>
+
+            <!-- Case Study 2: Parvati -->
+            <div class="case-study-card">
+                <h2>Case Study: The "Social Manipulator" Approach</h2>
+                <img src="assets/parvati.jpeg" alt="Parvati Shallow" class="case-study-img">
+                <p><strong>Subject:</strong> Parvati Shallow (Survivor Legend)<br>
+                <strong>Core Philosophy:</strong> Psychological warfare and "Visual Branding." She treats the game as a sociological experiment, combining Machiavellian strategy with a meticulously curated character archetype.</p>
+
+                <h3 class="neon-pink">I. Strategic Preparation (Psychological Warfare)</h3>
+                <p><strong>Objective:</strong> Master the "Social Hack" to control outcomes without absorbing emotional damage.</p>
+                <ul>
+                    <li><strong>The Syllabus:</strong> Cited Robert Greene’s The 48 Laws of Power as essential pre-game reading. She studied manipulation as an academic subject rather than relying solely on intuition.</li>
+                    <li><strong>Emotional Compartmentalization:</strong> Internalized the distinction between "Real Life" and "The Game." This allowed her to betray allies and "throw people under the bus" without hesitation, viewing these actions as game mechanics rather than moral failings.</li>
+                    <li><strong>Fluid Adaptability:</strong> Trained herself to be non-dogmatic with alliances. Unlike players who stick to a "ride or die" mentality, Parvati prepared to shift loyalties instantly based on the immediate power vacuum.</li>
+                </ul>
+
+                <h3 class="neon-pink">II. Wardrobe Engineering (The Visual Meta)</h3>
+                <p><strong>Objective:</strong> Balance physiological survival needs with Production’s desired visual storytelling.</p>
+                <ul>
+                    <li><strong>Archetype Alignment:</strong> Understood that Production casts for specific roles (in her case, "The Flirt"). She cooperated with their requests for "sexy" clothing to secure her spot, acknowledging that branding is part of the game.</li>
+                    <li><strong>Iterative Equipment Learning:</strong>
+                        <ul>
+                            <li>Phase 1 (Cook Islands): Failure. Wore basic tank/shorts and froze.</li>
+                            <li>Phase 2 (Micronesia): Adaptation. Switched to long pants and long sleeves (which doubled as a dress).</li>
+                            <li>Phase 3 (HvV): Optimization. Focused on fabric technology, specifically seeking "quick-dry" materials after realizing previous layers retained moisture too long.</li>
+                        </ul>
+                    </li>
+                    <li><strong>The "Weight Loss" Hack:</strong> Deliberately selected string bikinis rather than clasps, allowing her to tie them tighter as she rapidly lost body mass, preventing wardrobe malfunctions.</li>
+                </ul>
+
+                <h3 class="neon-pink">III. Social Dynamics (Jury Management)</h3>
+                <p><strong>Objective:</strong> Weaponize charm to mitigate the fallout of betrayal.</p>
+                <ul>
+                    <li><strong>The "Black Widow" Effect:</strong> Perfected the art of the blindside where the victim is charmed rather than insulted. She prepared to maintain relationships while cutting them, ensuring that the people she voted out would still respect her gameplay.</li>
+                    <li><strong>Jury Curating:</strong> Focused on "aftercare." She understood that a winning game requires the people you defeat to feel outwitted, not bullied.</li>
+                </ul>
+            </div>
+
+            <!-- Case Study 3: Justine -->
+            <div class="case-study-card">
+                <h2>Case Study: The "Technical Tactician" Approach</h2>
+                <img src="assets/justine.jpeg" alt="Justine - Survivor Quebec" class="case-study-img">
+                <p><strong>Subject:</strong> Justine (Survivor Québec Season 3)<br>
+                <strong>Core Philosophy:</strong> Skill Specialization and Risk Mitigation. She treats the game as a series of technical hurdles to be cleared via expertise (puzzles) while using other players as defensive buffers.</p>
+
+                <h3 class="neon-orange">I. Intellectual Specialization (The "Closer" Role)</h3>
+                <p><strong>Objective:</strong> Guarantee Immunity wins by mastering the final stage of challenges.</p>
+                <ul>
+                    <li><strong>The Puzzle Vault:</strong> Systematically memorized solutions and mechanics for recurring franchise puzzles (Tower of Hanoi, slide puzzles, Tangrams), effectively pre-solving the game's hardest cognitive tasks.</li>
+                    <li><strong>Stress inoculation:</strong> Practiced logic problems immediately following anaerobic exercise to train the brain to function under "race pace" heart rates.</li>
+                    <li><strong>Resource Allocation:</strong> Developed a heuristic for assigning tribe roles, ensuring she could position herself on the puzzle (the "glory position") or identify who to pair with for maximum efficiency.</li>
+                </ul>
+
+                <h3 class="neon-orange">II. Social Engineering (The Shield Strategy)</h3>
+                <p><strong>Objective:</strong> Lower personal threat level by hiding behind "bigger targets."</p>
+                <ul>
+                    <li><strong>Defensive Alignment:</strong> Prioritized early alliances with "Meat Shields"—players with high physical strength or loud personalities who would naturally attract votes before her.</li>
+                    <li><strong>Active Listening:</strong> Weaponized silence. By listening more than speaking, she gathers data on alliance cracks without ever being the one to spread a rumor, keeping her "threat level" low.</li>
+                    <li><strong>The Pivot:</strong> Established a mental trigger for the Merge, shifting from "Team Loyalty" to "Mercenary Adaptability" to cut her shields once individual immunity made them dangerous opponents.</li>
+                </ul>
+
+                <h3 class="neon-orange">III. Physical Durability (Static Endurance)</h3>
+                <p><strong>Objective:</strong> Outlast opponents in "Willpower" challenges.</p>
+                <ul>
+                    <li><strong>Stabilizer Isolation:</strong> Focused on core density and balance (slacklining, yoga) specifically for the "stand still and hold this" challenges common in the post-merge game.</li>
+                    <li><strong>Dissociative Meditation:</strong> Trained mind-body control to lower heart rate and manage pain during long-duration static holds.</li>
+                </ul>
+            </div>
+        </div>
+    `;
+
+    const usaVsQcContent = `
+        <div class="usa-qc-container">
+            <header class="usa-qc-header">
+                <h2>Day 1: USA vs. QC</h2>
+                <p class="usa-qc-subheading">Below are two side-by-side articles detailing the distinct strategic environments and Day 1 priorities for contestants on Survivor USA (Modern Era) and Survivor Québec (Franchise Launch).</p>
+            </header>
+
+            <!-- Row 1: Blueprint Intro -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h3>Survivor USA (Modern Era): Day 1 Strategic Blueprint</h3>
+                    <p>The strategic landscape of Day 1 in modern Survivor USA is defined by high-stakes competition, complex twists, and a relentless focus on navigating non-survival variables.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h3>Survivor Québec: Day 1 Strategic Blueprint</h3>
+                    <p>The strategic landscape of Day 1 in Survivor Québec is defined by a commitment to the "old school" format, emphasizing visible contribution to survival and authentic social bonding within a larger group.</p>
+                </div>
+            </div>
+
+            <!-- Row 2: Section I -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h4>I. The Initial Descent: Twist-Driven Competition</h4>
+                    <p>The modern Survivor USA marooning is no longer a simple scramble; it is a high-stakes, twist-laden Reward/Immunity Challenge. The objective is to win to avoid Tribal Council and secure essential resources like flint and a pot. The strategic focus shifts immediately to competitive success and avoiding the perception of weakness.</p>
+                    <p><strong>Strategic Goal:</strong> Winning the challenge secures vital social capital and narrative control, establishing the tribe as competent. However, the long-term, purely existential value of the win is reduced since production guarantees flint by Day 3. The risk of early dominance is immediate target designation.</p>
+                    <p><strong>Cognitive Load:</strong> High. Players must immediately dedicate mental energy to deciphering complex twists and searching for Hidden Immunity Idols or Advantages, which are highly likely to be present immediately upon arrival.</p>
+                    <p><strong>Tribe Size:</strong> Typically 6-9 players, often subject to immediate swaps or small tribe dynamics, which demands rapid relationship solidification.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h4>I. The Initial Descent: Resource-Driven Survival</h4>
+                    <p>The Survivor Québec marooning utilized an "old school" resource scramble mechanic. Tribes of 10 collected as many supplies as possible from a boat within a time limit. The focus is on immediate resource management and the visible demonstration of collective coordination.</p>
+                    <p><strong>Strategic Goal:</strong> Maximize the acquisition of resources to immediately offset deprivation. The extended focus on camp life makes demonstrable physical utility and effort in the scramble an essential protective shield against early elimination.</p>
+                    <p><strong>Cognitive Load:</strong> Reduced. The documented absence of Idols or Advantages in the premiere allows players to dedicate 100% of their mental energy to fundamental social bonding and physical survival essentials. There is no need to prioritize a search.</p>
+                    <p><strong>Tribe Size:</strong> Two larger tribes (10 players each), delaying individual exposure but requiring quicker assimilation into a larger majority structure (4-5 members).</p>
+                </div>
+            </div>
+
+            <!-- Row 3: Section II -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h4>II. Camp Life & Production Management</h4>
+                    <p><strong>Camp Life Visibility:</strong> Detailed camp life scenes (shelter building, fire-making) are often minimized or heavily edited out to prioritize airtime for twists and strategic maneuvering. Physical utility is a lower strategic currency than strategic acumen.</p>
+                    <p><strong>Production Constraints:</strong> Contestants must manage the close proximity of the camera crew. The movement of the crew acts as a visual signal that strategic activity (e.g., idol hunting) is occurring, making truly subtle strategy exceptionally difficult.</p>
+                    <p><strong>Confessional Strategy:</strong> Producers often ask pointed, directional questions. Players must use this information as intelligence, inferring what dynamics other tribemates are discussing and what the producers view as central to the narrative. Control the narrative brand from minute one.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h4>II. Camp Life & Production Management</h4>
+                    <p><strong>Camp Life Visibility:</strong> Extended runtime is dedicated to camp life and relationship dynamics. This maximizes a contestant's visibility, making demonstrated competence in fire-making and shelter construction a high-priority strategic asset (higher currency than in modern USA).</p>
+                    <p><strong>Production Constraints:</strong> The "no-wall rule" for shelters is enforced for camera access, forcing players to endure exposure. This accelerates bonding and conflict. Contestants should integrate the crew's presence into their strategy to leverage the need for isolated walks (for confessionals) as a cover for scouting or decompression.</p>
+                    <p><strong>Confessional Strategy:</strong> Treat the Day 1 interview as a critical press conference. The answers define the initial edited narrative. All statements must reinforce the desired strategic brand (e.g., collaborative, competent) to avoid accidental negative portrayal.</p>
+                </div>
+            </div>
+
+            <!-- Row 4: Section III -->
+            <div class="usa-qc-row">
+                <div class="usa-qc-col col-usa">
+                    <h4>III. Alliance Dynamics & Psychological Risk</h4>
+                    <p><strong>Alliance Formation:</strong> The mandate is to immediately "Create an alliance of 4 in your tribe as soon as the game starts." These Day 1 bonds are primarily a numerical risk-mitigation shield against the first vote, acknowledging the high volatility and lack of developed trust metrics.</p>
+                    <p><strong>Assertive Behavior Risk:</strong> High. Players who are overly aggressive or direction-giving—like the "bossy" archetype—become immediate targets. This accelerated targeting is a direct result of acquiring negative social capital, regardless of physical strength.</p>
+                    <p><strong>Vulnerability Paradox:</strong> Day 1 oversharing or "trauma dumping" (excessive personal disclosure) is often misinterpreted by tribemates as a manipulative tactic to garner sympathy or "pull focus," increasing the risk of targeting.</p>
+                </div>
+                <div class="usa-qc-col col-qc">
+                    <h4>III. Alliance Dynamics & Psychological Risk</h4>
+                    <p><strong>Alliance Formation:</strong> Secure a Day 1 majority alliance (4-5 members) to mitigate the first vote risk. The extended focus on relationships in SQ suggests that establishing authenticity is an enhanced currency over immediate, highly manufactured strategic maneuvering.</p>
+                    <p><strong>Assertive Behavior Risk:</strong> High. The "older guy who makes himself a target by declaring himself the tribe leader" is a common SQ archetype to avoid. The strategic imperative is to Lead Collaboratively, demonstrating competence in survival skills (fire, shelter) rather than attempting to enforce authority.</p>
+                    <p><strong>Vulnerability Paradox:</strong> Emotional connection is valuable for rapport, but Day 1 personal vulnerability must be measured and controlled. Oversharing high-trauma backstories should be strictly avoided to foster genuine connections without triggering the perception of strategic manipulation.</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const historyContent = `
+        <div class="constellation-header">
+            <h2>SURVIVOR QUÉBEC</h2>
+            <h3>EVOLUTION OF THE METAGAME</h3>
+            <p>A chronological analysis of how the game has mutated from Season 1 to the present.</p>
+        </div>
+        <div class="constellation-timeline">
+            <!-- Season 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="year">2023</div>
+                    <h2>SEASON 1: THE FOUNDATION</h2>
+                    <div class="winner">Winner: Nicolas Brunette</div>
+
+                    <h3 class="meta-title">The Meta: Consensus & Politeness.</h3>
+                    <p>Defined by the "Social Contract." Big moves were frowned upon. The game was played respectfully.</p>
+
+                    <div class="key-mechanic">
+                        <strong>KEY MECHANIC: Redemption Island</strong>
+                        <p>Created a "Poisoned Jury" and allowed a win via a "Warrior/Resilience" narrative rather than social manipulation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Season 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="year">2024</div>
+                    <h2>SEASON 2: ECONOMIC WAR</h2>
+                    <div class="winner">Winner: Ghyslain O.P.</div>
+
+                    <h3 class="meta-title">The Meta: Control & Physics.</h3>
+                    <p>A shift to resource management. Alliances were rigid, and physical threats dominated by grouping together.</p>
+
+                    <div class="key-mechanic">
+                        <strong>KEY MECHANIC: The Store (Magasin)</strong>
+                        <p>Buying food allowed "Challenge Beasts" to fuel up and win immunity, breaking the game balance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Season 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="year">2025</div>
+                    <h2>SEASON 3: HYPER-VARIANCE</h2>
+                    <div class="winner">Winner: Geneviève La Haye</div>
+
+                    <h3 class="meta-title">The Meta: Chaos Management.</h3>
+                    <p>Agency was stripped. Adaptability replaced planning. The "Quiet Strategist" defeated the "Loud Players."</p>
+
+                    <div class="key-mechanic">
+                        <strong>KEY MECHANIC: Linked Destinies</strong>
+                        <p>Random pairs forced cooperation with enemies and punished strong players tied to weak ones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future -->
+            <div class="timeline-item right forecast">
+                <div class="timeline-content forecast-card">
+                    <div class="year-future">FORECAST // FUTURE</div>
+                    <h2>SEASON 4: PANAMA</h2>
+
+                    <ul class="forecast-list">
+                        <li>➤ <strong>Return of Exile?</strong> Panama is historically linked to Exile Island. Expect isolation mechanics.</li>
+                        <li>➤ <strong>The "Geneviève Effect":</strong> Players will be scared of the quiet, social woman. Expect an over-correction targeting low-key players.</li>
+                        <li>➤ <strong>Casting Evolution:</strong> A shift from "Average Joes" to studied "Gamers."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+
     // --- Modal Elements ---
     const modalOverlay = document.getElementById('modal-overlay');
     const modalContentBox = document.getElementById('modal-content-box');
@@ -202,6 +509,15 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (contentId === 'realities') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = realitiesContent;
+            } else if (contentId === 'survivors-prep') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = survivorsContent;
+            } else if (contentId === 'history-qc') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = historyContent;
+            } else if (contentId === 'usa-vs-qc') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = usaVsQcContent;
             } else {
                 modalTitle.style.display = 'block';
                 modalTitle.textContent = title;
@@ -229,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Set Content
         modalTitle.textContent = item.title;
-        modalText.textContent = item.content; // This is where the deep content goes
+        modalText.innerHTML = item.content; // This is where the deep content goes
 
         // Note: Back button logic.
         // If we want Back to go to Grid, we need state management.
