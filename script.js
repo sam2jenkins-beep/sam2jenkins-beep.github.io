@@ -252,6 +252,80 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    const historyContent = `
+        <div class="constellation-header">
+            <h2>SURVIVOR QUÉBEC</h2>
+            <h3>EVOLUTION OF THE METAGAME</h3>
+            <p>A chronological analysis of how the game has mutated from Season 1 to the present.</p>
+        </div>
+        <div class="constellation-timeline">
+            <!-- Season 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="year">2023</div>
+                    <h2>SEASON 1: THE FOUNDATION</h2>
+                    <div class="winner">Winner: Nicolas Brunette</div>
+
+                    <h3 class="meta-title">The Meta: Consensus & Politeness.</h3>
+                    <p>Defined by the "Social Contract." Big moves were frowned upon. The game was played respectfully.</p>
+
+                    <div class="key-mechanic">
+                        <strong>KEY MECHANIC: Redemption Island</strong>
+                        <p>Created a "Poisoned Jury" and allowed a win via a "Warrior/Resilience" narrative rather than social manipulation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Season 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="year">2024</div>
+                    <h2>SEASON 2: ECONOMIC WAR</h2>
+                    <div class="winner">Winner: Ghyslain O.P.</div>
+
+                    <h3 class="meta-title">The Meta: Control & Physics.</h3>
+                    <p>A shift to resource management. Alliances were rigid, and physical threats dominated by grouping together.</p>
+
+                    <div class="key-mechanic">
+                        <strong>KEY MECHANIC: The Store (Magasin)</strong>
+                        <p>Buying food allowed "Challenge Beasts" to fuel up and win immunity, breaking the game balance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Season 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="year">2025</div>
+                    <h2>SEASON 3: HYPER-VARIANCE</h2>
+                    <div class="winner">Winner: Geneviève La Haye</div>
+
+                    <h3 class="meta-title">The Meta: Chaos Management.</h3>
+                    <p>Agency was stripped. Adaptability replaced planning. The "Quiet Strategist" defeated the "Loud Players."</p>
+
+                    <div class="key-mechanic">
+                        <strong>KEY MECHANIC: Linked Destinies</strong>
+                        <p>Random pairs forced cooperation with enemies and punished strong players tied to weak ones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future -->
+            <div class="timeline-item right forecast">
+                <div class="timeline-content forecast-card">
+                    <div class="year-future">FORECAST // FUTURE</div>
+                    <h2>SEASON 4: PANAMA</h2>
+
+                    <ul class="forecast-list">
+                        <li>➤ <strong>Return of Exile?</strong> Panama is historically linked to Exile Island. Expect isolation mechanics.</li>
+                        <li>➤ <strong>The "Geneviève Effect":</strong> Players will be scared of the quiet, social woman. Expect an over-correction targeting low-key players.</li>
+                        <li>➤ <strong>Casting Evolution:</strong> A shift from "Average Joes" to studied "Gamers."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+
     // --- Modal Elements ---
     const modalOverlay = document.getElementById('modal-overlay');
     const modalContentBox = document.getElementById('modal-content-box');
@@ -308,6 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (contentId === 'survivors-prep') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = survivorsContent;
+            } else if (contentId === 'history-qc') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = historyContent;
             } else {
                 modalTitle.style.display = 'block';
                 modalTitle.textContent = title;
