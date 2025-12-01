@@ -72,10 +72,164 @@ document.addEventListener('DOMContentLoaded', () => {
         outplay: {
             title: "OUTPLAY",
             items: [
-                { title: "Return to the Old School", content: "Old school tactics." },
-                { title: "Physical", content: "Winning challenges." },
-                { title: "Swimming", content: "Water survival." },
-                { title: "Puzzles", content: "Mastering puzzles." }
+                {
+                    title: "Return to the Old School",
+                    content: `
+                    <div class="huddle-blog-post">
+                        <h2 class="huddle-title">STRATEGIC INTELLIGENCE REPORT</h2>
+                        <h3 class="huddle-subtitle">Subject: Physical Challenges & Combat Mechanics (Survivor Québec)<br>Status: High Priority / Contact Heavy</h3>
+
+                        <h3 class="neon-heading">1. The "Old School" Arena</h3>
+                        <p>Unlike the modern US version, which has become a "fair" obstacle course, Survivor Québec is a return to the gladiator pit. The challenges are designed to be gritty, heavy, and often involve direct physical contact.</p>
+                        <ul>
+                            <li><strong>The Vibe:</strong> Think "Farm Strong," not "Gym Strong." You aren't just running; you are colliding.</li>
+                            <li><strong>The Risk:</strong> Injuries are statistically more common here. The game is brutal on joints (shoulders and knees) because of the wrestling and heavy lifting.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">2. The "Contact" Meta (Wrestling & Sumo)</h3>
+                        <p>You will likely face challenges that allow you to put your hands on your opponent. This includes "Sumo" style games (pushing people off platforms) or wrestling for objects.</p>
+                        <ul>
+                            <li><strong>Leverage is King:</strong> You don't need to be the heaviest person, you just need to be the lowest.</li>
+                            <li><strong>The "Root" Position:</strong> Keep your feet wider than your shoulders. It makes you a triangle that is hard to tip over.</li>
+                            <li><strong>Push Up, Not Back:</strong> When wrestling, drive your hands up into their chest. This lifts them off their feet, making them light and easy to push around.</li>
+                            <li><strong>Mud Warfare:</strong> Expect to wrestle in mud. Mud acts as a lubricant—you cannot rely on standard friction.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">3. The "Sac de Sable" (Sandbag) Reality</h3>
+                        <p>A staple of the Québec franchise is moving heavy, awkward objects like sandbags ("Sac de Sable"), often while tethered to other players.</p>
+                        <ul>
+                            <li><strong>Grip is the Failure Point:</strong> Your back might be strong enough to pull the bag, but your hands will fail first.</li>
+                            <li><strong>Training Fix:</strong> Don't just lift bars. Wrap towels around your pull-up bar or use "Fat Gripz" to simulate holding onto thick, slippery, muddy bags.</li>
+                            <li><strong>Functional Towing:</strong> You need "tow strength." This means dragging heavy weight while swimming or running. It’s about grinding out movement against resistance.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">4. Static Pain (The Mental Game)</h3>
+                        <p>Québec loves "torture" challenges where you hold a position for hours (like "Get a Grip" on a pole).</p>
+                        <ul>
+                            <li><strong>The "Cocoon":</strong> Smaller players should hug the pole tight to create friction.</li>
+                            <li><strong>The "Monkey":</strong> Longer players (like Ghyslain) need to actively adjust to keep blood flowing, but be careful not to slip too low.</li>
+                            <li><strong>The Secret:</strong> It’s not about muscle; it’s about ignoring your brain when it screams "this hurts." Focus on a single spot (a knot in the wood) to dissociate from the pain.</li>
+                        </ul>
+                    </div>
+                    `
+                },
+                {
+                    title: "Physical",
+                    content: `
+                    <div class="huddle-blog-post">
+                        <h2 class="huddle-title">Physical Game</h2>
+                        <h3 class="huddle-subtitle">Winning Challenges</h3>
+
+                        <p>Content to be added.</p>
+
+                        <div class="video-placeholder">
+                            <span>VIDEO PLACEHOLDER</span>
+                        </div>
+                    </div>
+                    `
+                },
+                {
+                    title: "Swimming",
+                    content: `
+                    <div class="huddle-blog-post">
+                        <h2 class="huddle-title">Mastering The Ocean</h2>
+                        <h3 class="huddle-subtitle">A Competitor’s Guide to the Water Game</h3>
+
+                        <p>The ocean is the biggest "truth teller" in Survivor. On land, you can fake it, hide in the back of the pack, or get lucky. In the water, there is no hiding. If you panic or have bad form, you are done.</p>
+                        <p>Swimming in a pool is nothing like swimming in the ocean. In a pool, you have a black line to follow, calm water, and goggles. In Survivor, you have currents, waves, salt in your eyes, and—worst of all—you are usually wearing heavy sneakers and baggy clothes.</p>
+                        <p>Here is how to prepare for the specific biomechanics of Survivor swimming.</p>
+
+                        <h3 class="neon-heading">1. The Entry: Don't Run in Water</h3>
+                        <p>The most common rookie mistake. When the challenge starts, adrenaline takes over and people try to sprint into the ocean. But water acts like concrete once it hits your knees.</p>
+                        <ul>
+                            <li><strong>The Pro Move:</strong> "The Dolphin Dive"</li>
+                            <li><strong>The Technique:</strong> As soon as the water is knee-deep, stop running. Dive forward, grab the sand with your hands, pull yourself forward, and pop up. Repeat this porpoise-like motion until the water is waist-deep. Then, and only then, start swimming.</li>
+                            <li><strong>Training Suggestion: "Shallows Sprints"</strong> - Find the shallow end of a pool or a beach. Practice the transition from running to diving. Do 10 reps of running 5 steps, diving, and getting back up immediately. It builds the explosive power needed to get off the beach fast.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">2. The Tow: The "Combat Side Stroke"</h3>
+                        <p>How to move gear without drowning. You will almost certainly have to tow something—a boat, a heavy chest, or a tired teammate.</p>
+                        <p><strong>The Mistake:</strong> Trying to swim Freestyle (front crawl). If you hold a rope in one hand and try to swim freestyle with the other, your hips will sink, and you will just splash without moving.</p>
+                        <p><strong>The Fix: Combat Side Stroke (CSS)</strong></p>
+                        <p>This is what Navy SEALs use to tow gear. Swim on your side.</p>
+                        <ul>
+                            <li><strong>Top Arm:</strong> Holds the object (rope, boat, crate).</li>
+                            <li><strong>Bottom Arm & Legs:</strong> The bottom arm pulls water, and the legs perform a big "scissor kick." This kick uses your glutes and quads (huge muscles) to drive you forward.</li>
+                        </ul>
+                        <p><strong>Training Suggestion: "The Drag"</strong> - Go to the pool with an old t-shirt. Tie a knot in the bottom or hold a mesh laundry bag to create drag. Swim 200 meters using only the side stroke. Focus on the glide phase after the kick.</p>
+
+                        <h3 class="neon-heading">3. Navigation: The "Crocodile Eye"</h3>
+                        <p>Swimming straight in a crooked ocean. Because of currents and waves, if you put your head down and swim hard, you will drift off course. You might swim an extra 50 meters in a big curve without realizing it.</p>
+                        <p><strong>The Fix: Sighting</strong></p>
+                        <p>You need to incorporate "sighting" into your stroke.</p>
+                        <ul>
+                            <li><strong>The Technique:</strong> Every 6 to 10 strokes, lift your eyes just above the waterline (like a crocodile) to spot your target buoy. Do not lift your whole head—that makes your hips sink. Just the eyes.</li>
+                        </ul>
+                        <p><strong>Training Suggestion: "Tarzan Swimming"</strong> - Swim 25 meters with your head completely out of the water, looking forward. It is exhausting, but it strengthens the neck and trap muscles you need to see over waves.</p>
+
+                        <h3 class="neon-heading">4. The "Last Gasp": Panic Control</h3>
+                        <p>Surviving the rising tide. This is the infamous challenge where you are pinned under a steel grate while the tide rises. It is not a test of breath-holding; it is a test of panic management.</p>
+                        <ul>
+                            <li><strong>The Trick: Micro-Sipping</strong> - When the water covers your face, your instinct is to take a huge gulp of air. Don't. Big lungs create buoyancy, which floats you up and smashes your face into the grate.</li>
+                            <li><strong>The Technique:</strong> Tilt your head back and take tiny, small sips of air through pursed lips. Keep your lungs only half-full to stay neutral in the water.</li>
+                            <li><strong>Training Suggestion: "Apnea Walks" (Dry Land)</strong> - Do not practice breath-holding alone in water (risk of blackout). Instead, walk on grass while holding your breath. Count your steps. When you feel the urge to breathe (CO2 buildup), try to take 10 more steps calmly. This trains your brain to recognize that "air hunger" is uncomfortable, but not fatal.</li>
+                        </ul>
+
+                        <div class="huddle-checklist">
+                            <h3>Final Prep Checklist: The Reality Check</h3>
+                            <p>To truly simulate the game, you need to stop training in perfect conditions.</p>
+                            <ul>
+                                <li><strong>The Clothing Audit:</strong> Go to the pool in sneakers, socks, and a heavy t-shirt. Jump in. Feel how heavy the shoes are. Realizing how much drag shoes create now prevents panic later.</li>
+                                <li><strong>The Distance:</strong> Be able to swim 300 meters continuously without touching the wall. That is your baseline for a standard challenge.</li>
+                                <li><strong>The Depth:</strong> Practice diving to the bottom of the deep end (10–12 feet) and tying a knot or retrieving a brick. This simulates releasing a buoy underwater.</li>
+                            </ul>
+                        </div>
+
+                        <div class="video-placeholder">
+                            <span>VIDEO PLACEHOLDER</span>
+                        </div>
+                    </div>
+                    `
+                },
+                {
+                    title: "Puzzles",
+                    content: `
+                    <div class="huddle-blog-post">
+                        <h2 class="huddle-title">STRATEGIC INTELLIGENCE REPORT</h2>
+                        <h3 class="huddle-subtitle">Subject: Puzzle Challenges & Mental Dexterity (Survivor Québec)<br>Status: Important / The "Equalizer"</h3>
+
+                        <h3 class="neon-heading">1. The Role of Puzzles in Québec</h3>
+                        <p>In the US version, puzzles are the "Great Equalizer"—they exist to make sure the super-athlete loses. In Survivor Québec, puzzles are frequent, but they don't guarantee a loss for the strong player.</p>
+                        <ul>
+                            <li><strong>The Balance:</strong> You still need to solve them, but often you have to survive a physical battering just to get to the puzzle pieces.</li>
+                            <li><strong>Frequency:</strong> Expect them often ("High Frequency"), usually at the end of a race.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">2. The "Quiet Eye" Advantage</h3>
+                        <p>The winning strategy for Québec puzzles isn't just being smart; it's about shifting gears instantly.</p>
+                        <ul>
+                            <li><strong>The Shift:</strong> You have to go from "Combat Mode" (high heart rate, adrenaline, aggression) to "Zen Mode" (calm, precise) in seconds.</li>
+                            <li><strong>Case Study (Ghyslain):</strong> He won because he had the "quiet eye"—the ability to block out the chaos and focus entirely on the precision task, similar to a golfer lining up a putt.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">3. Strategic Positioning</h3>
+                        <p>Don't Hide Strength: In the US, if you are good at challenges, you hide it so you don't become a target. In Québec, "giving your all" is respected culturally.</p>
+                        <ul>
+                            <li><strong>The "Shield":</strong> Being good at puzzles and physical challenges (like Ghyslain) can actually protect you. If you are viewed as a "provider" or a "hero" for the tribe, your challenge dominance becomes an asset rather than a target on your back.</li>
+                        </ul>
+
+                        <h3 class="neon-heading">4. Training Focus</h3>
+                        <ul>
+                            <li><strong>Pattern Recognition:</strong> While US players are 3D printing puzzles at home, your time is better spent on general pattern recognition and staying calm under pressure.</li>
+                            <li><strong>Fine Motor Skills:</strong> Practice doing delicate tasks (stacking cards, threading needles) immediately after doing a set of burpees. Learn to steady your hands when your heart is pounding.</li>
+                        </ul>
+
+                        <div class="video-placeholder">
+                            <span>VIDEO PLACEHOLDER</span>
+                        </div>
+                    </div>
+                    `
+                }
             ]
         },
         outlast: {
