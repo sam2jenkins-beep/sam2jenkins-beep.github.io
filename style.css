@@ -184,6 +184,14 @@ img {
     position: relative;
 }
 
+/* Shrink text specifically for the first card ("A Gift") to fit content */
+.accordion-container .accordion-card:nth-child(1) .content p,
+.accordion-container .accordion-card:nth-child(1) .content ul,
+.accordion-container .accordion-card:nth-child(1) .content li {
+    font-size: 0.95rem; /* Reduced from 1.1rem */
+    line-height: 1.4;
+}
+
 .card-bg-clipper {
     position: absolute;
     top: 0;
@@ -286,96 +294,165 @@ img {
     }
 }
 
-/* 3. NOTEBOOKLM (Split) */
-.split-screen {
+/* 3. NOTEBOOKLM (Container/Card Layout) */
+.notebook-container {
+    display: flex;
     flex-direction: row;
     gap: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    height: 70vh;
+    align-items: center;
+    justify-content: center;
 }
 
-.split-left, .split-right {
+/* Instructions Card (Left) */
+.instruction-card {
+    flex: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.instruction-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--neon-pink);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.instruction-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.ways-to-use {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.ways-to-use h4 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.ways-to-use ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.ways-to-use li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.ways-to-use li strong {
+    color: var(--neon-pink);
+}
+
+/* Launch Card (Right) */
+.notebook-launch-card {
     flex: 1;
-    height: 70%;
+    height: 100%; /* Match height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-}
-
-/* Specific overrides for NotebookLM content to fit without scrolling */
-#notebooklm .split-left {
-    justify-content: center;
-    padding: 2rem;
-}
-
-#notebooklm .split-left p {
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    line-height: 1.4;
-    margin-bottom: 1rem;
-    text-align: left;
-}
-
-#notebooklm .split-left p:last-child {
-    margin-bottom: 0;
-}
-
-.neon-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: transparent;
-    color: var(--neon-pink);
-    border: 2px solid var(--neon-pink);
     text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    box-shadow: 0 0 10px var(--neon-pink);
-    transition: all 0.3s ease;
-    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid var(--neon-pink);
 }
 
-.neon-button:hover {
+.notebook-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.launch-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-start; /* Align to top */
+    align-items: center;
+    padding-top: 2rem; /* Add spacing from top */
+    transition: background 0.3s ease;
+}
+
+.launch-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.notebook-launch-card:hover .notebook-preview-img {
+    transform: scale(1.1);
+}
+
+.notebook-launch-card:hover .launch-overlay {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.notebook-launch-card:hover .launch-text {
     background: var(--neon-pink);
-    color: white;
+    border-color: var(--neon-pink);
+    transform: scale(1.1);
     box-shadow: 0 0 20px var(--neon-pink);
 }
 
+/* Mobile Responsiveness for NotebookLM */
 @media (max-width: 768px) {
-    .split-screen {
+    .notebook-container {
         flex-direction: column;
+        height: auto;
+        min-height: 70vh;
     }
-    .split-left, .split-right {
+
+    .instruction-card {
         width: 100%;
         height: auto;
-        padding: 1rem;
+        flex: none;
+        margin-bottom: 1rem;
+        padding: 1.5rem;
     }
 
-    /* NotebookLM Mobile adjustments */
-    #notebooklm .split-screen {
-        justify-content: space-evenly;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+    .notebook-launch-card {
+        width: 100%;
+        height: 200px; /* Fixed height for launch card on mobile */
+        flex: none;
     }
 
-    #notebooklm .split-left {
-        flex: 0 1 auto; /* Don't grow aggressively */
-        margin-bottom: 0.5rem;
-        padding: 0.8rem; /* Slightly reduced padding */
+    .instruction-card h3 {
+        font-size: 1.3rem;
     }
 
-    #notebooklm .split-left h2 {
-        margin-bottom: 0.5rem; /* Tighter header spacing */
-        font-size: 1.4rem;
-    }
-
-    #notebooklm .split-left p {
-        font-size: 0.8rem; /* Smaller font on mobile to ensure fit */
-        line-height: 1.35; /* Optimized line height */
-        margin-bottom: 0.8rem; /* Reduced paragraph spacing */
-        text-align: justify;
-    }
-
-    #notebooklm .split-right {
-        flex: 0 0 auto;
+    .instruction-card p {
+        font-size: 0.9rem;
     }
 }
 
