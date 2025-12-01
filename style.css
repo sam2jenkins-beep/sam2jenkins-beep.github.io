@@ -167,7 +167,7 @@ img {
     display: flex;
     width: 90%;
     max-width: 1200px;
-    height: 60vh;
+    height: 70vh; /* Increased height to accommodate larger text content */
     gap: 1rem;
     overflow: hidden; /* Ensure no scroll */
 }
