@@ -327,7 +327,7 @@ img {
 }
 
 .instruction-card p {
-    font-size: 1rem;
+    font-size: 0.88rem;
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -352,7 +352,7 @@ img {
 }
 
 .ways-to-use li {
-    font-size: 0.95rem;
+    font-size: 0.84rem;
     line-height: 1.4;
     margin-bottom: 0.8rem;
 }
