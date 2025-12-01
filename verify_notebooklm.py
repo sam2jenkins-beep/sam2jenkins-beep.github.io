@@ -1,51 +1,59 @@
+import pytest
+from playwright.sync_api import sync_playwright
 
-import asyncio
-from playwright.async_api import async_playwright
+def test_notebooklm_layout():
+    with sync_playwright() as p:
+        # Desktop Test
+        browser = p.chromium.launch()
+        page = browser.new_page(viewport={"width": 1920, "height": 1080})
+        page.goto("file:///app/index.html")
+        page.wait_for_load_state("networkidle")
 
-async def run():
-    async with async_playwright() as p:
-        # Desktop Verification
-        browser = await p.chromium.launch()
-        page = await browser.new_page(viewport={"width": 1920, "height": 1080})
-        await page.goto("file:///app/index.html")
-        await page.wait_for_load_state("networkidle")
+        # Navigate to NotebookLM section
+        page.eval_on_selector("#notebooklm", "e => e.scrollIntoView()")
 
-        # Locate the NotebookLM section
-        section = page.locator("#notebooklm")
-        await section.scroll_into_view_if_needed()
-        # Wait a bit for any smooth scrolling/animations
-        await asyncio.sleep(1)
+        # Get element info for the instructions card (split-left)
+        # We need to check if the CONTENT fits in the CONTAINER
+        # The container is .split-left.
+        # Check if scrollHeight > clientHeight
 
-        # Take screenshot of the instructions card specifically
-        instructions_card = page.locator("#notebooklm .split-left")
-        await instructions_card.screenshot(path="notebooklm_desktop_after.png")
+        split_left = page.locator("#notebooklm .split-left")
 
-        # Check for overflow (simple heuristic: scrollHeight > clientHeight)
-        is_overflowing = await instructions_card.evaluate("el => el.scrollHeight > el.clientHeight")
-        print(f"Desktop Overflowing: {is_overflowing}")
+        desktop_scroll_height = split_left.evaluate("e => e.scrollHeight")
+        desktop_client_height = split_left.evaluate("e => e.clientHeight")
 
-        await browser.close()
+        print(f"Desktop (1920x1080) - ScrollHeight: {desktop_scroll_height}, ClientHeight: {desktop_client_height}")
 
-        # Mobile Verification (iPhone 12 Pro)
-        iphone = p.devices['iPhone 12 Pro']
-        browser = await p.chromium.launch()
-        context = await browser.new_context(**iphone)
-        page = await context.new_page()
+        if desktop_scroll_height > desktop_client_height + 2: # Tolerance
+            print("Desktop FAILED: Content overflows container")
+        else:
+            print("Desktop PASSED: Content fits")
 
-        await page.goto("file:///app/index.html")
-        await page.wait_for_load_state("networkidle")
+        # Mobile Test
+        iphone_12 = p.devices['iPhone 12 Pro']
+        context = browser.new_context(**iphone_12)
+        page_mobile = context.new_page()
+        page_mobile.goto("file:///app/index.html")
+        page_mobile.wait_for_load_state("networkidle")
 
-        section = page.locator("#notebooklm")
-        await section.scroll_into_view_if_needed()
-        await asyncio.sleep(1)
+        page_mobile.eval_on_selector("#notebooklm", "e => e.scrollIntoView()")
 
-        instructions_card = page.locator("#notebooklm .split-left")
-        await instructions_card.screenshot(path="notebooklm_mobile_after.png")
+        split_left_mobile = page_mobile.locator("#notebooklm .split-left")
 
-        is_overflowing = await instructions_card.evaluate("el => el.scrollHeight > el.clientHeight")
-        print(f"Mobile Overflowing: {is_overflowing}")
+        # On mobile, the container might be auto height, but the SECTION is 100vh fixed.
+        # If the section overflows, we have a problem.
+        section = page_mobile.locator("#notebooklm")
+        section_scroll = section.evaluate("e => e.scrollHeight")
+        section_client = section.evaluate("e => e.clientHeight")
 
-        await browser.close()
+        print(f"Mobile (iPhone 12) - Section ScrollHeight: {section_scroll}, Section ClientHeight: {section_client}")
+
+        if section_scroll > section_client + 2:
+             print("Mobile FAILED: Section content overflows viewport")
+        else:
+             print("Mobile PASSED: Section content fits")
+
+        browser.close()
 
 if __name__ == "__main__":
-    asyncio.run(run())
+    test_notebooklm_layout()

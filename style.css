@@ -251,7 +251,7 @@ img {
 .accordion-card:hover .content {
     display: block;
     opacity: 1;
-    max-height: 1000px;
+    max-height: 3000px;
     margin-top: 1rem;
 }
 
@@ -282,7 +282,7 @@ img {
     }
 
     .accordion-card:hover .content {
-        max-height: 150px;
+        max-height: 3000px;
     }
 }
 
