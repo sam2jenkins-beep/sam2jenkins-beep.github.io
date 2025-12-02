@@ -1,4 +1,236 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Content for Tribal Council (Dossier Theme) ---
+    const tribalContent = `
+        <div class="dossier-container theme-tribal">
+            <header class="dossier-header">
+                <span class="stamp-classified">CLASSIFIED</span>
+                <h2>MISSION BRIEF: TRIBAL COUNCIL</h2>
+                <div class="dossier-meta">
+                    <span>CLEARANCE: LEVEL 5</span>
+                    <span>//</span>
+                    <span>SUBJECT: PSYCHOLOGICAL WARFARE</span>
+                </div>
+            </header>
+
+            <div class="dossier-tabs">
+                <button class="dossier-tab-btn active" data-tab="tribal-1">BEHIND THE CURTAIN</button>
+                <button class="dossier-tab-btn" data-tab="tribal-2">A DIFFERENT BEAST</button>
+                <button class="dossier-tab-btn" data-tab="tribal-3">DIPLOMAT'S HANDBOOK</button>
+            </div>
+
+            <div class="dossier-content">
+                <!-- Tab 1 -->
+                <div id="tribal-1" class="dossier-tab-pane active">
+                    <h3>The Reality of Tribal Council: What You See vs. What You Feel</h3>
+                    <div class="dossier-split">
+                        <div class="dossier-text">
+                            <p>On TV, Tribal Council is a slick, 10-minute dramatic climax. In person? It is a grueling, psychological endurance test. While the broadcast shows a quick vote, the actual filming can last two to three hours.</p>
+                            <h4>The Atmosphere</h4>
+                            <p>The set is a theatrical production stage designed to intimidate. You are surrounded by:</p>
+                            <ul>
+                                <li><strong>The Interrogator:</strong> The host (Jeff Probst or Patrice Bélanger) isn't just asking questions; they are armed with "asymmetrical information"—production secrets about who has idols and who is lying. They will dig until you crack.</li>
+                                <li><strong>The "Invisible" Crew:</strong> Up to 12 cameras, including jibs and dollies, are cross-shooting from the shadows to catch every eye roll and bead of sweat.</li>
+                                <li><strong>The Pressure:</strong> You are exhausted, paranoid, and subjected to a public interrogation where you must lie effectively to the host while keeping your story straight with your alliance.</li>
+                            </ul>
+                        </div>
+                        <div class="dossier-media">
+                            <img src="assets/tribalcouncilfiles.jpeg" alt="Tribal Council Set" class="dossier-img">
+                            <span class="img-caption">FIG A.1: THE STAGE OF ISOLATION</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2 -->
+                <div id="tribal-2" class="dossier-tab-pane">
+                    <h3>Survivor Québec vs. The US Era: The Hybrid Model</h3>
+                    <p>Don't mistake Survivor Québec (SQ) for the modern US format. SQ blends the ruthless efficiency of the "New Era" with the grueling endurance of Old School Survivor.</p>
+
+                    <div class="comparison-grid">
+                        <div class="comp-card">
+                            <h4>The Marathon</h4>
+                            <p>Unlike the 26-day sprint of the US version, SQ demands 39–44 days of survival.</p>
+                        </div>
+                        <div class="comp-card">
+                            <h4>The Spotlight</h4>
+                            <p>With a daily broadcast schedule (Quotidiennes), your game is under a microscope. This magnified scrutiny leads to a "Jury Honor Index"—Quebec juries prioritize social integrity and emotional transparency over pure cutthroat strategy.</p>
+                        </div>
+                        <div class="comp-card">
+                            <h4>The Physics</h4>
+                            <p>SQ challenges are brutal. Modeled closer to Australian Survivor, they demand high physical strength and "maximal effort," whereas the US version often leans on puzzles and balance.</p>
+                        </div>
+                        <div class="comp-card">
+                            <h4>The Chaos</h4>
+                            <p>Expect structural "Category IV" advantages (like Cross-Tribal Elimination) that don't just shift a vote—they break the game.</p>
+                        </div>
+                    </div>
+
+                    <div class="img-placeholder">
+                        <span>[INFOGRAPHIC: 26 DAYS (US) VS 40+ DAYS (SQ)]</span>
+                    </div>
+                </div>
+
+                <!-- Tab 3 -->
+                <div id="tribal-3" class="dossier-tab-pane">
+                    <h3>The Diplomat’s Handbook: Winning the Vote</h3>
+                    <p>Preparation is Power. Walking into Tribal Council without preparation is a death sentence. Success in Quebec isn't just about quick wit; it's about rigorous training.</p>
+
+                    <ul class="strategy-list">
+                        <li>
+                            <strong>Physical Mastery:</strong> Don't just learn to make fire—master it until you can do it in the rain. Practice knot tying and isometric grip strength so you have the option to play the game.
+                        </li>
+                        <li>
+                            <strong>Narrative Control:</strong> You are a diplomat on an unstable stage. You must frame your backstabs as "necessary defense" rather than malice. The Quebec jury votes with their heart as much as their head; if you break the social contract without a narrative of honor, you lose the million.
+                        </li>
+                        <li>
+                            <strong>Emotional Armor:</strong> Voting someone out can be gut-wrenching ("m’arrachait le cœur"). You must prepare for "emotional overload" and maintain a calm facade while the host actively tries to expose your secrets.
+                        </li>
+                        <li>
+                            <strong>The Bottom Line:</strong> You must be ready to improvise when a crisis erupts, but your survival hinges on the quality of your "dossier"—the trust you built before you sat down.
+                        </li>
+                    </ul>
+
+                    <div class="img-placeholder">
+                        <span>[IMAGE: TORCH FIRE FOCUS]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // --- Content for Common Mistakes (Hazard Theme) ---
+    const mistakesContent = `
+        <div class="dossier-container theme-hazard">
+            <header class="dossier-header">
+                <span class="stamp-warning">WARNING</span>
+                <h2>HAZARD REPORT: COMMON MISTAKES</h2>
+                <div class="dossier-meta">
+                    <span>SEVERITY: CRITICAL</span>
+                    <span>//</span>
+                    <span>STATUS: ACTIVE THREAT</span>
+                </div>
+            </header>
+
+            <div class="dossier-tabs">
+                <button class="dossier-tab-btn active" data-tab="mistake-1">FATAL ERRORS</button>
+                <button class="dossier-tab-btn" data-tab="mistake-2">HALL OF SHAME</button>
+                <button class="dossier-tab-btn" data-tab="mistake-3">DECODING THE META</button>
+            </div>
+
+            <div class="dossier-content">
+                <!-- Tab 1 -->
+                <div id="mistake-1" class="dossier-tab-pane active">
+                    <h3>The "How to Lose" Handbook – 5 Fatal Errors</h3>
+                    <p class="intro-alert"><strong>DON'T BE A STATISTIC.</strong> Most players don't lose because they were outplayed; they lose because they beat themselves.</p>
+
+                    <div class="error-list">
+                        <div class="error-item">
+                            <h4>1. The Gratuitous Betrayal</h4>
+                            <p>Blindsiding someone just to make a "Big Move" usually creates a bitter jury.</p>
+                            <p class="case-note"><strong>Case Note:</strong> Boston Rob (All-Stars) played a dominant game but lost because his betrayals were seen as personal and unnecessary.</p>
+                        </div>
+                        <div class="error-item">
+                            <h4>2. Killing the Meat Shield</h4>
+                            <p>Eliminating big physical threats too early leaves you exposed.</p>
+                            <p class="case-note"><strong>Masterclass:</strong> Jeremy Collins (Cambodia) kept Joe Anglim in the game to ensure no one was looking at him.</p>
+                        </div>
+                        <div class="error-item">
+                            <h4>3. The "Goat" Delusion</h4>
+                            <p>Bringing a "weak" player to the end often backfires if you misread their social standing.</p>
+                            <p class="case-note"><strong>The Blunder:</strong> Russell Hantz (HvV) lost to Sandra because juries vote for respect, not just strategy.</p>
+                        </div>
+                         <div class="error-item">
+                            <h4>4. The Pocketed Idol</h4>
+                            <p>Going home with an idol in your pocket usually happens around Episode 11.</p>
+                            <p class="case-note"><strong>Horror Story:</strong> James Clement (China) was voted out with two idols because he felt "safe."</p>
+                        </div>
+                        <div class="error-item">
+                            <h4>5. The Dictator</h4>
+                            <p>Drawing lines in the sand too early paints a target on your back. Be useful, not bossy.</p>
+                        </div>
+                    </div>
+
+                    <div class="dossier-media">
+                        <img src="assets/common.jpeg" alt="Survivor Graveyard" class="dossier-img">
+                        <span class="img-caption">FIG B.1: THE SURVIVOR GRAVEYARD</span>
+                    </div>
+                </div>
+
+                <!-- Tab 2 -->
+                <div id="mistake-2" class="dossier-tab-pane">
+                    <h3>Hall of Shame & Hidden Mechanics</h3>
+                    <p>Survivor history is paved with players who made choices that haunt them to this day. Learn from the best (and worst).</p>
+
+                    <div class="shame-grid">
+                        <div class="shame-card">
+                            <h4>The Golden Rule</h4>
+                            <p>Never, under any circumstances, give up Individual Immunity.</p>
+                            <div class="shame-moment">
+                                <strong>THE MOMENT:</strong> Erik Reichenbach (Micronesia) gave his necklace to Natalie at Final 5. Voted out immediately.
+                            </div>
+                        </div>
+                        <div class="shame-card">
+                            <h4>The Greed Trap</h4>
+                            <p>Never prioritize comfort over safety.</p>
+                            <div class="shame-moment">
+                                <strong>THE MOMENT:</strong> Ulong Tribe (Palau) lost immunity trying to carry luxury rewards while the other tribe just took the paddles.
+                            </div>
+                        </div>
+                        <div class="shame-card">
+                            <h4>The "Face Off" Trap</h4>
+                            <p>Challenges like "Touchy Subjects" are designed to hurt feelings. Don't mock the bottom players.</p>
+                            <div class="shame-moment">
+                                <strong>THE HACK:</strong> The Rotu Four fell apart because they revealed their pecking order.
+                            </div>
+                        </div>
+                         <div class="shame-card">
+                            <h4>The Car Curse</h4>
+                            <p>Historically, no player who won the "Car Reward" ever went on to win the game.</p>
+                            <div class="shame-moment">
+                                <strong>THE MOMENT:</strong> Yau-Man (Fiji) gave his truck to Dreamz for safety. Dreamz reneged and voted him out.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="img-placeholder">
+                        <span>[IMAGE: SPLIT SCREEN - ERIK & TRUCK]</span>
+                    </div>
+                </div>
+
+                <!-- Tab 3 -->
+                <div id="mistake-3" class="dossier-tab-pane">
+                    <h3>Decoding the Survivor Québec Meta (S1–S3)</h3>
+                    <p>Survivor Québec (SQ) is a volatile hybrid of "Old School" ethics and "New Era" chaos.</p>
+
+                    <div class="meta-section">
+                        <h4>The Jury Honor Index (JHI)</h4>
+                        <p>Unlike the US version, SQ juries heavily punish arrogance (surconfiance).</p>
+                        <p><strong>Example:</strong> Nicolas Brunette (S1) won by proving he was an "incredible human." S3 players were punished for poor social judgment.</p>
+                    </div>
+
+                    <div class="meta-section">
+                        <h4>The Deception Dividend</h4>
+                        <p>The best move in SQ history wasn't playing an advantage—it was lying about one.</p>
+                        <p><strong>Moment:</strong> André (S2) used the "Choose Your Champion" bluff to manipulate the entire vote.</p>
+                    </div>
+
+                    <div class="meta-section">
+                        <h4>Twist Volatility</h4>
+                        <p>Prepare for "Category IV" twists that break the format. Example: Cross-Tribal Elimination (S3).</p>
+                    </div>
+
+                    <div class="meta-section">
+                        <h4>The Endgame</h4>
+                        <p>SQ does not guarantee a fire-making challenge at Final 4. Tie-breakers in S2 and S3 involved Trivia/Past Votes.</p>
+                    </div>
+
+                     <div class="img-placeholder">
+                        <span>[IMAGE: ANDRÉ & SCROLL DIAGRAM]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
     // --- Data for Pillars (Grid + Deep Linking) ---
     const pillarsData = {
         outwit: {
@@ -65,8 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     `
                 },
-                { title: "Tribal Council", content: "Navigating the vote." },
-                { title: "Common Mistakes", content: "What not to do." }
+                { title: "Tribal Council", content: tribalContent },
+                { title: "Common Mistakes", content: mistakesContent }
             ]
         },
         outplay: {
@@ -738,6 +970,27 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
             closeModal();
+        }
+    });
+
+    // --- Global Event Listener for Dossier Tabs ---
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.dossier-tab-btn')) {
+            const btn = e.target;
+            const tabId = btn.getAttribute('data-tab');
+
+            // Find parent dossier container
+            const dossier = btn.closest('.dossier-container');
+            if (!dossier) return;
+
+            // Handle Buttons
+            dossier.querySelectorAll('.dossier-tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Handle Panes
+            dossier.querySelectorAll('.dossier-tab-pane').forEach(pane => pane.classList.remove('active'));
+            const targetPane = dossier.querySelector(`#${tabId}`);
+            if (targetPane) targetPane.classList.add('active');
         }
     });
 
