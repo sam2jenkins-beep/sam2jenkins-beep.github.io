@@ -3179,3 +3179,132 @@ img {
     line-height: 1;
     font-style: normal;
 }
+.ftc-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    color: #1a1a1a;
+}
+
+.ftc-headline-area {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.ftc-headline-area h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 3.5rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+    background: linear-gradient(90deg, #1a1a1a, #444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ftc-subtext {
+    font-size: 1.3rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.ftc-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.ftc-card-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.ftc-card-title h3 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.ftc-card-title p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ftc-split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.ftc-col h4 {
+    font-size: 1.8rem;
+    color: #332FD0; /* Survivor Blue accent */
+    margin-bottom: 1.5rem;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ftc-col p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.ftc-col strong {
+    color: #000;
+    font-weight: 900;
+}
+
+.ftc-video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    margin: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ftc-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Specific Accent Colors for Sections */
+.accent-structure h4 { color: #332FD0; } /* Blue */
+.accent-narrative h4 { color: #FB2576; } /* Pink */
+.accent-todd h4 { color: #FFD700; text-shadow: 0 0 1px #999; } /* Gold */
+.accent-adam h4 { color: #FF5F1F; } /* Orange */
+
+@media (max-width: 900px) {
+    .ftc-headline-area h2 {
+        font-size: 2.5rem;
+    }
+
+    .ftc-split-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .ftc-card {
+        padding: 1.5rem;
+    }
+}
