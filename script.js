@@ -1034,6 +1034,111 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    // --- FTC Guide Content ---
+    const ftcGuideContent = `
+        <div class="theme-neon-bright ftc-container">
+            <!-- Header Area -->
+            <div class="ftc-headline-area">
+                <h2>The Survivor Winner's Compendium: Mastering the Final Tribal Council</h2>
+                <p class="ftc-subtext">This section contains the two essential ideas—the Rhetorical Blueprint for structure, and the Winner's Narrative for content—followed by two case studies demonstrating how champions apply these rules to secure the million-dollar prize.</p>
+            </div>
+
+            <!-- Card 1: Structure & Content -->
+            <div class="ftc-card">
+                <div class="ftc-card-title">
+                    <h3>Final Tribal Council Speech Structure</h3>
+                    <p>Success at the Final Tribal Council (FTC) requires combining a clear structure (The Rhetorical Blueprint) with a compelling theme (The Winner’s Narrative).</p>
+                </div>
+
+                <div class="ftc-split-layout">
+                    <!-- Left: Structure -->
+                    <div class="ftc-col accent-structure">
+                        <h4>The Rhetorical Blueprint (The Structure)</h4>
+                        <p>This is the required three-part framework for your opening statement, ensuring you address every angle of your game:</p>
+
+                        <p><strong>The Strategic Case ("What I Did"):</strong> Outline your entire game trajectory with Intentionality. Identify key alliances, critical votes, and idol plays to establish yourself as the active competitor.</p>
+
+                        <p><strong>The Social Case ("How I Managed You"):</strong> Address the emotional reality of the game. Acknowledge betrayal, reframe negative reputations, and secure respect by demonstrating superior social intelligence.</p>
+
+                        <p><strong>The Closing Case ("Why Me Now"):</strong> Isolate and highlight your Endgame Moves (post-Final 6) to prove you engineered the final result.</p>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="ftc-col accent-narrative">
+                        <h4>The Winner's Narrative (The Content)</h4>
+                        <p>This is the thematic lens you apply to your story to overcome jury resentment and spin flaws into strategic assets:</p>
+
+                        <p><strong>Ruthlessness as Necessary Competence.</strong> Own the lies, but pivot immediately to the strategic benefit, asking the jury to reward effectiveness over ethical consistency.</p>
+
+                        <p><strong>Reframe Physical Weakness as Superior Social Cunning.</strong> Argue that being underestimated was a deliberate social strategy, asking the jury to reward the master manipulator over the athlete.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Case Studies -->
+            <div class="ftc-card">
+                <div class="ftc-card-title">
+                    <h3>Case Study: The FTC Legends</h3>
+                </div>
+
+                <div class="ftc-split-layout">
+                    <!-- Left: Todd Herzog -->
+                    <div class="ftc-col accent-todd">
+                        <h4>The FTC GOAT: How Todd Herzog Mastered the Jury and Bagged the Million</h4>
+                        <p>If you want to know how to win Survivor, you don't look at the challenge beasts—you look at the Final Tribal Council (FTC) legends. And leading the pack is Todd Herzog from Survivor: China. Todd didn't just win; he gave a masterclass in reading the room, owning his ruthless game, and delivering one of the most persuasive final speeches ever.</p>
+                        <p>He didn't just survive to the end, he designed it. Here’s the breakdown of how the little flight attendant slayed the jury with pure charisma and strategic truth bombs.</p>
+
+                        <p><strong>The Todd Model: Ruthlessness is Just Competence</strong><br>
+                        Todd knew the jury was bitter. He had lied, flipped, and generally played a cutthroat game. But instead of apologizing for being a player, he apologized for the pain it caused, and then immediately pivoted to the strategic genius of the move.</p>
+
+                        <p><strong>His Winning Narrative: "I am a liar, but only because I am a better player than you."</strong><br>
+                        When he faced a question about betrayal, he didn't mince words. He acknowledged the hurt feelings, made eye contact, and then explained that the very act of betraying them was a testament to his necessary, calculated strategy. He was telling the jury: "You're smart enough to recognize a million-dollar move, even if it cost you the game." By treating them like intelligent competitors, he earned their respect back.</p>
+
+                        <p><strong>The Rhetorical Blueprint in Action</strong><br>
+                        Todd’s speech was perfectly structured to leave no doubt about his control:</p>
+                        <p><strong>The Strategic Case:</strong> He didn't wait for questions; he laid out his entire plan first. He explained his initial alliance, the shift at the merge, and how he controlled the numbers without ever seeming too dominant. He framed his gameplay as a flawless chain of intentional decisions.</p>
+                        <p><strong>The Social Case:</strong> When Jean-Robert criticized his passive attitude around camp, Todd didn't get defensive. He calmly explained that he was managing Jean-Robert's volatility as part of his strategy. He turned a social flaw into proof of social skill. It was a surgical strike showing he understood the personal dynamics better than anyone else.</p>
+                        <p><strong>The Endgame Moves:</strong> He hammered home the Final 4 Tribal Council—when he, Amanda, and Denise blindsided James (with James sitting on two unused idols!). This proved he was the one actively engineering the end game, not just riding along.</p>
+
+                        <p><strong>The Human Key: A Moment of Vulnerability</strong><br>
+                        The final piece of Todd's winning formula was injecting genuine emotion. He spoke about his deep desire to win and the immense pressure he felt, even shedding a few tears. This was crucial: by being briefly vulnerable, he reminded the jury that behind the ruthless strategy was a person playing for their dreams. This human moment gave the bitter jurors the permission they needed to cast their vote for the strategic genius, and not just the manipulator.</p>
+
+                        <p>Watch the genius at work below. This is the gold standard for how to win the jury:</p>
+
+                        <div class="ftc-video-container">
+                            <iframe src="https://www.youtube.com/embed/5FXF23mz_4o?si=5R0bjviecM8McXuI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <p><strong>The Takeaway:</strong> If you make it to the end, don't beg. Don't hide. Own your game. Look every single juror in the eye and prove that you played a better game than they did. That's the Todd Herzog way.</p>
+                    </div>
+
+                    <!-- Right: Adam Klein -->
+                    <div class="ftc-col accent-adam">
+                        <h4>The Emotional Sweep: How Adam Klein Turned Paranoia into a Perfect 10-0-0</h4>
+                        <p>If Todd Herzog is the master of the strategic flip, Adam Klein (Survivor: Millennials vs. Gen X) is the master of the emotional clean sweep. Adam's gameplay was often messy, frantic, and paranoid, yet he walked away with a unanimous 10-0-0 victory. How? He used the Rhetorical Blueprint to clean up the strategic chaos and connect with the jury's deepest sympathies.</p>
+
+                        <p><strong>🌪️ The Adam Model: Intentionality Over Chaos</strong><br>
+                        Adam didn't pretend his game was flawless. Instead, he owned his paranoia and reframed it as necessary vigilance. His strategy wasn't to deny the mess, but to justify it as a function of the pressure he felt and the chaotic environment.</p>
+
+                        <p><strong>His Winning Narrative: "My chaos was a reflection of how hard I fought, not how poorly I played."</strong><br>
+                        He needed the jury to look past the Millennial flailing and see the competitor fighting for the highest stakes.</p>
+
+                        <p><strong>🧭 The Rhetorical Blueprint in Action</strong><br>
+                        Adam's speech was designed to validate his strategy while connecting his personal life to the game's stakes:</p>
+
+                        <p><strong>The Strategic Case:</strong> Adam didn't let the jury focus on his errors. He highlighted his proactive hunt for advantages and his perfect Idol play on Hannah. This demonstrated that his frantic energy was actually strategic aggression—he was playing the game the season demanded. He showed he was driving the car, even if he was swerving.</p>
+
+                        <p><strong>The Social Case:</strong> Adam secured a crucial vote by being honest about his betrayal of his closest ally, Taylor. He took ownership but explained it was the strategic necessity of the moment. Furthermore, he used his reputation for being emotional not as a flaw, but as a symptom of the immense pressure he felt, demonstrating humility and relatability.</p>
+
+                        <p><strong>The Closing Case:</strong> Adam secured his spot with two major endgame moves: winning the Final Immunity Challenge and expertly cutting the biggest threat, David. He showed he deserved to be there on merit. The true final move, however, was his emotional closer. He revealed his mother's battle with cancer, tying his fight for the million dollars to her fight for life. This emotional climax gave the jury a compelling, genuine reason to reward him, transcending gameplay and resulting in the clean sweep.</p>
+
+                        <p><strong>The Takeaway:</strong> If your game is chaotic, control the narrative. Use honesty and humility to disarm the jury, and give them a meaningful, human reason to reward your strategic fight. That's the Adam Klein way.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
     const survivorsContent = `
         <div class="case-studies-grid">
             <!-- Case Study 1: Andre -->
@@ -1460,6 +1565,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (contentId === 'usa-vs-qc') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = usaVsQcContent;
+            } else if (contentId === 'ftc-guide') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = ftcGuideContent;
             } else if (contentId === 'jury-management') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = generateJuryContent();
