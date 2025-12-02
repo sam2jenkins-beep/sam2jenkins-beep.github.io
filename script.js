@@ -842,6 +842,122 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    // --- Jury Management Content (Dynamic Generation) ---
+    const jurors = [
+        {
+            id: 1,
+            age: 34,
+            gender: "Male",
+            ethnicity: "Caucasian",
+            education: "Masters",
+            occupation: "Teacher",
+            political: "Liberal",
+            religious: "Catholic"
+        },
+        {
+            id: 2,
+            age: 27,
+            gender: "Female",
+            ethnicity: "Asian",
+            education: "Bachelors",
+            occupation: "Nurse",
+            political: "Conservative",
+            religious: "Agnostic"
+        },
+        {
+            id: 3,
+            age: 45,
+            gender: "Male",
+            ethnicity: "Black",
+            education: "Trade School",
+            occupation: "Carpenter",
+            political: "Independent",
+            religious: "Baptist"
+        },
+        {
+            id: 4,
+            age: 22,
+            gender: "Female",
+            ethnicity: "Latina",
+            education: "Student",
+            occupation: "Waitress",
+            political: "Liberal",
+            religious: "Catholic"
+        },
+        {
+            id: 5,
+            age: 55,
+            gender: "Male",
+            ethnicity: "Caucasian",
+            education: "PhD",
+            occupation: "Professor",
+            political: "Libertarian",
+            religious: "Atheist"
+        },
+        {
+            id: 6,
+            age: 40,
+            gender: "Female",
+            ethnicity: "Caucasian",
+            education: "Bachelors",
+            occupation: "Manager",
+            political: "Conservative",
+            religious: "Christian"
+        },
+         {
+            id: 7,
+            age: 30,
+            gender: "Male",
+            ethnicity: "Mixed",
+            education: "Masters",
+            occupation: "Engineer",
+            political: "Moderate",
+            religious: "None"
+        }
+    ];
+
+    function generateJuryContent() {
+        let html = `
+        <div class="jury-container">
+            <header class="jury-header">
+                <h2>JURY SELECTION PROTOCOL</h2>
+                <div class="jury-meta">
+                    <span>STATUS: PENDING</span>
+                    <span>//</span>
+                    <span>TARGETS: ACQUIRE</span>
+                </div>
+            </header>
+            <div class="jury-grid">
+        `;
+
+        jurors.forEach(juror => {
+            html += `
+            <div class="jury-card" data-juror-id="${juror.id}">
+                <div class="jury-card-header">
+                    <h3>JUROR ${juror.id}</h3>
+                    <div class="jury-id-badge">#${String(juror.id).padStart(3, '0')}</div>
+                </div>
+                <div class="jury-attributes">
+                    <div class="attr-row"><span class="attr-label">Age:</span> <span class="attr-val">${juror.age}</span></div>
+                    <div class="attr-row"><span class="attr-label">Gender:</span> <span class="attr-val">${juror.gender}</span></div>
+                    <div class="attr-row"><span class="attr-label">Ethnicity:</span> <span class="attr-val">${juror.ethnicity}</span></div>
+                    <div class="attr-row"><span class="attr-label">Education:</span> <span class="attr-val">${juror.education}</span></div>
+                    <div class="attr-row"><span class="attr-label">Occupation:</span> <span class="attr-val">${juror.occupation}</span></div>
+                    <div class="attr-row"><span class="attr-label">Political:</span> <span class="attr-val">${juror.political}</span></div>
+                    <div class="attr-row"><span class="attr-label">Religious:</span> <span class="attr-val">${juror.religious}</span></div>
+                </div>
+                <div class="jury-actions">
+                    <button class="jury-btn-select" data-action="select">SELECT</button>
+                    <button class="jury-btn-reject" data-action="reject">REJECT</button>
+                </div>
+            </div>
+            `;
+        });
+
+        html += `</div></div>`;
+        return html;
+    }
+
     // --- Modal Elements ---
     const modalOverlay = document.getElementById('modal-overlay');
     const modalContentBox = document.getElementById('modal-content-box');
@@ -904,6 +1020,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (contentId === 'usa-vs-qc') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = usaVsQcContent;
+            } else if (contentId === 'jury-management') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = generateJuryContent();
             } else {
                 modalTitle.style.display = 'block';
                 modalTitle.textContent = title;
@@ -991,6 +1110,35 @@ document.addEventListener('DOMContentLoaded', () => {
             dossier.querySelectorAll('.dossier-tab-pane').forEach(pane => pane.classList.remove('active'));
             const targetPane = dossier.querySelector(`#${tabId}`);
             if (targetPane) targetPane.classList.add('active');
+        }
+    });
+
+    // --- Global Event Listener for Jury Buttons ---
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.jury-btn-select') || e.target.matches('.jury-btn-reject')) {
+            const btn = e.target;
+            const card = btn.closest('.jury-card');
+            const action = btn.getAttribute('data-action');
+
+            if (action === 'select') {
+                if (card.classList.contains('selected')) {
+                     // Toggle off
+                     card.classList.remove('selected');
+                } else {
+                    // Turn on, turn off reject
+                    card.classList.remove('rejected');
+                    card.classList.add('selected');
+                }
+            } else if (action === 'reject') {
+                if (card.classList.contains('rejected')) {
+                    // Toggle off
+                    card.classList.remove('rejected');
+                } else {
+                    // Turn on, turn off select
+                    card.classList.remove('selected');
+                    card.classList.add('rejected');
+                }
+            }
         }
     });
 
