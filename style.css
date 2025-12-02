@@ -2672,3 +2672,222 @@ img {
 
 .spoiler-active .spoiler-content { filter: blur(0); user-select: text; }
 .spoiler-active .spoiler-overlay { opacity: 0; }
+
+/* --- THEME 3: NEON BRIGHT (Advantages & Twists) --- */
+.theme-neon-bright {
+    background-color: #f8f9fa; /* Light background */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.theme-neon-bright h2, .theme-neon-bright h3, .theme-neon-bright h4 {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-neon-bright h2 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #FF00FF, #00FFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    text-shadow: none;
+}
+
+.theme-neon-bright .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    display: block;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+/* Season Section */
+.season-section {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.season-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.season-header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.season-tag {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Twist List */
+.twist-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.twist-item {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.twist-item::before {
+    content: "►";
+    color: #333;
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+    top: 4px;
+}
+
+.twist-item strong {
+    color: #000;
+    font-weight: 900;
+}
+
+/* Strategy Box */
+.strategy-box {
+    background: #f0f7ff;
+    border-left: 5px solid #007bff;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border-radius: 0 10px 10px 0;
+}
+
+.strategy-box h4 {
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.strategy-box p {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Colors for specific seasons */
+.s1-theme .season-header { color: #8e44ad; }
+.s1-theme .season-tag { background: #8e44ad; }
+.s1-theme .twist-item::before { color: #8e44ad; }
+
+.s2-theme .season-header { color: #2980b9; }
+.s2-theme .season-tag { background: #2980b9; }
+.s2-theme .twist-item::before { color: #2980b9; }
+
+.s3-theme .season-header { color: #c0392b; }
+.s3-theme .season-tag { background: #c0392b; }
+.s3-theme .twist-item::before { color: #c0392b; }
+
+/* Summary Guide */
+.summary-guide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.guide-card {
+    background: #222; /* Dark contrast for these cards */
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.guide-card h4 {
+    color: #00FFFF;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.guide-card p {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+.guide-card .data-point {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    color: #aaa;
+}
+
+/* Drill Cards */
+.drill-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.drill-card {
+    background: #fff;
+    border: 2px dashed #333;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.drill-card h4 {
+    background: #000;
+    color: #fff;
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    transform: rotate(-2deg);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .theme-neon-bright {
+        padding: 1rem;
+    }
+    .theme-neon-bright h2 {
+        font-size: 2rem;
+    }
+    .summary-guide {
+        grid-template-columns: 1fr;
+    }
+    .season-section {
+        padding: 1rem;
+    }
+
+    /* Stack the Meat Shield/Drill grid */
+    .theme-neon-bright > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+}

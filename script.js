@@ -1,5 +1,127 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Content for Tribal Council (Dossier Theme) ---
+    const advantagesContent = `
+        <div class="theme-neon-bright">
+            <header style="text-align: center; margin-bottom: 3rem;">
+                <h2>Survivor Québec Ecosystem</h2>
+                <span class="subtitle">Strategic Hybrid Model // Survival + Strategy + Honor</span>
+                <p>It adopts the structural mechanics of modern Survivor US (advantages, twists) but retains the endurance elements of Australian Survivor (42-day duration, larger casts) and a unique cultural "Jury Honor Index" where social integrity often outweighs pure tactical aggression.</p>
+            </header>
+
+            <!-- Season 1 -->
+            <div class="season-section s1-theme">
+                <div class="season-header">
+                    Season 1 (2023)
+                    <span class="season-tag">Foundational</span>
+                </div>
+                <p style="font-style: italic; margin-bottom: 1rem;">Twist Profile: Redemption Island & Traditional Idols.</p>
+
+                <ul class="twist-list">
+                    <li class="twist-item"><strong>Redemption Island:</strong> Voted-out contestants compete in duels to return. Nicolas Brunette used this to build an underdog story and win.</li>
+                    <li class="twist-item"><strong>Hidden Immunity Idols (HII):</strong> Hard to find (camouflaged). Standard protection (play before votes read).</li>
+                    <li class="twist-item"><strong>Extra Vote:</strong> Cast two ballots. Used by Sandrine.</li>
+                </ul>
+
+                <div class="strategy-box">
+                    <h4>Strategic Application</h4>
+                    <p><strong>Meat Shield Strategy:</strong> Do not fear voting out physical players early; if they go to Redemption, they eliminate others.</p>
+                    <p><strong>Jury Management:</strong> Use Redemption Island time to bond with future jurors outside the game stress.</p>
+                    <p><strong>The "Cringe" Warning:</strong> Do not over-complicate idol plays with theatrics (like Karine). The jury values "respectable strategy".</p>
+                </div>
+            </div>
+
+            <!-- Season 2 -->
+            <div class="season-section s2-theme">
+                <div class="season-header">
+                    Season 2 (2024)
+                    <span class="season-tag">Deception</span>
+                </div>
+                <p style="font-style: italic; margin-bottom: 1rem;">Twist Profile: High-Variance Advantages & The Bluff Meta.</p>
+
+                <ul class="twist-list">
+                    <li class="twist-item"><strong>Choose Your Champion (CYC):</strong> Bet on immunity winner for safety. Used by André for the "Ultimate Bluff".</li>
+                    <li class="twist-item"><strong>Safety Without Power:</strong> Leave Tribal immediately (no vote, no risk). A survival tool, not a winning tool.</li>
+                    <li class="twist-item"><strong>Vote Steal:</strong> Block a vote and cast a second one. Best used to break deadlocks.</li>
+                </ul>
+
+                <div class="strategy-box" style="border-color: #2980b9;">
+                    <h4>Strategic Application</h4>
+                    <p><strong>Information Asymmetry:</strong> Use complex advantages to create "informational fog." Dictate voting lines by bluffing about how an advantage works.</p>
+                    <p><strong>Concentration of Power:</strong> Hoarding advantages (like André) raises threat level. Mechanics without social integration leads to a 0-vote finalist spot.</p>
+                </div>
+            </div>
+
+            <!-- Season 3 -->
+            <div class="season-section s3-theme">
+                <div class="season-header">
+                    Season 3 (2025)
+                    <span class="season-tag">Chaos</span>
+                </div>
+                <p style="font-style: italic; margin-bottom: 1rem;">Twist Profile: Forced Volatility & Tribal Disruption.</p>
+
+                <ul class="twist-list">
+                    <li class="twist-item"><strong>Tribal Remaniement:</strong> Dissolving 2 tribes into 3 to break early alliances.</li>
+                    <li class="twist-item"><strong>Cross-Tribal Elimination:</strong> Reward winner eliminates a player from losing tribe directly (no vote).</li>
+                    <li class="twist-item"><strong>Kidnap / Player Steal:</strong> Winning tribe steals a player, altering numbers instantly.</li>
+                    <li class="twist-item"><strong>Past Votes Tie-Breaker:</strong> Ties broken by "Past Votes" count. <strong>Critical Change.</strong></li>
+                </ul>
+
+                <div class="strategy-box" style="border-color: #c0392b;">
+                    <h4>Strategic Application</h4>
+                    <p><strong>Clean Sheet Protocol:</strong> Receiving "throwaway" votes is catastrophic for the tie-breaker. Refuse split votes on yourself.</p>
+                    <p><strong>Kidnap Lobbying:</strong> If on the bottom, signal willingness to defect so the other tribe "steals" you.</p>
+                    <p><strong>The "Necessity" Narrative:</strong> Frame betrayals as reactions to chaos (like Geneviève) rather than malicious plotting.</p>
+                </div>
+            </div>
+
+            <!-- Summary Guide -->
+            <h3 style="margin: 3rem 0 1.5rem 0; text-align: center;">Summary Strategy Guide</h3>
+            <div class="summary-guide">
+                <div class="guide-card">
+                    <h4>1. The "Honor" Constraint</h4>
+                    <div class="data-point">Data: Juries punish overt coercion.</div>
+                    <p>Mask aggression. Frame blindsides as "protecting the tribe" or "loyalty," never as "resume building."</p>
+                </div>
+                <div class="guide-card">
+                    <h4>2. Mastering the Daily Edit</h4>
+                    <div class="data-point">Data: 5 episodes/week exposes fake personas.</div>
+                    <p>You cannot hide a villain edit. Contribute visibly to camp life (shelter, fire) to build a "provider" shield.</p>
+                </div>
+                <div class="guide-card">
+                    <h4>3. The Bluff Economy</h4>
+                    <div class="data-point">Data: André’s S2 bluff.</div>
+                    <p>If you find an advantage, create a public narrative around it. Lie about its powers to create a "safety bubble."</p>
+                </div>
+                <div class="guide-card">
+                    <h4>4. Tie-Breaker Awareness</h4>
+                    <div class="data-point">Data: Past Votes rule.</div>
+                    <p>Aggressively target the player with the highest "past vote" count in deadlocks. Protect your own "clean sheet."</p>
+                </div>
+            </div>
+
+            <!-- Meat Shield 2.0 & Drills -->
+             <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div class="season-section" style="border-color: #333;">
+                    <h3>Meat Shield 2.0</h3>
+                    <p><strong>The Expansion:</strong> Instead of voting out the challenge beast, weaponize their ego. Keep them to win tribal immunity, then blindside them when the Redemption/Return mechanic is closed.</p>
+                    <p style="margin-top: 1rem;"><strong>The "Champion" Bluff:</strong> Change one variable when explaining an advantage. <br><em>Real:</em> "Safe if I predict correctly." <br><em>Lie:</em> "Safe if I place a bet."</p>
+                </div>
+
+                <div class="drill-container">
+                    <h3>Final Prep Drills</h3>
+                    <div class="drill-card">
+                        <h4>Drill A: "Why Me?"</h4>
+                        <p>Pitch bonds, not moves. "I nurtured the tribe when morale was low." Targets the Honor Index.</p>
+                    </div>
+                    <div class="drill-card">
+                        <h4>Drill C: The "Cringe" Check</h4>
+                        <p>Before playing an Idol: "If I make a speech, will the jury roll their eyes?" If yes, sit down and play it quietly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
     const tribalContent = `
         <div class="dossier-container theme-tribal">
             <header class="dossier-header">
@@ -236,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
         outwit: {
             title: "OUTWIT",
             items: [
-                { title: "Advantages & Twists", content: "Details on idols, advantages, and twists." },
+                { title: "Advantages & Twists", content: advantagesContent },
                 {
                     title: "The Huddle Test",
                     content: `
