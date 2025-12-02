@@ -353,6 +353,139 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    // --- Shelter Content (Protocol II) ---
+    const shelterContent = `
+        <!-- Hero Section -->
+        <header class="shelter-hero">
+            <div class="shelter-hero-content">
+                <div class="shelter-badge">Protocol II: Engineering</div>
+                <h1 class="shelter-title">The Jungle Does Not <span class="text-red-highlight">Forgive</span></h1>
+                <p class="shelter-quote">
+                    "In the tropics, a shelter is not just a bed. It is a machine for fighting heat, dampness, and despair."
+                </p>
+                <a href="#blueprint" class="shelter-btn">
+                    View The Blueprint <span class="icon-unicode">▼</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- The Cautionary Tale -->
+        <section class="shelter-section-dark">
+            <div class="shelter-split">
+                <div class="shelter-col-half">
+                    <div class="shelter-alert-box">
+                        <h2 class="shelter-warning-title">
+                            <span class="icon-unicode">☠</span> Case File: The Pitfall
+                        </h2>
+                        <img src="assets/Rupert.jpeg" alt="Rupert Boneham" class="shelter-case-img">
+                        <p class="text-slate-200 leading-relaxed mb-4">
+                            <strong>Subject:</strong> Rupert Boneham, <em>Survivor: Pearl Islands</em>.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            He tried to fight hydrology. He dug a pit into the beach, violating the prime directive of coastal survival. The result? A rising water table and storm runoff turned his shelter into a swimming pool. The tribe spent a miserable night in standing water.
+                        </p>
+                    </div>
+                </div>
+                <div class="shelter-col-half">
+                    <h3 class="shelter-lesson-title">The Lesson</h3>
+                    <p class="text-slate-300 mb-6" style="font-size: 1.125rem;">
+                        Digging down in the tropics is an invitation to disaster.
+                        <span style="color: #fbbf24; font-weight: bold; display: block; margin-top: 0.5rem;">The surface of the earth must never be broken.</span>
+                    </p>
+                    <ul class="shelter-lesson-list">
+                        <li class="shelter-lesson-item">
+                            <span class="icon-unicode" style="color: #ef4444; font-size: 1.2rem;">✕</span>
+                            <span>No protection from tidal intrusion.</span>
+                        </li>
+                        <li class="shelter-lesson-item">
+                            <span class="icon-unicode" style="color: #ef4444; font-size: 1.2rem;">✕</span>
+                            <span>Zero airflow promotes heat stress.</span>
+                        </li>
+                        <li class="shelter-lesson-item">
+                            <span class="icon-unicode" style="color: #ef4444; font-size: 1.2rem;">✕</span>
+                            <span>Guarantee of dampness and shivering.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution -->
+        <section id="blueprint" class="shelter-section-slate">
+            <div style="max-width: 72rem; margin: 0 auto;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="shelter-lesson-title" style="font-size: 2.25rem;">The Architect's Code</h2>
+                    <p class="text-slate-400" style="max-width: 42rem; margin: 1rem auto; font-size: 1.25rem;">To survive, we do not dig. We elevate. Follow these four immutable laws of tropical engineering.</p>
+                </div>
+
+                <div class="shelter-grid-4">
+
+                    <!-- Rule 1 -->
+                    <div class="shelter-card">
+                        <div class="shelter-card-badge">Priority 1</div>
+                        <div class="shelter-card-icon"><span class="icon-unicode">☰</span></div>
+                        <h3 class="shelter-lesson-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">The 6-Inch Rule</h3>
+                        <p class="shelter-card-label">ELEVATION</p>
+                        <p class="text-slate-200">
+                            Never sleep on the ground. Build a platform minimum <strong>6 inches</strong> high. This is your shield against flooding, insects, and crawling pests.
+                        </p>
+                    </div>
+
+                    <!-- Rule 2 -->
+                    <div class="shelter-card">
+                        <div class="shelter-card-badge">Priority 2</div>
+                        <div class="shelter-card-icon"><span class="icon-unicode">❄</span></div>
+                        <h3 class="shelter-lesson-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">The Debris Mattress</h3>
+                        <p class="shelter-card-label">INSULATION</p>
+                        <p class="text-slate-200">
+                            The ground steals 80% of your body heat. Add <strong>6-12 inches</strong> of dry compacted leaves on your platform to stop the energy drain.
+                        </p>
+                    </div>
+
+                    <!-- Rule 3 -->
+                    <div class="shelter-card">
+                        <div class="shelter-card-badge">Priority 3</div>
+                        <div class="shelter-card-icon"><span class="icon-unicode">△</span></div>
+                        <h3 class="shelter-lesson-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">The Steep Pitch</h3>
+                        <p class="shelter-card-label">GEOMETRY</p>
+                        <p class="text-slate-200">
+                            Water is heavy. Build your A-frame at a minimum <strong>45-degree angle</strong>. This forces rapid runoff before water can soak through.
+                        </p>
+                    </div>
+
+                    <!-- Rule 4 -->
+                    <div class="shelter-card">
+                        <div class="shelter-card-badge">Priority 4</div>
+                        <div class="shelter-card-icon"><span class="icon-unicode">≋</span></div>
+                        <h3 class="shelter-lesson-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Shingle & Shield</h3>
+                        <p class="shelter-card-label">TECHNIQUE</p>
+                        <p class="text-slate-200">
+                            Layer thatch tip-down like shingles. Position the opening parallel to the wind to prevent rain from driving into your sanctuary.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- The Stealth Benefit -->
+        <section class="shelter-section-dark">
+            <div class="shelter-emerald-box">
+                <h2 class="text-emerald" style="font-size: 1.875rem; margin-bottom: 1.5rem;">The Stealth Advantage</h2>
+                <p class="text-slate-300" style="font-size: 1.125rem; line-height: 1.75; margin-bottom: 1.5rem;">
+                    A properly engineered shelter is a "set it and forget it" asset. While others struggle with daily repairs and wet clothes, the wise architect rests. You expend fewer calories on shivering and fewer calories on maintenance, preserving your energy for the game itself.
+                </p>
+                <div class="shelter-pill-emerald">
+                    <span class="icon-unicode" style="margin-right: 0.5rem;">✔</span> STATUS: OPTIMIZED
+                </div>
+            </div>
+        </section>
+
+        <footer class="shelter-footer">
+            <p>TROPICAL SHELTER ENGINEERING PROTOCOLS // DO NOT DIG DOWN</p>
+        </footer>
+    `;
+
     // --- Data for Pillars (Grid + Deep Linking) ---
     const pillarsData = {
         outwit: {
@@ -775,7 +908,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "OUTLAST",
             items: [
                 { title: "Fire", content: "Making fire is life." },
-                { title: "Shelter", content: "Building a home." },
+                { title: "Shelter", content: shelterContent },
                 { title: "Self Care", content: "Taking care of your body." },
                 { title: "Food", content: "Finding sustenance." }
             ]
@@ -1358,6 +1491,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set Content
         modalTitle.textContent = item.title;
         modalText.innerHTML = item.content; // This is where the deep content goes
+
+        // Custom Title Visibility
+        if (item.title === "Shelter") {
+            modalTitle.style.display = 'none';
+        } else {
+            modalTitle.style.display = 'block';
+        }
 
         // Note: Back button logic.
         // If we want Back to go to Grid, we need state management.
