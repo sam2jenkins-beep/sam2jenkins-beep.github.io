@@ -1035,6 +1035,140 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     // --- FTC Guide Content ---
+    const mindfulnessContent = `
+        <div class="dossier-container theme-neon-bright">
+            <header class="dossier-header">
+                <h2>MINDFULNESS & RESILIENCE</h2>
+                <div class="dossier-meta">
+                    <span>FOCUS: MENTAL CLARITY</span>
+                    <span>//</span>
+                    <span>STATUS: ESSENTIAL</span>
+                </div>
+            </header>
+
+            <div class="dossier-tabs">
+                <button class="dossier-tab-btn active" data-tab="mind-1">The Primer</button>
+                <button class="dossier-tab-btn" data-tab="mind-2">Case Study</button>
+                <button class="dossier-tab-btn" data-tab="mind-3">Cheat Sheet</button>
+            </div>
+
+            <div class="dossier-content">
+                <!-- Tab 1: The Primer -->
+                <div id="mind-1" class="dossier-tab-pane active">
+                    <h3>Section 1: Waking Up From the Dream of Thought</h3>
+                    <div class="dossier-split">
+                        <div class="dossier-text">
+                            <p>We spend most of our lives lost in a movie playing inside our heads. We ruminate on the past, anxiously rehearse the future, and constantly narrate the present. This incessant chatter is often the primary source of our suffering.</p>
+                            <p>Secular mindfulness, rooted in neuroscience and stripped of religious dogma (as articulated by thinkers like Sam Harris, Joseph Goldstein, and others), offers a way to step out of that movie theater and back into reality.</p>
+                            <p>Here is a brief overview of the practice.</p>
+
+                            <h4>What is mindfulness?</h4>
+                            <p>At its core, mindfulness is a specific quality of attention set upon the present moment. But it is more than just "concentration."</p>
+                            <p>It is an open, non-judgmental awareness of whatever is arising in consciousness right now—sights, sounds, sensations, thoughts, and emotions.</p>
+                            <p>Crucially, mindfulness is the difference between being lost in a thought and recognizing that you are thinking. It is the realization that you are not the voice in your head; you are the space of consciousness in which that voice is appearing. It is the antidote to living your life on autopilot.</p>
+
+                            <h4>How does it work?</h4>
+                            <p>Normally, we identify fully with our thoughts. If a thought arises saying, "I am angry," we immediately become angry. We are taken for a ride by the neurochemistry of that emotion.</p>
+                            <p>Mindfulness inserts a wedge of awareness between stimulus and reaction. Instead of being the anger, you notice, "There is a sensation of anger arising in the chest right now."</p>
+                            <p>By observing your thoughts and feelings as transient mental events—like clouds passing through the sky of your mind—rather than facts defining "you," you rob them of their power. You stop fueling the fire with resistance or attachment. You realize that thoughts appear from nowhere and, if left untouched, vanish back into nowhere.</p>
+
+                            <h4>When can it be used?</h4>
+                            <p>The most common misconception about mindfulness is that it is something you do only while sitting cross-legged with your eyes closed.</p>
+                            <p>While formal practice is essential training, the ultimate goal is to break down the barrier between "meditation" and "real life." Because you are always conscious, every moment is an opportunity for mindfulness.</p>
+                            <p>It can and should be used when you feel the first spike of anxiety before a meeting, while you are stuck in traffic, when you are eating lunch, or even while having a difficult conversation. If you are awake, you can be mindful.</p>
+
+                            <h4>How to improve?</h4>
+                            <p>The biggest obstacle to improvement is the false belief that you need to stop thinking to be "good" at meditation. You cannot stop your thoughts any more than you can stop your heart from beating.</p>
+                            <p>Improvement is not about achieving a blank mind; it is about changing your relationship to the contents of your mind.</p>
+                            <p>The practice is simply this: Focus your attention on an anchor, like your breath. Inevitably, you will get lost in thought. The moment you realize you were lost, that is the moment of mindfulness. Do not judge yourself for wandering. simply gently return to the breath.</p>
+                            <p>To improve, value consistency over duration. It is better to practice for ten minutes every day than for an hour once a week. Aim for short "glimpses" of clarity repeated frequently throughout your day. Just keep beginning again.</p>
+                        </div>
+                        <div class="dossier-media">
+                            <img src="assets/meditation2.jpeg" alt="Meditation" class="dossier-img">
+                            <span class="img-caption">FIG M.1: THE ANCHOR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Case Study -->
+                <div id="mind-2" class="dossier-tab-pane">
+                    <h3>Section 2: Case Study: Mindfulness on the Island</h3>
+                    <p>There are few environments that strip away the illusions of comfort as ruthlessly as the game of Survivor. The island is a laboratory for human suffering, making it the ultimate testing ground for mindfulness.</p>
+                    <p>When you are stripped of food, sleep, and security, your mind becomes a chaotic feedback loop. Here is how the practice applies to the specific rigors of the game:</p>
+
+                    <div class="guide-card" style="margin-bottom: 1rem;">
+                        <h4>Game Decisions and Regret</h4>
+                        <p>In a game built on deception, paranoia is the default state. Players torture themselves with counterfactuals: Did I trust the wrong person? Should I have played my idol? Mindfulness allows you to recognize that "regret" is merely a thought about the past, and "paranoia" is merely a thought about the future. Neither is happening now. When you make a cutthroat decision, mindfulness helps you observe the resulting guilt as a physiological sensation—tightness in the chest, heat in the face—rather than a moral indictment of your character. You can make your move, notice the internal reaction, and let it pass without being consumed by it.</p>
+                    </div>
+
+                    <div class="guide-card" style="margin-bottom: 1rem;">
+                        <h4>Loneliness and Homesickness</h4>
+                        <p>When the sun goes down and the camp goes quiet, thoughts of home can be debilitating. The unmindful player drowns in the narrative: I miss them so much, I can’t do this. The mindful player investigates the feeling. What is homesickness, actually? It is a specific texture of sadness, a heaviness in the stomach, a contraction in the throat. By turning your attention toward the raw data of the emotion rather than the story telling you "I am sad," the feeling loses its jagged edges. You can hold the emotion in a space of awareness without letting it dictate your gameplay.</p>
+                    </div>
+
+                    <div class="guide-card" style="margin-bottom: 1rem;">
+                        <h4>The Cold and Hunger</h4>
+                        <p>This is where the distinction between pain and suffering becomes critical.</p>
+                        <p><strong>Hunger:</strong> When you are starving, the mind screams, "I need food." Mindfulness asks you to look closer. What is the actual sensation of hunger? It is a gnawing, hollow feeling in the abdomen. It is intense, yes, but it is just a sensation. The suffering comes from your resistance to it—the wish that it were otherwise.</p>
+                        <p><strong>The Cold:</strong> Shivering in the rain at 3:00 AM is physically painful. But the psychological agony comes from the thought: This will never end. I can't take this. If you can drop the narrative and simply feel the cold—relaxing into the shivering rather than tensing against it—you will find that the experience, while unpleasant, is manageable moment by moment.</p>
+                    </div>
+
+                    <div class="guide-card" style="margin-bottom: 1rem;">
+                        <h4>Refocusing After a Blindside</h4>
+                        <p>If a challenge goes wrong or an ally is voted out, the ego wants to wallow in anger or victimhood. This is fatal in Survivor. Mindfulness offers the ability to "begin again" instantly. The moment the challenge is lost, that moment is over. Carrying the emotional residue into the next hour is a choice. By recognizing the anger as it arises and letting it unravel, you can return to camp with a clear head, ready to strategize, while your opponents are still stuck in the past.</p>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Cheat Sheet -->
+                <div id="mind-3" class="dossier-tab-pane">
+                    <h3>Section 3: The Survivor Mindfulness Cheat Sheet</h3>
+                    <p>The Golden Rule of the Island: You cannot stop the waves (hunger, cold, paranoia), but you can learn to surf. The goal is not to feel "good." The goal is to feel clearly without adding unnecessary suffering to the unavoidable pain.</p>
+
+                    <div class="drill-container">
+                        <div class="drill-card">
+                            <h4>The Universal Reset Button</h4>
+                            <p><strong>Use when:</strong> You feel generally overwhelmed, scattered, or spiraling.</p>
+                            <p>The past is a memory trace appearing now. The future is a simulation appearing now. Reality is only ever this.</p>
+                            <p class="data-point"><strong>Mental Cue:</strong> "Begin again." (No matter how distracted you were a second ago, you can fully reset your attention to the present moment right now. Do this a thousand times a day if necessary.)</p>
+                        </div>
+
+                        <div class="drill-card">
+                            <h4>Surviving the Cold Night (Pain vs. Suffering)</h4>
+                            <p><strong>Use when:</strong> You are shivering at 3 AM, soaked, and convinced you cannot endure it.</p>
+                            <p>Pain is the physical sensation of cold thermoreceptors firing. Suffering is the mental narrative: "I hate this. This will never end. I'm miserable." The narrative is optional.</p>
+                            <p><strong>The Practice:</strong> Stop fighting the cold. Drop your mental resistance to it. Locate the raw sensation of shivering in your body. What is its exact texture? Is it vibrating? Is it stinging?</p>
+                            <p class="data-point"><strong>Mental Cue:</strong> "It is just sensation. It is not 'me.'"</p>
+                        </div>
+
+                        <div class="drill-card">
+                            <h4>Managing Hunger Pangs</h4>
+                            <p><strong>Use when:</strong> The craving for food is dominating your thoughts.</p>
+                            <p>Hunger is a loud biological alarm bell. But like the cold, it is just a pattern of energy in the body—a hollowing in the stomach, a tightness in the throat.</p>
+                            <p><strong>The Practice:</strong> Instead of fantasizing about a burger (which only increases suffering), turn your attention directly toward the physical feeling of hunger. Investigate it with curiosity rather than resentment.</p>
+                            <p class="data-point"><strong>Mental Cue:</strong> "Feel the raw data of the hunger, without the story."</p>
+                        </div>
+
+                        <div class="drill-card">
+                            <h4>Pre-Tribal Council Paranoia</h4>
+                            <p><strong>Use when:</strong> Your mind is racing with scenarios of being voted out, and anxiety is spiking.</p>
+                            <p>Anxiety is just fear spread thinly over time. You are mistaking your catastrophic thoughts for reality. A thought saying "I am going home tonight" is no more "true" than a thought saying "I am a purple elephant." They are both just appearances in consciousness.</p>
+                            <p><strong>The Practice:</strong> Take a step back in your mind. Watch the anxious thoughts arise like bubbles in boiling water. Do not pop the bubbles; just watch them rise and disappear on their own.</p>
+                            <p class="data-point"><strong>Mental Cue:</strong> "I am not the voice in my head. I am the space in which the voice is talking."</p>
+                        </div>
+
+                        <div class="drill-card">
+                            <h4>Emotional Crashes (Homesickness/Betrayal)</h4>
+                            <p><strong>Use when:</strong> You are hit by a wave of sadness, guilt, or anger.</p>
+                            <p>Emotions are physiological events that usually last only 90 seconds unless we refuel them with ruminating thoughts.</p>
+                            <p><strong>The Practice:</strong> Get out of your head and into your body. Where do you feel the sadness physically? Is it heaviness in the chest? Heat behind the eyes? Anchor your attention to that physical spot until the intensity fades.</p>
+                            <p class="data-point"><strong>Mental Cue:</strong> "This is a weather pattern passing through the mind. Let it rain without drowning in it."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
     const ftcGuideContent = `
         <div class="theme-neon-bright ftc-container">
             <!-- Header Area -->
@@ -1575,6 +1709,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (contentId === 'jury-management') {
                 modalTitle.style.display = 'none';
                 modalText.innerHTML = generateJuryContent();
+            } else if (contentId === 'mindfulness') {
+                modalTitle.style.display = 'none';
+                modalText.innerHTML = mindfulnessContent;
             } else {
                 modalTitle.style.display = 'block';
                 modalTitle.textContent = title;
