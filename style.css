@@ -2197,3 +2197,201 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+/* --- JURY SELECTION INTERFACE --- */
+
+.jury-container {
+    background-color: #050510;
+    border: 2px solid var(--neon-pink);
+    border-radius: 10px;
+    padding: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #e0e0e0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(251, 37, 118, 0.2);
+}
+
+.jury-header {
+    border-bottom: 2px solid var(--neon-pink);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.jury-header h2 {
+    color: var(--neon-pink);
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+.jury-meta {
+    font-size: 0.9rem;
+    color: var(--card-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.jury-meta span {
+    margin-left: 1rem;
+}
+
+.jury-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.jury-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.jury-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.jury-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.jury-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.jury-id-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.jury-attributes {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.attr-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.attr-label {
+    color: #aaa;
+}
+
+.attr-val {
+    color: #fff;
+    font-weight: bold;
+    text-align: right;
+}
+
+.jury-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.jury-btn-select, .jury-btn-reject {
+    padding: 0.8rem;
+    border: 1px solid;
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+/* Select Button Styles */
+.jury-btn-select {
+    border-color: #00FF00; /* Neon Green */
+    color: #00FF00;
+}
+
+.jury-btn-select:hover {
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Reject Button Styles */
+.jury-btn-reject {
+    border-color: #FF0000; /* Neon Red */
+    color: #FF0000;
+}
+
+.jury-btn-reject:hover {
+    background: rgba(255, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+/* Active/Selected States */
+.jury-card.selected {
+    border-color: #00FF00;
+    background: rgba(0, 255, 0, 0.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.jury-card.selected .jury-btn-select {
+    background: #00FF00;
+    color: #000;
+    box-shadow: 0 0 15px #00FF00;
+}
+
+.jury-card.selected .jury-btn-reject {
+    opacity: 0.3;
+    /* pointer-events: none; Removed to allow switching */
+}
+
+.jury-card.rejected {
+    border-color: #FF0000;
+    background: rgba(255, 0, 0, 0.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.jury-card.rejected .jury-btn-reject {
+    background: #FF0000;
+    color: #fff;
+    box-shadow: 0 0 15px #FF0000;
+}
+
+.jury-card.rejected .jury-btn-select {
+    opacity: 0.3;
+    /* pointer-events: none; Removed to allow switching */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .jury-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .jury-grid {
+        grid-template-columns: 1fr;
+    }
+}
