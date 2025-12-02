@@ -3308,3 +3308,33 @@ img {
         padding: 1.5rem;
     }
 }
+
+/* --- THEME 3: NEON BRIGHT TABS SUPPORT --- */
+.theme-neon-bright .dossier-header {
+    border-bottom-color: #ddd;
+}
+.theme-neon-bright .dossier-tab-btn {
+    background: #e0e0e0;
+    color: #555;
+    border: 1px solid #ccc;
+}
+.theme-neon-bright .dossier-tab-btn:hover {
+    background: #d0d0d0;
+    color: #000;
+}
+.theme-neon-bright .dossier-tab-btn.active {
+    background: #fff;
+    color: #1a1a1a;
+    border-bottom: 2px solid #FF00FF; /* Neon pink accent */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+}
+.theme-neon-bright .dossier-tab-pane h3 {
+    border-left-color: #FF00FF;
+    color: #1a1a1a;
+}
+.theme-neon-bright .dossier-tab-pane strong {
+    color: #FF00FF;
+}
