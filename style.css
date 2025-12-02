@@ -2891,3 +2891,291 @@ img {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* --- SHELTER MODAL STYLES (Protocol II - Redesign) --- */
+
+.shelter-container {
+    font-family: 'Roboto', sans-serif;
+    color: #e2e8f0;
+    background-color: #0f172a; /* slate-900 */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Hero Section */
+.shelter-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    background-color: #0f172a; /* slate-900 fallback */
+    overflow: hidden;
+}
+
+/* Gradient Overlay Simulation */
+.shelter-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #0f172a, transparent, transparent);
+    z-index: 1;
+}
+
+.shelter-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 56rem; /* max-w-4xl */
+    margin: 0 auto;
+}
+
+.shelter-badge {
+    display: inline-block;
+    border: 1px solid #f59e0b; /* amber-500 */
+    color: #f59e0b;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-family: 'Roboto Mono', monospace;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.shelter-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .shelter-title { font-size: 4.5rem; }
+}
+
+.text-red-highlight { color: #ef4444; }
+
+.shelter-quote {
+    font-size: 1.25rem;
+    color: #cbd5e1; /* slate-300 */
+    font-style: italic;
+    max-width: 42rem;
+    margin: 0 auto 2rem auto;
+}
+
+@media (min-width: 768px) {
+    .shelter-quote { font-size: 1.5rem; }
+}
+
+.shelter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #d97706; /* amber-600 */
+    color: #fff;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.125rem;
+    transition: background-color 0.3s;
+    letter-spacing: 1px;
+}
+
+.shelter-btn:hover {
+    background-color: #b45309; /* amber-700 */
+}
+
+/* Sections */
+.shelter-section-dark {
+    padding: 5rem 1rem;
+    background-color: #0f172a; /* slate-900 */
+    border-bottom: 1px solid #1e293b; /* slate-800 */
+}
+
+.shelter-section-slate {
+    padding: 5rem 1rem;
+    background-color: #1e293b; /* slate-800 */
+}
+
+/* Layout Grid/Flex */
+.shelter-split {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 56rem; /* max-w-4xl */
+    margin: 0 auto;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .shelter-split {
+        flex-direction: row;
+    }
+}
+
+.shelter-col-half {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .shelter-col-half { width: 50%; }
+}
+
+/* Alert Box (Rupert) */
+.shelter-alert-box {
+    background-color: rgba(127, 29, 29, 0.2); /* red-900/20 */
+    border-left: 4px solid #dc2626; /* red-600 */
+    padding: 2rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.shelter-warning-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.875rem;
+    color: #ef4444; /* red-500 */
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.shelter-case-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #dc2626;
+}
+
+/* Lessons */
+.shelter-lesson-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.shelter-lesson-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.shelter-lesson-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #94a3b8; /* slate-400 */
+    margin-bottom: 1rem;
+}
+
+/* Blueprint Grid */
+.shelter-grid-4 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 72rem; /* max-w-6xl */
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .shelter-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+    .shelter-grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Blueprint Cards */
+.shelter-card {
+    background-color: #334155; /* slate-700 */
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #475569; /* slate-600 */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.shelter-card:hover {
+    transform: translateY(-5px);
+}
+
+.shelter-card-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f59e0b; /* amber-500 */
+    color: #0f172a; /* slate-900 */
+    font-family: 'Anton', sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+}
+
+.shelter-card-icon {
+    font-size: 2.5rem;
+    color: #fbbf24; /* amber-400 */
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.shelter-card:hover .shelter-card-icon {
+    transform: scale(1.1);
+}
+
+.shelter-card-label {
+    font-size: 0.875rem;
+    color: #cbd5e1; /* slate-300 */
+    margin-bottom: 1rem;
+    font-family: 'Roboto Mono', monospace;
+    border-top: 1px solid #475569;
+    padding-top: 0.75rem;
+    text-transform: uppercase;
+}
+
+/* Emerald Box (Stealth) */
+.shelter-emerald-box {
+    max-width: 48rem; /* 3xl */
+    margin: 0 auto;
+    border: 1px solid #064e3b; /* emerald-900 */
+    background-color: rgba(6, 78, 59, 0.1); /* emerald-900/10 */
+    padding: 2rem;
+    border-radius: 0.75rem;
+}
+
+.text-emerald { color: #10b981; /* emerald-500 */ }
+
+.shelter-pill-emerald {
+    display: inline-block;
+    background-color: rgba(6, 78, 59, 0.5); /* emerald-900/50 */
+    color: #34d399; /* emerald-400 */
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.875rem;
+}
+
+.shelter-footer {
+    background-color: #000;
+    padding: 2rem;
+    text-align: center;
+    color: #475569; /* slate-600 */
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.75rem;
+}
+
+/* CSS Only Icons (Unicode + Style) */
+.icon-unicode {
+    display: inline-block;
+    line-height: 1;
+    font-style: normal;
+}
