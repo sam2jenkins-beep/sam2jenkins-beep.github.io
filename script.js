@@ -1133,6 +1133,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p><strong>The Closing Case:</strong> Adam secured his spot with two major endgame moves: winning the Final Immunity Challenge and expertly cutting the biggest threat, David. He showed he deserved to be there on merit. The true final move, however, was his emotional closer. He revealed his mother's battle with cancer, tying his fight for the million dollars to her fight for life. This emotional climax gave the jury a compelling, genuine reason to reward him, transcending gameplay and resulting in the clean sweep.</p>
 
                         <p><strong>The Takeaway:</strong> If your game is chaotic, control the narrative. Use honesty and humility to disarm the jury, and give them a meaningful, human reason to reward your strategic fight. That's the Adam Klein way.</p>
+                        
+                        <p><strong>WATCH BELOW:</strong> This video counts down the top 10 final tribal council performances in the history of Survivor(their opinion not mine.) based on difficulty, success, and entertainment value </p>
+                        
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/mRsxIpKA6C0?si=HX8yVMbuybNvIYlT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
