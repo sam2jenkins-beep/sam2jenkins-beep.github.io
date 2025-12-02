@@ -1533,6 +1533,15 @@ img {
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
+    /* Critical Mobile Layout Fix: Allow sections to grow */
+    .section {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
     /* Line moves to left */
     .constellation-timeline::after {
         left: 31px;
