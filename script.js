@@ -298,7 +298,119 @@ document.addEventListener('DOMContentLoaded', () => {
                     `
                 },
                 { title: "Tribal Council", content: tribalContent },
-                { title: "Common Mistakes", content: mistakesContent }
+                { title: "Common Mistakes", content: mistakesContent },
+                {
+                    title: "Puzzles",
+                    content: `
+                    <div class="dossier-container theme-tribal" id="puzzle-dossier-root">
+                        <header class="dossier-header">
+                            <span class="stamp-classified">CLASSIFIED</span>
+                            <h2>PUZZLE INTELLIGENCE REPORT: SURVIVOR QUÉBEC</h2>
+                            <div class="dossier-meta">
+                                <span>FOCUS: ARCHETYPES & PHYSIOLOGY</span>
+                                <span>//</span>
+                                <span>META: NOOVO EDITION</span>
+                            </div>
+                        </header>
+
+                        <div class="dossier-tabs">
+                            <button class="dossier-tab-btn active" data-tab="puzzle-1">THE BRIEFING</button>
+                            <button class="dossier-tab-btn" data-tab="puzzle-2">ARCHETYPES</button>
+                            <button class="dossier-tab-btn" data-tab="puzzle-3">PROTOCOLS</button>
+                        </div>
+
+                        <div class="dossier-content">
+                            <!-- Tab 1: THE BRIEFING -->
+                            <div id="puzzle-1" class="dossier-tab-pane active">
+                                <h3>The Québec Context: "The Red Zone" Solve</h3>
+                                <div class="dossier-text">
+                                    <p>In the US version, puzzles often stand alone. In Survivor Québec, puzzles are almost exclusively <strong>Physiological Threshold Tests</strong>.</p>
+
+                                    <h4>The "Relay" Factor</h4>
+                                    <p>Survivor Québec challenges are longer and more physical than the US "New Era." By the time you reach the puzzle station, you are in the <strong>"Red Zone"</strong> (maximum heart rate).</p>
+
+                                    <h4>The Implications</h4>
+                                    <p>You are not solving with your IQ; you are solving with your Endurance. The blood has left your frontal cortex (logic center) to fuel your muscles.</p>
+
+                                    <div style="background: rgba(255, 0, 0, 0.2); border-left: 4px solid red; padding: 1rem; margin: 1rem 0;">
+                                        <strong>EXECUTION RULE:</strong> You must pause for 5–10 seconds upon arriving at the station. Do not touch a piece until you have taken three deep "reset" breaths. If you start moving pieces while gasping, you will miss obvious connections.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 2: ARCHETYPES (Interactive) -->
+                            <div id="puzzle-2" class="dossier-tab-pane">
+                                <h3>Puzzle Archetypes: The "Noovo" Standard</h3>
+                                <p>Based on the Banijay format used by Noovo, these are the four specific puzzle types you must master. Select a module below to access the strategy guide.</p>
+
+                                <!-- Sub-Navigation for Archetypes -->
+                                <div class="dossier-tabs" style="border-bottom: none; margin-bottom: 1rem; gap: 0.5rem;">
+                                    <button class="dossier-tab-btn puzzle-nav-btn active" data-puzzle-type="slide">SLIDE PUZZLE</button>
+                                    <button class="dossier-tab-btn puzzle-nav-btn" data-puzzle-type="vertical">VERTICAL ASSEMBLY</button>
+                                    <button class="dossier-tab-btn puzzle-nav-btn" data-puzzle-type="floor">FLOOR ASSEMBLY</button>
+                                    <button class="dossier-tab-btn puzzle-nav-btn" data-puzzle-type="scramble">WORD SCRAMBLE</button>
+                                </div>
+
+                                <!-- Container for Dynamic Puzzle HTML Injection -->
+                                <div id="archetype-display-area">
+                                    <!-- Default Content (Slide Puzzle) -->
+                                    ${slidePuzzleHTML}
+                                </div>
+                            </div>
+
+                            <!-- Tab 3: PROTOCOLS -->
+                            <div id="puzzle-3" class="dossier-tab-pane">
+                                <h3>Island Execution: Advanced Tactics</h3>
+
+                                <h4>The "Quiet Eye" (Focus Gating)</h4>
+                                <p>Ghyslain (S2) demonstrated this perfectly. When chaos is happening around you (shouting teammates, Patrice Bélanger’s commentary):</p>
+                                <ul>
+                                    <li><strong>Technique:</strong> Narrow your vision to a 12-inch square. Blur everything else out.</li>
+                                    <li><strong>Audio Filtering:</strong> Patrice will narrate your failure ("They are falling behind!"). You must train yourself to hear his voice as "white noise" unless he is giving a rules clarification.</li>
+                                </ul>
+
+                                <h4>The "Art Department" Trap</h4>
+                                <p>Survivor props are designed to look "rustic" (shipwrecked wood, rough paint).</p>
+                                <ul>
+                                    <li><strong>The Trap:</strong> Players assume the pieces are rough, so they try to force them together ("jamming" the puzzle).</li>
+                                    <li><strong>The Reality:</strong> The puzzles are laser-cut precision items masked with rustic paint.</li>
+                                    <li><strong>The Rule:</strong> "If you have to force it, it is wrong." If a piece does not slide in with a gentle click, it is in the wrong spot. Forcing it will damage the wood and potentially make the puzzle unsolvable.</li>
+                                </ul>
+
+                                <h4>Piece Management (The "Gordon Holmes" Error)</h4>
+                                <p>In the sand or tall grass of a challenge set, pieces disappear.</p>
+                                <ul>
+                                    <li>Never pile pieces on top of each other.</li>
+                                    <li>Spread them "face up" immediately.</li>
+                                    <li>If you are missing a piece, stop looking at the puzzle. Look at the ground near your feet, then check the "discard" pile of pieces you thought didn't fit.</li>
+                                </ul>
+
+                                <hr style="border: 0; border-top: 1px solid #555; margin: 2rem 0;">
+
+                                <h3>Training Protocol for the "Puzzle Beast"</h3>
+                                <p>To dominate in Québec, you do not just solve puzzles; you solve them under load.</p>
+
+                                <div class="comp-card">
+                                    <h4>Drill 1: The Heart Rate Spike</h4>
+                                    <ul>
+                                        <li>Sprint 200m or do 20 Burpees.</li>
+                                        <li>Immediately solve a specific task (e.g., a child’s 24-piece jigsaw or a slide puzzle app).</li>
+                                        <li><strong>Metric:</strong> Time how long it takes for your hands to stop shaking. Aim to reduce this "lag time."</li>
+                                    </ul>
+                                </div>
+                                <div class="comp-card" style="margin-top: 1rem;">
+                                    <h4>Drill 2: The "Ghost" Puzzle</h4>
+                                    <ul>
+                                        <li>Watch a season of Survivor. When a word scramble appears, PAUSE the TV.</li>
+                                        <li>Write down the scrambled letters on paper.</li>
+                                        <li>Solve it yourself before hitting play. This trains your brain to recognize the specific "Survivor Fonts" and spacing.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                }
             ]
         },
         outplay: {
@@ -426,38 +538,111 @@ document.addEventListener('DOMContentLoaded', () => {
                 {
                     title: "Puzzles",
                     content: `
-                    <div class="huddle-blog-post">
-                        <h2 class="huddle-title">STRATEGIC INTELLIGENCE REPORT</h2>
-                        <h3 class="huddle-subtitle">Subject: Puzzle Challenges & Mental Dexterity (Survivor Québec)<br>Status: Important / The "Equalizer"</h3>
+                    <div class="dossier-container theme-tribal" id="puzzle-dossier-root">
+                        <header class="dossier-header">
+                            <span class="stamp-classified">CLASSIFIED</span>
+                            <h2>PUZZLE INTELLIGENCE REPORT: SURVIVOR QUÉBEC</h2>
+                            <div class="dossier-meta">
+                                <span>FOCUS: ARCHETYPES & PHYSIOLOGY</span>
+                                <span>//</span>
+                                <span>META: NOOVO EDITION</span>
+                            </div>
+                        </header>
 
-                        <h3 class="neon-heading">1. The Role of Puzzles in Québec</h3>
-                        <p>In the US version, puzzles are the "Great Equalizer"—they exist to make sure the super-athlete loses. In Survivor Québec, puzzles are frequent, but they don't guarantee a loss for the strong player.</p>
-                        <ul>
-                            <li><strong>The Balance:</strong> You still need to solve them, but often you have to survive a physical battering just to get to the puzzle pieces.</li>
-                            <li><strong>Frequency:</strong> Expect them often ("High Frequency"), usually at the end of a race.</li>
-                        </ul>
+                        <div class="dossier-tabs">
+                            <button class="dossier-tab-btn active" data-tab="puzzle-1">THE BRIEFING</button>
+                            <button class="dossier-tab-btn" data-tab="puzzle-2">ARCHETYPES</button>
+                            <button class="dossier-tab-btn" data-tab="puzzle-3">PROTOCOLS</button>
+                        </div>
 
-                        <h3 class="neon-heading">2. The "Quiet Eye" Advantage</h3>
-                        <p>The winning strategy for Québec puzzles isn't just being smart; it's about shifting gears instantly.</p>
-                        <ul>
-                            <li><strong>The Shift:</strong> You have to go from "Combat Mode" (high heart rate, adrenaline, aggression) to "Zen Mode" (calm, precise) in seconds.</li>
-                            <li><strong>Case Study (Ghyslain):</strong> He won because he had the "quiet eye"—the ability to block out the chaos and focus entirely on the precision task, similar to a golfer lining up a putt.</li>
-                        </ul>
+                        <div class="dossier-content">
+                            <!-- Tab 1: THE BRIEFING -->
+                            <div id="puzzle-1" class="dossier-tab-pane active">
+                                <h3>The Québec Context: "The Red Zone" Solve</h3>
+                                <div class="dossier-text">
+                                    <p>In the US version, puzzles often stand alone. In Survivor Québec, puzzles are almost exclusively <strong>Physiological Threshold Tests</strong>.</p>
 
-                        <h3 class="neon-heading">3. Strategic Positioning</h3>
-                        <p>Don't Hide Strength: In the US, if you are good at challenges, you hide it so you don't become a target. In Québec, "giving your all" is respected culturally.</p>
-                        <ul>
-                            <li><strong>The "Shield":</strong> Being good at puzzles and physical challenges (like Ghyslain) can actually protect you. If you are viewed as a "provider" or a "hero" for the tribe, your challenge dominance becomes an asset rather than a target on your back.</li>
-                        </ul>
+                                    <h4>The "Relay" Factor</h4>
+                                    <p>Survivor Québec challenges are longer and more physical than the US "New Era." By the time you reach the puzzle station, you are in the <strong>"Red Zone"</strong> (maximum heart rate).</p>
 
-                        <h3 class="neon-heading">4. Training Focus</h3>
-                        <ul>
-                            <li><strong>Pattern Recognition:</strong> While US players are 3D printing puzzles at home, your time is better spent on general pattern recognition and staying calm under pressure.</li>
-                            <li><strong>Fine Motor Skills:</strong> Practice doing delicate tasks (stacking cards, threading needles) immediately after doing a set of burpees. Learn to steady your hands when your heart is pounding.</li>
-                        </ul>
+                                    <h4>The Implications</h4>
+                                    <p>You are not solving with your IQ; you are solving with your Endurance. The blood has left your frontal cortex (logic center) to fuel your muscles.</p>
 
-                        <div class="video-placeholder">
-                            <span>VIDEO PLACEHOLDER</span>
+                                    <div style="background: rgba(255, 0, 0, 0.2); border-left: 4px solid red; padding: 1rem; margin: 1rem 0;">
+                                        <strong>EXECUTION RULE:</strong> You must pause for 5–10 seconds upon arriving at the station. Do not touch a piece until you have taken three deep "reset" breaths. If you start moving pieces while gasping, you will miss obvious connections.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab 2: ARCHETYPES (Interactive) -->
+                            <div id="puzzle-2" class="dossier-tab-pane">
+                                <h3>Puzzle Archetypes: The "Noovo" Standard</h3>
+                                <p>Based on the Banijay format used by Noovo, these are the four specific puzzle types you must master. Select a module below to access the strategy guide.</p>
+
+                                <!-- Sub-Navigation for Archetypes -->
+                                <div class="dossier-tabs" style="border-bottom: none; margin-bottom: 1rem; gap: 0.5rem;">
+                                    <button class="dossier-tab-btn puzzle-nav-btn active" data-puzzle-type="slide">SLIDE PUZZLE</button>
+                                    <button class="dossier-tab-btn puzzle-nav-btn" data-puzzle-type="vertical">VERTICAL ASSEMBLY</button>
+                                    <button class="dossier-tab-btn puzzle-nav-btn" data-puzzle-type="floor">FLOOR ASSEMBLY</button>
+                                    <button class="dossier-tab-btn puzzle-nav-btn" data-puzzle-type="scramble">WORD SCRAMBLE</button>
+                                </div>
+
+                                <!-- Container for Dynamic Puzzle HTML Injection -->
+                                <div id="archetype-display-area">
+                                    <!-- Default Content (Slide Puzzle) -->
+                                    ${slidePuzzleHTML}
+                                </div>
+                            </div>
+
+                            <!-- Tab 3: PROTOCOLS -->
+                            <div id="puzzle-3" class="dossier-tab-pane">
+                                <h3>Island Execution: Advanced Tactics</h3>
+
+                                <h4>The "Quiet Eye" (Focus Gating)</h4>
+                                <p>Ghyslain (S2) demonstrated this perfectly. When chaos is happening around you (shouting teammates, Patrice Bélanger’s commentary):</p>
+                                <ul>
+                                    <li><strong>Technique:</strong> Narrow your vision to a 12-inch square. Blur everything else out.</li>
+                                    <li><strong>Audio Filtering:</strong> Patrice will narrate your failure ("They are falling behind!"). You must train yourself to hear his voice as "white noise" unless he is giving a rules clarification.</li>
+                                </ul>
+
+                                <h4>The "Art Department" Trap</h4>
+                                <p>Survivor props are designed to look "rustic" (shipwrecked wood, rough paint).</p>
+                                <ul>
+                                    <li><strong>The Trap:</strong> Players assume the pieces are rough, so they try to force them together ("jamming" the puzzle).</li>
+                                    <li><strong>The Reality:</strong> The puzzles are laser-cut precision items masked with rustic paint.</li>
+                                    <li><strong>The Rule:</strong> "If you have to force it, it is wrong." If a piece does not slide in with a gentle click, it is in the wrong spot. Forcing it will damage the wood and potentially make the puzzle unsolvable.</li>
+                                </ul>
+
+                                <h4>Piece Management (The "Gordon Holmes" Error)</h4>
+                                <p>In the sand or tall grass of a challenge set, pieces disappear.</p>
+                                <ul>
+                                    <li>Never pile pieces on top of each other.</li>
+                                    <li>Spread them "face up" immediately.</li>
+                                    <li>If you are missing a piece, stop looking at the puzzle. Look at the ground near your feet, then check the "discard" pile of pieces you thought didn't fit.</li>
+                                </ul>
+
+                                <hr style="border: 0; border-top: 1px solid #555; margin: 2rem 0;">
+
+                                <h3>Training Protocol for the "Puzzle Beast"</h3>
+                                <p>To dominate in Québec, you do not just solve puzzles; you solve them under load.</p>
+
+                                <div class="comp-card">
+                                    <h4>Drill 1: The Heart Rate Spike</h4>
+                                    <ul>
+                                        <li>Sprint 200m or do 20 Burpees.</li>
+                                        <li>Immediately solve a specific task (e.g., a child’s 24-piece jigsaw or a slide puzzle app).</li>
+                                        <li><strong>Metric:</strong> Time how long it takes for your hands to stop shaking. Aim to reduce this "lag time."</li>
+                                    </ul>
+                                </div>
+                                <div class="comp-card" style="margin-top: 1rem;">
+                                    <h4>Drill 2: The "Ghost" Puzzle</h4>
+                                    <ul>
+                                        <li>Watch a season of Survivor. When a word scramble appears, PAUSE the TV.</li>
+                                        <li>Write down the scrambled letters on paper.</li>
+                                        <li>Solve it yourself before hitting play. This trains your brain to recognize the specific "Survivor Fonts" and spacing.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     `
@@ -1165,3 +1350,507 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log("Survivor Web Guide Loaded - v3");
 });
+
+// --- PUZZLE HTML CONTENT (Injected via Append for cleaner diff) ---
+// Note: This logic will be integrated into the main pillarsData structure below.
+
+const slidePuzzleHTML = `
+<div class="puzzle-dossier">
+    <header class="puzzle-header">
+        <h1>Outwit. Outplay. Outslide.</h1>
+        <p>The definitive algorithm for solving Survivor slide puzzles without "chasing" pieces.</p>
+    </header>
+
+    <div class="puzzle-section">
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-green);">
+            <h2 class="text-green">The Golden Rule</h2>
+            <div class="puzzle-grid-2" style="align-items: center;">
+                <div>
+                    <p style="margin-bottom: 1rem; font-size: 1.1rem;">Most players fail because they try to solve the whole puzzle at once. <span class="text-accent font-bold">Never do this.</span></p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span class="text-green">✔</span> Solve <strong>Row by Row</strong> from the top down.</li>
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span class="text-green">✔</span> Once a row is locked, <strong>never touch it again</strong>.</li>
+                        <li style="display: flex; gap: 0.5rem;"><span class="text-green">✔</span> When only 2 rows remain, switch to <strong>Column by Column</strong>.</li>
+                    </ul>
+                </div>
+                <div style="background-color: #0f172a; padding: 1rem; border-radius: 8px;">
+                     <div class="puzzle-grid-visual">
+                        <div class="puzzle-piece solved">1</div><div class="puzzle-piece solved">2</div><div class="puzzle-piece solved">3</div><div class="puzzle-piece solved">4</div>
+                        <div class="puzzle-piece solved">5</div><div class="puzzle-piece solved">6</div><div class="puzzle-piece solved">7</div><div class="puzzle-piece solved">8</div>
+                        <div class="puzzle-piece">9</div><div class="puzzle-piece">10</div><div class="puzzle-piece">11</div><div class="puzzle-piece">12</div>
+                        <div class="puzzle-piece">13</div><div class="puzzle-piece">14</div><div class="puzzle-piece">15</div><div class="puzzle-piece empty"></div>
+                    </div>
+                    <p style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 0.5rem;">Target State: Top Rows Locked</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">1</div>
+            <h2>Phase 1: The "Row" Method</h2>
+        </div>
+
+        <div class="puzzle-grid-2">
+            <div class="puzzle-card">
+                <h3 class="text-accent">Step A: The Easy Pieces</h3>
+                <p class="text-slate-300" style="margin-bottom: 1rem;">Slide the first pieces of the row into place simply by moving them. Do this until you are left with only the <strong>last two pieces</strong> of that row.</p>
+                <div class="puzzle-card-dark">
+                    <p class="text-slate-400 mono" style="font-size: 0.875rem; margin-bottom: 0.5rem;">Example (4x4 Grid):</p>
+                    <p>Place <span class="text-green font-bold">#1</span> and <span class="text-green font-bold">#2</span>. <br>Stop. You now need to place #3 and #4.</p>
+                </div>
+            </div>
+
+            <div class="puzzle-card" style="border: 2px solid rgba(245, 158, 11, 0.3);">
+                <h3 class="text-accent" style="display: flex; align-items: center; gap: 0.5rem;">Step B: The "Corner Train" <span style="font-size: 0.75rem; background-color: #dc2626; color: white; padding: 0.25rem 0.5rem; border-radius: 4px;">CRITICAL</span></h3>
+                <p class="text-slate-300" style="margin-bottom: 1rem;"><strong>90% of players fail here.</strong> You cannot slide the last piece directly into the corner. You must build a "Train."</p>
+
+                <div style="display: flex; gap: 1rem; flex-direction: column;">
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <div class="puzzle-grid-visual" style="width: 120px; gap: 2px;">
+                            <div class="puzzle-piece solved" style="font-size: 0.75rem;">1</div><div class="puzzle-piece solved" style="font-size: 0.75rem;">2</div><div class="puzzle-piece empty" style="font-size: 0.75rem;"></div><div class="puzzle-piece target" style="font-size: 0.75rem;">3</div>
+                            <div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;"></div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;"></div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;"></div><div class="puzzle-piece target" style="font-size: 0.75rem;">4</div>
+                        </div>
+                        <div style="font-size: 0.875rem; color: #cbd5e1;">
+                            <strong class="text-accent" style="display: block; margin-bottom: 0.25rem;">The Setup:</strong>
+                            1. Put <span class="text-white font-bold">#3</span> in Top-Right.<br>
+                            2. Put <span class="text-white font-bold">#4</span> directly under it.
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                         <div class="puzzle-grid-visual" style="width: 120px; gap: 2px;">
+                            <div class="puzzle-piece solved" style="font-size: 0.75rem;">1</div><div class="puzzle-piece solved" style="font-size: 0.75rem;">2</div><div class="puzzle-piece target" style="font-size: 0.75rem;">3</div><div class="puzzle-piece target" style="font-size: 0.75rem;">4</div>
+                            <div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;"></div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;"></div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;"></div><div class="puzzle-piece empty" style="font-size: 0.75rem;"></div>
+                        </div>
+                         <div style="font-size: 0.875rem; color: #cbd5e1;">
+                            <strong class="text-green" style="display: block; margin-bottom: 0.25rem;">The Slide:</strong>
+                            Slide the train (#3 then #4) into the row.<br>
+                            <span class="text-green font-bold" style="font-size: 0.75rem; text-transform: uppercase;">Row Locked!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">2</div>
+            <h2>Phase 2: The "Column" Method</h2>
+        </div>
+
+        <div class="puzzle-card">
+            <p class="text-slate-300" style="font-size: 1.125rem; margin-bottom: 1.5rem;">This applies when you have solved all rows except the <strong>bottom two</strong>. Stop solving rows! Solve columns Left to Right.</p>
+
+            <div class="puzzle-grid-2" style="align-items: center;">
+                <div>
+                    <h4 class="text-accent font-bold" style="margin-bottom: 0.5rem;">The Goal:</h4>
+                    <p class="text-slate-400" style="margin-bottom: 1rem;">Pair the bottom-left piece (#13) with the one above it (#9).</p>
+                    <ol style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
+                        <li style="display: flex; align-items: center;"><span class="step-number">1</span> <span>Place <strong class="text-white">#9</strong> in Bottom-Left (Spot 13).</span></li>
+                        <li style="display: flex; align-items: center;"><span class="step-number">2</span> <span>Place <strong class="text-white">#13</strong> to the right (Spot 14).</span></li>
+                        <li style="display: flex; align-items: center;"><span class="step-number">3</span> <span><strong>The Slide:</strong> Move empty space above #9. Slide #9 Up, Slide #13 Left.</span></li>
+                    </ol>
+                </div>
+                <div style="background-color: #0f172a; padding: 1rem; border-radius: 8px; text-align: center;">
+                    <div class="puzzle-grid-visual">
+                         <div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div>
+                         <div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div><div class="puzzle-piece" style="font-size: 0.75rem; opacity: 0.2;">X</div>
+                         <div class="puzzle-piece empty" style="font-size: 0.75rem;"></div><div class="puzzle-piece" style="font-size: 0.75rem;">10</div><div class="puzzle-piece" style="font-size: 0.75rem;">11</div><div class="puzzle-piece" style="font-size: 0.75rem;">12</div>
+                         <div class="puzzle-piece target" style="font-size: 0.75rem;">9</div><div class="puzzle-piece target" style="font-size: 0.75rem;">13</div><div class="puzzle-piece" style="font-size: 0.75rem;">14</div><div class="puzzle-piece" style="font-size: 0.75rem;">15</div>
+                    </div>
+                     <div style="margin-top: 1rem; font-family: monospace; font-size: 0.75rem; color: var(--survivor-accent);">
+                        ^ Slide Up ^<br>< Slide Left
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">3</div>
+            <h2>Phase 3: The Merry-Go-Round</h2>
+        </div>
+
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-accent);">
+            <p class="text-slate-300" style="margin-bottom: 1rem;">You are down to a 2x2 or 2x3 square. <strong>Do not try to place individual pieces.</strong></p>
+            <div class="puzzle-grid-2">
+                <div>
+                    <h3 class="text-white font-bold">The Strategy</h3>
+                    <p class="text-slate-400">Simply rotate the remaining pieces in a circle using the empty space. They will eventually fall into sequence.</p>
+                </div>
+                <div style="background-color: rgba(127, 29, 29, 0.3); border: 1px solid rgba(239, 68, 68, 0.5); padding: 1rem; border-radius: 8px;">
+                    <h4 style="color: #f87171; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">⚠ The "Parity" Trap</h4>
+                    <p style="font-size: 0.875rem; color: #fca5a5;">If pieces are rotated correctly but two are swapped (e.g., 14 and 15), you have a <strong>Parity Error</strong>. In Survivor, this means two identical background pieces in an earlier row are swapped. You must break the puzzle to fix it.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+const verticalPuzzleHTML = `
+<div class="puzzle-dossier">
+    <header class="puzzle-header">
+        <h1>Build. Balance. Breathe.</h1>
+        <p>The protocol for Vertical Assembly and Balancing challenges.</p>
+    </header>
+
+    <div class="puzzle-section">
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-green);">
+            <h2 class="text-green">The Golden Rule</h2>
+            <div class="puzzle-grid-2" style="align-items: center;">
+                <div>
+                    <p style="margin-bottom: 1rem; font-size: 1.125rem;">In balancing and stacking, stability starts at the <span class="text-accent font-bold">hips</span>, not the hands.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span class="text-green">✔</span> Solve from the <strong>connection point up</strong>.</li>
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;"><span class="text-green">✔</span> Don't just "jam" pieces. Identify the key first.</li>
+                        <li style="display: flex; gap: 0.5rem;"><span class="text-green">✔</span> Lock your body. Move your core.</li>
+                    </ul>
+                </div>
+                <div style="background-color: #0f172a; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 3rem; color: var(--survivor-accent); margin-bottom: 0.5rem;">⏏</div>
+                    <p class="mono text-slate-400" style="font-size: 0.75rem;">BASE IS EVERYTHING</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">1</div>
+            <h2>Phase 1: The "Indexing"</h2>
+        </div>
+
+        <div class="puzzle-grid-2">
+            <div class="puzzle-card">
+                <h3 class="text-accent">Mental Prep & Sorting</h3>
+                <p class="text-slate-300" style="margin-bottom: 1rem;"><strong>Applies to Tree Puzzles.</strong> Do not grab a piece and try to "force" it.</p>
+                <ol style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
+                    <li style="display: flex; align-items: flex-start;"><span class="step-number">1</span> <span><strong>Scan the Pole:</strong> Identify the unique "key" (square peg, triangle, etc.).</span></li>
+                    <li style="display: flex; align-items: flex-start;"><span class="step-number">2</span> <span><strong>The Naming Protocol:</strong> Give each key a one-syllable name (e.g., "Box", "Tri", "Flat").</span></li>
+                    <li style="display: flex; align-items: flex-start;"><span class="step-number">3</span> <span><strong>The Sort:</strong> Run to your pile. Sort pieces into piles based on those names.</span></li>
+                </ol>
+            </div>
+
+            <div class="puzzle-card" style="border: 2px solid rgba(245, 158, 11, 0.3); display: flex; flex-direction: column; justify-content: center;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; font-weight: bold; margin-bottom: 0.5rem;">
+                    <span>Amateur (Panic)</span>
+                    <span>Pro (Sorted)</span>
+                </div>
+                <div style="display: flex; gap: 1rem; height: 100%;">
+                    <div style="flex: 1; background: rgba(15, 23, 42, 0.5); padding: 1rem; border: 1px solid rgba(127, 29, 29, 0.5); display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; align-content: center; position: relative;">
+                         <div class="shape-box" style="transform: rotate(12deg);"></div>
+                         <div class="shape-tri" style="transform: rotate(-6deg);"></div>
+                         <div class="shape-circle" style="transform: rotate(45deg);"></div>
+                    </div>
+                    <div style="display: flex; align-items: center; color: var(--survivor-accent);">➜</div>
+                    <div style="flex: 1; background: rgba(15, 23, 42, 0.5); padding: 1rem; border: 1px solid rgba(6, 78, 59, 0.5); display: flex; gap: 0.5rem; justify-content: center;">
+                        <div style="display: flex; flex-direction: column; gap: 2px; align-items: center;">
+                            <div class="shape-tri"></div><div class="shape-tri"></div><div style="font-size: 0.6rem; color: #64748b;">"TRI"</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 2px; align-items: center;">
+                             <div class="shape-box"></div><div class="shape-box"></div><div style="font-size: 0.6rem; color: #64748b;">"BOX"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+             <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">2</div>
+            <h2>Phase 2: Body Mechanics</h2>
+        </div>
+
+        <div class="puzzle-card">
+            <p class="text-slate-300" style="font-size: 1.125rem; margin-bottom: 1.5rem;"><strong>The "A Bit Tipsy" Stance.</strong> Balancing blocks on a wobbly table.</p>
+            <div class="puzzle-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div style="background-color: #0f172a; padding: 1rem; border-radius: 8px; border-top: 4px solid #3b82f6;">
+                    <h4 class="text-white font-bold" style="margin-bottom: 0.5rem;">1. Tripod Base</h4>
+                    <p class="text-slate-400" style="font-size: 0.875rem;">Feet shoulder-width apart. Knees bent. You are the anchor.</p>
+                </div>
+                 <div style="background-color: #0f172a; padding: 1rem; border-radius: 8px; border-top: 4px solid var(--survivor-accent);">
+                    <h4 class="text-white font-bold" style="margin-bottom: 0.5rem;">2. The "T-Rex" Lock</h4>
+                    <p class="text-slate-400" style="font-size: 0.875rem;">Pin elbows to your ribcage. Arms shake; your core does not.</p>
+                </div>
+                 <div style="background-color: #0f172a; padding: 1rem; border-radius: 8px; border-top: 4px solid var(--survivor-green);">
+                    <h4 class="text-white font-bold" style="margin-bottom: 0.5rem;">3. Hip Drive</h4>
+                    <p class="text-slate-400" style="font-size: 0.875rem;">Need to tilt the table? Don't lift arms. Tilt your hips.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">3</div>
+            <h2>Phase 3: The Placement</h2>
+        </div>
+
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-accent);">
+            <div class="puzzle-grid-2" style="align-items: center;">
+                <div>
+                     <h3 class="text-white font-bold">The "Release" Breath</h3>
+                     <p class="text-slate-400" style="margin-bottom: 1rem;">The most dangerous moment is when you let go of the block.</p>
+                     <ul style="list-style: none; padding: 0; font-size: 0.875rem;" class="text-slate-300">
+                        <li style="margin-bottom: 0.5rem;">• <strong>Place:</strong> Inhale.</li>
+                        <li style="margin-bottom: 0.5rem;">• <strong>Release:</strong> Exhale slowly as you pull fingers away.</li>
+                        <li>• <strong>Why:</strong> Exhaling lowers heart rate for that split second.</li>
+                     </ul>
+                </div>
+                <div style="background-color: #0f172a; height: 160px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div class="breath-circle"></div>
+                    <p style="color: #64748b; font-size: 0.75rem; margin-top: 2rem;">Sync hand with breath</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+const floorPuzzleHTML = `
+<div class="puzzle-dossier">
+    <header class="puzzle-header">
+        <h1>The "Floor" Assembly</h1>
+        <p>Mastering large-scale jigsaws, shapes, and logos.</p>
+    </header>
+
+    <div class="puzzle-section">
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-green);">
+            <h2 class="text-green">The Golden Rule</h2>
+            <div class="puzzle-grid-2" style="align-items: center;">
+                <div>
+                    <p class="mono text-white" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">
+                        "The <span class="text-green">CUT</span> is the Truth.<br>
+                        The <span style="color: #f87171;">PAINT</span> is a Lie."
+                    </p>
+                    <p class="text-slate-400">The art department intentionally paints misleading lines across cuts. Ignore the picture. Trust the shape.</p>
+                </div>
+                <div style="background-color: #0f172a; padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px solid #334155;">
+                    <div style="display: flex; justify-content: center; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="width: 2rem; height: 2rem; background: var(--survivor-green); border-radius: 2px;"></div>
+                        <span style="font-size: 1.5rem; color: #64748b;">≠</span>
+                        <div style="width: 2rem; height: 2rem; background: #ef4444; border-radius: 50%;"></div>
+                    </div>
+                    <p class="mono text-slate-400" style="font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;">Geometry > Art</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">1</div>
+            <h2>Phase 1: Negative Space Sweep</h2>
+        </div>
+
+        <div class="puzzle-grid-2">
+            <div class="puzzle-card">
+                <h3 class="text-accent">Scan the Frame, Not the Pile</h3>
+                <p class="text-slate-300" style="margin-bottom: 1rem;">Most players stare at the pile of chaos. <strong>Look at the empty frame instead.</strong></p>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
+                     <li style="display: flex; align-items: center;"><span class="step-number">1</span> <span><strong>Scan the Border:</strong> Look at the wooden border.</span></li>
+                     <li style="display: flex; align-items: center;"><span class="step-number">2</span> <span><strong>Identify "In-Cuts":</strong> Find bumps jutting <em>in</em> from the frame.</span></li>
+                     <li style="display: flex; align-items: center;"><span class="step-number">3</span> <span><strong>The Match:</strong> Find pieces with matching "holes". These are <strong>Anchor Points</strong>.</span></li>
+                </ul>
+            </div>
+
+            <div class="puzzle-card" style="border: 2px solid rgba(245, 158, 11, 0.3); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                 <p style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 1rem; letter-spacing: 1px;">Identifying Anchor Points</p>
+                 <div style="position: relative; background: #0f172a; padding: 2rem; border-radius: 8px; display: flex; align-items: center;">
+                    <!-- Frame -->
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 2rem; background: #334155; border-right: 2px solid var(--survivor-accent); display: flex; align-items: center;">
+                        <div style="width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid var(--survivor-accent); position: absolute; right: -20px;"></div>
+                    </div>
+                    <!-- Piece -->
+                    <div style="margin-left: 3rem; width: 5rem; height: 5rem; background: #475569; border: 1px solid #64748b; border-radius: 4px; display: flex; align-items: center; position: relative;">
+                         <div style="position: absolute; left: -1px; width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 20px solid #0f172a;"></div>
+                         <span style="font-size: 0.75rem; color: #94a3b8; margin-left: 1.5rem;">Piece</span>
+                    </div>
+                 </div>
+                 <p class="mono text-accent" style="font-size: 0.75rem; margin-top: 1rem;">"In-Cut" on Frame = "Hole" on Piece</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+             <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">2</div>
+            <h2>Phase 2: The Pizza Theory</h2>
+        </div>
+
+        <div class="puzzle-card">
+            <p class="text-slate-300" style="font-size: 1.125rem; margin-bottom: 1.5rem;"><strong>For Radial/Circular Puzzles.</strong> Blur your eyes to ignore the image. Sort purely by shape geometry.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center;">
+                <div style="background: #0f172a; padding: 1rem; border-radius: 8px; border-top: 4px solid #3b82f6;">
+                    <div class="shape-container" style="margin-bottom: 1rem;"><div class="puzzle-wedge"></div></div>
+                    <h4 class="text-white font-bold">The "Wedge"</h4>
+                    <p class="text-slate-400" style="font-size: 0.75rem;">Pointy like a pizza slice.</p>
+                    <p style="font-size: 0.875rem; color: #60a5fa; font-weight: bold; margin-top: 0.5rem;">GOES TO CENTER</p>
+                </div>
+                 <div style="background: #0f172a; padding: 1rem; border-radius: 8px; border-top: 4px solid var(--survivor-accent);">
+                    <div class="shape-container" style="margin-bottom: 1rem;"><div class="puzzle-arc"></div></div>
+                    <h4 class="text-white font-bold">The "Ring"</h4>
+                    <p class="text-slate-400" style="font-size: 0.75rem;">Curved parallel sides.</p>
+                    <p style="font-size: 0.875rem; color: var(--survivor-accent); font-weight: bold; margin-top: 0.5rem;">GOES TO MIDDLE</p>
+                </div>
+                 <div style="background: #0f172a; padding: 1rem; border-radius: 8px; border-top: 4px solid var(--survivor-green);">
+                    <div class="shape-container" style="margin-bottom: 1rem;"><div class="puzzle-border"></div></div>
+                    <h4 class="text-white font-bold">The "Border"</h4>
+                    <p class="text-slate-400" style="font-size: 0.75rem;">Has one perfectly flat side.</p>
+                    <p style="font-size: 0.875rem; color: var(--survivor-green); font-weight: bold; margin-top: 0.5rem;">GOES TO EDGE</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+             <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">3</div>
+            <h2>Phase 3: The Skeleton Build</h2>
+        </div>
+
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-accent);">
+            <div class="puzzle-grid-2" style="align-items: center;">
+                <div>
+                    <h3 class="text-white font-bold">Do Not Fill Yet</h3>
+                    <p class="text-slate-400" style="margin-bottom: 1rem;">Don't try to "paint" the picture. Build the structure first.</p>
+                    <ol style="list-style: none; padding: 0; font-size: 0.875rem; color: #cbd5e1;">
+                         <li style="margin-bottom: 0.5rem;"><strong>1. Center Hub:</strong> Connect all the "Wedges".</li>
+                         <li style="margin-bottom: 0.5rem;"><strong>2. Outer Rim:</strong> Connect "Borders" to the frame.</li>
+                         <li><strong>3. The Gap Fill:</strong> "Middle Ring" pieces now have only one place to fit.</li>
+                    </ol>
+                </div>
+                <div style="background: #0f172a; width: 12rem; height: 12rem; border-radius: 50%; border: 4px solid #334155; position: relative; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <!-- Rim -->
+                    <div style="position: absolute; inset: 0; border: 8px solid rgba(74, 222, 128, 0.5); border-radius: 50%;"></div>
+                    <div style="position: absolute; top: -1.5rem; background: #0f172a; padding: 0 0.5rem; color: var(--survivor-green); font-size: 0.75rem; font-weight: bold;">BORDER DONE</div>
+                    <!-- Gap -->
+                    <div style="width: 100%; height: 100%; border: 8px dashed #475569; border-radius: 50%; opacity: 0.5;"></div>
+                    <!-- Hub -->
+                    <div style="position: absolute; width: 4rem; height: 4rem; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">HUB</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+const scramblePuzzleHTML = `
+<div class="puzzle-dossier">
+    <header class="puzzle-header">
+        <h1>Décoder. Traduire. Survivre.</h1>
+        <p>Mastering Word Scrambles using French Syntax Logic.</p>
+    </header>
+
+    <div class="puzzle-section">
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-green);">
+            <h2 class="text-green">The Golden Rule</h2>
+            <div class="puzzle-grid-2" style="align-items: center;">
+                <div>
+                    <p class="text-white" style="font-size: 1.25rem; margin-bottom: 1rem;">Solve the <span class="text-accent font-bold">Suffixes</span> and <span class="text-accent font-bold">Small Words</span> first.</p>
+                    <p class="text-slate-400">Do not stare at the whole mess. French is a structured language. Use the grammar to break the code.</p>
+                </div>
+                <div style="background: #0f172a; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #334155;">
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; max-width: 180px; margin: 0 auto;">
+                        <span class="tile small">I</span><span class="tile small">M</span><span class="tile small">M</span><span class="tile small">U</span><span class="tile small">N</span><span class="tile accent">I</span><span class="tile accent">T</span><span class="tile accent">É</span>
+                    </div>
+                    <p class="mono text-slate-400" style="font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 0.5rem;">Find the end to find the start</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">1</div>
+            <h2>Phase 1: The "Anchor" Filter</h2>
+        </div>
+
+        <div class="puzzle-grid-2">
+            <div class="puzzle-card">
+                <h3 class="text-accent">Grammar is your Map</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.9rem;" class="text-slate-300">
+                    <li style="display: flex; gap: 0.5rem;"><span class="step-number">1</span> <span><strong>The Accent Hunt (É, È, À):</strong> If you see <strong>É</strong>, it's likely a past-tense verb or starts a noun.</span></li>
+                    <li style="display: flex; gap: 0.5rem;"><span class="step-number">2</span> <span><strong>Suffix Grouping:</strong> Pull these out immediately:<br><span class="text-green mono" style="font-size: 0.8rem;">-TION, -MENT, -AGE, -ITE</span></span></li>
+                    <li style="display: flex; gap: 0.5rem;"><span class="step-number">3</span> <span><strong>Connector Words:</strong> Build the non-essentials:<br><span class="text-green mono" style="font-size: 0.8rem;">LE, LA, LES, DE, POUR</span></span></li>
+                </ul>
+            </div>
+
+            <div class="puzzle-card" style="border: 2px solid rgba(245, 158, 11, 0.3); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                 <p style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 1rem; letter-spacing: 1px;">Common Endings</p>
+                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div style="display: flex;"><span class="tile small">T</span><span class="tile small">I</span><span class="tile small">O</span><span class="tile small">N</span></div>
+                        <span class="text-slate-400" style="font-size: 0.8rem;">= Action</span>
+                    </div>
+                     <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div style="display: flex;"><span class="tile small">I</span><span class="tile small">T</span><span class="tile accent">É</span></div>
+                        <span class="text-slate-400" style="font-size: 0.8rem;">= Immunité</span>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="puzzle-section">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+             <div style="background-color: var(--survivor-accent); color: #000; width: 3rem; height: 3rem; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.5rem;" class="mono">2</div>
+            <h2>Phase 2: The "Meta" Check</h2>
+        </div>
+
+        <div class="puzzle-card" style="border-left: 4px solid var(--survivor-accent);">
+            <p class="text-slate-300" style="margin-bottom: 1rem;">Survivor Québec reuses themes. Check your letters against these concepts:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;">
+                <div style="background: #0f172a; padding: 0.75rem; border-radius: 4px;">
+                    <h4 class="text-green font-bold" style="font-size: 0.8rem; margin-bottom: 0.25rem;">GAME TERMS</h4>
+                    <p class="text-slate-400 mono" style="font-size: 0.7rem;">CONSEIL, TRIBU, COLLIER, ALLIANCE</p>
+                </div>
+                <div style="background: #0f172a; padding: 0.75rem; border-radius: 4px;">
+                    <h4 class="text-accent font-bold" style="font-size: 0.8rem; margin-bottom: 0.25rem;">MOTIVATION</h4>
+                    <p class="text-slate-400 mono" style="font-size: 0.7rem;">FORCE, COURAGE, DESTIN, HONNEUR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+
+    // --- Global Event Listener for Puzzle Sub-Tabs ---
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.puzzle-nav-btn')) {
+            const btn = e.target;
+            const type = btn.getAttribute('data-puzzle-type');
+            const displayArea = document.getElementById('archetype-display-area');
+
+            // Handle Buttons
+            const parentTabs = btn.parentElement;
+            parentTabs.querySelectorAll('.puzzle-nav-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Inject Content
+            if (displayArea) {
+                switch(type) {
+                    case 'slide':
+                        displayArea.innerHTML = slidePuzzleHTML;
+                        break;
+                    case 'vertical':
+                        displayArea.innerHTML = verticalPuzzleHTML;
+                        break;
+                    case 'floor':
+                        displayArea.innerHTML = floorPuzzleHTML;
+                        break;
+                    case 'scramble':
+                        displayArea.innerHTML = scramblePuzzleHTML;
+                        break;
+                }
+            }
+        }
+    });
