@@ -868,7 +868,28 @@ img {
         font-size: 0.8rem;
     }
 }
+.home-bottom-right-text {
+    position: absolute;
+    bottom: 2rem;       /* Anchors to bottom */
+    right: 2rem;        /* Anchors to right */
+    color: var(--text-white);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-align: right;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
 
+@media (max-width: 768px) {
+    .home-bottom-right-text {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 0.8rem;
+    }
+}
 /* --- Section-Specific Card Gradients --- */
 
 /* 2. ABOUT: Deep Violet to Magenta */
