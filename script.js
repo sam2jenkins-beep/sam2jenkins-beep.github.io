@@ -1251,13 +1251,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h4>The Emotional Sweep: How Adam Klein Turned Paranoia into a Perfect 10-0-0</h4>
                         <p>If Todd Herzog is the master of the strategic flip, Adam Klein (Survivor: Millennials vs. Gen X) is the master of the emotional clean sweep. Adam's gameplay was often messy, frantic, and paranoid, yet he walked away with a unanimous 10-0-0 victory. How? He used the Rhetorical Blueprint to clean up the strategic chaos and connect with the jury's deepest sympathies.</p>
 
-                        <p><strong>🌪️ The Adam Model: Intentionality Over Chaos</strong><br>
+                        <p><strong>The Adam Model: Intentionality Over Chaos</strong><br>
                         Adam didn't pretend his game was flawless. Instead, he owned his paranoia and reframed it as necessary vigilance. His strategy wasn't to deny the mess, but to justify it as a function of the pressure he felt and the chaotic environment.</p>
 
                         <p><strong>His Winning Narrative: "My chaos was a reflection of how hard I fought, not how poorly I played."</strong><br>
                         He needed the jury to look past the Millennial flailing and see the competitor fighting for the highest stakes.</p>
 
-                        <p><strong>🧭 The Rhetorical Blueprint in Action</strong><br>
+                        <p><strong>The Rhetorical Blueprint in Action</strong><br>
                         Adam's speech was designed to validate his strategy while connecting his personal life to the game's stakes:</p>
 
                         <p><strong>The Strategic Case:</strong> Adam didn't let the jury focus on his errors. He highlighted his proactive hunt for advantages and his perfect Idol play on Hannah. This demonstrated that his frantic energy was actually strategic aggression—he was playing the game the season demanded. He showed he was driving the car, even if he was swerving.</p>
