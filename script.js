@@ -583,6 +583,205 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
+    // --- Food Content ---
+    const foodContent = `
+<div class="food-container">
+    <!-- Header Section -->
+    <div class="food-header">
+        <div class="food-header-top">
+            <div>
+                <h1 class="food-title">Scavenging Protocol</h1>
+                <p class="food-subtitle">REF: SAFETY-SURVIVAL-OPS // PEARL ISLANDS</p>
+            </div>
+            <div class="food-header-meta">
+                <div class="food-badge-red">MANDATORY READING</div>
+                <div class="food-location">LOCATION: PANAMA</div>
+            </div>
+        </div>
+
+        <div class="food-quote">
+            "Listen closely. You are not just fighting for a million dollars; you are fighting biology. A medevac is a loss. Game over."
+        </div>
+    </div>
+
+    <div class="food-body">
+
+        <!-- 1. Golden Rules -->
+        <section>
+            <h2 class="food-section-title text-white">
+                <span class="food-number bg-stone-700">1</span>
+                The Golden Rules
+            </h2>
+            <div class="food-grid-3">
+                <div class="food-card border-blue">
+                    <div class="food-icon text-blue">🗑️</div>
+                    <h3 class="food-card-title">Doubt = Out</h3>
+                    <p class="food-card-text">If you cannot 100% identify it, do not eat it. Hunger is better than organ failure.</p>
+                </div>
+                <div class="food-card border-orange">
+                    <div class="food-icon text-orange">🔥</div>
+                    <h3 class="food-card-title">Cook Everything</h3>
+                    <p class="food-card-text">Parasites live on everything. If it wasn’t peeled by you, it must be boiled by you.</p>
+                </div>
+                <div class="food-card border-yellow">
+                    <div class="food-icon text-yellow">🚽</div>
+                    <h3 class="food-card-title">The Laxative Effect</h3>
+                    <p class="food-card-text">Limit intake. Sudden dietary shifts + dehydration = game-ending diarrhea.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. The Staples -->
+        <section>
+            <h2 class="food-section-title text-green">
+                <span class="food-number bg-green-900 text-green">2</span>
+                The Staples (Safe Bets)
+            </h2>
+            <div class="food-stack">
+                <div class="food-card border-l-green row-layout">
+                    <div class="food-col-left">
+                        <span class="food-status-badge bg-green-900 text-green">Primary Source</span>
+                        <h3 class="food-card-title-lg">Coconuts</h3>
+                    </div>
+                    <div class="food-col-right text-sm">
+                        <p><strong class="text-green">Green:</strong> Sterile water + electrolytes. Jelly meat is safe.</p>
+                        <p><strong class="text-yellow">Brown (Mature):</strong> High energy, but high oil. <span class="text-stone italic">Warning: Natural laxative. Eat in small chunks.</span></p>
+                        <p class="text-red font-bold text-xs mt-2 uppercase">⚠️ IF WATER IS SOUR/FIZZY, DISCARD.</p>
+                    </div>
+                </div>
+
+                <div class="food-card border-l-green row-layout">
+                    <div class="food-col-left">
+                        <span class="food-status-badge bg-green-900 text-green">Energy</span>
+                        <h3 class="food-card-title-lg">Sugarcane</h3>
+                    </div>
+                    <div class="food-col-right text-sm">
+                        <p>Chew stalk for juice, spit fiber. Quick glucose energy. Use machete to peel to save your teeth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Process or Die -->
+        <section>
+            <h2 class="food-section-title text-orange">
+                <span class="food-number bg-orange-900 text-orange">3</span>
+                "Process-or-Die" Foods
+            </h2>
+            <div class="food-grid-2">
+                <!-- Cassava -->
+                <div class="food-card relative">
+                    <div class="food-corner-badge bg-orange text-white">CYANIDE RISK</div>
+                    <div class="food-padding">
+                        <h3 class="food-card-title-lg mb-2">Cassava (Yuca)</h3>
+                        <p class="text-xs text-stone mb-4">Woody shrub, hand-shaped leaves.</p>
+                        <div class="food-checklist">
+                            <div class="flex-center gap-2"><span class="text-green">✔️</span> Peel bark completely</div>
+                            <div class="flex-center gap-2"><span class="text-green">✔️</span> Cut into chunks</div>
+                            <div class="flex-center gap-2"><span class="text-green">✔️</span> Boil 20+ mins</div>
+                        </div>
+                        <p class="mt-3 text-red text-xs font-bold">NEVER EAT RAW. Turns to cyanide.</p>
+                    </div>
+                </div>
+
+                <!-- Taro -->
+                <div class="food-card relative">
+                    <div class="food-corner-badge bg-orange text-white">CHOKING HAZARD</div>
+                    <div class="food-padding">
+                        <h3 class="food-card-title-lg mb-2">Wild Taro</h3>
+                        <p class="text-xs text-stone mb-4">Large "elephant ear" leaves.</p>
+                        <div class="food-checklist">
+                            <div class="flex-center gap-2"><span class="text-green">✔️</span> Peel thick</div>
+                            <div class="flex-center gap-2"><span class="text-green">✔️</span> Boil thoroughly</div>
+                            <div class="flex-center gap-2"><span class="text-red">🚫</span> Do not touch eyes</div>
+                        </div>
+                        <p class="mt-3 text-red text-xs font-bold">Raw = Microscopic glass shards in throat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Kill Zones -->
+        <section>
+            <div class="hazard-stripe mb-6"></div>
+            <h2 class="food-section-title text-red">
+                <span class="food-number bg-red-900 text-red">4</span>
+                The Kill Zones (Strictly Forbidden)
+            </h2>
+
+            <div class="food-alert-box border-red-900">
+                <h3 class="text-red font-bold text-xl mb-2">☠️ The Manchineel Tree ("Beach Apple")</h3>
+                <p class="text-stone mb-2">Found on beaches. Small apple-like green fruit. Often marked with red paint.</p>
+                <ul class="food-list-disc text-red-300">
+                    <li>DO NOT EAT FRUIT (Fatal)</li>
+                    <li>DO NOT BURN WOOD (Blindness)</li>
+                    <li>DO NOT STAND UNDER IN RAIN (Chemical Burns)</li>
+                </ul>
+            </div>
+
+            <div class="food-grid-2">
+                <div class="food-card p-4 border-l-red">
+                    <h3 class="font-bold text-red">All Mushrooms</h3>
+                    <p class="text-sm text-stone">Zero Tolerance. Risk is liver necrosis. Caloric reward is negligible.</p>
+                </div>
+                <div class="food-card p-4 border-l-red">
+                    <h3 class="font-bold text-red">Bright Insects</h3>
+                    <p class="text-sm text-stone">Red, Orange, Yellow = Poisonous. Stick to termites/grubs (cooked).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Marine Life -->
+        <section>
+            <h2 class="food-section-title text-blue">
+                <span class="food-number bg-blue-900 text-blue">5</span>
+                Marine Life Rules
+            </h2>
+            <div class="food-stack">
+                <div class="food-card p-4 flex-start gap-4">
+                    <div class="text-red text-xl pt-1">🚫</div>
+                    <div>
+                        <h3 class="font-bold">Pufferfish & Boxfish</h3>
+                        <p class="text-sm text-stone">Inflates or box-shaped. Contains tetrodotoxin (1000x cyanide). No safe way to prepare.</p>
+                    </div>
+                </div>
+                <div class="food-card p-4 flex-start gap-4">
+                    <div class="text-yellow text-xl pt-1">🐟</div>
+                    <div>
+                        <h3 class="font-bold">Sea Urchins</h3>
+                        <p class="text-sm text-stone">Crack open for orange gonads. <span class="text-yellow">Avoid long black spines (infection risk).</span> Short spines are safer.</p>
+                    </div>
+                </div>
+                <div class="food-card p-4 flex-start gap-4">
+                    <div class="text-yellow text-xl pt-1">🌡️</div>
+                    <div>
+                        <h3 class="font-bold">Shellfish (Clams/Mussels)</h3>
+                        <p class="text-sm text-stone">Harvest from moving water only. Boil until open. <strong class="text-red">If they don't open, do not pry. They are dead/toxic.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Reality Check -->
+        <div class="food-footer">
+            <h3 class="text-xl font-bold text-white mb-4">The "Desperation Test"</h3>
+            <p class="text-stone text-sm mb-6 max-w-2xl mx-auto">
+                The Universal Edibility Test takes 24 hours. You do not have time.
+                If you don't recognize it, and it's not in the "Staples" list, don't eat it.
+            </p>
+            <div class="bg-black-30 p-4 rounded inline-block">
+                <p class="text-yellow font-bold uppercase tracking-wider text-sm">"Is this worth leaving the game for?"</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-8 text-stone-600 text-xs mono-font">
+            SAFETY & SURVIVAL OPERATIONS // PANAMA SECTOR
+        </div>
+
+    </div>
+</div>
+    `;
+
     // --- Data for Pillars (Grid + Deep Linking) ---
     const pillarsData = {
         outwit: {
@@ -1050,7 +1249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 { title: "Shelter", content: shelterContent },
                 { title: "Self Care", content: selfCareContent },
-                { title: "Food", content: "Finding sustenance." }
+                { title: "Food", content: foodContent }
             ]
         }
     };
