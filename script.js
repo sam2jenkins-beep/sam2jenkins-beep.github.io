@@ -186,9 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
 
-                    <div class="img-placeholder">
-                        <span>[INFOGRAPHIC: 26 DAYS (US) VS 40+ DAYS (SQ)]</span>
-                    </div>
                 </div>
 
                 <!-- Tab 3 -->
@@ -211,9 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </li>
                     </ul>
 
-                    <div class="img-placeholder">
-                        <span>[IMAGE: TORCH FIRE FOCUS]</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -313,9 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
 
-                    <div class="img-placeholder">
-                        <span>[IMAGE: SPLIT SCREEN - ERIK & TRUCK]</span>
-                    </div>
                 </div>
 
                 <!-- Tab 3 -->
@@ -345,9 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>SQ does not guarantee a fire-making challenge at Final 4. Tie-breakers in S2 and S3 involved Trivia/Past Votes.</p>
                     </div>
 
-                     <div class="img-placeholder">
-                        <span>[IMAGE: ANDRÉ & SCROLL DIAGRAM]</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1116,8 +1104,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             </ul>
                         </div>
 
-                        <div class="video-placeholder">
-                            <span>VIDEO PLACEHOLDER</span>
+                        <div class="video-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/2cRCD_UsWGc?si=RLZLzc2bl7c4JLr2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                     `
