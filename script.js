@@ -486,6 +486,103 @@ document.addEventListener('DOMContentLoaded', () => {
         </footer>
     `;
 
+    // --- Self Care Content ---
+    const selfCareContent = `
+        <div class="huddle-blog-post">
+            <h2 class="huddle-title">Surviving the Body: The Ultimate Self-Care & Hygiene Handbook</h2>
+            <p class="huddle-subtitle">In Survivor, your body is your most valuable alliance member. If it fails, you go home—medically evacuated or voted out because you became a liability. This guide outlines the essential protocols for hygiene, health, and metabolic preservation.</p>
+
+            <h3 class="neon-heading">I. Personal Hygiene Protocols</h3>
+            <p>Hygiene isn’t just about comfort; it is about preventing social alienation and infection.</p>
+
+            <h4>1. Oral Care: The "Bush Dentist"</h4>
+            <p>You will lose your toothbrush, but you cannot lose your teeth. Bad breath can actually be a subtle social disadvantage in close-quarters camp life.</p>
+            <ul>
+                <li><strong>The Ash Technique:</strong> Hardwood ash (white ash from a completely burned log) is basic and abrasive. Dip a wet finger in the ash and scrub your teeth. It neutralizes acid and scrubs away plaque. Rinse thoroughly.</li>
+                <li><strong>The Sand Scrub:</strong> Use extremely fine sand mixed with water for a heavy-duty scrub. Warning: Do not do this daily, as it can damage enamel over time.</li>
+                <li><strong>The Twig Floss:</strong> Find a fibrous twig (like a young sapling) and chew the end until it frays into a brush-like texture. Use this to scrub crevices.</li>
+            </ul>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Turn oral care into a social activity. "Going to clean my teeth by the water" is a non-threatening excuse to leave a tense conversation or to pull an ally aside for a 'private' chat under the guise of hygiene.</p>
+
+            <h4>2. Bathing & Scent Management</h4>
+            <ul>
+                <li><strong>The Ocean Bath:</strong> Saltwater is cleansing but drying. You must rinse off daily to prevent pore-clogging sweat and dirt buildup.</li>
+                <li><strong>Exfoliation Station:</strong> Use a "sugar scrub" method but with sand. Rubbing fine sand over your arms and legs removes dead skin cells and dirt.</li>
+                <li><strong>The "Survivor Stink":</strong> Accept that you will smell. Everyone will smell.</li>
+            </ul>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Do not be the person who complains about the smell. However, be the person who tries to stay clean. Players who are visibly filthy are often subconsciously perceived as lazy or chaotic. A "clean" appearance (even if it's an illusion) projects control.</p>
+
+            <h4>3. Bathroom Etiquette & "The Aqua-Dump"</h4>
+            <p><strong>The Aqua-Dump:</strong> This is the gold standard of Survivor hygiene. Wading out into the ocean (waist deep) to relieve yourself ensures the tide washes waste away immediately. It is cleaner than a latrine and prevents camp smells.</p>
+            <ul>
+                <li><strong>Technique:</strong> Hold onto a stable rock or maintain a wide stance. Do not remove shorts entirely; just displace them.</li>
+                <li><strong>The Latrine:</strong> If you must go on land, dig a hole far from camp.</li>
+            </ul>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Never break the sanitation zone rules. If you urinate near the shelter or food, you will become a pariah. Use bathroom trips as a way to look for Hidden Immunity Idols without raising suspicion.</p>
+
+            <h4>4. The Medical Box (The Sanctuary)</h4>
+            <p>This is the only place with modern amenities.</p>
+            <p><strong>Inventory:</strong> Feminine hygiene products, birth control, contact solution, sunscreen, insect repellent.</p>
+            <p><strong>Protocol:</strong> Apply sunscreen and bug spray every single time you visit. Do not ration it.</p>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> The medical box is a "camera-free" zone (usually). Use this 2-3 minute window to drop the game persona, take a deep breath, and reset your face. It is your only moment of true privacy.</p>
+
+            <h3 class="neon-heading">II. Physical Health & Injury Prevention</h3>
+            <p>Small cuts become big evacuations in the tropics. Paranoia regarding health is a survival trait.</p>
+
+            <h4>1. Water Purification</h4>
+            <p><strong>The Golden Rule:</strong> If it touches the ground, it is poison.</p>
+            <ul>
+                <li><strong>Boiling:</strong> A rolling boil for 1 minute is non-negotiable for well/river water.</li>
+                <li><strong>Rainwater:</strong> Prioritize collecting rainwater. It requires no fire and no cooling time.</li>
+            </ul>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Volunteer to be the "Water Keeper." Keeping the fire going and the water boiled is a high-value tribe contribution that keeps you busy but close to camp (where the conversations happen).</p>
+
+            <h4>2. Foot Care (The Mobility Mandate)</h4>
+            <p><strong>Shoe Discipline:</strong> Never walk barefoot. Coral cuts contain marine bacteria that cause rapid infection. Thorns in the jungle lead to swelling.</p>
+            <p><strong>Wet/Dry Cycle:</strong> Your feet will be wet 90% of the time. You must let them dry out at night. If you sleep with wet socks, you risk trench foot (tissue rot).</p>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Wear sneakers in the water during challenges. You may lose swimming speed, but you gain traction on slippery platforms and protection against hidden rocks. A toe injury can take you out of an immunity challenge; sneakers prevent that.</p>
+
+            <h4>3. Infection Control</h4>
+            <p><strong>The "Pimple" Danger:</strong> In a calorie-deficient state, your immune system effectively shuts down. A mosquito bite can become a staph infection in 48 hours.</p>
+            <p><strong>Action Plan:</strong> Treat every scratch with the antiseptic found in the medical kit. Keep wounds covered.</p>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Do not hide injuries, but do not exaggerate them. If you look "broken," tribes view you as weak. If you look "responsible" by treating a wound, you look professional.</p>
+
+            <h3 class="neon-heading">III. Metabolic Management & Shelter</h3>
+            <p>The game is a marathon run by starving people. Energy economics is key.</p>
+
+            <h4>1. Pre-Game Body Prep</h4>
+            <ul>
+                <li><strong>The Buffer:</strong> Gain 10–15 lbs of fat before flying out. This is not "getting out of shape"; it is packing a lunchbox you wear on your hips. This fat protects your brain function when the starvation sets in.</li>
+                <li><strong>Caffeine Detox:</strong> Wean off coffee 3 weeks prior. You cannot afford a caffeine withdrawal migraine on Day 2 when you are trying to build a shelter.</li>
+            </ul>
+
+            <h4>2. Energy Conservation (The 70% Rule)</h4>
+            <p><strong>Work Smart:</strong> Never do heavy lifting alone.</p>
+            <p><strong>Social Blending:</strong> You must be seen working, but you should not be the "workhorse." The workhorse burns 3000 calories a day on a 200 calorie diet and crashes by Day 15.</p>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Aim for "visible maintenance" tasks—tending the fire, weaving palm fronds, or stirring rice. These are low-calorie activities that keep you in the center of the camp socially.</p>
+
+            <h4>3. Shelter Engineering</h4>
+            <ul>
+                <li><strong>Elevation:</strong> Build the sleeping platform at least 6 inches off the ground. This creates an air gap (insulation) and keeps you away from crawling insects and ground moisture.</li>
+                <li><strong>Roofing:</strong> A 45-degree angle is necessary for tropical rain. Anything flatter will leak.</li>
+            </ul>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> Be involved in the shelter build. If you help build it, you have "ownership" of a spot. Secure a spot in the middle. The edges get wet; the middle stays dry and warm.</p>
+
+            <h3 class="neon-heading">IV. Mental Health & Nervous System Regulation</h3>
+            <p>The game puts you in a permanent "Fight/Flight" state. You must manually override this.</p>
+
+            <h4>1. Nervous System Regulation</h4>
+            <ul>
+                <li><strong>Box Breathing:</strong> Inhale 4, Hold 4, Exhale 4, Hold 4. Do this before every challenge and before Tribal Council. It forces your heart rate down, stopping the "shaky hand" syndrome during puzzles.</li>
+                <li><strong>Grounding:</strong> When paranoia hits, find 5 things you see, 4 you feel, 3 you hear. This pulls you out of the "future-tripping" game spiral.</li>
+            </ul>
+
+            <h4>2. Emotional Duality</h4>
+            <p><strong>Honesty vs. Strategy:</strong> You must lie about the vote, but tell the truth about your feelings. If you are sad, say you are sad.</p>
+            <p class="huddle-key-rule"><strong>Strategic Advantage:</strong> People forgive liars; they do not forgive robots. Showing vulnerability (crying about home, admitting fear) makes you a human being that the jury wants to reward, even if you cut their throats strategically later.</p>
+        </div>
+    `;
+
     // --- Data for Pillars (Grid + Deep Linking) ---
     const pillarsData = {
         outwit: {
@@ -945,7 +1042,7 @@ document.addEventListener('DOMContentLoaded', () => {
             items: [
                 { title: "Fire", content: "Making fire is life." },
                 { title: "Shelter", content: shelterContent },
-                { title: "Self Care", content: "Taking care of your body." },
+                { title: "Self Care", content: selfCareContent },
                 { title: "Food", content: "Finding sustenance." }
             ]
         }
