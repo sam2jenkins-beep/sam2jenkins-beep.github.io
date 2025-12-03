@@ -716,14 +716,50 @@ document.addEventListener('DOMContentLoaded', () => {
                     title: "Physical",
                     content: `
                     <div class="huddle-blog-post">
-                        <h2 class="huddle-title">Physical Game</h2>
+                        <h2 class="huddle-title">Survivor Québec 2025: Land-Based Challenges by Phase</h2>
                         <h3 class="huddle-subtitle">Winning Challenges</h3>
 
-                        <p>Content to be added.</p>
+                        <p>Survivor Québec 2025, filmed in the Philippines over 42 days, features land-based challenges emphasizing relays, obstacles, endurance holds, and accuracy tests on solid terrain, often with strength elements like carries and grapples. These evolve from team-focused pre-merge to individual post-merge, hosted by Patrice Bélanger on Noovo, with Ugat tribe dominating early wins (Cycles 1-3,5) and Malaki later (Cycles 4,6). Phases align with tribe setups: original (Malaki/Ugat), expanded/swapped (Sapa added), post-kidnap, and merged Nanalo tribe around Day 25.​</p>
 
-                        <div class="video-placeholder">
-                            <span>VIDEO PLACEHOLDER</span>
+                        <h3 class="neon-heading">Pre-Merge (Cycles 1-8, Days 2-17)</h3>
+                        <p>Team immunity/reward challenges prioritize collective hauls and obstacle courses to build early tribe strength.</p>
+                        <ul>
+                            <li><strong>Relays and Obstacles:</strong> Tribes race walls, nets, logs over uneven ground; Ugat's Cycle 1-3 sweeps involved heavy carries and synchronized pushes.​</li>
+                            <li><strong>Endurance Team Standoffs:</strong> Prolonged holds or balance relays; Cycle 7 Sapa win tested grip and posture under fatigue.​</li>
+                            <li><strong>Accuracy Finishers:</strong> Post-obstacle throws or slingshots; medical evacuations like Kathrine's (Day 17, Cycle 8) highlight exhaustion risks after Malaki immunity.​</li>
+                        </ul>
+                        <p>Secret swaps (e.g., Day 10, Cycle 5) disrupted dynamics, with no elimination but Ugat immunity.​</p>
+
+                        <h3 class="neon-heading">Merge and Post-Merge (Cycles 9+, Days 25-42)</h3>
+                        <p>Individual challenges ramp up personal duels, precision under duress, and grueling holds for jury spots and final advantages.</p>
+
+                        <div class="huddle-checklist" style="background: rgba(0,0,0,0.3); border-color: #aaa;">
+                            <h4 style="color: #fff; margin-bottom: 0.5rem;">Phase Challenge Focus Key Events/Winners ​</h4>
+                            <ul>
+                                <li><strong>Early Merge (Days 25-31)</strong> 1-on-1 grapples, balance duels Sébastien out Day 25; Florence (top performer) voted Day 31 after Nanalo battles.</li>
+                                <li><strong>Mid-Merge (Days 34-40)</strong> Endurance holds, accuracy sprints Eric Day 34, Marilou Day 35, William Day 39, Ashly Day 40; lost duels like André's (Day 28).</li>
+                                <li><strong>Endgame (Days 41-42)</strong> High-stakes static holds Danyelle lost challenge Day 41; finals pitted Myriam (2nd runner-up), Rayane (runner-up), Geneviève (Sole Survivor). Duels replace votes at times, blending power struggles with precision (e.g., slingshot after sprints).​</li>
+                            </ul>
                         </div>
+
+                        <h3 class="neon-heading">The Brutal Beauty of Survivor Québec Land Challenges</h3>
+                        <p>Out in the Philippine dirt, Survivor Québec 2025 turned every patch of ground into a battlefield. No water escapes—just raw land tests of carry, crawl, climb, and collapse. From Ugat's early dominance to Nanalo's merge carnage, these challenges exposed who could haul tribe weight pre-merge and outlast solo post-Day 25.​</p>
+
+                        <h4>Pre-Merge Power Plays (Cycles 1-8)</h4>
+                        <p>Teams grind through obstacle relays: scale walls, drag logs across mud, sync under nets. Ugat crushed Cycles 1-3 with coordinated hauls, while Sapa's Cycle 7 upset demanded endurance holds where grip failed first. Finish with shaky-aim slingshots—Kathrine's Day 17 evac after Cycle 8 proves the toll.​</p>
+                        <ul>
+                            <li><strong>Weighted Team Marches:</strong> Full tribe lugs packs uphill; swaps like Day 10 (Cycle 5) forced realignments mid-haul.</li>
+                            <li><strong>Grapple Gauntlets:</strong> Tribe vs. tribe pushes over lines, pure leverage wars.</li>
+                        </ul>
+
+                        <h4>Merge Melees: Solo Survival (Days 25+)</h4>
+                        <p>Individuals duel head-to-head: wrestle poles, balance on beams till drop. Florence shone early merge, but Nanalo chewed through Sébastien (Day 25), André's duel loss (Day 28), up to Danyelle's Day 41 holdout failure.​</p>
+                        <ul>
+                            <li><strong>1-on-1 Pole Drags:</strong> Rope-tug weighted logs across marks—strength meets footwork.</li>
+                            <li><strong>Fatigue Accuracy:</strong> Sprint obstacles, then nail distant targets; heart-pounding precision decides jury votes.</li>
+                            <li><strong>Endgame Holds:</strong> Static planks or squats for final edges; Geneviève's win rewarded unrelenting grit.​</li>
+                        </ul>
+                        <p>Québec twists like totem pulls add grip puzzles to the grind, making underdogs like Rayane viable threats. These land beasts don't just test bodies—they forge the Sole Survivor through 42 days of dirt-earned will.</p>
                     </div>
                     `
                 },
@@ -1347,34 +1383,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 </ul>
             </div>
 
-            <!-- Case Study 3: Justine -->
+            <!-- Case Study 3: Kass -->
             <div class="case-study-card">
-                <h2>Case Study: The "Technical Tactician" Approach</h2>
-                <img src="assets/justine.jpeg" alt="Justine - Survivor Quebec" class="case-study-img">
-                <p><strong>Subject:</strong> Justine (Survivor Québec Season 3)<br>
-                <strong>Core Philosophy:</strong> Skill Specialization and Risk Mitigation. She treats the game as a series of technical hurdles to be cleared via expertise (puzzles) while using other players as defensive buffers.</p>
+                <h2>Case Study: The "Endurance Hacker" Approach</h2>
+                <img src="assets/kass.jpeg" alt="Kass - Survivor Quebec" class="case-study-img">
+                <p><strong>Subject:</strong> Kassandre "Kass" Bastarache (Survivor Québec Season 2)<br>
+                <strong>Core Philosophy:</strong> "Comfort in Discomfort." Kass transitioned from an alternate (backup) for Season 1 to a finalist in Season 2 by training her mind to normalize suffering.</p>
 
-                <h3 class="neon-orange">I. Intellectual Specialization (The "Closer" Role)</h3>
-                <p><strong>Objective:</strong> Guarantee Immunity wins by mastering the final stage of challenges.</p>
+                <h3 class="neon-orange">I. PHYSICAL CONDITIONING (THE MICRO-GOAL STRATEGY)</h3>
+                <p><strong>Objective:</strong> Win individual immunity by outlasting physically stronger opponents through mental framing.</p>
                 <ul>
-                    <li><strong>The Puzzle Vault:</strong> Systematically memorized solutions and mechanics for recurring franchise puzzles (Tower of Hanoi, slide puzzles, Tangrams), effectively pre-solving the game's hardest cognitive tasks.</li>
-                    <li><strong>Stress inoculation:</strong> Practiced logic problems immediately following anaerobic exercise to train the brain to function under "race pace" heart rates.</li>
-                    <li><strong>Resource Allocation:</strong> Developed a heuristic for assigning tribe roles, ensuring she could position herself on the puzzle (the "glory position") or identify who to pair with for maximum efficiency.</li>
+                    <li><strong>The "One More Second" Hack:</strong> In endurance challenges (like the crucifix hold), Kass didn't try to hold on "forever." She trained her mind to focus only on the next person to drop. Her strategy was: "I don't need to stay up; I just need to stay up longer than that person." This prevented the mental overwhelm of the long haul.</li>
+                    <li><strong>Static Strength:</strong> She focused on "statue" training—holding uncomfortable positions for extended periods to build the specific stabilizer muscles needed for the post-merge "pain" challenges.</li>
                 </ul>
 
-                <h3 class="neon-orange">II. Social Engineering (The Shield Strategy)</h3>
-                <p><strong>Objective:</strong> Lower personal threat level by hiding behind "bigger targets."</p>
+                <h3 class="neon-orange">II. MENTAL HARDENING (THE "ALTERNATE" ADVANTAGE)</h3>
+                <p><strong>Objective:</strong> Remove the "Culture Shock" of island life.</p>
                 <ul>
-                    <li><strong>Defensive Alignment:</strong> Prioritized early alliances with "Meat Shields"—players with high physical strength or loud personalities who would naturally attract votes before her.</li>
-                    <li><strong>Active Listening:</strong> Weaponized silence. By listening more than speaking, she gathers data on alliance cracks without ever being the one to spread a rumor, keeping her "threat level" low.</li>
-                    <li><strong>The Pivot:</strong> Established a mental trigger for the Merge, shifting from "Team Loyalty" to "Mercenary Adaptability" to cut her shields once individual immunity made them dangerous opponents.</li>
+                    <li><strong>The "Long Game" Prep:</strong> Being cut from the Season 1 cast at the last minute gave her a full extra year to prepare. She used this to mentally "move in" to the island before she arrived.</li>
+                    <li><strong>Normalization of Misery:</strong> While other players complained about the rain and sleeping on bamboo, Kass framed these conditions as her "new normal." By deciding early that "leaves are my bed" and "coconuts are my dinner," she avoided the morale dips that ruined other players' social games.</li>
                 </ul>
 
-                <h3 class="neon-orange">III. Physical Durability (Static Endurance)</h3>
-                <p><strong>Objective:</strong> Outlast opponents in "Willpower" challenges.</p>
+                <h3 class="neon-orange">III. STRATEGIC POSITIONING (THE "SOCIAL GLUE")</h3>
+                <p><strong>Objective:</strong> Be too valuable to eliminate.</p>
                 <ul>
-                    <li><strong>Stabilizer Isolation:</strong> Focused on core density and balance (slacklining, yoga) specifically for the "stand still and hold this" challenges common in the post-merge game.</li>
-                    <li><strong>Dissociative Meditation:</strong> Trained mind-body control to lower heart rate and manage pain during long-duration static holds.</li>
+                    <li><strong>The "Shield" Alliance:</strong> Kass aligned herself with a high-profile physical threat (Ghyslain). Unlike others who wanted to cut the "big dog," she used him as a shield, knowing he would always be a bigger target than her until the very end.</li>
+                    <li><strong>Active Listening:</strong> She focused on information gathering. By being the person who listened to everyone's paranoia without spreading it, she maintained relationships with people even as she voted them out.</li>
+                </ul>
+            </div>
+
+            <!-- Case Study 4: Cochran -->
+            <div class="case-study-card">
+                <h2>Case Study: The "Thesis Defense" Approach</h2>
+                <img src="assets/cochran.jpeg" alt="John Cochran" class="case-study-img">
+                <p><strong>Subject:</strong> John Cochran (Winner, Survivor: Caramoan)<br>
+                <strong>Core Philosophy:</strong> "The Academic Metamorphosis." Cochran transitioned from a trembling, anxious fan (South Pacific) to a confident operator (Caramoan) by treating the game as a sociological thesis that needed to be proven.</p>
+
+                <h3 class="neon-blue">I. INTELLECTUAL PREPARATION (THE HARVARD PROTOCOL)</h3>
+                <p><strong>Objective:</strong> Solve the "Jury Problem" before the game starts.</p>
+                <ul>
+                    <li><strong>The Harvard Paper:</strong> While at Harvard Law School, Cochran wrote a prize-winning paper titled "The Survivor Jury: Reflections on its Theory and Practice."</li>
+                    <li><strong>The Insight:</strong> He mathematically and sociologically analyzed why juries vote the way they do. His conclusion was that juries do not vote for the "nicest" person; they vote for the person who demonstrated the most agency.</li>
+                </ul>
+
+                <h3 class="neon-blue">II. SOCIAL ENGINEERING (WEAPONIZED VULNERABILITY)</h3>
+                <p><strong>Objective:</strong> Use "Weakness" to lower threat level.</p>
+                <ul>
+                    <li><strong>Self-Deprecation as a Shield:</strong> Cochran prepared to use humor and self-insults ("I'm sunburnt," "I'm uncoordinated") to disarm aggressive players. By verbally pointing out his own flaws before others could, he made himself impossible to bully and non-threatening to keep around.</li>
+                    <li><strong>The "Therapist" Role:</strong> He realized in his first season he was too needy. For his winning season, he flipped the dynamic. He prepared to be the "calm center" that erratic players (like Brandon Hantz or Phillip Sheppard) relied on for stability, making him the neck that turned the head.</li>
+                </ul>
+
+                <h3 class="neon-blue">III. PHYSICAL ADAPTATION (THE "NOT-A-LIABILITY" PIVOT)</h3>
+                <p><strong>Objective:</strong> Improve just enough to survive the pre-merge, then rely on specific "oddball" mechanics.</p>
+                <ul>
+                    <li><strong>Targeted Improvement:</strong> He didn't try to become a weightlifter. He focused on swimming and balance. By ensuring he wasn't the worst person on the tribe physically, he removed the easy justification for voting him out early.</li>
+                    <li><strong>The "Gross Food" Prep:</strong> He mentally prepared for the "willpower" challenges. His immunity win in the gross food eating challenge wasn't about stomach capacity; it was about the mental preparation to suppress the gag reflex, viewing food simply as "fuel to win immunity."</li>
                 </ul>
             </div>
         </div>
