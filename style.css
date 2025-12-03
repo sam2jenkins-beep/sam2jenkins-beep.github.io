@@ -727,7 +727,52 @@ img {
     border-color: #fff;
     box-shadow: 0 0 15px #fff;
 }
+/* Floating Images for Pillars Section */
+.pillar-float {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60vh;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 25px rgba(251, 37, 118, 0.4);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 10px;
+    opacity: 0.9;
+    
+    /* Optional: Add this line to make the "Loading" text work if image is missing */
+    background-color: rgba(0,0,0,0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--neon-pink);
+}
 
+.p-left {
+    left: 2%;
+    transform: translateY(-50%) rotate(-5deg);
+}
+
+.p-right {
+    right: 2%;
+    transform: translateY(-50%) rotate(5deg);
+}
+
+/* Ensure the Buttons stay ON TOP of the images */
+.triangle-container {
+    position: relative;
+    z-index: 10; 
+}
+
+@media (max-width: 1024px) {
+    .pillar-float {
+        height: 40vh;
+        opacity: 0.4;
+        z-index: 0;
+    }
+}
 /* 8. END GAME */
 .endgame-container {
     display: flex;
