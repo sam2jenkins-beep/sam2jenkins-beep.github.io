@@ -1040,7 +1040,14 @@ document.addEventListener('DOMContentLoaded', () => {
         outlast: {
             title: "OUTLAST",
             items: [
-                { title: "Fire", content: "Making fire is life." },
+                {
+                    title: "Fire",
+                    content: `
+                    <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-start; padding: 0;">
+                        <img src="assets/fire_guide.png" alt="Fire Safety Guide" style="width: 100%; height: auto; object-fit: contain;">
+                    </div>
+                    `
+                },
                 { title: "Shelter", content: shelterContent },
                 { title: "Self Care", content: selfCareContent },
                 { title: "Food", content: "Finding sustenance." }
